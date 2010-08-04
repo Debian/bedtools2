@@ -1,0 +1,5 @@
+bedtools (2.8.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Charles Plessy <plessy@debian.org>  Sun, 04 Apr 2010 16:15:04 +0900
