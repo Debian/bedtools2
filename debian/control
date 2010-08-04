@@ -5,6 +5,8 @@ Maintainer: Charles Plessy <plessy@debian.org>
 Build-Depends: cdbs, debhelper (>= 7)
 Standards-Version: 3.9.1
 Homepage: http://code.google.com/p/bedtools/
+Vcs-Browser: http://git.debian.org/?p=debian-med/bedtools.git
+Vcs-Git: git://git.debian.org/git/debian-med/bedtools.git
 
 Package: bedtools
 Architecture: any
