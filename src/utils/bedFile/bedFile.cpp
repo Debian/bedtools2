@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licensed under the GNU General Public License 2.0+ license.
+  Licensed under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "bedFile.h"
 
@@ -197,7 +197,8 @@ BedLineStatus BedFile::GetNextBed(BED &bed, int &lineNum) {
 }
 
 
-void BedFile::FindOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand, vector<BED> &hits, bool forceStrand) {
+void BedFile::FindOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, 
+                                 string strand, vector<BED> &hits, bool forceStrand) {
 
 	BIN startBin, endBin;
 	startBin = (start >> _binFirstShift);
@@ -426,6 +427,48 @@ void BedFile::countSplitHits(const vector<BED> &bedBlocks, bool forceStrand) {
 }
 
 
+void BedFile::countListHits(const BED &a, int index, bool forceStrand) {
+
+    BIN startBin, endBin;
+    startBin = (a.start >> _binFirstShift);
+    endBin = ((a.end-1) >> _binFirstShift);
+
+    // loop through each bin "level" in the binning hierarchy	
+    for (BINLEVEL i = 0; i < _binLevels; ++i) {
+
+        // loop through each bin at this level of the hierarchy	
+        BIN offset = _binOffsetsExtended[i];
+        for (BIN j = (startBin+offset); j <= (endBin+offset); ++j) {
+
+            // loop through each feature in this chrom/bin and see if it overlaps
+            // with the feature that was passed in.  if so, add the feature to 
+            // the list of hits.
+            vector<BEDCOVLIST>::iterator bedItr = bedCovListMap[a.chrom][j].begin();
+            vector<BEDCOVLIST>::iterator bedEnd = bedCovListMap[a.chrom][j].end();		
+            for (; bedItr != bedEnd; ++bedItr) {
+
+                // skip the hit if not on the same strand (and we care)
+                cout << a.strand << "\t" << bedItr->strand << "\t" << forceStrand << endl;
+                if (forceStrand && (a.strand != bedItr->strand)) {
+                    continue;
+                }
+                else if (overlaps(bedItr->start, bedItr->end, a.start, a.end) > 0) {
+                    bedItr->counts[index]++;
+                    bedItr->depthMapList[index][a.start+1].starts++;
+                    bedItr->depthMapList[index][a.end].ends++;
+
+                    if (a.start < bedItr->minOverlapStarts[index]) {
+                        bedItr->minOverlapStarts[index] = a.start;
+                    }                   
+                }
+            }
+        }
+        startBin >>= _binNextShift;
+        endBin >>= _binNextShift;
+    }
+}
+
+
 void BedFile::setGff (bool gff) {
 	if (gff == true) this->_isGff = true;
 	else this->_isGff = false;
@@ -490,6 +533,33 @@ void BedFile::loadBedCovFileIntoMap() {
 			bedCov.minOverlapStart = INT_MAX;
 			
 			bedCovMap[bedEntry.chrom][bin].push_back(bedCov);
+			bedEntry = nullBed;
+		}
+	}
+	Close();
+}
+
+void BedFile::loadBedCovListFileIntoMap() {
+
+	BED bedEntry, nullBed;
+	int lineNum = 0;
+	BedLineStatus bedStatus;
+
+	Open();
+	while ((bedStatus = GetNextBed(bedEntry, lineNum)) != BED_INVALID) {
+		if (bedStatus == BED_VALID) {
+			BIN bin = getBin(bedEntry.start, bedEntry.end);
+            
+            BEDCOVLIST bedCovList;
+            bedCovList.chrom        = bedEntry.chrom;
+            bedCovList.start        = bedEntry.start;
+            bedCovList.end          = bedEntry.end;
+            bedCovList.name         = bedEntry.name;
+            bedCovList.score        = bedEntry.score;
+            bedCovList.strand       = bedEntry.strand;
+            bedCovList.otherFields  = bedEntry.otherFields;
+
+			bedCovListMap[bedEntry.chrom][bin].push_back(bedCovList);
 			bedEntry = nullBed;
 		}
 	}

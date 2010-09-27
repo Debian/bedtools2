@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #ifndef INTERSECTBED_H
 #define INTERSECTBED_H
@@ -43,7 +43,7 @@ public:
 
 	// constructor 
 	BedIntersectPE(string bedAFilePE, string bedBFile, float overlapFraction, 
-		string searchType, bool forceStrand, bool bamInput, bool bamOutput, bool useEditDistance);
+		string searchType, bool forceStrand, bool bamInput, bool bamOutput, bool uncompressedBam, bool useEditDistance);
 
 	// destructor
 	~BedIntersectPE(void);
@@ -70,6 +70,7 @@ private:
 	bool _useEditDistance;
 	bool _bamInput;
 	bool _bamOutput;
+	bool  _isUncompressedBam;
 
 	// instance of a paired-end bed file class.
 	BedFilePE *_bedA;
@@ -84,7 +85,7 @@ private:
 		a.start1 = a.start2 = a.end1 = a.end2 = -1;
 		a.chrom1 = a.chrom2 = ".";
         a.strand1 = a.strand2 = '.';
-		uint8_t editDistance1, editDistance2;
+		uint32_t editDistance1, editDistance2;
 		editDistance1 = editDistance2 = 0;
 		
 		// take the qname from end 1.
@@ -101,7 +102,7 @@ private:
 			// extract the edit distance from the NM tag
 			// if possible. otherwise, complain.
 			if (_useEditDistance == true) {
-				if (bam1.GetEditDistance(editDistance1) == false) {
+				if (bam1.GetTag("NM", editDistance1) == false) {
 					cerr << "The edit distance tag (NM) was not found in the BAM file.  Please disable -ed.  Exiting\n";
 					exit(1);
 				}
@@ -119,7 +120,7 @@ private:
 			// extract the edit distance from the NM tag
 			// if possible. otherwise, complain.
 			if (_useEditDistance == true) {
-				if (bam2.GetEditDistance(editDistance2) == false) {
+				if (bam2.GetTag("NM", editDistance2) == false) {
 					cerr << "The edit distance tag (NM) was not found in the BAM file.  Please disable -ed.  Exiting\n";
 					exit(1);
 				}

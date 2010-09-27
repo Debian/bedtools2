@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licensed under the GNU General Public License 2.0+ license.
+  Licensed under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "lineFileUtilities.h"
 #include "genomeFile.h"
@@ -43,7 +43,6 @@ void GenomeFile::loadGenomeFileIntoMap() {
 		
 		// ignore a blank line
 		if (genomeFields.size() > 0) {
-
 			if (genomeFields[0].find("#") == string::npos) {
 
 				// we need at least 2 columns

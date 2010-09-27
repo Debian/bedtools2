@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #ifndef INTERSECTBED_H
 #define INTERSECTBED_H
@@ -21,6 +21,7 @@ using namespace BamTools;
 
 
 #include <vector>
+#include <queue>
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
@@ -65,6 +66,14 @@ private:
 	bool  _bamInput;
 	bool  _bamOutput;
 	
+    bool _printable;
+	
+    queue<BED*> _outputBuffer;
+    bool  _lastPick;
+	
+	map<string, vector<BED*> > _windowA;
+	map<string, vector<BED*> > _windowB;	
+	
 	// instance of a bed file class.
 	BedFile *_bedA, *_bedB;
 
@@ -73,14 +82,22 @@ private:
 	//------------------------------------------------
 	void IntersectBed(istream &bedInput);
 	
-	void Scan(const BED &x, vector<BED> &wX, BedLineStatus xStatus, 
-        const BED &y, vector<BED> &wY, BedLineStatus yStatus, bool fromA);
+	void Scan(BED *x, vector<BED *> *windowX, BedLineStatus xStatus,
+        const BED &y, vector<BED *> *windowY, BedLineStatus yStatus);
 
+    void AddHits(BED *x, const BED &y);
+    
+    void FlushOutputBuffer(bool final = false);
+	
+	vector<BED*>* GetWindow(const string &chrom, bool isA);
+	
+	void ChromSwitch(const string &chrom);
+    
 	void IntersectBed();
 
 	void IntersectBam(string bamFile);
 	
-    bool processHits(const BED &a, const vector<BED> &hits, bool printable);
+    bool processHits(BED &a, vector<BED> &hits);
 	
 	bool FindOverlaps(const BED &a, vector<BED> &hits);
 	
@@ -89,6 +106,8 @@ private:
 	void ReportOverlapDetail(const int &overlapBases, const BED &a, const BED &b,
 		                     const CHRPOS &s, const CHRPOS &e);
 	void ReportOverlapSummary(const BED &a, const int &numOverlapsFound);
+	
+    void ReportHits(set<BED> &A, set<BED> &B);
 	
 };
 

@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "sortBed.h"
 #include "version.h"
@@ -30,18 +30,17 @@ int main(int argc, char* argv[]) {
 	bool showHelp = false;
 
 	// input files
-	string bedFile;
-	bool haveBed = false;
+	string bedFile  = "stdin";
+	bool haveBed    = true;
 	int sortChoices = 0;
 
-	bool sortBySizeAsc = false;
-	bool sortBySizeDesc = false;
-	bool sortByChromThenSizeAsc = false;
-	bool sortByChromThenSizeDesc = false;
-	bool sortByChromThenScoreAsc = false;
+	bool sortBySizeAsc            = false;
+	bool sortBySizeDesc           = false;
+	bool sortByChromThenSizeAsc   = false;
+	bool sortByChromThenSizeDesc  = false;
+	bool sortByChromThenScoreAsc  = false;
 	bool sortByChromThenScoreDesc = false;
-	
-	if(argc <= 1) showHelp = true;
+
 	
 	for(int i = 1; i < argc; i++) {
 		int parameterLength = (int)strlen(argv[i]);
@@ -61,7 +60,6 @@ int main(int argc, char* argv[]) {
 
 		if(PARAMETER_CHECK("-i", 2, parameterLength)) {
 			if ((i+1) < argc) {
-				haveBed = true;
 				bedFile = argv[i + 1];
 				i++;
 			}

@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "lineFileUtilities.h"
 #include "bedFile.h"
@@ -41,11 +41,8 @@ int main(int argc, char* argv[]) {
 	bool showHelp = false;
 
 	// input files
-	string bedFile;
-	bool haveBed         = false;
-
-	// check to see if we should print out some help
-	if(argc <= 1) showHelp = true;
+	string bedFile       = "stdin";
+	bool haveBed         = true;
 
 	for(int i = 1; i < argc; i++) {
 		int parameterLength = (int)strlen(argv[i]);
@@ -65,7 +62,6 @@ int main(int argc, char* argv[]) {
 
 		if(PARAMETER_CHECK("-i", 2, parameterLength)) {
 			if ((i+1) < argc) {
-				haveBed = true;
 				bedFile = argv[i + 1];
 				i++;
 			}

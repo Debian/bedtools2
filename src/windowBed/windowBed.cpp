@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "lineFileUtilities.h"
 #include "windowBed.h"
@@ -16,8 +16,9 @@
 /*
 	Constructor
 */
-BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSlop, bool anyHit, bool noHit, 
-					bool writeCount, bool strandWindows, bool matchOnStrand, bool bamInput, bool bamOutput) {
+BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSlop, 
+                     bool anyHit, bool noHit, bool writeCount, bool strandWindows, 
+                     bool matchOnStrand, bool bamInput, bool bamOutput, bool isUncompressedBam) {
 
 	_bedAFile      = bedAFile;
 	_bedBFile      = bedBFile;
@@ -25,31 +26,22 @@ BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSl
 	_leftSlop      = leftSlop;
 	_rightSlop     = rightSlop;
 
-	_anyHit        = anyHit;
-	_noHit         = noHit;
-	_writeCount    = writeCount;
-	_strandWindows = strandWindows;	
-	_matchOnStrand = matchOnStrand;
-	_bamInput      = bamInput;
-	_bamOutput     = bamOutput;
-		
+	_anyHit              = anyHit;
+	_noHit               = noHit;
+	_writeCount          = writeCount;
+	_strandWindows       = strandWindows;	
+	_matchOnStrand       = matchOnStrand;
+	_bamInput            = bamInput;
+	_bamOutput           = bamOutput;
+    _isUncompressedBam   = isUncompressedBam;
+    		
 	_bedA          = new BedFile(bedAFile);
 	_bedB          = new BedFile(bedBFile);
 	
-	// dealing with a proper file
-	if (_bedA->bedFile != "stdin") {   
-		if (_bamInput == false) 
-			WindowIntersectBed();
-		else
-			WindowIntersectBam(_bedA->bedFile);
-	}
-	// reading from stdin
-	else {  
-		if (_bamInput == false)
-			WindowIntersectBed();
-		else
-			WindowIntersectBam("stdin");			
-	}
+	if (_bamInput == false)
+		WindowIntersectBed();
+	else
+		WindowIntersectBam(_bedAFile);			
 }
 
 
@@ -169,7 +161,7 @@ void BedWindow::WindowIntersectBam(string bamFile) {
 	// open a BAM output to stdout if we are writing BAM
 	if (_bamOutput == true) {
 		// open our BAM writer
-		writer.Open("stdout", header, refs);
+		writer.Open("stdout", header, refs, _isUncompressedBam);
 	}
 
 	vector<BED> hits;					// vector of potential hits
