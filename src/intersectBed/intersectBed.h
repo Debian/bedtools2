@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #ifndef INTERSECTBED_H
 #define INTERSECTBED_H
@@ -36,7 +36,7 @@ public:
 	BedIntersect(string bedAFile, string bedBFile, bool anyHit, 
 							   bool writeA, bool writeB, bool writeOverlap, bool writeAllOverlap,
 							   float overlapFraction, bool noHit, bool writeCount, bool forceStrand, 
-							   bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput);
+							   bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam);
 
 	// destructor
 	~BedIntersect(void);
@@ -64,6 +64,7 @@ private:
     bool  _obeySplits;
 	bool  _bamInput;
 	bool  _bamOutput;
+    bool  _isUncompressedBam;
 	
 	// instance of a bed file class.
 	BedFile *_bedA, *_bedB;

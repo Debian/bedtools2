@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "pairToBed.h"
 #include "version.h"
@@ -37,14 +37,15 @@ int main(int argc, char* argv[]) {
 	string searchType = "either";
 
 	// flags to track parameters
-	bool haveBedA        = false;
-	bool haveBedB        = false;
-	bool haveSearchType  = false;
-	bool haveFraction    = false;
-	bool forceStrand     = false;
-	bool useEditDistance = false;
-	bool inputIsBam      = false;
-	bool outputIsBam     = true;
+	bool haveBedA           = false;
+	bool haveBedB           = false;
+	bool haveSearchType     = false;
+	bool haveFraction       = false;
+	bool forceStrand        = false;
+	bool useEditDistance    = false;
+	bool inputIsBam         = false;
+	bool outputIsBam        = true;
+	bool uncompressedBam    = false;	
 	
 	// check to see if we should print out some help
 	if(argc <= 1) showHelp = true;
@@ -110,7 +111,10 @@ int main(int argc, char* argv[]) {
 		}
 		else if (PARAMETER_CHECK("-s", 2, parameterLength)) {
 			forceStrand = true;
-		}		
+		}
+		else if(PARAMETER_CHECK("-ubam", 5, parameterLength)) {
+            uncompressedBam = true;
+		}	
 		else {
 			cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
 			showHelp = true;
@@ -146,7 +150,7 @@ int main(int argc, char* argv[]) {
 
 		BedIntersectPE *bi = new BedIntersectPE(bedAFile, bedBFile, overlapFraction, 
 												searchType, forceStrand, inputIsBam, 
-												outputIsBam, useEditDistance);
+												outputIsBam, uncompressedBam, useEditDistance);
 		delete bi;
 		return 0;
 	}
@@ -170,6 +174,9 @@ void ShowHelp(void) {
 
 	cerr << "\t-abam\t"			<< "The A input file is in BAM format.  Output will be BAM as well." << endl;
 	cerr 					    << "\t\t- Requires BAM to be grouped or sorted by query." << endl << endl;
+
+	cerr << "\t-ubam\t"			<< "Write uncompressed BAM output. Default is to write compressed BAM." << endl << endl;
+	cerr 						<< "\t\tis to write output in BAM when using -abam." << endl << endl;
 	
 	cerr << "\t-bedpe\t"		<< "When using BAM input (-abam), write output as BEDPE. The default" << endl;
 	cerr 						<< "\t\tis to write output in BAM when using -abam." << endl << endl;

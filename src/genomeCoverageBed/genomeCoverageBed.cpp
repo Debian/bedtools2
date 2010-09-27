@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "lineFileUtilities.h"
 #include "genomeCoverageBed.h"
@@ -74,7 +74,8 @@ void BedGenomeCoverage::StartNewChrom(const string& newChrom) {
 	_currChromName = newChrom;
 
 	// get the current chrom size and allocate space
-	_currChromSize = _genome->getChromSize(newChrom);
+	_currChromSize = _genome->getChromSize(_currChromName);
+
 	if (_currChromSize >= 0)
 		_currChromCoverage.resize(_currChromSize);
 	else {

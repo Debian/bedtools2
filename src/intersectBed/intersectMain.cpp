@@ -7,7 +7,7 @@
   University of Virginia
   aaronquinlan@gmail.com
 
-  Licenced under the GNU General Public License 2.0+ license.
+  Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "intersectBed.h"
 #include "version.h"
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
     bool obeySplits         = false;
 	bool inputIsBam         = false;
 	bool outputIsBam        = true;
-	
+	bool uncompressedBam    = false;	
 	// check to see if we should print out some help
 	if(argc <= 1) showHelp = true;
 
@@ -134,6 +134,9 @@ int main(int argc, char* argv[]) {
 		}
 		else if (PARAMETER_CHECK("-split", 6, parameterLength)) {
 			obeySplits = true;
+		}
+		else if(PARAMETER_CHECK("-ubam", 5, parameterLength)) {
+            uncompressedBam = true;
 		}		
 		else {
 			cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -197,7 +200,7 @@ int main(int argc, char* argv[]) {
 
 		BedIntersect *bi = new BedIntersect(bedAFile, bedBFile, anyHit, writeA, writeB, writeOverlap,
 											writeAllOverlap, overlapFraction, noHit, writeCount, forceStrand, 
-											reciprocalFraction, obeySplits, inputIsBam, outputIsBam);
+											reciprocalFraction, obeySplits, inputIsBam, outputIsBam, uncompressedBam);
 		delete bi;
 		return 0;
 	}
@@ -219,7 +222,9 @@ void ShowHelp(void) {
 	cerr << "Options: " << endl;
 	
 	cerr << "\t-abam\t"			<< "The A input file is in BAM format.  Output will be BAM as well." << endl << endl;
-
+	
+	cerr << "\t-ubam\t"			<< "Write uncompressed BAM output. Default is to write compressed BAM." << endl << endl;
+	
 	cerr << "\t-bed\t"			<< "When using BAM input (-abam), write output as BED. The default" << endl;
 	cerr 						<< "\t\tis to write output in BAM when using -abam." << endl << endl;
 			
