@@ -1,5 +1,9 @@
 Upstream original source archive is repacked after removing AppleDouble encoded
 Macintosh file like ‘._BEDTools-Version-2.10.0’, which confuse the packaging
-system.
+system, as well as the other Macinosh metadata files The following commands are
+used:
 
- -- Charles Plessy <plessy@debian.org>  Mon, 27 Sep 2010 15:51:07 +0900
+tar --wildcards --delete '*/._*'
+tar --wildcards --delete '*/*DS_Store'
+
+ -- Charles Plessy <plessy@debian.org>  Mon, 29 Nov 2010 20:50:06 +0900
