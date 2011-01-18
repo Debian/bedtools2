@@ -1,37 +1,94 @@
-This work was packaged for Debian by:
+Format: DEP-5
+Source: http://bedtools.googlecode.com/files/BEDTools.v2.10.1.tar.gz
 
-    Charles Plessy <plessy@debian.org> on Sun, 04 Apr 2010 16:15:04 +0900
+Files: *
+Copyright: © 2009 Aaron Quinlan
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+Comment:
+ On Debian systems, you can find a copy of the GNU General Public License
+ version 2 in ‘/usr/share/common-licenses/GPL-2’.
 
-It was downloaded from:
+Files: debian/*
+Copyright: © 2010–2011 Charles Plessy <plessy@debian.org>
+License: BOLA-1.1
+  BOLA - Buena Onda License Agreement (v1.1)
+  ------------------------------------------
+ .
+ This work is provided 'as-is', without any express or implied warranty. In no
+ event will the authors be held liable for any damages arising from the use of
+ this work.
+ .
+ To all effects and purposes, this work is to be considered Public Domain.
+ .
+ .
+ However, if you want to be "buena onda", you should:
+ .
+  1. Not take credit for it, and give proper recognition to the authors.
+  2. Share your modifications, so everybody benefits from them.
+  3. Do something nice for the authors.
+  4. Help someone who needs it: sign up for some volunteer work or help your
+     neighbour paint the house.
+  5. Don't waste. Anything, but specially energy that comes from natural
+     non-renewable resources. Extra points if you discover or invent something
+     to replace them.
+  6. Be tolerant. Everything that's good in nature comes from cooperation.
 
-    <url://example.com>
+Files: src/utils/curl/*
+Name:
+                                  _   _ ____  _
+  Project                     ___| | | |  _ \| |
+                             / __| | | | |_) | |
+                            | (__| |_| |  _ <| |___
+                             \___|\___/|_| \_\_____|
+Copyright: © 1996 - 2010, Daniel Stenberg, <daniel@haxx.se>.
+License: CURL
+ Permission to use, copy, modify, and distribute this software for any purpose
+ with or without fee is hereby granted, provided that the above copyright
+ notice and this permission notice appear in all copies.
+ . 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
+ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+ OR OTHER DEALINGS IN THE SOFTWARE.
+ . 
+ Except as contained in this notice, the name of a copyright holder shall not
+ be used in advertising or otherwise to promote the sale, use or other dealings
+ in this Software without prior written authorization of the copyright holder.
 
-Upstream Author(s):
+Files: src/utils/gzstream/gzstream.h
+Name: gzstream, C++ iostream classes wrapping the zlib compression library.
+Copyright: © 2001  Deepak Bandyopadhyay, Lutz Kettner
+License: LGPL-2.1
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+Comment:
+ On Debian systems, you can find a copy of the GNU Lesser General Public License 
+ version 2.1 in ‘/usr/share/common-licenses/LGPL-2.1’.
 
-    <put author's name and email here>
-    <likewise for another author>
-
-Copyright:
-
-    <Copyright (C) YYYY Firstname Lastname>
-    <likewise for another author>
-
-License:
-
-    <Put the license of the package here indented by 4 spaces>
-
-The Debian packaging is:
-
-    Copyright (C) 2010 Charles Plessy <plessy@debian.org>
-
-# Please chose a license for your packaging work. If the program you package
-# uses a mainstream license, using the same license is the safest choice.
-# Please avoid to pick license terms that are more restrictive than the
-# packaged work, as it may make Debian's contributions unacceptable upstream.
-# If you just want it to be GPL version 3, leave the following lines in.
-
-and is licensed under the GPL version 3,
-see "/usr/share/common-licenses/GPL-3".
-
-# Please also look if there are files or directories which have a
-# different copyright/license attached and list them here.
