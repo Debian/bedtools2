@@ -1,7 +1,9 @@
 Source: bedtools
 Section: science
 Priority: optional
-Maintainer: Charles Plessy <plessy@debian.org>
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+DM-Upload-Allowed: yes
+Uploaders: Charles Plessy <plessy@debian.org>
 Build-Depends: cdbs, debhelper (>= 8)
 Standards-Version: 3.9.1
 Homepage: http://code.google.com/p/bedtools/
@@ -16,4 +18,4 @@ Description: suite of utilities for comparing genomic features
  finding feature overlaps and computing coverage. The utilities are largely
  based on four widely-used file formats: BED, GFF/GTF, VCF, and SAM/BAM. Using
  BEDTools, one can develop sophisticated pipelines that answer complicated
- research questions by "streaming" several BEDTools together.
+ research questions by streaming several BEDTools together.
