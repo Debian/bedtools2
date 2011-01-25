@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 DM-Upload-Allowed: yes
 Uploaders: Charles Plessy <plessy@debian.org>
-Build-Depends: cdbs, debhelper (>= 8), zlib1g-dev
+Build-Depends: cdbs, debhelper (>= 8), git, quilt, zlib1g-dev
 Standards-Version: 3.9.1
 Homepage: http://code.google.com/p/bedtools/
 Vcs-Browser: http://git.debian.org/?p=debian-med/bedtools.git
