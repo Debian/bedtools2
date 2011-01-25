@@ -2,7 +2,7 @@ Format: DEP-5
 Source: http://bedtools.googlecode.com/files/BEDTools.v2.10.1.tar.gz
 
 Files: *
-Copyright: © 2009 Aaron Quinlan
+Copyright: © 2009,2010,2011 Aaron Quinlan
 License: GPL-2
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -45,31 +45,6 @@ License: BOLA-1.1
      non-renewable resources. Extra points if you discover or invent something
      to replace them.
   6. Be tolerant. Everything that's good in nature comes from cooperation.
-
-Files: src/utils/curl/*
-Name:
-                                  _   _ ____  _
-  Project                     ___| | | |  _ \| |
-                             / __| | | | |_) | |
-                            | (__| |_| |  _ <| |___
-                             \___|\___/|_| \_\_____|
-Copyright: © 1996 - 2010, Daniel Stenberg, <daniel@haxx.se>.
-License: CURL
- Permission to use, copy, modify, and distribute this software for any purpose
- with or without fee is hereby granted, provided that the above copyright
- notice and this permission notice appear in all copies.
- . 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
- NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
- DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
- OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
- OR OTHER DEALINGS IN THE SOFTWARE.
- . 
- Except as contained in this notice, the name of a copyright holder shall not
- be used in advertising or otherwise to promote the sale, use or other dealings
- in this Software without prior written authorization of the copyright holder.
 
 Files: src/utils/gzstream/gzstream.h
 Name: gzstream, C++ iostream classes wrapping the zlib compression library.
