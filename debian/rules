@@ -9,3 +9,12 @@ pre-build::
 	[ -d bin ] || mkdir bin
 
 # Add here any variable or target overrides you need.
+
+get-orig-source:
+	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)
+	zcat ../BEDTools.v$(DEB_UPSTREAM_VERSION).tar.gz \
+	| tar --wildcards \
+		--delete '*/._*' \
+		--delete '*/*DS_Store' \
+	| bzip2 --best \
+	> ../$(DEB_SOURCE_PACKAGE)_$(DEB_UPSTREAM_VERSION).orig.tar.bz2
