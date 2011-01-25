@@ -1,13 +1,23 @@
-sbuild (Debian sbuild) 0.60.5 (14 Nov 2010) on anx178.gsc.riken.jp
+sbuild (Debian sbuild) 0.60.8 (12 Dec 2010) on anx178.gsc.riken.jp
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.10.0-1 (amd64)                                  29 Nov 2010 21:27 ║
+║ bedtools 2.11.0-1 (amd64)                                  25 Jan 2011 21:46 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.10.0-1
-Source Version: 2.10.0-1
+Version: 2.11.0-1
+Source Version: 2.11.0-1
 Architecture: amd64
+Hit http://ftp.riken.jp unstable Release.gpg
+Ign http://ftp.riken.jp/Linux/debian/debian/ unstable/main Translation-en
+Hit http://ftp.riken.jp unstable Release
+Hit http://ftp.riken.jp unstable/main Sources/DiffIndex
+Hit http://ftp.riken.jp unstable/main amd64 Packages/DiffIndex
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Fetch source files                                                           │
@@ -17,7 +27,7 @@ Architecture: amd64
 Local sources
 ─────────────
 
-bedtools_2.10.0-1.dsc exists in .; copying to chroot
+bedtools_2.11.0-1.dsc exists in .; copying to chroot
 
 Check arch
 ──────────
@@ -30,7 +40,7 @@ Check arch
 Build-Depends: build-essential, fakeroot
 Checking for already installed dependencies...
 build-essential: already installed (11.5)
-fakeroot: already installed (1.14.4-1)
+fakeroot: already installed (1.14.5-1)
 Checking for dependency conflicts...
 Installing positive dependencies: 
 Reading package lists...
@@ -48,82 +58,122 @@ Checking correctness of dependencies...
 │ Install bedtools build dependencies (internal resolver)                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 7)
+Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), git, quilt, zlib1g-dev
 Checking for already installed dependencies...
-base-files: already installed (5.10)
+base-files: already installed (6.0)
 base-passwd: already installed (3.5.22)
 bash: already installed (4.1-3)
 coreutils: already installed (8.5-1)
-dash: already installed (0.5.5.1-7.3)
-debianutils: already installed (3.4.2)
+dash: already installed (0.5.5.1-7.4)
+debianutils: already installed (3.4.3)
 diffutils: already installed (1:3.0-1)
-dpkg: already installed (1.15.8.6)
+dpkg: already installed (1.15.8.8)
 e2fsprogs: already installed (1.41.12-2)
 findutils: already installed (4.4.2-1+b1)
 grep: already installed (2.6.3-3)
 gzip: already installed (1.3.12-9)
 hostname: already installed (3.05)
-ncurses-base: already installed (5.7+20100313-4)
-ncurses-bin: already installed (5.7+20100313-4)
-perl-base: already installed (5.10.1-16)
+ncurses-base: already installed (5.7+20100313-5)
+ncurses-bin: already installed (5.7+20100313-5)
+perl-base: already installed (5.10.1-17)
 sed: already installed (4.2.1-8)
 login: already installed (1:4.1.4.2+svn3283-2)
-sysvinit-utils: already installed (2.88dsf-13)
-sysvinit: already installed (2.88dsf-13)
-tar: already installed (1.25-2)
-bsdutils: already installed (1:2.17.2-3.3)
-mount: already installed (2.17.2-3.3)
-util-linux: already installed (2.17.2-3.3)
-libc6-dev: already installed (2.11.2-7)
-gcc: already installed (4:4.4.5-1 >= 4:4.4.3 is satisfied)
-g++: already installed (4:4.4.5-1 >= 4:4.4.3 is satisfied)
+sysvinit-utils: already installed (2.88dsf-13.1)
+sysvinit: already installed (2.88dsf-13.1)
+tar: already installed (1.25-3)
+bsdutils: already installed (1:2.17.2-7.1)
+mount: already installed (2.17.2-7.1)
+util-linux: already installed (2.17.2-7.1)
+libc6-dev: already installed (2.11.2-10)
+gcc: already installed (4:4.4.5-2 >= 4:4.4.3 is satisfied)
+g++: already installed (4:4.4.5-2 >= 4:4.4.3 is satisfied)
 make: already installed (3.81-8)
-dpkg-dev: already installed (1.15.8.6 >= 1.13.5 is satisfied)
+dpkg-dev: already installed (1.15.8.8 >= 1.13.5 is satisfied)
 cdbs: missing
 debhelper: missing
 Using default version 8.0.0
+git: missing
+quilt: missing
+zlib1g-dev: missing
 Checking for dependency conflicts...
-Installing positive dependencies: cdbs debhelper
+Installing positive dependencies: cdbs debhelper git quilt zlib1g-dev
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  bsdmainutils file gettext gettext-base groff-base html2text intltool-debian
-  libcroco3 libglib2.0-0 libmagic1 libpcre3 libunistring0 libxml2 man-db
-  po-debconf
+  bsdmainutils ca-certificates diffstat file gettext gettext-base groff-base
+  html2text intltool-debian libcroco3 libcurl3-gnutls liberror-perl libexpat1
+  libgcrypt11 libglib2.0-0 libgnutls26 libgpg-error0 libgssapi-krb5-2 libidn11
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libmagic1
+  libpcre3 libsasl2-2 libssl0.9.8 libtasn1-3 libunistring0 libxml2 man-db
+  openssl po-debconf
 Suggested packages:
   wamerican wordlist whois vacation devscripts doc-base dh-make gettext-doc
-  groff less www-browser libmail-box-perl
+  git-doc git-arch git-cvs git-svn git-email git-daemon-run git-gui gitk
+  gitweb groff rng-tools gnutls-bin krb5-doc krb5-user www-browser
+  libmail-box-perl procmail graphviz
 Recommended packages:
-  autotools-dev curl wget lynx-cur autopoint libglib2.0-data shared-mime-info
-  xml-core libmail-sendmail-perl
+  autotools-dev curl wget lynx-cur autopoint less rsync ssh-client
+  libglib2.0-data shared-mime-info libsasl2-modules xml-core
+  libmail-sendmail-perl
 The following NEW packages will be installed:
-  bsdmainutils cdbs debhelper file gettext gettext-base groff-base html2text
-  intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3 libunistring0
-  libxml2 man-db po-debconf
-0 upgraded, 17 newly installed, 0 to remove and 0 not upgraded.
-Need to get 206 kB/10.2 MB of archives.
-After this operation, 28.7 MB of additional disk space will be used.
-Get:1 http://ftp.riken.jp/Linux/debian/debian/ sid/main bsdmainutils amd64 8.0.17 [206 kB]
+  bsdmainutils ca-certificates cdbs debhelper diffstat file gettext
+  gettext-base git groff-base html2text intltool-debian libcroco3
+  libcurl3-gnutls liberror-perl libexpat1 libgcrypt11 libglib2.0-0 libgnutls26
+  libgpg-error0 libgssapi-krb5-2 libidn11 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 libldap-2.4-2 libmagic1 libpcre3 libsasl2-2 libssl0.9.8
+  libtasn1-3 libunistring0 libxml2 man-db openssl po-debconf quilt zlib1g-dev
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 206 kB in 0s (2180 kB/s)
+0 upgraded, 39 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/20.9 MB of archives.
+After this operation, 52.5 MB of additional disk space will be used.
 Selecting previously deselected package bsdmainutils.
-(Reading database ... 11022 files and directories currently installed.)
-Unpacking bsdmainutils (from .../bsdmainutils_8.0.17_amd64.deb) ...
+(Reading database ... 10134 files and directories currently installed.)
+Unpacking bsdmainutils (from .../bsdmainutils_8.2.1_amd64.deb) ...
 Selecting previously deselected package groff-base.
 Unpacking groff-base (from .../groff-base_1.20.1-10_amd64.deb) ...
+Selecting previously deselected package libssl0.9.8.
+Unpacking libssl0.9.8 (from .../libssl0.9.8_0.9.8o-4_amd64.deb) ...
 Selecting previously deselected package man-db.
-Unpacking man-db (from .../man-db_2.5.7-6_amd64.deb) ...
+Unpacking man-db (from .../man-db_2.5.7-8_amd64.deb) ...
 Selecting previously deselected package libmagic1.
 Unpacking libmagic1 (from .../libmagic1_5.04-5_amd64.deb) ...
 Selecting previously deselected package file.
 Unpacking file (from .../archives/file_5.04-5_amd64.deb) ...
 Selecting previously deselected package gettext-base.
 Unpacking gettext-base (from .../gettext-base_0.18.1.1-3_amd64.deb) ...
+Selecting previously deselected package libgpg-error0.
+Unpacking libgpg-error0 (from .../libgpg-error0_1.6-1_amd64.deb) ...
+Selecting previously deselected package libgcrypt11.
+Unpacking libgcrypt11 (from .../libgcrypt11_1.4.5-2_amd64.deb) ...
+Selecting previously deselected package libtasn1-3.
+Unpacking libtasn1-3 (from .../libtasn1-3_2.7-1_amd64.deb) ...
+Selecting previously deselected package libgnutls26.
+Unpacking libgnutls26 (from .../libgnutls26_2.8.6-1_amd64.deb) ...
+Selecting previously deselected package libkeyutils1.
+Unpacking libkeyutils1 (from .../libkeyutils1_1.4-4_amd64.deb) ...
+Selecting previously deselected package libkrb5support0.
+Unpacking libkrb5support0 (from .../libkrb5support0_1.8.3+dfsg-4_amd64.deb) ...
+Selecting previously deselected package libk5crypto3.
+Unpacking libk5crypto3 (from .../libk5crypto3_1.8.3+dfsg-4_amd64.deb) ...
+Selecting previously deselected package libkrb5-3.
+Unpacking libkrb5-3 (from .../libkrb5-3_1.8.3+dfsg-4_amd64.deb) ...
+Selecting previously deselected package libgssapi-krb5-2.
+Unpacking libgssapi-krb5-2 (from .../libgssapi-krb5-2_1.8.3+dfsg-4_amd64.deb) ...
+Selecting previously deselected package libidn11.
+Unpacking libidn11 (from .../libidn11_1.18-1_amd64.deb) ...
+Selecting previously deselected package libsasl2-2.
+Unpacking libsasl2-2 (from .../libsasl2-2_2.1.23.dfsg1-7_amd64.deb) ...
+Selecting previously deselected package libldap-2.4-2.
+Unpacking libldap-2.4-2 (from .../libldap-2.4-2_2.4.23-7_amd64.deb) ...
 Selecting previously deselected package libpcre3.
 Unpacking libpcre3 (from .../libpcre3_8.02-1.1_amd64.deb) ...
 Selecting previously deselected package libxml2.
-Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-1_amd64.deb) ...
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-2_amd64.deb) ...
+Selecting previously deselected package openssl.
+Unpacking openssl (from .../openssl_0.9.8o-4_amd64.deb) ...
+Selecting previously deselected package ca-certificates.
+Unpacking ca-certificates (from .../ca-certificates_20090814+nmu2_all.deb) ...
 Selecting previously deselected package html2text.
 Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
 Selecting previously deselected package libglib2.0-0.
@@ -142,17 +192,58 @@ Selecting previously deselected package debhelper.
 Unpacking debhelper (from .../debhelper_8.0.0_all.deb) ...
 Selecting previously deselected package cdbs.
 Unpacking cdbs (from .../archives/cdbs_0.4.89_all.deb) ...
-Setting up bsdmainutils (8.0.17) ...
+Selecting previously deselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.54-1_amd64.deb) ...
+Selecting previously deselected package libcurl3-gnutls.
+Unpacking libcurl3-gnutls (from .../libcurl3-gnutls_7.21.3-1_amd64.deb) ...
+Selecting previously deselected package libexpat1.
+Unpacking libexpat1 (from .../libexpat1_2.0.1-7_amd64.deb) ...
+Selecting previously deselected package liberror-perl.
+Unpacking liberror-perl (from .../liberror-perl_0.17-1_all.deb) ...
+Selecting previously deselected package git.
+Unpacking git (from .../git_1%3a1.7.2.3-2.2_amd64.deb) ...
+Selecting previously deselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.48-7_all.deb) ...
+Selecting previously deselected package zlib1g-dev.
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_amd64.deb) ...
+Setting up bsdmainutils (8.2.1) ...
 update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
 update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
 Setting up groff-base (1.20.1-10) ...
-Setting up man-db (2.5.7-6) ...
+Setting up libssl0.9.8 (0.9.8o-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Setting up man-db (2.5.7-8) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
 Building database of manual pages ...
 Setting up libmagic1 (5.04-5) ...
 Setting up file (5.04-5) ...
 Setting up gettext-base (0.18.1.1-3) ...
+Setting up libgpg-error0 (1.6-1) ...
+Setting up libgcrypt11 (1.4.5-2) ...
+Setting up libtasn1-3 (2.7-1) ...
+Setting up libgnutls26 (2.8.6-1) ...
+Setting up libkeyutils1 (1.4-4) ...
+Setting up libkrb5support0 (1.8.3+dfsg-4) ...
+Setting up libk5crypto3 (1.8.3+dfsg-4) ...
+Setting up libkrb5-3 (1.8.3+dfsg-4) ...
+Setting up libgssapi-krb5-2 (1.8.3+dfsg-4) ...
+Setting up libidn11 (1.18-1) ...
+Setting up libsasl2-2 (2.1.23.dfsg1-7) ...
+Setting up libldap-2.4-2 (2.4.23-7) ...
 Setting up libpcre3 (8.02-1.1) ...
-Setting up libxml2 (2.7.8.dfsg-1) ...
+Setting up libxml2 (2.7.8.dfsg-2) ...
+Setting up openssl (0.9.8o-4) ...
+Setting up ca-certificates (20090814+nmu2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Updating certificates in /etc/ssl/certs... WARNING: Skipping duplicate certificate ca-certificates.crt
+141 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d....done.
 Setting up html2text (1.3.2a-15) ...
 Setting up libglib2.0-0 (2.24.2-1) ...
 Setting up libcroco3 (0.6.2-1) ...
@@ -162,6 +253,13 @@ Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu1) ...
 Setting up debhelper (8.0.0) ...
 Setting up cdbs (0.4.89) ...
+Setting up diffstat (1.54-1) ...
+Setting up libcurl3-gnutls (7.21.3-1) ...
+Setting up libexpat1 (2.0.1-7) ...
+Setting up liberror-perl (0.17-1) ...
+Setting up git (1:1.7.2.3-2.2) ...
+Setting up quilt (0.48-7) ...
+Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
@@ -169,8 +267,8 @@ Reading state information...
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 Checking correctness of dependencies...
 Kernel: Linux 2.6.32-trunk-vserver-amd64 amd64 (x86_64)
-Toolchain package versions: binutils_2.20.1-15 dpkg-dev_1.15.8.6 g++-4.4_4.4.5-8 gcc-4.4_4.4.5-8 libc6-dev_2.11.2-7 libstdc++6_4.4.5-8 libstdc++6-4.4-dev_4.4.5-8 linux-libc-dev_2.6.32-28
-Package versions: adduser_3.112+nmu2 apt_0.8.9 base-files_5.10 base-passwd_3.5.22 bash_4.1-3 binutils_2.20.1-15 bsdmainutils_8.0.17 bsdutils_1:2.17.2-3.3 build-essential_11.5 bzip2_1.0.5-6 cdbs_0.4.89 coreutils_8.5-1 cpp_4:4.4.5-1 cpp-4.4_4.4.5-8 dash_0.5.5.1-7.3 dbus_1.2.24-3 debconf_1.5.36 debconf-i18n_1.5.36 debfoster_2.7-1.1 debhelper_8.0.0 debian-archive-keyring_2010.08.28 debianutils_3.4.2 diffutils_1:3.0-1 dpkg_1.15.8.6 dpkg-dev_1.15.8.6 e2fslibs_1.41.12-2 e2fsprogs_1.41.12-2 fakeroot_1.14.4-1 file_5.04-5 findutils_4.4.2-1+b1 g++_4:4.4.5-1 g++-4.4_4.4.5-8 gcc_4:4.4.5-1 gcc-4.4_4.4.5-8 gcc-4.4-base_4.4.5-8 gettext_0.18.1.1-3 gettext-base_0.18.1.1-3 gnupg_1.4.10-4 gpgv_1.4.10-4 grep_2.6.3-3 groff-base_1.20.1-10 gzip_1.3.12-9 hostname_3.05 html2text_1.3.2a-15 initscripts_2.88dsf-13 insserv_1.14.0-2 intltool-debian_0.35.0+20060710.1 java-common_0.40 libacl1_2.2.49-4 libattr1_1:2.4.44-2 libavahi-client3_0.6.27-3 libavahi-common-data_0.6.27-3 libavahi-common3_0.6.27-3 libblkid1_2.17.2-3.3 libbz2-1.0_1.0.5-6 libc-bin_2.11.2-7 libc-dev-bin_2.11.2-7 libc6_2.11.2-7 libc6-dev_2.11.2-7 libcomerr2_1.41.12-2 libcroco3_0.6.2-1 libcups2_1.4.4-7 libdb4.7_4.7.25-10 libdb4.8_4.8.30-3 libdbus-1-3_1.2.24-3 libdpkg-perl_1.15.8.6 libexpat1_2.0.1-7 libgc1c2_1:6.8-1.2 libgcc1_1:4.4.5-8 libgcrypt11_1.4.5-2 libgdbm3_1.8.3-9 libglib2.0-0_2.24.2-1 libgmp3c2_2:4.3.2+dfsg-1 libgnutls26_2.8.6-1 libgomp1_4.4.5-8 libgpg-error0_1.6-1 libgssapi-krb5-2_1.8.3+dfsg-2 libk5crypto3_1.8.3+dfsg-2 libkeyutils1_1.4-1 libkrb5-3_1.8.3+dfsg-2 libkrb5support0_1.8.3+dfsg-2 liblocale-gettext-perl_1.05-6 liblzma2_5.0.0-2 libmagic1_5.04-5 libmpfr1ldbl_2.4.2-3 libmpfr4_3.0.0-2 libncurses5_5.7+20100313-4 libnspr4-0d_4.8.6-1 libnss3-1d_3.12.8-1 libpam-modules_1.1.1-6.1 libpam-runtime_1.1.1-6.1 libpam0g_1.1.1-6.1 libpcre3_8.02-1.1 libreadline6_6.1-3 libselinux1_2.0.96-1 libsepol1_2.0.41-1 libslang2_2.2.2-4 libsqlite3-0_3.7.3-1 libss2_1.41.12-2 libstdc++6_4.4.5-8 libstdc++6-4.4-dev_4.4.5-8 libtasn1-3_2.7-1 libtext-charwidth-perl_0.04-6 libtext-iconv-perl_1.7-2 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libunistring0_0.9.3-3 libunwind7_0.99-0.2 libusb-0.1-4_2:0.1.12-16 libuuid1_2.17.2-3.3 libxml2_2.7.8.dfsg-1 linux-libc-dev_2.6.32-28 login_1:4.1.4.2+svn3283-2 lsb-base_3.2-26 lzma_4.43-14 make_3.81-8 man-db_2.5.7-6 mawk_1.3.3-15 mount_2.17.2-3.3 ncurses-base_5.7+20100313-4 ncurses-bin_5.7+20100313-4 passwd_1:4.1.4.2+svn3283-2 patch_2.6-3 perl_5.10.1-16 perl-base_5.10.1-16 perl-modules_5.10.1-16 po-debconf_1.0.16+nmu1 readline-common_6.1-3 sed_4.2.1-8 sensible-utils_0.0.6 sysv-rc_2.88dsf-13 sysvinit_2.88dsf-13 sysvinit-utils_2.88dsf-13 tar_1.25-2 tzdata_2010o-1 tzdata-java_2010o-1 util-linux_2.17.2-3.3 xz-utils_5.0.0-2 zlib1g_1:1.2.3.4.dfsg-3
+Toolchain package versions: binutils_2.20.1-15 dpkg-dev_1.15.8.8 g++-4.4_4.4.5-10 gcc-4.4_4.4.5-10 libc6-dev_2.11.2-10 libstdc++6_4.4.5-10 libstdc++6-4.4-dev_4.4.5-10 linux-libc-dev_2.6.32-30
+Package versions: apt_0.8.10.1 base-files_6.0 base-passwd_3.5.22 bash_4.1-3 binutils_2.20.1-15 bsdmainutils_8.2.1 bsdutils_1:2.17.2-7.1 build-essential_11.5 bzip2_1.0.5-6 ca-certificates_20090814+nmu2 cdbs_0.4.89 coreutils_8.5-1 cpp_4:4.4.5-2 cpp-4.4_4.4.5-10 dash_0.5.5.1-7.4 debconf_1.5.38 debconf-i18n_1.5.38 debfoster_2.7-1.1 debhelper_8.0.0 debian-archive-keyring_2010.08.28 debianutils_3.4.3 diffstat_1.54-1 diffutils_1:3.0-1 dpkg_1.15.8.8 dpkg-dev_1.15.8.8 e2fslibs_1.41.12-2 e2fsprogs_1.41.12-2 fakeroot_1.14.5-1 file_5.04-5 findutils_4.4.2-1+b1 g++_4:4.4.5-2 g++-4.4_4.4.5-10 gcc_4:4.4.5-2 gcc-4.4_4.4.5-10 gcc-4.4-base_4.4.5-10 gettext_0.18.1.1-3 gettext-base_0.18.1.1-3 git_1:1.7.2.3-2.2 gnupg_1.4.10-4 gpgv_1.4.10-4 grep_2.6.3-3 groff-base_1.20.1-10 gzip_1.3.12-9 hostname_3.05 html2text_1.3.2a-15 initscripts_2.88dsf-13.1 insserv_1.14.0-2 intltool-debian_0.35.0+20060710.1 libacl1_2.2.49-4 libattr1_1:2.4.44-2 libblkid1_2.17.2-7.1 libbz2-1.0_1.0.5-6 libc-bin_2.11.2-10 libc-dev-bin_2.11.2-10 libc6_2.11.2-10 libc6-dev_2.11.2-10 libcomerr2_1.41.12-2 libcroco3_0.6.2-1 libcurl3-gnutls_7.21.3-1 libdb4.7_4.7.25-12 libdb4.8_4.8.30-3 libdpkg-perl_1.15.8.8 liberror-perl_0.17-1 libexpat1_2.0.1-7 libgc1c2_1:6.8-1.2 libgcc1_1:4.4.5-10 libgcrypt11_1.4.5-2 libgdbm3_1.8.3-9 libglib2.0-0_2.24.2-1 libgmp3c2_2:4.3.2+dfsg-1 libgnutls26_2.8.6-1 libgomp1_4.4.5-10 libgpg-error0_1.6-1 libgssapi-krb5-2_1.8.3+dfsg-4 libidn11_1.18-1 libk5crypto3_1.8.3+dfsg-4 libkeyutils1_1.4-4 libkrb5-3_1.8.3+dfsg-4 libkrb5support0_1.8.3+dfsg-4 libldap-2.4-2_2.4.23-7 liblocale-gettext-perl_1.05-6 liblzma2_5.0.0-2 libmagic1_5.04-5 libmpfr4_3.0.0-2 libncurses5_5.7+20100313-5 libpam-modules_1.1.1-6.1 libpam-runtime_1.1.1-6.1 libpam0g_1.1.1-6.1 libpcre3_8.02-1.1 libreadline6_6.1-3 libsasl2-2_2.1.23.dfsg1-7 libselinux1_2.0.96-1 libsepol1_2.0.42-1 libslang2_2.2.2-4 libss2_1.41.12-2 libssl0.9.8_0.9.8o-4 libstdc++6_4.4.5-10 libstdc++6-4.4-dev_4.4.5-10 libtasn1-3_2.7-1 libtext-charwidth-perl_0.04-6 libtext-iconv-perl_1.7-2 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libunistring0_0.9.3-3 libusb-0.1-4_2:0.1.12-16 libuuid1_2.17.2-7.1 libxml2_2.7.8.dfsg-2 linux-libc-dev_2.6.32-30 login_1:4.1.4.2+svn3283-2 lsb-base_3.2-27 make_3.81-8 man-db_2.5.7-8 mawk_1.3.3-15 mount_2.17.2-7.1 ncurses-base_5.7+20100313-5 ncurses-bin_5.7+20100313-5 openssl_0.9.8o-4 passwd_1:4.1.4.2+svn3283-2 patch_2.6-3 perl_5.10.1-17 perl-base_5.10.1-17 perl-modules_5.10.1-17 po-debconf_1.0.16+nmu1 quilt_0.48-7 readline-common_6.1-3 sed_4.2.1-8 sensible-utils_0.0.6 sysv-rc_2.88dsf-13.1 sysvinit_2.88dsf-13.1 sysvinit-utils_2.88dsf-13.1 tar_1.25-3 tzdata_2010o-1 util-linux_2.17.2-7.1 xz-utils_5.0.0-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -180,13 +278,383 @@ Package versions: adduser_3.112+nmu2 apt_0.8.9 base-files_5.10 base-passwd_3.5.2
 Unpack source
 ─────────────
 
-dpkg-source: warning: extracting unsigned source package (bedtools_2.10.0-1.dsc)
-dpkg-source: info: extracting bedtools in bedtools-2.10.0
-dpkg-source: info: cloning bedtools_2.10.0-1.git
-Can't exec "git": No such file or directory at /usr/share/perl5/Dpkg/Source/Package/V3/git.pm line 221.
-dpkg-source: error: git bundle failed with unknown exit code -1
-FAILED [dpkg-source died]
-Purging /var/lib/schroot/mount/sid-aa030ad5-6906-4d4e-82d6-e93c7727ed16/build/charles-bedtools_2.10.0-1-amd64-NPk_fH
+dpkg-source: warning: extracting unsigned source package (bedtools_2.11.0-1.dsc)
+dpkg-source: info: extracting bedtools in bedtools-2.11.0
+dpkg-source: info: cloning bedtools_2.11.0-1.git
+
+Check disc space
+────────────────
+
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: export CFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export CPPFLAGS from dpkg-buildflags (origin: vendor): 
+dpkg-buildpackage: export CXXFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export FFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export LDFLAGS from dpkg-buildflags (origin: vendor): 
+dpkg-buildpackage: source package bedtools
+dpkg-buildpackage: source version 2.11.0-1
+dpkg-buildpackage: source changed by Charles Plessy <plessy@debian.org>
+ dpkg-source --before-build bedtools-2.11.0
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C . CFLAGS="-g -O2 -g -Wall -O2" CXXFLAGS="-g -O2 -g -Wall -O2" CPPFLAGS="" LDFLAGS=""  -k clean
+make[1]: Entering directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+Cleaning up.
+make[1]: Leaving directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+dh_clean 
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+if [ -d "." ]; then \
+	  cd . && QUILT_PATCHES=/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	fi
+No patch removed
+rm -rf ./.pc
+rm -f debian/stamp-patch*
+ dpkg-source -b bedtools-2.11.0
+dpkg-source: info: using source format `3.0 (git)'
+dpkg-source: info: bundling: --all
+dpkg-source: info: building bedtools in bedtools_2.11.0-1.dsc
+ debian/rules build
+test -x debian/rules
+mkdir -p "."
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+cd . && QUILT_PATCHES=/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch gzstream.h.patch
+patching file src/utils/gzstream/gzstream.C
+
+Now at patch gzstream.h.patch
+touch debian/stamp-patched
+/usr/bin/make -f debian/rules update-config
+make[1]: Entering directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+make[1]: Nothing to be done for `update-config'.
+make[1]: Leaving directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -g -Wall -O2" CXXFLAGS="-g -O2 -g -Wall -O2" CPPFLAGS="" LDFLAGS=""  
+make[1]: Entering directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+[ -d obj ] || mkdir -p obj
+[ -d bin ] || mkdir -p bin
+Building BEDTools:
+=========================================================
+- Building in src/utils/lineFileUtilities
+  * compiling lineFileUtilities.cpp
+
+- Building in src/utils/bedFile
+  * compiling bedFile.cpp
+
+- Building in src/utils/bedGraphFile
+  * compiling bedGraphFile.cpp
+
+- Building in src/utils/tabFile
+  * compiling tabFile.cpp
+
+- Building in src/utils/genomeFile
+  * compiling genomeFile.cpp
+
+- Building in src/utils/gzstream
+g++ -g -O2 -g -Wall -O2 -c -o ../../../obj//gzstream.o gzstream.C -I.
+
+- Building in src/utils/fileType
+  * compiling fileType.cpp
+
+- Building in src/utils/bedFilePE
+  * compiling bedFilePE.cpp
+
+- Building in src/utils/sequenceUtilities
+  * compiling sequenceUtils.cpp
+
+- Building in src/utils/BamTools
+  * compiling BamReader.cpp
+  * compiling BamWriter.cpp
+  * compiling BGZF.cpp
+  * compiling BamAncillary.cpp
+  * compiling BamIndex.cpp
+
+- Building in src/annotateBed
+  * compiling annotateMain.cpp
+  * compiling annotateBed.cpp
+  * linking annotateBed
+
+- Building in src/bamToBed
+  * compiling bamToBed.cpp
+  * linking bamToBed
+
+- Building in src/bedToBam
+  * compiling bedToBam.cpp
+  * linking bedToBam
+
+- Building in src/bedToIgv
+  * compiling bedToIgv.cpp
+  * linking bedToIgv
+
+- Building in src/bed12ToBed6
+  * compiling bed12ToBed6.cpp
+  * linking bed12ToBed6
+
+- Building in src/closestBed
+  * compiling closestMain.cpp
+  * compiling closestBed.cpp
+  * linking closestBed
+
+- Building in src/complementBed
+  * compiling complementMain.cpp
+  * compiling complementBed.cpp
+  * linking complementBed
+
+- Building in src/coverageBed
+  * compiling coverageMain.cpp
+  * compiling coverageBed.cpp
+  * linking coverageBed
+
+- Building in src/fastaFromBed
+  * compiling fastaFromBedMain.cpp
+  * compiling fastaFromBed.cpp
+  * linking fastaFromBed
+
+- Building in src/fjoin
+  * compiling fjoinMain.cpp
+  * compiling fjoin.cpp
+  * linking fjoin
+
+- Building in src/genomeCoverageBed
+  * compiling genomeCoverageMain.cpp
+  * compiling genomeCoverageBed.cpp
+  * linking genomeCoverageBed
+
+- Building in src/intersectBed
+  * compiling intersectMain.cpp
+  * compiling intersectBed.cpp
+  * linking intersectBed
+
+- Building in src/linksBed
+  * compiling linksMain.cpp
+  * compiling linksBed.cpp
+  * linking linksBed
+
+- Building in src/maskFastaFromBed
+  * compiling maskFastaFromBedMain.cpp
+  * compiling maskFastaFromBed.cpp
+  * linking maskFastaFromBed
+
+- Building in src/mergeBed
+  * compiling mergeMain.cpp
+  * compiling mergeBed.cpp
+  * linking mergeBed
+
+- Building in src/overlap
+  * compiling overlap.cpp
+  * linking overlap
+
+- Building in src/pairToBed
+  * compiling pairToBedMain.cpp
+  * compiling pairToBed.cpp
+  * linking pairToBed
+
+- Building in src/pairToPair
+  * compiling pairToPairMain.cpp
+  * compiling pairToPair.cpp
+  * linking pairToPair
+
+- Building in src/shuffleBed
+  * compiling shuffleBedMain.cpp
+  * compiling shuffleBed.cpp
+  * linking shuffleBed
+
+- Building in src/slopBed
+  * compiling slopBedMain.cpp
+  * compiling slopBed.cpp
+  * linking slopBed
+
+- Building in src/sortBed
+  * compiling sortMain.cpp
+  * compiling sortBed.cpp
+  * linking sortBed
+
+- Building in src/subtractBed
+  * compiling subtractMain.cpp
+  * compiling subtractBed.cpp
+  * linking subtractBed
+
+- Building in src/unionBedGraphs
+  * compiling unionBedGraphs.cpp
+  * compiling unionBedGraphsMain.cpp
+  * linking unionBedGraphs
+
+- Building in src/windowBed
+  * compiling windowMain.cpp
+  * compiling windowBed.cpp
+  * linking windowBed
+
+make[1]: Leaving directory `/build/charles-bedtools_2.11.0-1-amd64-8j9J9l/bedtools-2.11.0'
+touch debian/stamp-makefile-build
+DEB_MAKE_CHECK_TARGET unset, not running checks
+ fakeroot debian/rules binary
+test -x debian/rules
+dh_testroot
+dh_prep 
+dh_installdirs -A 
+mkdir -p "."
+DEB_MAKE_CHECK_TARGET unset, not running checks
+DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install target
+Adding cdbs dependencies to debian/bedtools.substvars
+dh_installdirs -pbedtools 
+dh_installdocs -pbedtools 
+dh_installexamples -pbedtools 
+dh_installman -pbedtools  
+dh_installinfo -pbedtools  
+dh_installmenu -pbedtools 
+dh_installcron -pbedtools 
+dh_installinit -pbedtools  
+dh_installdebconf -pbedtools 
+dh_installemacsen -pbedtools   
+dh_installcatalogs -pbedtools 
+dh_installpam -pbedtools 
+dh_installlogrotate -pbedtools 
+dh_installlogcheck -pbedtools 
+dh_installchangelogs -pbedtools  
+dh_installudev -pbedtools 
+dh_lintian -pbedtools 
+dh_install -pbedtools  
+dh_link -pbedtools  
+dh_installmime -pbedtools 
+dh_strip -pbedtools  
+dh_compress -pbedtools  
+dh_fixperms -pbedtools  
+dh_makeshlibs -pbedtools  
+dh_installdeb -pbedtools 
+dh_perl -pbedtools 
+dh_shlibdeps -pbedtools    
+dh_gencontrol -pbedtools  
+dh_md5sums -pbedtools 
+dh_builddeb -pbedtools 
+dpkg-deb: building package `bedtools' in `../bedtools_2.11.0-1_amd64.deb'.
+ dpkg-genchanges  >../bedtools_2.11.0-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build bedtools-2.11.0
+dpkg-buildpackage: full upload; Debian-native package (full source is included)
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20110125-2147
+
+bedtools_2.11.0-1_amd64.changes:
+Format: 1.8
+Date: Tue, 25 Jan 2011 21:00:40 +0900
+Source: bedtools
+Binary: bedtools
+Architecture: source amd64
+Version: 2.11.0-1
+Distribution: unstable
+Urgency: low
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Changed-By: Charles Plessy <plessy@debian.org>
+Description: 
+ bedtools   - suite of utilities for comparing genomic features
+Changes: 
+ bedtools (2.11.0-1) UNRELEASED; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1: 
+ 9f8f90a02d13fb27d4d954f4189434a87d1362c3 770 bedtools_2.11.0-1.dsc
+ f2151dd8d5850c95600d2266ebc520268ee9a88d 1154314 bedtools_2.11.0-1.git
+ 4025f03115d0f611cd3b010f594cc8a6cf0257e8 1297906 bedtools_2.11.0-1_amd64.deb
+Checksums-Sha256: 
+ 0bf0b61a2bc9fbc4971d0fb1dcf72632c6255bd0ec74a2ff84b162499b19b7fd 770 bedtools_2.11.0-1.dsc
+ 0d80f559a6236cb3d0624a1db1e3cacfc955d4a3bd7f263018988aa6a2ca30c8 1154314 bedtools_2.11.0-1.git
+ 91a185800f0560bc9a3d063ca2d62479253d9e952ec7ec5d03d9fe15e7e8e2f6 1297906 bedtools_2.11.0-1_amd64.deb
+Files: 
+ 77c021e3e9e318141aeb0acb3e300bda 770 science optional bedtools_2.11.0-1.dsc
+ 9e0da85be20d7546a212ce215924b29d 1154314 science optional bedtools_2.11.0-1.git
+ 4fddae27715ddd35617f7ddd06ffccef 1297906 science optional bedtools_2.11.0-1_amd64.deb
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Package contents                                                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+bedtools_2.11.0-1_amd64.deb
+───────────────────────────
+
+ new debian package, version 2.0.
+ size 1297906 bytes: control archive= 1568 bytes.
+     763 bytes,    15 lines      control              
+    1803 bytes,    31 lines      md5sums              
+ Package: bedtools
+ Version: 2.11.0-1
+ Architecture: amd64
+ Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+ Installed-Size: 3072
+ Depends: libc6 (>= 2.2.5), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
+ Section: science
+ Priority: optional
+ Homepage: http://code.google.com/p/bedtools/
+ Description: suite of utilities for comparing genomic features
+  The BEDTools utilities allow one to address common genomics tasks such as
+  finding feature overlaps and computing coverage. The utilities are largely
+  based on four widely-used file formats: BED, GFF/GTF, VCF, and SAM/BAM. Using
+  BEDTools, one can develop sophisticated pipelines that answer complicated
+  research questions by streaming several BEDTools together.
+
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./usr/
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./usr/bin/
+-rwxr-xr-x root/root    179824 2011-01-25 21:47 ./usr/bin/intersectBed
+-rwxr-xr-x root/root     69024 2011-01-25 21:47 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root    101752 2011-01-25 21:47 ./usr/bin/complementBed
+-rwxr-xr-x root/root    101760 2011-01-25 21:47 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root    102352 2011-01-25 21:47 ./usr/bin/closestBed
+-rwxr-xr-x root/root     98368 2011-01-25 21:47 ./usr/bin/linksBed
+-rwxr-xr-x root/root    115200 2011-01-25 21:47 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root    122424 2011-01-25 21:47 ./usr/bin/bedToBam
+-rwxr-xr-x root/root     89432 2011-01-25 21:47 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root    105832 2011-01-25 21:47 ./usr/bin/sortBed
+-rwxr-xr-x root/root     97640 2011-01-25 21:47 ./usr/bin/mergeBed
+-rwxr-xr-x root/root    126344 2011-01-25 21:47 ./usr/bin/pairToPair
+-rwxr-xr-x root/root    167624 2011-01-25 21:47 ./usr/bin/windowBed
+-rwxr-xr-x root/root    179824 2011-01-25 21:47 ./usr/bin/fjoin
+-rwxr-xr-x root/root    163416 2011-01-25 21:47 ./usr/bin/coverageBed
+-rwxr-xr-x root/root    101768 2011-01-25 21:47 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root    196248 2011-01-25 21:47 ./usr/bin/pairToBed
+-rwxr-xr-x root/root     93528 2011-01-25 21:47 ./usr/bin/overlap
+-rwxr-xr-x root/root    163432 2011-01-25 21:47 ./usr/bin/annotateBed
+-rwxr-xr-x root/root     97648 2011-01-25 21:47 ./usr/bin/subtractBed
+-rwxr-xr-x root/root    101760 2011-01-25 21:47 ./usr/bin/slopBed
+-rwxr-xr-x root/root    109944 2011-01-25 21:47 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root     97784 2011-01-25 21:47 ./usr/bin/bamToBed
+-rwxr-xr-x root/root    179832 2011-01-25 21:47 ./usr/bin/genomeCoverageBed
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./usr/share/
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2011-01-25 21:46 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       856 2011-01-25 21:46 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root       565 2011-01-25 21:46 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root      1972 2011-01-25 21:46 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       585 2011-01-25 21:46 ./usr/share/bedtools/genomes/mouse.mm9.genome
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./usr/share/doc/
+drwxr-xr-x root/root         0 2011-01-25 21:47 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root       181 2011-01-25 21:46 ./usr/share/doc/bedtools/changelog.Debian.gz
+-rw-r--r-- root/root      1586 2011-01-25 21:46 ./usr/share/doc/bedtools/README.rst.gz
+-rw-r--r-- root/root      3075 2011-01-25 21:46 ./usr/share/doc/bedtools/copyright
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Finished                                                                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Built successfully
+────────────────────────────────────────────────────────────────────────────────
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Post Build                                                                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /var/lib/schroot/mount/unstable-amd64-sbuild-cef57196-ca64-4b6f-90a1-f5309cced28d/build/charles-bedtools_2.11.0-1-amd64-8j9J9l
 Reading package lists...
 Building dependency tree...
 Reading state information...
@@ -195,18 +663,39 @@ Reading package lists...
 Building dependency tree...
 Reading state information...
 The following packages will be REMOVED:
-  bsdmainutils* cdbs* debhelper* file* gettext* gettext-base* groff-base*
-  html2text* intltool-debian* libcroco3* libglib2.0-0* libmagic1* libpcre3*
-  libunistring0* libxml2* man-db* po-debconf*
-0 upgraded, 0 newly installed, 17 to remove and 0 not upgraded.
-After this operation, 28.7 MB disk space will be freed.
-(Reading database ... 12314 files and directories currently installed.)
+  bsdmainutils* ca-certificates* cdbs* debhelper* diffstat* file* gettext*
+  gettext-base* git* groff-base* html2text* intltool-debian* libcroco3*
+  libcurl3-gnutls* liberror-perl* libexpat1* libgcrypt11* libglib2.0-0*
+  libgnutls26* libgpg-error0* libgssapi-krb5-2* libidn11* libk5crypto3*
+  libkeyutils1* libkrb5-3* libkrb5support0* libldap-2.4-2* libmagic1*
+  libpcre3* libsasl2-2* libssl0.9.8* libtasn1-3* libunistring0* libxml2*
+  man-db* openssl* po-debconf* quilt* zlib1g-dev*
+0 upgraded, 0 newly installed, 39 to remove and 0 not upgraded.
+After this operation, 52.5 MB disk space will be freed.
+(Reading database ... 12789 files and directories currently installed.)
 Removing cdbs ...
 Removing debhelper ...
 Removing man-db ...
 Purging configuration files for man-db ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
 Removing bsdmainutils ...
 Purging configuration files for bsdmainutils ...
+Removing git ...
+Purging configuration files for git ...
+Removing libcurl3-gnutls ...
+Purging configuration files for libcurl3-gnutls ...
+Removing ca-certificates ...
+Removing dangling symlinks from /etc/ssl/certs... done.
+Purging configuration files for ca-certificates ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Removing dangling symlinks from /etc/ssl/certs... done.
+Removing quilt ...
+Purging configuration files for quilt ...
+Removing diffstat ...
 Removing file ...
 Removing po-debconf ...
 Removing intltool-debian ...
@@ -218,33 +707,68 @@ Removing html2text ...
 Purging configuration files for html2text ...
 Removing libcroco3 ...
 Purging configuration files for libcroco3 ...
+Removing liberror-perl ...
+Removing libexpat1 ...
+Purging configuration files for libexpat1 ...
+Removing libldap-2.4-2 ...
+Purging configuration files for libldap-2.4-2 ...
+Removing libgnutls26 ...
+Purging configuration files for libgnutls26 ...
+Removing libgcrypt11 ...
+Purging configuration files for libgcrypt11 ...
 Removing libglib2.0-0 ...
 Purging configuration files for libglib2.0-0 ...
+Removing libgpg-error0 ...
+Purging configuration files for libgpg-error0 ...
+Removing libgssapi-krb5-2 ...
+Purging configuration files for libgssapi-krb5-2 ...
+Removing libidn11 ...
+Purging configuration files for libidn11 ...
+Removing libkrb5-3 ...
+Purging configuration files for libkrb5-3 ...
+Removing libk5crypto3 ...
+Purging configuration files for libk5crypto3 ...
+Removing libkrb5support0 ...
+Purging configuration files for libkrb5support0 ...
+Removing libkeyutils1 ...
+Purging configuration files for libkeyutils1 ...
 Removing libmagic1 ...
 Purging configuration files for libmagic1 ...
 Removing libpcre3 ...
 Purging configuration files for libpcre3 ...
+Removing libsasl2-2 ...
+Purging configuration files for libsasl2-2 ...
+Removing openssl ...
+Purging configuration files for openssl ...
+Removing libssl0.9.8 ...
+Purging configuration files for libssl0.9.8 ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Removing libtasn1-3 ...
+Purging configuration files for libtasn1-3 ...
 Removing libunistring0 ...
 Purging configuration files for libunistring0 ...
 Removing libxml2 ...
 Purging configuration files for libxml2 ...
+Removing zlib1g-dev ...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 65772
+Build-Time: 61
 Distribution: unstable
-Fail-Stage: unpack
-Job: bedtools_2.10.0-1.dsc
+Install-Time: 9
+Job: bedtools_2.11.0-1.dsc
 Package: bedtools
-Package-Time: 0
-Source-Version: 2.10.0-1
-Space: 0
-Status: given-back
-Version: 2.10.0-1
+Package-Time: 79
+Source-Version: 2.11.0-1
+Space: 65772
+Status: successful
+Version: 2.11.0-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20101129-2127
-Build needed 00:00:00, 0k disc space
+Finished at 20110125-2147
+Build needed 00:01:19, 65772k disc space
