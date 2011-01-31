@@ -1,5 +1,5 @@
-bedtools (2.11.0-1) UNRELEASED; urgency=low
+bedtools (2.11.1-1) UNRELEASED; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 
- -- Charles Plessy <plessy@debian.org>  Tue, 25 Jan 2011 21:00:40 +0900
+ -- Charles Plessy <plessy@debian.org>  Mon, 31 Jan 2011 17:46:29 +0900
