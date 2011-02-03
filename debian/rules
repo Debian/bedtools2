@@ -4,6 +4,8 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/makefile.mk
 include /usr/share/cdbs/1/rules/patchsys-quilt.mk
 
+DEB_INSTALL_CHANGELOGS_ALL := RELEASE_HISTORY
+
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)
 	zcat ../BEDTools.v$(DEB_UPSTREAM_VERSION).tar.gz \
