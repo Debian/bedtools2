@@ -1,19 +1,19 @@
 /*****************************************************************************
-  fastaFromBed.cpp
+  cuffToTrans.cpp
 
-  (c) 2009 - Aaron Quinlan
-  Hall Laboratory
-  Department of Biochemistry and Molecular Genetics
+  (c) 2011 - Aaron Quinlan
+  Quinlan Laboratory
+  Center for Public Health Genomics
   University of Virginia
   aaronquinlan@gmail.com
 
   Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "lineFileUtilities.h"
-#include "fastaFromBed.h"
+#include "cuffToTrans.h"
 
 
-Bed2Fa::Bed2Fa(bool &useName, string &dbFile, string &bedFile,
+CuffToTrans::CuffToTrans(bool &useName, string &dbFile, string &bedFile,
     string &fastaOutFile, bool &useFasta, bool &useStrand) {
 
     if (useName) {
@@ -50,14 +50,14 @@ Bed2Fa::Bed2Fa(bool &useName, string &dbFile, string &bedFile,
 }
 
 
-Bed2Fa::~Bed2Fa(void) {
+CuffToTrans::~CuffToTrans(void) {
 }
 
 
 //******************************************************************************
 // ReportDNA
 //******************************************************************************
-void Bed2Fa::ReportDNA(const BED &bed, string &dna) {
+void CuffToTrans::ReportDNA(const BED &bed, string &dna) {
 
     // revcomp if necessary.  Thanks to Thomas Doktor.
     if ((_useStrand == true) && (bed.strand == "-"))
@@ -90,7 +90,7 @@ void Bed2Fa::ReportDNA(const BED &bed, string &dna) {
 //******************************************************************************
 // ExtractDNA
 //******************************************************************************
-void Bed2Fa::ExtractDNA() {
+void CuffToTrans::ExtractDNA() {
 
     /* Make sure that we can oen all of the files successfully*/
 

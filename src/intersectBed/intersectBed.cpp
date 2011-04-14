@@ -144,7 +144,8 @@ void BedIntersect::ReportOverlapDetail(const int &overlapBases, const BED &a, co
     else if (_writeOverlap == true) {
         _bedA->reportBedTab(a);
         _bedB->reportBedTab(b);
-        printf("%d\n", overlapBases);
+        if (b.zeroLength == false) printf("%d\n", overlapBases);
+        else printf("0\n");
     }
 }
 
@@ -277,6 +278,10 @@ void BedIntersect::IntersectBam(string bamFile) {
                 bool overlapsFound = false;
                 // treat the BAM alignment as a single "block"
                 if (_obeySplits == false) {
+                    // Toying with adding tags.  Need new version of FindOverlaps.
+                    // FindOverlaps(a, hits);
+                    // bam.AddTag("YB", "i", static_cast<int>(hits.size()));
+                    // hits.clear();
                     overlapsFound = FindOneOrMoreOverlap(a);
                 }
                 // split the BAM alignment into discrete blocks and
@@ -325,6 +330,10 @@ void BedIntersect::IntersectBam(string bamFile) {
                     }
                 }
             }
+        }
+        // BAM IsMapped() is false
+        else if (_noHit == true) {
+            writer.SaveAlignment(bam);
         }
     }
 

@@ -122,8 +122,9 @@ int main(int argc, char* argv[]) {
         showHelp = true;
     }
 
-    if (haveSearchType && (searchType != "neither") && (searchType != "both") && (searchType != "either")) {
-        cerr << endl << "*****" << endl << "*****ERROR: Request \"both\" or \"neither\"" << endl << "*****" << endl;
+    if (haveSearchType && (searchType != "neither") && (searchType != "both") 
+                       && (searchType != "either")  && (searchType != "notboth")) {
+        cerr << endl << "*****" << endl << "*****ERROR: Request \"both\" or \"neither\" or \"notboth\"" << endl << "*****" << endl;
         showHelp = true;
     }
 
