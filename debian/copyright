@@ -21,6 +21,12 @@ Comment:
  On Debian systems, you can find a copy of the GNU General Public License
  version 2 in ‘/usr/share/common-licenses/GPL-2’.
 
+Files: src/cuffToTrans/Fasta.cpp
+ src/cuffToTrans/Fasta.h
+ src/fastaFromBed/Fasta.cpp
+ src/fastaFromBed/Fasta.h
+Copyright: © 2010 Erik Garrison <erik.garrison@bc.edu>
+
 Files: debian/*
 Copyright: © 2010–2011 Charles Plessy <plessy@debian.org>
 License: BOLA-1.1
