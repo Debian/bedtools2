@@ -29,6 +29,8 @@ BedGenomeCoverage::BedGenomeCoverage(string bedFile, string genomeFile, bool eac
     _obeySplits      = obeySplits;
     _filterByStrand  = filterByStrand;
     _requestedStrand = requestedStrand;
+    _currChromName   = "";
+    _currChromSize   = 0 ;
 
     _bed        = new BedFile(bedFile);
     _genome     = new GenomeFile(genomeFile);
@@ -79,7 +81,7 @@ void BedGenomeCoverage::StartNewChrom(const string& newChrom) {
     if (_currChromSize >= 0)
         _currChromCoverage.resize(_currChromSize);
     else {
-        cerr << "Input error: Chromosome " << _currChromName << " found in your BED file but not in your genome file." << endl;
+        cerr << "Input error: Chromosome " << _currChromName << " found in your input file but not in your genome file." << endl;
         exit(1);
     }
 }
@@ -179,7 +181,6 @@ void BedGenomeCoverage::CoverageBam(string bamFile) {
     // and compute coverage on B
     BamAlignment bam;
     while (reader.GetNextAlignment(bam)) {
-
         // skip if the read is unaligned
         if (bam.IsMapped() == false)
             continue;
@@ -194,7 +195,7 @@ void BedGenomeCoverage::CoverageBam(string bamFile) {
         string chrom(refs.at(bam.RefID).RefName);
         CHRPOS start = bam.Position;
         CHRPOS end   = bam.GetEndPosition(false) - 1;
-
+        
         // are we on a new chromosome?
         if ( chrom != _currChromName )
             StartNewChrom(chrom);

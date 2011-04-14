@@ -1,16 +1,16 @@
 /*****************************************************************************
-  fastaFromBed.h
+  cuffToTrans.h
 
-  (c) 2009 - Aaron Quinlan
-  Hall Laboratory
-  Department of Biochemistry and Molecular Genetics
+  (c) 2011 - Aaron Quinlan
+  Quinlan Laboratory
+  Center for Public Health Genomics
   University of Virginia
   aaronquinlan@gmail.com
 
   Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
-#ifndef FASTAFROMBED_H
-#define FASTAFROMBED_H
+#ifndef CUFFTOTRANS_H
+#define CUFFTOTRANS_H
 
 #include "bedFile.h"
 #include "sequenceUtils.h"
@@ -24,16 +24,16 @@ using namespace std;
 //************************************************
 // Class methods and elements
 //************************************************
-class Bed2Fa {
+class CuffToTrans {
 
 public:
 
     // constructor
-    Bed2Fa(bool &useName, string &dbFile, string &bedFile, string &fastaOutFile,
+    CuffToTrans(bool &useName, string &dbFile, string &bedFile, string &fastaOutFile,
         bool &useFasta, bool &useStrand);
 
     // destructor
-    ~Bed2Fa(void);
+    ~CuffToTrans(void);
 
     void ExtractDNA();
     void ReportDNA(const BED &bed, string &dna);

@@ -37,7 +37,8 @@ BedShuffle::BedShuffle(string &bedFile, string &genomeFile, string &excludeFile,
     }
     else {
         // thanks to Rob Long for the tip.
-        srand((unsigned)time(0)+(unsigned)getpid());
+        _seed = (unsigned)time(0)+(unsigned)getpid();
+        srand(_seed);
     }
 
     _bed         = new BedFile(bedFile);
@@ -53,7 +54,8 @@ BedShuffle::BedShuffle(string &bedFile, string &genomeFile, string &excludeFile,
     if (_haveInclude) {
         _include = new BedFile(includeFile);
         _include->loadBedFileIntoMapNoBin();
-
+        
+        _numIncludeChroms = 0;
         masterBedMapNoBin::const_iterator it    = _include->bedMapNoBin.begin(); 
         masterBedMapNoBin::const_iterator itEnd = _include->bedMapNoBin.end();
         for(; it != itEnd; ++it) {
@@ -202,9 +204,7 @@ void BedShuffle::ChooseLocus(BED &bedEntry) {
 void BedShuffle::ChooseLocusFromInclusionFile(BED &bedEntry) {
 
     string chrom    = bedEntry.chrom;
-    CHRPOS start    = bedEntry.start;
-    CHRPOS end      = bedEntry.end;
-    CHRPOS length   = end - start;
+    CHRPOS length   = bedEntry.end - bedEntry.start;
 
     string randomChrom;
     CHRPOS randomStart;
@@ -233,9 +233,12 @@ void BedShuffle::ChooseLocusFromInclusionFile(BED &bedEntry) {
     randomStart    = includeInterval.start + rand() % (includeInterval.size());
     bedEntry.start = randomStart;
     bedEntry.end   = randomStart + length;
-    // ensure that the chosen location doesn't go past
+    
+    // use recursion to ensure that the chosen location 
+    // doesn't go past the end of the chrom
     if (bedEntry.end > ((size_t) _genome->getChromSize(chrom))) {
-        bedEntry.end = _genome->getChromSize(chrom);            
+        //bedEntry.end = _genome->getChromSize(chrom);
+        ChooseLocusFromInclusionFile(bedEntry);
     }
 }
 

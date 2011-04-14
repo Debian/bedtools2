@@ -1,21 +1,21 @@
 /*****************************************************************************
-  maskFastaFromBedMain.cpp
+  cuffToTransMain.cpp
 
-  (c) 2009 - Aaron Quinlan
-  Hall Laboratory
-  Department of Biochemistry and Molecular Genetics
+  (c) 2011 - Aaron Quinlan
+  Quinlan Laboratory
+  Center for Public Health Genomics
   University of Virginia
   aaronquinlan@gmail.com
 
   Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
-#include "maskFastaFromBed.h"
+#include "cuffToTrans.h"
 #include "version.h"
 
 using namespace std;
 
 // define our program name
-#define PROGRAM_NAME "maskFastaFromBed"
+#define PROGRAM_NAME "cuffToTrans"
 
 
 // define our parameter checking macro
@@ -30,18 +30,19 @@ int main(int argc, char* argv[]) {
     bool showHelp = false;
 
     // input files
-    string fastaInFile;
+    string fastaDbFile;
     string bedFile;
 
     // output files
     string fastaOutFile;
 
-    // defaults for parameters
-    bool haveFastaIn  = false;
-    bool haveBed      = false;
+    // checks for existence of parameters
+    bool haveFastaDb = false;
+    bool haveBed = false;
     bool haveFastaOut = false;
-    bool softMask     = false;
-    char maskChar     = 'N';
+    bool useNameOnly = false;
+    bool useFasta = true;
+    bool useStrand = false;
 
     // check to see if we should print out some help
     if(argc <= 1) showHelp = true;
@@ -64,8 +65,8 @@ int main(int argc, char* argv[]) {
 
         if(PARAMETER_CHECK("-fi", 3, parameterLength)) {
             if ((i+1) < argc) {
-                haveFastaIn = true;
-                fastaInFile = argv[i + 1];
+                haveFastaDb = true;
+                fastaDbFile = argv[i + 1];
                 i++;
             }
         }
@@ -83,21 +84,14 @@ int main(int argc, char* argv[]) {
                 i++;
             }
         }
-        else if(PARAMETER_CHECK("-soft", 5, parameterLength)) {
-            softMask = true;
+        else if(PARAMETER_CHECK("-name", 5, parameterLength)) {
+            useNameOnly = true;
         }
-        else if(PARAMETER_CHECK("-mc", 3, parameterLength)) {
-            if ((i+1) < argc) {
-                string mask = argv[i + 1];
-                if (mask.size() > 1) {
-                    cerr << "*****ERROR: The mask character (-mc) should be a single character.*****" << endl << endl;
-                    showHelp = true;
-                }
-                else {
-                    maskChar = mask[0];
-                }
-                i++;
-            }
+        else if(PARAMETER_CHECK("-tab", 4, parameterLength)) {
+            useFasta = false;
+        }
+        else if(PARAMETER_CHECK("-s", 2, parameterLength)) {
+            useStrand = true;
         }
         else {
             cerr << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -105,14 +99,15 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if (!haveFastaIn || !haveFastaOut || !haveBed) {
+    if (!haveFastaDb || !haveFastaOut || !haveBed) {
         showHelp = true;
     }
 
     if (!showHelp) {
 
-        MaskFastaFromBed *maskFasta = new MaskFastaFromBed(fastaInFile, bedFile, fastaOutFile, softMask, maskChar);
-        delete maskFasta;
+        CuffToTrans *b2f = new CuffToTrans(useNameOnly, fastaDbFile, bedFile, fastaOutFile, useFasta, useStrand);
+        delete b2f;
+
         return 0;
     }
     else {
@@ -122,23 +117,28 @@ int main(int argc, char* argv[]) {
 
 void ShowHelp(void) {
 
-
-
     cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
 
     cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
 
-    cerr << "Summary: Mask a fasta file based on feature coordinates." << endl << endl;
+    cerr << "Summary: Extract DNA sequences into a fasta file based on feature coordinates." << endl << endl;
 
-    cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -fi <fasta> -out <fasta> -bed <bed/gff/vcf>" << endl << endl;
+    cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -fi <fasta> -bed <bed/gff/vcf> -fo <fasta> " << endl << endl;
 
-    cerr << "Options:" << endl;
+    cerr << "Options: " << endl;
     cerr << "\t-fi\tInput FASTA file" << endl;
-    cerr << "\t-bed\tBED/GFF/VCF file of ranges to mask in -fi" << endl;
-    cerr << "\t-fo\tOutput FASTA file" << endl;
-    cerr << "\t-soft\tEnforce \"soft\" masking.  That is, instead of masking with Ns," << endl;
-    cerr << "\t\tmask with lower-case bases." << endl;
-    cerr << "\t-mc\tReplace masking character.  That is, instead of masking with Ns, use another character." << endl;
+    cerr << "\t-bed\tBED/GFF/VCF file of ranges to extract from -fi" << endl;
+    cerr << "\t-fo\tOutput file (can be FASTA or TAB-delimited)" << endl;
+    cerr << "\t-name\tUse the name field for the FASTA header" << endl;
+
+    cerr << "\t-tab\tWrite output in TAB delimited format." << endl;
+    cerr << "\t\t- Default is FASTA format." << endl << endl;
+
+    cerr << "\t-s\tForce strandedness. If the feature occupies the antisense strand," << endl;
+    cerr << "\t\tthe sequence will be reverse complemented." << endl;
+    cerr << "\t\t- By default, strand information is ignored." << endl << endl;
+
+
 
     // end the program here
     exit(1);
