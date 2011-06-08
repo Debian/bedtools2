@@ -1,0 +1,53 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 1.8
+Date: Wed, 08 Jun 2011 17:01:19 +0900
+Source: bedtools
+Binary: bedtools
+Architecture: source amd64
+Version: 2.12.0-1
+Distribution: unstable
+Urgency: low
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Changed-By: Charles Plessy <plessy@debian.org>
+Description: 
+ bedtools   - suite of utilities for comparing genomic features
+Closes: 629597
+Changes: 
+ bedtools (2.12.0-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #629597)
+Checksums-Sha1: 
+ 3fae9bb7385c3956a0ef2e6f10e0f61d58f460d9 1924 bedtools_2.12.0-1.dsc
+ 2ba712dc9a2642ae2172402983811855309f7ae1 790069 bedtools_2.12.0.orig.tar.bz2
+ e8fcc348a7548dd0aea5c53668420f8e91b089cb 4198 bedtools_2.12.0-1.debian.tar.gz
+ 04880b3f2b1d8f0b640d65431a974f477b55dd28 1614122 bedtools_2.12.0-1_amd64.deb
+Checksums-Sha256: 
+ 64027e710d0f3269424cf73a19cdb97e790246ed55aa2013510cc29b317c8baf 1924 bedtools_2.12.0-1.dsc
+ 9b57249d8891f2da2c6adc55b3088b3f5b10c35b01a106bbd129824c51290a98 790069 bedtools_2.12.0.orig.tar.bz2
+ 82758e0c528cf60f44e4f4488a03b1aa4d0b65dbedc06216724152d460230c72 4198 bedtools_2.12.0-1.debian.tar.gz
+ 5f7d3e1b741e860549fca03274bbe0036c64d94eb5032b941d42b7c56bd3966e 1614122 bedtools_2.12.0-1_amd64.deb
+Files: 
+ ef10a326b91840b669a2019cffa420a2 1924 science optional bedtools_2.12.0-1.dsc
+ cf6c7cd9d457605c7602005b9037abfd 790069 science optional bedtools_2.12.0.orig.tar.bz2
+ 578d850a5a0439b34a4a407897b02dbb 4198 science optional bedtools_2.12.0-1.debian.tar.gz
+ 3de472bdc6e0e95d969ac4b0bfc89482 1614122 science optional bedtools_2.12.0-1_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iQIcBAEBCAAGBQJN7zGRAAoJEMW9bI8ildUCGTYP/0Uj8Gm+eBTa7XWHMmzWO1oM
+bRn+mWietIaLbfghfoivaH76dXNy8cIVPFCLwIG0Ky8nNPPtgrh4OH1UyG7h64kf
+vMMeftq0CggcfPhIGx0Nbx6qtNQeJ0Uoi8Y9cogUw8E1DTy5jm1I6fUGGnSOvBxn
+NcWX/G9xsNgByVXhmL35KDnIOyVD58+clyqT4SIADdoyZkruNPl2hPzresuD6tOK
+YeVL9WavCXq8vTXnjpHR39t8MYgV8RXJwVGTgETLglqJVmynYJK/PkjbbnhPgA9n
+dShcnFkvunlpbuWpZd80Cs6wxTeNM42JYwAD2zBZTRLb9hrR0Hov8j4cm7ZFv4ZF
+doTULs+8dLh8f3ZnMwR98Yt+3rzD5de9p5F9GJCvCIU08q5J8n9OjQUqcqv92ZEb
+PSLdNOT7jhowQw6x7jMBwvUDXuYJVrWTtIdK9LKWwimPejsxA3Nvkr49aHybULbS
+b876MjX6jmAZ8vz64Dl20Ejcls2olWvO9NNjqibtKFZigUAF2TS1BKKAESqxA7a1
+zVNqC7DxleaAJxJdLoVKou+NUo7RqgBS5/+NZWITJLHOk6ZwYvQ8My/yTCkqRBkb
+/zEErQY6gR30Bel8Jl033rX5+1Kx5kccb8C9yfPi0J42A/p2UFqFJ1mqrIK3CUxn
+KILAfmn085lwVdfTzyac
+=3uye
+-----END PGP SIGNATURE-----
