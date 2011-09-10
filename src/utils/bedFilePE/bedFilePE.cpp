@@ -25,53 +25,29 @@ BedFilePE::~BedFilePE(void) {
 }
 
 void BedFilePE::Open(void) {
-    if (bedFile == "stdin") {
+    if (bedFile == "stdin" || bedFile == "-") {
         _bedStream = &cin;
     }
     else {
-        size_t foundPos;
-        foundPos = bedFile.find_last_of(".gz");
-        // is this a GZIPPED BED file?
-        if (foundPos == bedFile.size() - 1) {
-            igzstream beds(bedFile.c_str(), ios::in);
-            if ( !beds ) {
-                cerr << "Error: The requested bedpe file (" << bedFile << ") could not be opened. Exiting!" << endl;
-                exit (1);
-            }
-            else {
-                // if so, close it (this was just a test)
-                beds.close();
-                // now set a pointer to the stream so that we
-                // can read the file later on.
-                // Thank God for Josuttis, p. 631!
-                _bedStream = new igzstream(bedFile.c_str(), ios::in);
-            }
-        }
-        // not GZIPPED.
-        else {
+        _bedStream = new ifstream(bedFile.c_str(), ios::in);
 
-            ifstream beds(bedFile.c_str(), ios::in);
-            // can we open the file?
-            if ( !beds ) {
-                cerr << "Error: The requested bed file (" << bedFile << ") could not be opened. Exiting!" << endl;
-                exit (1);
-            }
-            else {
-                // if so, close it (this was just a test)
-                beds.close();
-                // now set a pointer to the stream so that we
-                // can read the file later on.
-                // Thank God for Josuttis, p. 631!
-                _bedStream = new ifstream(bedFile.c_str(), ios::in);
-            }
+        if (isGzipFile(_bedStream) == true) {
+            delete _bedStream;
+            _bedStream = new igzstream(bedFile.c_str(), ios::in);
+        }
+        // can we open the file?
+        if ( !(_bedStream->good()) ) {
+            cerr << "Error: The requested bed file (" << bedFile << ") could not be opened. Exiting!" << endl;
+            exit (1);
         }
     }
 }
 
 
+
 // Close the BEDPE file
 void BedFilePE::Close(void) {
-    if (bedFile != "stdin") delete _bedStream;
+    if (bedFile != "stdin" && bedFile != "-") delete _bedStream;
 }
 
 

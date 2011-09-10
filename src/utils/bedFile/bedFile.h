@@ -424,32 +424,32 @@ public:
     // search for all overlapping features in another BED file.
     // Searches through each relevant genome bin on the same chromosome
     // as the single feature. Note: Adapted from kent source "binKeeperFind"
-    void FindOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand, vector<BED> &hits, bool forceStrand);
+    void FindOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand, vector<BED> &hits, bool sameStrand, bool diffStrand);
 
     // return true if at least one overlap was found.  otherwise, return false.
     bool FindOneOrMoreOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand,
-                                        bool forceStrand, float overlapFraction = 0.0);
+                                        bool sameStrand, bool diffStrand, float overlapFraction = 0.0);
 
     // return true if at least one __reciprocal__ overlap was found.  otherwise, return false.
     bool FindOneOrMoreReciprocalOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand,
-                                                    bool forceStrand, float overlapFraction = 0.0);
+                                                    bool sameStrand, bool diffStrand, float overlapFraction = 0.0);
 
     // Given a chrom, start, end and strand for a single feature,
     // increment a the number of hits for each feature in B file
     // that the feature overlaps
-    void countHits(const BED &a, bool forceStrand);
+    void countHits(const BED &a, bool sameStrand = false, bool diffStrand = false, bool countsOnly = false);
 
     // same as above, but has special logic that processes a set of
     // BED "blocks" from a single entry so as to avoid over-counting
     // each "block" of a single BAM/BED12 as distinct coverage.  That is,
     // if one read has four block, we only want to count the coverage as
     // coming from one read, not four.
-    void countSplitHits(const vector<BED> &bedBlock, bool forceStrand);
+    void countSplitHits(const vector<BED> &bedBlock, bool sameStrand = false, bool diffStrand = false, bool countsOnly = false);
 
     // Given a chrom, start, end and strand for a single feature,
     // increment a the number of hits for each feature in B file
     // that the feature overlaps
-    void countListHits(const BED &a, int index, bool forceStrand);
+    void countListHits(const BED &a, int index, bool sameStrand, bool diffStrand);
 
     // the bedfile with which this instance is associated
     string bedFile;
@@ -471,6 +471,8 @@ private:
     bool _typeIsKnown;        // do we know the type?   (i.e., BED, GFF, VCF)
     FileType   _fileType;     // what is the file type? (BED? GFF? VCF?)
     istream   *_bedStream;
+    string _bedLine;
+    vector<string> _bedFields;
 
     void setZeroBased(bool zeroBased);
     void setGff (bool isGff);
@@ -573,8 +575,19 @@ private:
         // line matches what we expect for this file.
         if (numFields == this->bedType) {
             bed.chrom = lineVector[0];
-            bed.start = atoi(lineVector[1].c_str());
-            bed.end = atoi(lineVector[2].c_str());
+            int i;
+            i = atoi(lineVector[1].c_str());
+            if (i<0) {
+                 cerr << "Error: malformed BED entry at line " << lineNum << ". Start Coordinate detected that is < 0. Exiting." << endl;
+                 exit(1);
+            }
+            bed.start = (CHRPOS)i;
+            i = atoi(lineVector[2].c_str());
+            if (i<0) {
+                cerr << "Error: malformed BED entry at line " << lineNum << ". End Coordinate detected that is < 0. Exiting." << endl;
+                exit(1);
+            }
+            bed.end = (CHRPOS)i;
             
             // handle starts == end (e.g., insertions in reference genome)
             if (bed.start == bed.end) {
@@ -610,15 +623,11 @@ private:
             }
 
             // sanity checks.
-            if ((bed.start <= bed.end) && (bed.start >= 0) && (bed.end >= 0)) {
+            if (bed.start <= bed.end) {
                 return true;
             }
-            else if (bed.start > bed.end) {
+            else {
                 cerr << "Error: malformed BED entry at line " << lineNum << ". Start was greater than end. Exiting." << endl;
-                exit(1);
-            }
-            else if ( (bed.start < 0) || (bed.end < 0) ) {
-                cerr << "Error: malformed BED entry at line " << lineNum << ". Coordinate detected that is < 0. Exiting." << endl;
                 exit(1);
             }
         }
@@ -660,7 +669,7 @@ private:
                     bed.otherFields.push_back(lineVector[i]);
             }
 
-            if ((bed.start <= bed.end) && (bed.start > 0) && (bed.end > 0)) {
+            if ((bed.start <= bed.end) && (bed.start >= 0) && (bed.end >= 0)) {
                 return true;
             }
             else if (bed.start > bed.end) {
@@ -697,7 +706,6 @@ private:
         if (numFields == this->bedType) {
             if (this->bedType >= 8 && _isGff) {
                 bed.chrom = lineVector[0];
-                // substract 1 to force the start to be BED-style
                 bed.start  = atoi(lineVector[3].c_str());
                 bed.end    = atoi(lineVector[4].c_str());
                 bed.name   = lineVector[2];
@@ -710,11 +718,11 @@ private:
                     bed.otherFields.push_back(lineVector[8]);  // add GFF "group". unused in BED
                     
                 // handle starts == end (e.g., insertions in reference genome)
-                if (bed.start == bed.end) {
-                    bed.end++;
-                    bed.zeroLength = true;
-                }
-                // GFF uses 1-based starts
+                // if (bed.start == bed.end) {
+                //     bed.end++;
+                //     bed.zeroLength = true;
+                // }
+                // GFF uses 1-based starts, covert to zero-based
                 bed.start--;
             }
             else {

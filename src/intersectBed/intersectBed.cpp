@@ -65,7 +65,7 @@ bool BedIntersect::processHits(const BED &a, const vector<BED> &hits, bool print
 */
 BedIntersect::BedIntersect(string bedAFile, string bedBFile, bool anyHit,
                            bool writeA, bool writeB, bool writeOverlap, bool writeAllOverlap,
-                           float overlapFraction, bool noHit, bool writeCount, bool forceStrand,
+                           float overlapFraction, bool noHit, bool writeCount, bool sameStrand, bool diffStrand,
                            bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam) {
 
     _bedAFile            = bedAFile;
@@ -78,7 +78,8 @@ BedIntersect::BedIntersect(string bedAFile, string bedBFile, bool anyHit,
     _writeAllOverlap     = writeAllOverlap;
     _writeCount          = writeCount;
     _overlapFraction     = overlapFraction;
-    _forceStrand         = forceStrand;
+    _sameStrand          = sameStrand;
+    _diffStrand          = diffStrand;
     _reciprocal          = reciprocal;
     _obeySplits          = obeySplits;
     _bamInput            = bamInput;
@@ -113,7 +114,7 @@ bool BedIntersect::FindOverlaps(const BED &a, vector<BED> &hits) {
         printable = false;
 
     // collect and report the sufficient hits
-    _bedB->FindOverlapsPerBin(a.chrom, a.start, a.end, a.strand, hits, _forceStrand);
+    _bedB->FindOverlapsPerBin(a.chrom, a.start, a.end, a.strand, hits, _sameStrand, _diffStrand);
     hitsFound = processHits(a, hits, printable);
 
     return hitsFound;
@@ -177,11 +178,11 @@ bool BedIntersect::FindOneOrMoreOverlap(const BED &a) {
     bool overlapsFound;
     if (_reciprocal == false) {
         overlapsFound = _bedB->FindOneOrMoreOverlapsPerBin(a.chrom, a.start, a.end, a.strand,
-                                                          _forceStrand, _overlapFraction);
+                                                          _sameStrand, _diffStrand, _overlapFraction);
     }
     else {
         overlapsFound = _bedB->FindOneOrMoreReciprocalOverlapsPerBin(a.chrom, a.start, a.end, a.strand,
-                                                                    _forceStrand, _overlapFraction);
+                                                                    _sameStrand, _diffStrand, _overlapFraction);
     }
     return overlapsFound;
 }
@@ -240,13 +241,17 @@ void BedIntersect::IntersectBam(string bamFile) {
     reader.Open(bamFile);
 
     // get header & reference information
-    string header  = reader.GetHeaderText();
-    RefVector refs = reader.GetReferenceData();
+    string bamHeader  = reader.GetHeaderText();
+    RefVector refs    = reader.GetReferenceData();
 
     // open a BAM output to stdout if we are writing BAM
     if (_bamOutput == true) {
+        // set compression mode
+        BamWriter::CompressionMode compressionMode = BamWriter::Compressed;
+        if ( _isUncompressedBam ) compressionMode = BamWriter::Uncompressed;
+        writer.SetCompressionMode(compressionMode);
         // open our BAM writer
-        writer.Open("stdout", header, refs, _isUncompressedBam);
+        writer.Open("stdout", bamHeader, refs);
     }
 
     vector<BED> hits;
@@ -262,7 +267,7 @@ void BedIntersect::IntersectBam(string bamFile) {
             BED a;
             a.chrom = refs.at(bam.RefID).RefName;
             a.start = bam.Position;
-            a.end   = bam.GetEndPosition(false);
+            a.end   = bam.GetEndPosition(false, false);
 
             // build the name field from the BAM alignment.
             a.name = bam.Name;

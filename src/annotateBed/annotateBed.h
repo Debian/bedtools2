@@ -13,12 +13,6 @@
 #define ANNOTATEBED_H
 
 #include "bedFile.h"
-
-#include "BamReader.h"
-#include "BamAux.h"
-#include "BamAncillary.h"
-using namespace BamTools;
-
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -37,7 +31,7 @@ public:
 
     // constructor
     BedAnnotate(const string &mainFile, const vector<string> &annoFileNames,
-                const vector<string> &annoTitles, bool forceStrand, bool reportCounts, bool reportBoth);
+                const vector<string> &annoTitles, bool sameStrand, bool diffStrand, bool reportCounts, bool reportBoth);
 
     // destructor
     ~BedAnnotate(void);
@@ -57,7 +51,9 @@ private:
     vector<BedFile*> _annoFiles;
 
     // do we care about strandedness when counting coverage?
-    bool _forceStrand;
+    bool _sameStrand;
+    bool _diffStrand;
+    
     bool _reportCounts;
     bool _reportBoth;
 

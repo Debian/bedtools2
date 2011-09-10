@@ -8,9 +8,9 @@ export OBJ_DIR	= obj
 export BIN_DIR	= bin
 export SRC_DIR	= src
 export CXX		= g++
-export CXXFLAGS = -Wall -O2
+export CXXFLAGS = -Wall -O2 -D_FILE_OFFSET_BITS=64 -fPIC
 export LIBS		= -lz
-
+export BT_ROOT  = src/utils/BamTools/
 
 
 SUBDIRS = $(SRC_DIR)/annotateBed \
@@ -21,15 +21,15 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/closestBed \
 		  $(SRC_DIR)/complementBed \
 		  $(SRC_DIR)/coverageBed \
-		  $(SRC_DIR)/cuffToTrans \
 		  $(SRC_DIR)/fastaFromBed \
 		  $(SRC_DIR)/flankBed \
-		  $(SRC_DIR)/fjoin \
 		  $(SRC_DIR)/genomeCoverageBed \
 		  $(SRC_DIR)/intersectBed \
 		  $(SRC_DIR)/linksBed \
 		  $(SRC_DIR)/maskFastaFromBed \
-		  $(SRC_DIR)/mergeBed	\
+		  $(SRC_DIR)/mergeBed \
+		  $(SRC_DIR)/multiBamCov \
+		  $(SRC_DIR)/nucBed \
 		  $(SRC_DIR)/overlap \
 		  $(SRC_DIR)/pairToBed \
 		  $(SRC_DIR)/pairToPair \
@@ -37,19 +37,22 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/slopBed \
 		  $(SRC_DIR)/sortBed \
 		  $(SRC_DIR)/subtractBed \
+		  $(SRC_DIR)/tagBam \
 		  $(SRC_DIR)/unionBedGraphs \
 		  $(SRC_DIR)/windowBed
 
 UTIL_SUBDIRS =	$(SRC_DIR)/utils/lineFileUtilities \
 				$(SRC_DIR)/utils/bedFile \
 				$(SRC_DIR)/utils/bedGraphFile \
-				$(SRC_DIR)/utils/tabFile \
 				$(SRC_DIR)/utils/genomeFile \
 				$(SRC_DIR)/utils/gzstream \
 				$(SRC_DIR)/utils/fileType \
 				$(SRC_DIR)/utils/bedFilePE \
 				$(SRC_DIR)/utils/sequenceUtilities \
-				$(SRC_DIR)/utils/BamTools
+				$(SRC_DIR)/utils/tabFile \
+				$(SRC_DIR)/utils/BamTools \
+				$(SRC_DIR)/utils/BamTools-Ancillary \
+				$(SRC_DIR)/utils/Fasta
 
 all:
 	[ -d $(OBJ_DIR) ] || mkdir -p $(OBJ_DIR)
@@ -76,5 +79,9 @@ all:
 clean:
 	@echo "Cleaning up."
 	@rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
+	@rm -Rf $(BT_ROOT)/lib
+	@rm -f $(BT_ROOT)/src/api/*.o
+	@rm -f $(BT_ROOT)/src/api/internal/*.o
+	@rm -Rf $(BT_ROOT)/include
 
 .PHONY: clean
