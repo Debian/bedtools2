@@ -13,6 +13,5 @@ get-orig-source:
 	zcat ../BEDTools.v$(DEB_UPSTREAM_VERSION).tar.gz \
 	| tar --wildcards \
 		--delete '*/._*' \
-		--delete '*/*DS_Store' \
 	| xz \
 	> ../$(DEB_SOURCE_PACKAGE)_$(DEB_UPSTREAM_VERSION).orig.tar.xz
