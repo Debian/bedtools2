@@ -18,7 +18,7 @@
 */
 BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSlop,
                      bool anyHit, bool noHit, bool writeCount, bool strandWindows,
-                     bool matchOnStrand, bool bamInput, bool bamOutput, bool isUncompressedBam) {
+                     bool matchOnSameStrand, bool matchOnDiffStrand, bool bamInput, bool bamOutput, bool isUncompressedBam) {
 
     _bedAFile      = bedAFile;
     _bedBFile      = bedBFile;
@@ -30,7 +30,8 @@ BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSl
     _noHit               = noHit;
     _writeCount          = writeCount;
     _strandWindows       = strandWindows;
-    _matchOnStrand       = matchOnStrand;
+    _matchOnSameStrand   = matchOnSameStrand;
+    _matchOnDiffStrand   = matchOnDiffStrand;
     _bamInput            = bamInput;
     _bamOutput           = bamOutput;
     _isUncompressedBam   = isUncompressedBam;
@@ -70,7 +71,7 @@ void BedWindow::FindWindowOverlaps(const BED &a, vector<BED> &hits) {
         Now report the hits (if any) based on the window around a.
     */
     // get the hits in B for the A feature
-    _bedB->FindOverlapsPerBin(a.chrom, aFudgeStart, aFudgeEnd, a.strand, hits, _matchOnStrand);
+    _bedB->FindOverlapsPerBin(a.chrom, aFudgeStart, aFudgeEnd, a.strand, hits, _matchOnSameStrand, _matchOnDiffStrand);
 
     int numOverlaps = 0;
 
@@ -114,7 +115,7 @@ bool BedWindow::FindOneOrMoreWindowOverlaps(const BED &a) {
     CHRPOS aFudgeEnd;
     AddWindow(a, aFudgeStart, aFudgeEnd);
 
-    bool overlapsFound = _bedB->FindOneOrMoreOverlapsPerBin(a.chrom, a.start, a.end, a.strand, _matchOnStrand);
+    bool overlapsFound = _bedB->FindOneOrMoreOverlapsPerBin(a.chrom, a.start, a.end, a.strand, _matchOnSameStrand, _matchOnDiffStrand);
     return overlapsFound;
 }
 
@@ -155,13 +156,17 @@ void BedWindow::WindowIntersectBam(string bamFile) {
     reader.Open(bamFile);
 
     // get header & reference information
-    string header  = reader.GetHeaderText();
-    RefVector refs = reader.GetReferenceData();
+    string bamHeader  = reader.GetHeaderText();
+    RefVector refs    = reader.GetReferenceData();
 
     // open a BAM output to stdout if we are writing BAM
     if (_bamOutput == true) {
+        // set compression mode
+        BamWriter::CompressionMode compressionMode = BamWriter::Compressed;
+        if ( _isUncompressedBam ) compressionMode = BamWriter::Uncompressed;
+        writer.SetCompressionMode(compressionMode);
         // open our BAM writer
-        writer.Open("stdout", header, refs, _isUncompressedBam);
+        writer.Open("stdout", bamHeader, refs);
     }
 
     vector<BED> hits;                   // vector of potential hits
@@ -178,7 +183,7 @@ void BedWindow::WindowIntersectBam(string bamFile) {
             BED a;
             a.chrom = refs.at(bam.RefID).RefName;
             a.start = bam.Position;
-            a.end   = bam.GetEndPosition(false);
+            a.end   = bam.GetEndPosition(false, false);
 
             // build the name field from the BAM alignment.
             a.name = bam.Name;

@@ -10,9 +10,9 @@
   Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "version.h"
-#include "BamReader.h"
+#include "api/BamReader.h"
+#include "api/BamAux.h"
 #include "BamAncillary.h"
-#include "BamAux.h"
 #include "bedFile.h"
 using namespace BamTools;
 
@@ -344,7 +344,7 @@ void PrintBed(const BamAlignment &bam,  const RefVector &refs, bool useEditDista
     if (bam.IsSecondMate() == true) name += "/2";
 
     // get the unpadded (parm = false) end position based on the CIGAR
-    unsigned int alignmentEnd = bam.GetEndPosition(false);
+    unsigned int alignmentEnd = bam.GetEndPosition(false, false);
 
     // report the entire BAM footprint as a single BED entry
     if (obeySplits == false) {
@@ -443,7 +443,7 @@ void PrintBed12(const BamAlignment &bam, const RefVector &refs, bool useEditDist
     else if (useEditDistance == false && bamTag != "") {
         int32_t tagValue;
         if (bam.GetTag(bamTag, tagValue)) {
-            printf("%s\t%d\t%d\t\%s\t%d\t%s\n", refs.at(bam.RefID).RefName.c_str(), bam.Position,
+            printf("%s\t%d\t%d\t\%s\t%d\t%s\t", refs.at(bam.RefID).RefName.c_str(), bam.Position,
                                           alignmentEnd, name.c_str(), tagValue, strand.c_str());
         }
         else {
