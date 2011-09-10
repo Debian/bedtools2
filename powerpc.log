@@ -1,0 +1,754 @@
+From buildd@porpora.debian.org Wed Jun 08 11:02:46 2011
+Return-path: <buildd@porpora.debian.org>
+Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
+	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
+	CN=merikanto.debian.org,
+	EMAIL=hostmaster@merikanto.debian.org (verified)
+	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+	(Exim 4.72) (envelope-from <buildd@porpora.debian.org>)
+	id 1QUGX7-0007Ch-Pm
+	for logs@buildd.debian.org; Wed, 08 Jun 2011 11:02:46 +0000
+Received: from porpora.ynic.york.ac.uk ([144.32.168.78]
+	helo=porpora.debian.org)
+	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
+	CN=porpora.debian.org, EMAIL=hostmaster@porpora.debian.org (verified)
+	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+	(Exim 4.72) (envelope-from <buildd@porpora.debian.org>)
+	id 1QUGX6-0001nU-Fb; Wed, 08 Jun 2011 11:02:44 +0000
+Received: from buildd by porpora.debian.org with local (Exim 4.72)
+	(envelope-from <buildd@porpora.debian.org>)
+	id 1QUGX5-00051F-T2; Wed, 08 Jun 2011 11:02:43 +0000
+Message-Id: <E1QUGX5-00051F-T2@porpora.debian.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: binary
+X-Mailer: MIME::Lite 3.027 (F2.77; B3.08; Q3.08)
+Date: Wed, 8 Jun 2011 11:02:43 +0000
+From: buildd on porpora <buildd@porpora.debian.org>
+To: phil+buildd@philkern.de,logs@buildd.debian.org
+Subject: Log for successful build of bedtools_2.12.0-1 on powerpc (dist=sid)
+Key-Id: CDFA0A89
+Delivered-To: logs@buildd.debian.org
+
+sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on porpora.debian.org
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ bedtools 2.12.0-1 (powerpc)                                08 Jun 2011 10:57 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: bedtools
+Version: 2.12.0-1
+Source Version: 2.12.0-1
+Architecture: powerpc
+Get:1 http://ftp.uk.debian.org unstable InRelease [146 kB]
+Get:2 http://ftp.uk.debian.org unstable/main Sources [5287 kB]
+Get:3 http://incoming.debian.org unstable InRelease [146 kB]
+Ign http://incoming.debian.org  InRelease
+Get:4 http://incoming.debian.org  Release.gpg [836 B]
+Get:5 http://ftp.uk.debian.org unstable/contrib Sources [49.7 kB]
+Get:6 http://ftp.uk.debian.org unstable/non-free Sources [92.0 kB]
+Get:7 http://ftp.uk.debian.org unstable/main powerpc Packages [7275 kB]
+Get:8 http://incoming.debian.org unstable/main Sources [5287 kB]
+Get:9 http://ftp.uk.debian.org unstable/contrib powerpc Packages [54.1 kB]
+Ign http://ftp.uk.debian.org unstable/contrib TranslationIndex
+Get:10 http://ftp.uk.debian.org unstable/main TranslationIndex [2264 B]
+Ign http://ftp.uk.debian.org unstable/contrib Translation-en
+Get:11 http://incoming.debian.org unstable/contrib Sources [49.7 kB]
+Get:12 http://incoming.debian.org unstable/non-free Sources [92.0 kB]
+Get:13 http://incoming.debian.org unstable/main powerpc Packages [7275 kB]
+Get:14 http://incoming.debian.org unstable/contrib powerpc Packages [54.1 kB]
+Ign http://incoming.debian.org unstable/contrib TranslationIndex
+Get:15 http://incoming.debian.org unstable/main TranslationIndex [2264 B]
+Get:16 http://incoming.debian.org  Release [1604 B]
+Get:17 http://incoming.debian.org  Sources [49.4 kB]
+Get:18 http://incoming.debian.org  Packages [473 kB]
+Ign http://incoming.debian.org unstable/contrib Translation-en
+Ign http://incoming.debian.org  Translation-en
+Fetched 26.3 MB in 22s (1171 kB/s)
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/git/debian-med/bedtools.git
+Need to get 796 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.12.0-1 (dsc) [1924 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.12.0-1 (tar) [790 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.12.0-1 (diff) [4198 B]
+Fetched 796 kB in 1s (518 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (internal resolver)                          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Build-Depends: build-essential, fakeroot
+Checking for already installed dependencies...
+build-essential: already installed (11.5)
+fakeroot: already installed (1.15.1-1)
+Checking for dependency conflicts...
+Installing positive dependencies: 
+Reading package lists...
+Building dependency tree...
+0 upgraded, 0 newly installed, 0 to remove and 18 not upgraded.
+Removing negative dependencies: 
+Reading package lists...
+Building dependency tree...
+0 upgraded, 0 newly installed, 0 to remove and 18 not upgraded.
+Checking correctness of dependencies...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install bedtools build dependencies (internal resolver)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, zlib1g-dev
+Checking for already installed dependencies...
+base-files: already installed (6.4)
+base-passwd: already installed (3.5.22)
+bash: already installed (4.1-3)
+coreutils: already installed (8.5-1)
+dash: already installed (0.5.5.1-7.4)
+debianutils: already installed (4.0.1)
+diffutils: already installed (1:3.0-1)
+dpkg: already installed (1.16.0.3)
+e2fsprogs: already installed (1.41.12-4)
+findutils: already installed (4.4.2-1+b1)
+grep: already installed (2.6.3-3)
+gzip: already installed (1.3.12-9)
+hostname: already installed (3.06)
+ncurses-base: already installed (5.9-1)
+ncurses-bin: already installed (5.9-1)
+perl-base: already installed (5.12.3-7)
+sed: already installed (4.2.1-9)
+login: already installed (1:4.1.4.2+svn3283-3)
+sysvinit-utils: already installed (2.88dsf-13.7)
+sysvinit: already installed (2.88dsf-13.7)
+tar: already installed (1.25-3)
+bsdutils: already installed (1:2.17.2-9.1)
+mount: already installed (2.17.2-9.1)
+util-linux: already installed (2.17.2-9.1)
+libc6-dev: already installed (2.13-4)
+gcc: already installed (4:4.6.0-5 >= 4:4.4.3 is satisfied)
+g++: already installed (4:4.6.0-5 >= 4:4.4.3 is satisfied)
+make: already installed (3.81-8.1)
+dpkg-dev: already installed (1.16.0.3 >= 1.13.5 is satisfied)
+cdbs: missing
+debhelper: missing
+Using default version 8.1.6
+quilt: missing
+zlib1g-dev: missing
+Checking for dependency conflicts...
+Installing positive dependencies: cdbs debhelper quilt zlib1g-dev
+Reading package lists...
+Building dependency tree...
+The following extra packages will be installed:
+  bsdmainutils diffstat file gettext gettext-base groff-base html2text
+  intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3 libpipeline1
+  libunistring0 libxml2 man-db po-debconf
+Suggested packages:
+  wamerican wordlist whois vacation devscripts dh-make gettext-doc groff less
+  www-browser libmail-box-perl procmail graphviz
+Recommended packages:
+  autotools-dev curl wget lynx-cur autopoint libglib2.0-data shared-mime-info
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils cdbs debhelper diffstat file gettext gettext-base groff-base
+  html2text intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3
+  libpipeline1 libunistring0 libxml2 man-db po-debconf quilt zlib1g-dev
+0 upgraded, 21 newly installed, 0 to remove and 18 not upgraded.
+Need to get 9740 kB of archives.
+After this operation, 29.6 MB of additional disk space will be used.
+Get:1 http://ftp.uk.debian.org/debian/ unstable/main bsdmainutils powerpc 8.2.3 [207 kB]
+Get:2 http://ftp.uk.debian.org/debian/ unstable/main groff-base powerpc 1.21-6 [1179 kB]
+Get:3 http://ftp.uk.debian.org/debian/ unstable/main libpipeline1 powerpc 1.2.0-2 [37.3 kB]
+Get:4 http://ftp.uk.debian.org/debian/ unstable/main man-db powerpc 2.6.0.2-1 [1020 kB]
+Get:5 http://ftp.uk.debian.org/debian/ unstable/main libmagic1 powerpc 5.04-5+b1 [240 kB]
+Get:6 http://ftp.uk.debian.org/debian/ unstable/main file powerpc 5.04-5+b1 [49.9 kB]
+Get:7 http://ftp.uk.debian.org/debian/ unstable/main gettext-base powerpc 0.18.1.1-3 [141 kB]
+Get:8 http://ftp.uk.debian.org/debian/ unstable/main libpcre3 powerpc 8.12-3 [258 kB]
+Get:9 http://ftp.uk.debian.org/debian/ unstable/main libxml2 powerpc 2.7.8.dfsg-3 [837 kB]
+Get:10 http://ftp.uk.debian.org/debian/ unstable/main html2text powerpc 1.3.2a-15 [105 kB]
+Get:11 http://ftp.uk.debian.org/debian/ unstable/main libglib2.0-0 powerpc 2.28.6-1 [1611 kB]
+Get:12 http://ftp.uk.debian.org/debian/ unstable/main libcroco3 powerpc 0.6.2-1 [128 kB]
+Get:13 http://ftp.uk.debian.org/debian/ unstable/main libunistring0 powerpc 0.9.3-4 [422 kB]
+Get:14 http://ftp.uk.debian.org/debian/ unstable/main gettext powerpc 0.18.1.1-3 [2046 kB]
+Get:15 http://ftp.uk.debian.org/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:16 http://ftp.uk.debian.org/debian/ unstable/main po-debconf all 1.0.16+nmu1 [223 kB]
+Get:17 http://ftp.uk.debian.org/debian/ unstable/main debhelper all 8.1.6 [557 kB]
+Get:18 http://ftp.uk.debian.org/debian/ unstable/main cdbs all 0.4.94 [75.5 kB]
+Get:19 http://ftp.uk.debian.org/debian/ unstable/main diffstat powerpc 1.54-1 [28.4 kB]
+Get:20 http://ftp.uk.debian.org/debian/ unstable/main quilt all 0.48-7 [354 kB]
+Get:21 http://ftp.uk.debian.org/debian/ unstable/main zlib1g-dev powerpc 1:1.2.3.4.dfsg-3 [190 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 9740 kB in 1s (7688 kB/s)
+Selecting previously deselected package bsdmainutils.
+(Reading database ... 11071 files and directories currently installed.)
+Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_powerpc.deb) ...
+Selecting previously deselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-6_powerpc.deb) ...
+Selecting previously deselected package libpipeline1.
+Unpacking libpipeline1 (from .../libpipeline1_1.2.0-2_powerpc.deb) ...
+Selecting previously deselected package man-db.
+Unpacking man-db (from .../man-db_2.6.0.2-1_powerpc.deb) ...
+Selecting previously deselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.04-5+b1_powerpc.deb) ...
+Selecting previously deselected package file.
+Unpacking file (from .../file_5.04-5+b1_powerpc.deb) ...
+Selecting previously deselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-3_powerpc.deb) ...
+Selecting previously deselected package libpcre3.
+Unpacking libpcre3 (from .../libpcre3_8.12-3_powerpc.deb) ...
+Selecting previously deselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-3_powerpc.deb) ...
+Selecting previously deselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_powerpc.deb) ...
+Selecting previously deselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.28.6-1_powerpc.deb) ...
+Selecting previously deselected package libcroco3.
+Unpacking libcroco3 (from .../libcroco3_0.6.2-1_powerpc.deb) ...
+Selecting previously deselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-4_powerpc.deb) ...
+Selecting previously deselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-3_powerpc.deb) ...
+Selecting previously deselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously deselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu1_all.deb) ...
+Selecting previously deselected package debhelper.
+Unpacking debhelper (from .../debhelper_8.1.6_all.deb) ...
+Selecting previously deselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.94_all.deb) ...
+Selecting previously deselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.54-1_powerpc.deb) ...
+Selecting previously deselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.48-7_all.deb) ...
+Selecting previously deselected package zlib1g-dev.
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_powerpc.deb) ...
+Setting up bsdmainutils (8.2.3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
+Setting up groff-base (1.21-6) ...
+Setting up libpipeline1 (1.2.0-2) ...
+Setting up man-db (2.6.0.2-1) ...
+Building database of manual pages ...
+Setting up libmagic1 (5.04-5+b1) ...
+Setting up file (5.04-5+b1) ...
+Setting up gettext-base (0.18.1.1-3) ...
+Setting up libpcre3 (8.12-3) ...
+Setting up libxml2 (2.7.8.dfsg-3) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libglib2.0-0 (2.28.6-1) ...
+No schema files found: doing nothing.
+Setting up libcroco3 (0.6.2-1) ...
+Setting up libunistring0 (0.9.3-4) ...
+Setting up gettext (0.18.1.1-3) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu1) ...
+Setting up debhelper (8.1.6) ...
+Setting up cdbs (0.4.94) ...
+Setting up diffstat (1.54-1) ...
+Setting up quilt (0.48-7) ...
+Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
+Removing negative dependencies: 
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 18 not upgraded.
+Checking correctness of dependencies...
+Kernel: Linux 2.6.32-5-powerpc64 powerpc (ppc64)
+Toolchain package versions: binutils_2.21.51.20110523-1 dpkg-dev_1.16.0.3 g++-4.6_4.6.0-10 gcc-4.6_4.6.0-10 libc6-dev_2.13-4 libstdc++6_4.6.0-10 libstdc++6-4.6-dev_4.6.0-10 linux-libc-dev_2.6.39-1
+Package versions: apt_0.8.14.1 base-files_6.4 base-passwd_3.5.22 bash_4.1-3 binutils_2.21.51.20110523-1 bsdmainutils_8.2.3 bsdutils_1:2.17.2-9.1 build-essential_11.5 bzip2_1.0.5-6 cdbs_0.4.94 coreutils_8.5-1 cpp_4:4.6.0-5 cpp-4.6_4.6.0-10 dash_0.5.5.1-7.4 debconf_1.5.39 debconf-i18n_1.5.39 debfoster_2.7-1.1 debhelper_8.1.6 debian-archive-keyring_2010.08.28 debianutils_4.0.1 diffstat_1.54-1 diffutils_1:3.0-1 dpkg_1.16.0.3 dpkg-dev_1.16.0.3 e2fslibs_1.41.12-4 e2fsprogs_1.41.12-4 fakeroot_1.15.1-1 file_5.04-5+b1 findutils_4.4.2-1+b1 g++_4:4.6.0-5 g++-4.6_4.6.0-10 gcc_4:4.6.0-5 gcc-4.4-base_4.4.6-3 gcc-4.5-base_4.5.3-1 gcc-4.6_4.6.0-10 gcc-4.6-base_4.6.0-10 gettext_0.18.1.1-3 gettext-base_0.18.1.1-3 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.6.3-3 groff-base_1.21-6 gzip_1.3.12-9 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.7 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.49-5 libattr1_1:2.4.44-3 libblkid1_2.17.2-9.1 libbz2-1.0_1.0.5-6 libc-bin_2.13-4 libc-dev-bin_2.13-4 libc6_2.13-4 libc6-dev_2.13-4 libc6-ppc64_2.13-4 libcloog-ppl0_0.15.9-3 libcomerr2_1.41.12-4 libcroco3_0.6.2-1 libdb5.1_5.1.25-10 libdpkg-perl_1.16.0.3 libgc1c2_1:7.1-8 libgcc1_1:4.6.0-10 libgdbm3_1.8.3-9 libglib2.0-0_2.28.6-1 libgmp10_2:5.0.1+dfsg-7 libgmpxx4ldbl_2:5.0.1+dfsg-7 libgomp1_4.6.0-10 liblocale-gettext-perl_1.05-6+b2 liblzma2_5.0.0-2 libmagic1_5.04-5+b1 libmpc2_0.9-3 libmpfr4_3.0.1-3 libncurses5_5.9-1 libpam-modules_1.1.2-3 libpam-runtime_1.1.2-3 libpam0g_1.1.2-3 libpcre3_8.12-3 libpipeline1_1.2.0-2 libppl-c4_0.11.2-3 libppl9_0.11.2-3 libpwl5_0.11.2-3 libreadline6_6.2-2 libselinux1_2.0.98-1+b1 libsepol1_2.0.42-1 libslang2_2.2.4-2 libss2_1.41.12-4 libstdc++6_4.6.0-10 libstdc++6-4.6-dev_4.6.0-10 libtext-charwidth-perl_0.04-6+b3 libtext-iconv-perl_1.7-2+b2 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libunistring0_0.9.3-4 libusb-0.1-4_2:0.1.12-17 libuuid1_2.17.2-9.1 libxml2_2.7.8.dfsg-3 linux-libc-dev_2.6.39-1 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-27 make_3.81-8.1 man-db_2.6.0.2-1 mawk_1.3.3-15 mount_2.17.2-9.1 ncurses-base_5.9-1 ncurses-bin_5.9-1 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.3-7 perl-base_5.12.3-7 perl-modules_5.12.3-7 po-debconf_1.0.16+nmu1 quilt_0.48-7 readline-common_6.2-2 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.7.4p6-1 sysv-rc_2.88dsf-13.7 sysvinit_2.88dsf-13.7 sysvinit-utils_2.88dsf-13.7 tar_1.25-3 tzdata_2011g-1 util-linux_2.17.2-9.1 xz-utils_5.0.0-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Jun  8 08:23:42 2011 UTC using RSA key ID 2295D502
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./bedtools_2.12.0-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.12.0
+dpkg-source: info: unpacking bedtools_2.12.0.orig.tar.bz2
+dpkg-source: info: unpacking bedtools_2.12.0-1.debian.tar.gz
+dpkg-source: info: applying gzstream.h.patch
+
+Check disc space
+────────────────
+
+
+User Environment
+────────────────
+
+HOME=/home/buildd
+LOGNAME=buildd
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_COMMAND=env
+SCHROOT_GID=1009
+SCHROOT_GROUP=buildd
+SCHROOT_SESSION_ID=sid-powerpc-sbuild-0da373a2-6d9c-4701-871e-8d4c0e6b85db
+SCHROOT_UID=2952
+SCHROOT_USER=buildd
+SHELL=/bin/sh
+TERM=screen
+USER=buildd
+USERNAME=buildd
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: export CFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export CPPFLAGS from dpkg-buildflags (origin: vendor): 
+dpkg-buildpackage: export CXXFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export FFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export LDFLAGS from dpkg-buildflags (origin: vendor): 
+dpkg-buildpackage: source package bedtools
+dpkg-buildpackage: source version 2.12.0-1
+ dpkg-source --before-build bedtools-2.12.0
+dpkg-buildpackage: host architecture powerpc
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C . CFLAGS="-g -O2 -g -O2 -Wall" CXXFLAGS="-g -O2 -g -O2 -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
+make[1]: Entering directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+Cleaning up.
+make[1]: Leaving directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+dh_clean 
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+if [ -d "." ]; then \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	fi
+Removing patch gzstream.h.patch
+Restoring src/utils/gzstream/gzstream.C
+
+No patches applied
+rm -rf ./.pc
+rm -f debian/stamp-patch*
+ debian/rules build
+test -x debian/rules
+mkdir -p "."
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch gzstream.h.patch
+patching file src/utils/gzstream/gzstream.C
+
+Now at patch gzstream.h.patch
+touch debian/stamp-patched
+/usr/bin/make -f debian/rules update-config
+make[1]: Entering directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+make[1]: Nothing to be done for `update-config'.
+make[1]: Leaving directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -g -O2 -Wall" CXXFLAGS="-g -O2 -g -O2 -Wall" CPPFLAGS="" LDFLAGS=""  
+make[1]: Entering directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+[ -d obj ] || mkdir -p obj
+[ -d bin ] || mkdir -p bin
+Building BEDTools:
+=========================================================
+- Building in src/utils/lineFileUtilities
+  * compiling lineFileUtilities.cpp
+
+- Building in src/utils/bedFile
+  * compiling bedFile.cpp
+
+- Building in src/utils/bedGraphFile
+  * compiling bedGraphFile.cpp
+
+- Building in src/utils/tabFile
+  * compiling tabFile.cpp
+
+- Building in src/utils/genomeFile
+  * compiling genomeFile.cpp
+genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
+genomeFile.cpp:51:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
+
+- Building in src/utils/gzstream
+g++ -g -O2 -g -O2 -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
+
+- Building in src/utils/fileType
+  * compiling fileType.cpp
+
+- Building in src/utils/bedFilePE
+  * compiling bedFilePE.cpp
+
+- Building in src/utils/sequenceUtilities
+  * compiling sequenceUtils.cpp
+
+- Building in src/utils/BamTools
+  * compiling BamReader.cpp
+  * compiling BamWriter.cpp
+  * compiling BGZF.cpp
+  * compiling BamAncillary.cpp
+  * compiling BamIndex.cpp
+BamIndex.cpp: In member function 'virtual bool BamTools::BamDefaultIndex::Load(const string&)':
+BamIndex.cpp:405:12: warning: variable 'elementsRead' set but not used [-Wunused-but-set-variable]
+BamIndex.cpp: In member function 'virtual bool BamTools::BamToolsIndex::Load(const string&)':
+BamIndex.cpp:818:12: warning: variable 'elementsRead' set but not used [-Wunused-but-set-variable]
+
+- Building in src/annotateBed
+  * compiling annotateMain.cpp
+annotateMain.cpp: In function 'int main(int, char**)':
+annotateMain.cpp:38:10: warning: variable 'haveTitles' set but not used [-Wunused-but-set-variable]
+  * compiling annotateBed.cpp
+  * linking annotateBed
+
+- Building in src/bamToBed
+  * compiling bamToBed.cpp
+bamToBed.cpp: In function 'int main(int, char**)':
+bamToBed.cpp:70:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
+  * linking bamToBed
+
+- Building in src/bedToBam
+  * compiling bedToBam.cpp
+bedToBam.cpp: In function 'int main(int, char**)':
+bedToBam.cpp:59:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
+  * linking bedToBam
+
+- Building in src/bedToIgv
+  * compiling bedToIgv.cpp
+  * linking bedToIgv
+
+- Building in src/bed12ToBed6
+  * compiling bed12ToBed6.cpp
+  * linking bed12ToBed6
+
+- Building in src/closestBed
+  * compiling closestMain.cpp
+  * compiling closestBed.cpp
+  * linking closestBed
+
+- Building in src/complementBed
+  * compiling complementMain.cpp
+  * compiling complementBed.cpp
+  * linking complementBed
+
+- Building in src/coverageBed
+  * compiling coverageMain.cpp
+  * compiling coverageBed.cpp
+  * linking coverageBed
+
+- Building in src/cuffToTrans
+  * compiling cuffToTransMain.cpp
+  * compiling cuffToTrans.cpp
+  * compiling Fasta.cpp
+Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
+Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:32:16: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  * compiling split.cpp
+  * linking cuffToTrans
+
+- Building in src/fastaFromBed
+  * compiling fastaFromBedMain.cpp
+  * compiling fastaFromBed.cpp
+  * linking fastaFromBed
+
+- Building in src/flankBed
+  * compiling flankBedMain.cpp
+  * compiling flankBed.cpp
+  * linking flankBed
+
+- Building in src/fjoin
+  * compiling fjoinMain.cpp
+  * compiling fjoin.cpp
+  * linking fjoin
+
+- Building in src/genomeCoverageBed
+  * compiling genomeCoverageMain.cpp
+  * compiling genomeCoverageBed.cpp
+  * linking genomeCoverageBed
+
+- Building in src/intersectBed
+  * compiling intersectMain.cpp
+  * compiling intersectBed.cpp
+  * linking intersectBed
+
+- Building in src/linksBed
+  * compiling linksMain.cpp
+  * compiling linksBed.cpp
+  * linking linksBed
+
+- Building in src/maskFastaFromBed
+  * compiling maskFastaFromBedMain.cpp
+  * compiling maskFastaFromBed.cpp
+  * linking maskFastaFromBed
+
+- Building in src/mergeBed
+  * compiling mergeMain.cpp
+mergeMain.cpp: In function 'int main(int, char**)':
+mergeMain.cpp:40:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
+  * compiling mergeBed.cpp
+  * linking mergeBed
+
+- Building in src/overlap
+  * compiling overlap.cpp
+overlap.cpp: In function 'int main(int, char**)':
+overlap.cpp:44:10: warning: variable 'haveColumns' set but not used [-Wunused-but-set-variable]
+  * linking overlap
+
+- Building in src/pairToBed
+  * compiling pairToBedMain.cpp
+pairToBedMain.cpp: In function 'int main(int, char**)':
+pairToBedMain.cpp:43:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
+  * compiling pairToBed.cpp
+pairToBed.cpp: In member function 'void BedIntersectPE::FindSpanningOverlaps(const BEDPE&, std::vector<BED>&, const string&)':
+pairToBed.cpp:253:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
+pairToBed.cpp: In member function 'bool BedIntersectPE::FindOneOrMoreSpanningOverlaps(const BEDPE&, const string&)':
+pairToBed.cpp:305:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
+  * linking pairToBed
+
+- Building in src/pairToPair
+  * compiling pairToPairMain.cpp
+pairToPairMain.cpp: In function 'int main(int, char**)':
+pairToPairMain.cpp:44:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
+  * compiling pairToPair.cpp
+pairToPair.cpp: In member function 'void PairToPair::FindOverlaps(const BEDPE&)':
+pairToPair.cpp:112:14: warning: variable 'found1' set but not used [-Wunused-but-set-variable]
+pairToPair.cpp:113:14: warning: variable 'found2' set but not used [-Wunused-but-set-variable]
+  * linking pairToPair
+
+- Building in src/shuffleBed
+  * compiling shuffleBedMain.cpp
+  * compiling shuffleBed.cpp
+  * linking shuffleBed
+
+- Building in src/slopBed
+  * compiling slopBedMain.cpp
+  * compiling slopBed.cpp
+  * linking slopBed
+
+- Building in src/sortBed
+  * compiling sortMain.cpp
+  * compiling sortBed.cpp
+  * linking sortBed
+
+- Building in src/subtractBed
+  * compiling subtractMain.cpp
+subtractMain.cpp: In function 'int main(int, char**)':
+subtractMain.cpp:41:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
+  * compiling subtractBed.cpp
+  * linking subtractBed
+
+- Building in src/unionBedGraphs
+  * compiling unionBedGraphs.cpp
+  * compiling unionBedGraphsMain.cpp
+unionBedGraphsMain.cpp: In function 'int main(int, char**)':
+unionBedGraphsMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
+unionBedGraphsMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
+unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
+  * linking unionBedGraphs
+
+- Building in src/windowBed
+  * compiling windowMain.cpp
+  * compiling windowBed.cpp
+  * linking windowBed
+
+make[1]: Leaving directory `/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS/bedtools-2.12.0'
+touch debian/stamp-makefile-build
+DEB_MAKE_CHECK_TARGET unset, not running checks
+ fakeroot debian/rules binary-arch
+test -x debian/rules
+dh_testroot
+dh_prep 
+dh_installdirs -A 
+mkdir -p "."
+DEB_MAKE_CHECK_TARGET unset, not running checks
+DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install target
+Adding cdbs dependencies to debian/bedtools.substvars
+dh_installdirs -pbedtools 
+dh_installdocs -pbedtools 
+dh_installexamples -pbedtools 
+dh_installman -pbedtools  
+dh_installinfo -pbedtools  
+dh_installmenu -pbedtools 
+dh_installcron -pbedtools 
+dh_installinit -pbedtools  
+dh_installdebconf -pbedtools 
+dh_installemacsen -pbedtools   
+dh_installcatalogs -pbedtools 
+dh_installpam -pbedtools 
+dh_installlogrotate -pbedtools 
+dh_installlogcheck -pbedtools 
+dh_installchangelogs -pbedtools  RELEASE_HISTORY 
+dh_installudev -pbedtools 
+dh_lintian -pbedtools 
+dh_bugfiles -pbedtools 
+dh_install -pbedtools  
+dh_link -pbedtools  
+dh_installmime -pbedtools 
+dh_installgsettings -pbedtools 
+dh_strip -pbedtools  
+dh_compress -pbedtools  
+dh_fixperms -pbedtools  
+dh_makeshlibs -pbedtools  
+dh_installdeb -pbedtools 
+dh_perl -pbedtools 
+dh_shlibdeps -pbedtools    
+dh_gencontrol -pbedtools  
+dh_md5sums -pbedtools 
+dh_builddeb -pbedtools 
+dpkg-deb: building package `bedtools' in `../bedtools_2.12.0-1_powerpc.deb'.
+ dpkg-genchanges -B -mpowerpc Build Daemon (porpora) <buildd_powerpc-porpora@buildd.debian.org> >../bedtools_2.12.0-1_powerpc.changes
+dpkg-genchanges: arch-specific upload - not including arch-independent packages
+dpkg-genchanges: binary-only upload - not including any source code
+ dpkg-source --after-build bedtools-2.12.0
+dpkg-buildpackage: binary only upload (no source included)
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20110608-1102
+
+bedtools_2.12.0-1_powerpc.changes:
+Format: 1.8
+Date: Wed, 08 Jun 2011 17:01:19 +0900
+Source: bedtools
+Binary: bedtools
+Architecture: powerpc
+Version: 2.12.0-1
+Distribution: sid
+Urgency: low
+Maintainer: powerpc Build Daemon (porpora) <buildd_powerpc-porpora@buildd.debian.org>
+Changed-By: Charles Plessy <plessy@debian.org>
+Description: 
+ bedtools   - suite of utilities for comparing genomic features
+Closes: 629597
+Changes: 
+ bedtools (2.12.0-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #629597)
+Checksums-Sha1: 
+ 5baf6163d3e10d91d947fe88a3725905f9396754 1665434 bedtools_2.12.0-1_powerpc.deb
+Checksums-Sha256: 
+ 9735011b07773aa9ee1f64a7a04f405b79589b2edee228746d439423c75a9b64 1665434 bedtools_2.12.0-1_powerpc.deb
+Files: 
+ 75791f166ce89a4afdb21ec20d0bc6b6 1665434 science optional bedtools_2.12.0-1_powerpc.deb
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Package contents                                                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+bedtools_2.12.0-1_powerpc.deb
+─────────────────────────────
+
+ new debian package, version 2.0.
+ size 1665434 bytes: control archive= 1648 bytes.
+     763 bytes,    15 lines      control              
+    1978 bytes,    34 lines      md5sums              
+ Package: bedtools
+ Version: 2.12.0-1
+ Architecture: powerpc
+ Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+ Installed-Size: 3852
+ Depends: libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
+ Section: science
+ Priority: optional
+ Homepage: http://code.google.com/p/bedtools/
+ Description: suite of utilities for comparing genomic features
+  The BEDTools utilities allow one to address common genomics tasks such as
+  finding feature overlaps and computing coverage. The utilities are largely
+  based on four widely-used file formats: BED, GFF/GTF, VCF, and SAM/BAM. Using
+  BEDTools, one can develop sophisticated pipelines that answer complicated
+  research questions by streaming several BEDTools together.
+
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./usr/
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./usr/bin/
+-rwxr-xr-x root/root    200940 2011-06-08 11:02 ./usr/bin/intersectBed
+-rwxr-xr-x root/root    113436 2011-06-08 11:02 ./usr/bin/mergeBed
+-rwxr-xr-x root/root    145652 2011-06-08 11:02 ./usr/bin/sortBed
+-rwxr-xr-x root/root    137580 2011-06-08 11:02 ./usr/bin/bedToBam
+-rwxr-xr-x root/root    121380 2011-06-08 11:02 ./usr/bin/closestBed
+-rwxr-xr-x root/root    146548 2011-06-08 11:02 ./usr/bin/cuffToTrans
+-rwxr-xr-x root/root    195780 2011-06-08 11:02 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root    178564 2011-06-08 11:02 ./usr/bin/annotateBed
+-rwxr-xr-x root/root    207244 2011-06-08 11:02 ./usr/bin/fjoin
+-rwxr-xr-x root/root    146548 2011-06-08 11:02 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root    109700 2011-06-08 11:02 ./usr/bin/complementBed
+-rwxr-xr-x root/root    265916 2011-06-08 11:02 ./usr/bin/pairToBed
+-rwxr-xr-x root/root    182652 2011-06-08 11:02 ./usr/bin/coverageBed
+-rwxr-xr-x root/root    100644 2011-06-08 11:02 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root    109996 2011-06-08 11:02 ./usr/bin/linksBed
+-rwxr-xr-x root/root    109068 2011-06-08 11:02 ./usr/bin/slopBed
+-rwxr-xr-x root/root    115596 2011-06-08 11:02 ./usr/bin/subtractBed
+-rwxr-xr-x root/root    183572 2011-06-08 11:02 ./usr/bin/windowBed
+-rwxr-xr-x root/root    125812 2011-06-08 11:02 ./usr/bin/bamToBed
+-rwxr-xr-x root/root    133404 2011-06-08 11:02 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root     64844 2011-06-08 11:02 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root    179308 2011-06-08 11:02 ./usr/bin/pairToPair
+-rwxr-xr-x root/root    122780 2011-06-08 11:02 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root    116988 2011-06-08 11:02 ./usr/bin/flankBed
+-rwxr-xr-x root/root    112916 2011-06-08 11:02 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root     92604 2011-06-08 11:02 ./usr/bin/overlap
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2011-06-08 10:58 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       856 2011-04-04 01:30 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root      1972 2011-04-04 01:30 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       565 2011-04-04 01:30 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root       585 2011-04-04 01:30 ./usr/share/bedtools/genomes/mouse.mm9.genome
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2011-06-08 11:02 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root      8577 2011-04-04 01:30 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root      4611 2011-06-08 07:59 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root       156 2011-06-08 08:01 ./usr/share/doc/bedtools/changelog.Debian.gz
+-rw-r--r-- root/root      1586 2011-04-04 01:30 ./usr/share/doc/bedtools/README.rst.gz
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Finished                                                                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Built successfully
+────────────────────────────────────────────────────────────────────────────────
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Post Build                                                                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /var/lib/schroot/mount/sid-powerpc-sbuild-0da373a2-6d9c-4701-871e-8d4c0e6b85db/build/buildd-bedtools_2.12.0-1-powerpc-Xp8fmS
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: powerpc
+Build-Space: 79440
+Build-Time: 254
+Distribution: sid
+Install-Time: 41
+Job: bedtools_2.12.0-1
+Package: bedtools
+Package-Time: 332
+Source-Version: 2.12.0-1
+Space: 79440
+Status: successful
+Version: 2.12.0-1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20110608-1102
+Build needed 00:05:32, 79440k disc space
+Signature with key 'CDFA0A89' requested:
