@@ -1,8 +1,13 @@
-bedtools (2.13.1-1) UNRELEASED; urgency=low
+bedtools (2.13.1-1) unstable; urgency=low
 
-  * New upstream release.
+  [2e3fe5e] New upstream release.
+  [ff5450e] Compress source and binary packages with xz.
+  [ef58a33] Suggest filo for the groupBy command.
+  [df206c0] Mangle debian/watch download URL.
+  [2fe7cff] Simplified repacking as upstream tarballs do not contain
+    ‘*/*DS_Store’ files anymore.
 
- -- Charles Plessy <plessy@debian.org>  Sat, 10 Sep 2011 23:24:45 +0900
+ -- Charles Plessy <plessy@debian.org>  Sat, 10 Sep 2011 23:32:43 +0900
 
 bedtools (2.12.0-1) unstable; urgency=low
 
