@@ -146,6 +146,21 @@ void BedFile::Open(void) {
     }
 }
 
+// Rewind the pointer back to the beginning of the file
+void BedFile::Rewind(void) {
+    _bedStream->seekg(0, ios::beg);
+}
+
+// Jump to a specific byte in the file
+void BedFile::Seek(unsigned long offset) {
+    _bedStream->seekg(offset);
+}
+
+// Jump to a specific byte in the file
+bool BedFile::Empty() {
+    return _bedStream->eof();
+}
+
 
 // Close the BED file
 void BedFile::Close(void) {
@@ -158,6 +173,7 @@ BedLineStatus BedFile::GetNextBed(BED &bed, int &lineNum) {
     // make sure there are still lines to process.
     // if so, tokenize, validate and return the BED entry.
     _bedFields.clear();
+    // clear out the previous bed's data
     if (_bedStream->good()) {
         // parse the bedStream pointer
         getline(*_bedStream, _bedLine);

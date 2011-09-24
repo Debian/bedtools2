@@ -44,7 +44,7 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 UTIL_SUBDIRS =	$(SRC_DIR)/utils/lineFileUtilities \
 				$(SRC_DIR)/utils/bedFile \
 				$(SRC_DIR)/utils/bedGraphFile \
-				$(SRC_DIR)/utils/genomeFile \
+				$(SRC_DIR)/utils/chromsweep \
 				$(SRC_DIR)/utils/gzstream \
 				$(SRC_DIR)/utils/fileType \
 				$(SRC_DIR)/utils/bedFilePE \
@@ -52,7 +52,8 @@ UTIL_SUBDIRS =	$(SRC_DIR)/utils/lineFileUtilities \
 				$(SRC_DIR)/utils/tabFile \
 				$(SRC_DIR)/utils/BamTools \
 				$(SRC_DIR)/utils/BamTools-Ancillary \
-				$(SRC_DIR)/utils/Fasta
+				$(SRC_DIR)/utils/Fasta \
+				$(SRC_DIR)/utils/genomeFile
 
 all:
 	[ -d $(OBJ_DIR) ] || mkdir -p $(OBJ_DIR)
