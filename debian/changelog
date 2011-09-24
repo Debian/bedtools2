@@ -1,3 +1,9 @@
+bedtools (2.13.2-1) unstable; urgency=low
+
+  [1930a26] New upstream release.
+
+ -- Charles Plessy <plessy@debian.org>  Sat, 24 Sep 2011 09:34:29 +0900
+
 bedtools (2.13.1-1) unstable; urgency=low
 
   [2e3fe5e] New upstream release.
