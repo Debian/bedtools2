@@ -15,7 +15,7 @@
 /************************************
 Helper functions
 ************************************/
-bool BedIntersect::processHits(const BED &a, const vector<BED> &hits, bool printable) {
+bool BedIntersect::processHits(const BED &a, const vector<BED> &hits) {
 
     // how many overlaps are there b/w the bed and the set of hits?
     int s, e, overlapBases;
@@ -37,7 +37,7 @@ bool BedIntersect::processHits(const BED &a, const vector<BED> &hits, bool print
             if (_reciprocal == false) {
                 hitsFound = true;
                 numOverlaps++;
-                if (printable == true)
+                if (_printable == true)
                     ReportOverlapDetail(overlapBases, a, *h, s, e);
             }
             // we require there to be sufficient __reciprocal__ overlap
@@ -47,7 +47,7 @@ bool BedIntersect::processHits(const BED &a, const vector<BED> &hits, bool print
                 if (bOverlap >= _overlapFraction) {
                     hitsFound = true;
                     numOverlaps++;
-                    if (printable == true)
+                    if (_printable == true)
                         ReportOverlapDetail(overlapBases, a, *h, s, e);
                 }
             }
@@ -66,7 +66,8 @@ bool BedIntersect::processHits(const BED &a, const vector<BED> &hits, bool print
 BedIntersect::BedIntersect(string bedAFile, string bedBFile, bool anyHit,
                            bool writeA, bool writeB, bool writeOverlap, bool writeAllOverlap,
                            float overlapFraction, bool noHit, bool writeCount, bool sameStrand, bool diffStrand,
-                           bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam) {
+                           bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam,
+                           bool sortedInput) {
 
     _bedAFile            = bedAFile;
     _bedBFile            = bedBFile;
@@ -85,11 +86,13 @@ BedIntersect::BedIntersect(string bedAFile, string bedBFile, bool anyHit,
     _bamInput            = bamInput;
     _bamOutput           = bamOutput;
     _isUncompressedBam   = isUncompressedBam;
+    _sortedInput         = sortedInput;
 
-    // create new BED file objects for A and B
-    _bedA = new BedFile(bedAFile);
-    _bedB = new BedFile(bedBFile);
-
+    // should we print each overlap, or does the user want summary information?
+    _printable = true;
+    if (_anyHit || _noHit || _writeCount)
+        _printable = false;
+        
     if (_bamInput == false)
         IntersectBed();
     else
@@ -108,14 +111,9 @@ bool BedIntersect::FindOverlaps(const BED &a, vector<BED> &hits) {
 
     bool hitsFound = false;
 
-    // should we print each overlap, or does the user want summary information?
-    bool printable = true;
-    if (_anyHit || _noHit || _writeCount)
-        printable = false;
-
     // collect and report the sufficient hits
     _bedB->FindOverlapsPerBin(a.chrom, a.start, a.end, a.strand, hits, _sameStrand, _diffStrand);
-    hitsFound = processHits(a, hits, printable);
+    hitsFound = processHits(a, hits);
 
     return hitsFound;
 }
@@ -175,7 +173,7 @@ void BedIntersect::ReportOverlapSummary(const BED &a, const int &numOverlapsFoun
 
 
 bool BedIntersect::FindOneOrMoreOverlap(const BED &a) {
-    bool overlapsFound;
+    bool overlapsFound = false;
     if (_reciprocal == false) {
         overlapsFound = _bedB->FindOneOrMoreOverlapsPerBin(a.chrom, a.start, a.end, a.strand,
                                                           _sameStrand, _diffStrand, _overlapFraction);
@@ -190,42 +188,56 @@ bool BedIntersect::FindOneOrMoreOverlap(const BED &a) {
 
 void BedIntersect::IntersectBed() {
 
-    // load the "B" file into a map in order to
-    // compare each entry in A to it in search of overlaps.
-    _bedB->loadBedFileIntoMap();
+    // create new BED file objects for A and B
+    _bedA = new BedFile(_bedAFile);
+    _bedB = new BedFile(_bedBFile);
 
-    int lineNum = 0;
-    vector<BED> hits;
-    hits.reserve(100);
-    BED a, nullBed;
-    BedLineStatus bedStatus;
+    if (_sortedInput == false) {
+        // load the "B" file into a map in order to
+        // compare each entry in A to it in search of overlaps.
+        _bedB->loadBedFileIntoMap();
 
-    // open the "A" file, process each BED entry and searh for overlaps.
-    _bedA->Open();
-    while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
-            // treat the BED as a single "block"
-            if (_obeySplits == false) {
-                FindOverlaps(a, hits);
-                hits.clear();
-                a = nullBed;
-            }
-            // split the BED12 into blocks and look for overlaps in each discrete block
-            else {
-                bedVector bedBlocks;  // vec to store the discrete BED "blocks"
-                splitBedIntoBlocks(a, lineNum, bedBlocks);
+        int lineNum = 0;
+        vector<BED> hits;
+        hits.reserve(100);
+        BED a, nullBed;
+        BedLineStatus bedStatus;
 
-                vector<BED>::const_iterator bedItr  = bedBlocks.begin();
-                vector<BED>::const_iterator bedEnd  = bedBlocks.end();
-                for (; bedItr != bedEnd; ++bedItr) {
-                    FindOverlaps(*bedItr, hits);
+        // open the "A" file, process each BED entry and searh for overlaps.
+        _bedA->Open();
+        while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
+            if (bedStatus == BED_VALID) {
+                // treat the BED as a single "block"
+                if (_obeySplits == false) {
+                    FindOverlaps(a, hits);
                     hits.clear();
                 }
-                a = nullBed;
+                // split the BED12 into blocks and look for overlaps in each discrete block
+                else {
+                    bedVector bedBlocks;  // vec to store the discrete BED "blocks"
+                    splitBedIntoBlocks(a, lineNum, bedBlocks);
+
+                    vector<BED>::const_iterator bedItr  = bedBlocks.begin();
+                    vector<BED>::const_iterator bedEnd  = bedBlocks.end();
+                    for (; bedItr != bedEnd; ++bedItr) {
+                        FindOverlaps(*bedItr, hits);
+                        hits.clear();
+                    }
+                }
             }
+            a = nullBed;
+        }
+        _bedA->Close();
+    }
+    else {
+        // use the chromsweep algorithm to detect overlaps on the fly.
+        ChromSweep sweep = ChromSweep(_bedA, _bedB);
+
+        pair<BED, vector<BED> > hit_set;
+        while (sweep.Next(hit_set)) {
+            processHits(hit_set.first, hit_set.second);
         }
     }
-    _bedA->Close();
 }
 
 
@@ -233,11 +245,13 @@ void BedIntersect::IntersectBam(string bamFile) {
 
     // load the "B" bed file into a map so
     // that we can easily compare "A" to it for overlaps
+    _bedB = new BedFile(_bedBFile);
     _bedB->loadBedFileIntoMap();
 
     // open the BAM file
     BamReader reader;
     BamWriter writer;
+    
     reader.Open(bamFile);
 
     // get header & reference information
@@ -258,8 +272,10 @@ void BedIntersect::IntersectBam(string bamFile) {
     // reserve some space
     hits.reserve(100);
 
-    _bedA->bedType = 6;
+    //_bedA->bedType = 6;
+    
     BamAlignment bam;
+    
     // get each set of alignments for each pair.
     while (reader.GetNextAlignment(bam)) {
 
@@ -300,7 +316,7 @@ void BedIntersect::IntersectBam(string bamFile) {
                     vector<BED>::const_iterator bedItr  = bedBlocks.begin();
                     vector<BED>::const_iterator bedEnd  = bedBlocks.end();
                     for (; bedItr != bedEnd; ++bedItr) {
-                        overlapFoundForBlock = FindOneOrMoreOverlap(a);
+                        overlapFoundForBlock = FindOneOrMoreOverlap(*bedItr);
                         if (overlapFoundForBlock == true)
                             overlapsFound = true;
                     }
