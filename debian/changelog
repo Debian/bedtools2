@@ -1,3 +1,9 @@
+bedtools (2.13.2-2) UNRELEASED; urgency=low
+
+  [ea1c596] New upstream release.
+
+ -- Charles Plessy <plessy@debian.org>  Mon, 03 Oct 2011 13:36:41 +0900
+
 bedtools (2.13.2-1) unstable; urgency=low
 
   [1930a26] New upstream release.
