@@ -10,8 +10,3 @@ DEB_INSTALL_CHANGELOGS_ALL := RELEASE_HISTORY
 
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)
-	zcat ../BEDTools.v$(DEB_UPSTREAM_VERSION).tar.gz \
-	| tar --wildcards \
-		--delete '*/._*' \
-	| xz \
-	> ../$(DEB_SOURCE_PACKAGE)_$(DEB_UPSTREAM_VERSION).orig.tar.xz
