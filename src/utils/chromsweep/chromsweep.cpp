@@ -21,9 +21,11 @@ vector<BED> scan_cache(const BED &curr_qy, BedLineStatus qy_status, const vector
 /*
     // constructor using existing BedFile pointers
 */
-ChromSweep::ChromSweep(BedFile *bedA, BedFile *bedB) 
+ChromSweep::ChromSweep(BedFile *bedA, BedFile *bedB, bool sameStrand, bool diffStrand)
 : _bedA(bedA)
 , _bedB(bedB)
+, _sameStrand(sameStrand)
+, _diffStrand(diffStrand)
 {
     // prime the results pump.
     _qy_lineNum = 0;
@@ -47,8 +49,8 @@ ChromSweep::ChromSweep(string &bedAFile, string &bedBFile)
     _qy_lineNum = 0;
     _db_lineNum = 0;
     
-    _hits.reserve(1000);
-    _cache.reserve(1000);
+    _hits.reserve(100000);
+    _cache.reserve(100000);
     
     _bedA = new BedFile(bedAFile);
     _bedB = new BedFile(bedBFile);
@@ -70,11 +72,11 @@ ChromSweep::~ChromSweep(void) {
 
 void ChromSweep::ScanCache() {
     if (_qy_status != BED_INVALID) {
-        vector<BED>::iterator c        = _cache.begin();
+        vector<BED>::iterator c = _cache.begin();
         while (c != _cache.end())
         {
             if ((_curr_qy.chrom == c->chrom) && !(after(_curr_qy, *c))) {
-                if (overlaps(_curr_qy.start, _curr_qy.end, c->start, c->end) > 0) {
+                if (IsValidHit(_curr_qy, *c)) {
                     _hits.push_back(*c);
                 }
                 ++c;
@@ -87,68 +89,84 @@ void ChromSweep::ScanCache() {
 }
 
 
-void ChromSweep::ChromCheck() 
+bool ChromSweep::ChromChange()
 {
-    // the files are on the chrom
+    // the files are on the same chrom
     if ((_curr_qy.chrom == _curr_db.chrom) || (_db_status == BED_INVALID) || (_qy_status == BED_INVALID)) {
-        return;
+        return false;
     }
-    
-    // the query is ahead of the database.
-    // fast-forward the database to catch-up.
-    if (_curr_qy.chrom > _curr_db.chrom) {
+    // the query is ahead of the database. fast-forward the database to catch-up.
+    else if (_curr_qy.chrom > _curr_db.chrom) {
         while (!_bedB->Empty() && _curr_db.chrom < _curr_qy.chrom)
         {
             _db_status = _bedB->GetNextBed(_curr_db, _db_lineNum);
         }
         _cache.clear();
+        return false;
     }
     // the database is ahead of the query.
-    // 1. scan the cache for remaining hits on the query's current chrom.
-    // 2. fast-forward until we catch up and report 0 hits until we do.
-    else if (_curr_qy.chrom < _curr_db.chrom) {
-        // report hits for the remaining queries on this chrom
-        string curr_chrom = _curr_qy.chrom;
-        while (!_bedA->Empty() && _curr_qy.chrom == curr_chrom)
+    else {
+        // 1. scan the cache for remaining hits on the query's current chrom.
+        if (_curr_qy.chrom == _curr_chrom)
         {
             ScanCache();
             _results.push(make_pair(_curr_qy, _hits));
-            _qy_status = _bedA->GetNextBed(_curr_qy, _qy_lineNum);
             _hits.clear();
         }
-        // now fast forward query to catch up to database
-        while (!_bedA->Empty() && _curr_qy.chrom < _curr_db.chrom)
+        // 2. fast-forward until we catch up and report 0 hits until we do.
+        else if (_curr_qy.chrom < _curr_db.chrom)
         {
-            // hits is empty to reflect the fact that no hits are found in catch-up mode
-            _results.push(make_pair(_curr_qy, _hits));
-            _qy_status = _bedA->GetNextBed(_curr_qy, _qy_lineNum);
+            _results.push(make_pair(_curr_qy, _no_hits));
+            _cache.clear();
         }
-        _cache.clear();
+        _qy_status = _bedA->GetNextBed(_curr_qy, _qy_lineNum);
+        _curr_chrom = _curr_qy.chrom;
+        return true;
     }
+}
+
+bool ChromSweep::IsValidHit(const BED &query, const BED &db) {
+    // do we have an overlap in the DB?
+    if (overlaps(query.start, query.end, db.start, db.end) > 0) {
+        // Now test for necessary strandedness.
+        bool strands_are_same = (query.strand == db.strand);
+        if ( (_sameStrand == false && _diffStrand == false)
+             ||
+             (_sameStrand == true && strands_are_same == true)
+             ||
+             (_diffStrand == true && strands_are_same == false)
+           )
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 
 bool ChromSweep::Next(pair<BED, vector<BED> > &next) {
     if (!_bedA->Empty()) {
         // have we changed chromosomes?
-        ChromCheck();
-        // scan the database cache for hits
-        ScanCache();
-        // advance the db until we are ahead of the query. update hits and cache as necessary
-        while (!_bedB->Empty() && _curr_qy.chrom == _curr_db.chrom && !(after(_curr_db, _curr_qy)))
-        {
-            if (overlaps(_curr_qy.start, _curr_qy.end, _curr_db.start, _curr_db.end) > 0) {
-                _hits.push_back(_curr_db);
+        if (ChromChange() == false) {
+            // scan the database cache for hits
+            ScanCache();
+            // advance the db until we are ahead of the query. update hits and cache as necessary
+            while (!_bedB->Empty() && _curr_qy.chrom == _curr_db.chrom && !(after(_curr_db, _curr_qy)))
+            {
+                if (IsValidHit(_curr_qy, _curr_db)) {
+                    _hits.push_back(_curr_db);
+                }
+                _cache.push_back(_curr_db);
+                _db_status = _bedB->GetNextBed(_curr_db, _db_lineNum);
             }
-            _cache.push_back(_curr_db);
-            _db_status = _bedB->GetNextBed(_curr_db, _db_lineNum);
+            // add the hits for this query to the pump
+            _results.push(make_pair(_curr_qy, _hits));
+            // reset for the next query
+            _hits.clear();
+            _curr_qy = _nullBed;
+            _qy_status = _bedA->GetNextBed(_curr_qy, _qy_lineNum);
+            _curr_chrom = _curr_qy.chrom;
         }
-        // add the hits for this query to the pump
-        _results.push(make_pair(_curr_qy, _hits));
-        // reset for the next query
-        _hits.clear();
-        _curr_qy = _nullBed;
-        _qy_status = _bedA->GetNextBed(_curr_qy, _qy_lineNum);
     }
     // report the next set if hits if there are still overlaps in the pump
     if (!_results.empty()) {
