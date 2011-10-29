@@ -1,6 +1,6 @@
-bedtools (2.13.3-2) UNRELEASED; urgency=low
+bedtools (2.13.4-1) UNRELEASED; urgency=low
 
-  * Next update in preparation.
+  * New upstream release.
 
  -- Charles Plessy <plessy@debian.org>  Sat, 29 Oct 2011 10:46:11 +0900
 
