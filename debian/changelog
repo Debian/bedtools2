@@ -1,8 +1,8 @@
-bedtools (2.13.4-1) UNRELEASED; urgency=low
+bedtools (2.13.4-1) unstable; urgency=low
 
-  * New upstream release.
+  [e553c37] New upstream release.
 
- -- Charles Plessy <plessy@debian.org>  Sat, 29 Oct 2011 10:46:11 +0900
+ -- Charles Plessy <plessy@debian.org>  Sat, 29 Oct 2011 11:08:02 +0900
 
 bedtools (2.13.3-1ubuntu1) precise; urgency=low
 
