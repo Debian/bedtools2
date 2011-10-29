@@ -1,8 +1,7 @@
 Source: bedtools
 Section: science
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 DM-Upload-Allowed: yes
 Uploaders: Charles Plessy <plessy@debian.org>
 Build-Depends: cdbs, debhelper (>= 8), quilt, zlib1g-dev
