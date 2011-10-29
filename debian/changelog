@@ -1,3 +1,10 @@
+bedtools (2.13.3-1ubuntu1) precise; urgency=low
+
+  * Pre-Depends: dpkg (>= 1.15.6) for xz compression support.  Needed until
+    after Ubuntu 12.04 LTS.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 17 Oct 2011 21:30:47 +0100
+
 bedtools (2.13.3-1) unstable; urgency=low
 
   [ea1c596] New upstream release.
