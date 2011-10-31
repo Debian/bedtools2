@@ -1,69 +1,69 @@
-From buildd@zandonai.debian.org Wed Oct 05 10:37:52 2011
+From buildd@zandonai.debian.org Sat Oct 29 04:48:27 2011
 Return-path: <buildd@zandonai.debian.org>
-Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
+Received: from kokkonen.debian.org ([2001:41b8:202:deb:1a1a:0:52c3:4b61])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
-	CN=merikanto.debian.org,
-	EMAIL=hostmaster@merikanto.debian.org (verified)
+	CN=kokkonen.debian.org,
+	EMAIL=hostmaster@kokkonen.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@zandonai.debian.org>)
-	id 1RBOrI-00026m-Rb
-	for logs@buildd.debian.org; Wed, 05 Oct 2011 10:37:52 +0000
+	id 1RK0qJ-0006yN-D1
+	for logs@buildd.debian.org; Sat, 29 Oct 2011 04:48:27 +0000
 Received: from zandonai.debian.org ([80.245.147.46])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
 	CN=zandonai.debian.org,
 	EMAIL=hostmaster@zandonai.debian.org (verified)
-	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+	by kokkonen.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@zandonai.debian.org>)
-	id 1RBOrI-0004F4-6l; Wed, 05 Oct 2011 10:37:52 +0000
+	id 1RK0qI-00036v-JB; Sat, 29 Oct 2011 04:48:26 +0000
 Received: from buildd by zandonai.debian.org with local (Exim 4.72)
 	(envelope-from <buildd@zandonai.debian.org>)
-	id 1RBOrH-0002Jl-Nr; Wed, 05 Oct 2011 10:37:51 +0000
-Message-Id: <E1RBOrH-0002Jl-Nr@zandonai.debian.org>
+	id 1RK0qI-0006qI-9M; Sat, 29 Oct 2011 04:48:26 +0000
+Message-Id: <E1RK0qI-0006qI-9M@zandonai.debian.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: binary
 X-Mailer: MIME::Lite 3.027 (F2.77; B3.08; Q3.08)
-Date: Wed, 5 Oct 2011 10:37:51 +0000
+Date: Sat, 29 Oct 2011 04:48:26 +0000
 From: buildd on zandonai <buildd@zandonai.debian.org>
 To: phil+buildd@philkern.de,logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.13.3-1 on s390 (dist=sid)
+Subject: Log for successful build of bedtools_2.13.4-1 on s390 (dist=sid)
 Key-Id: 2D941D26
 Delivered-To: logs@buildd.debian.org
 
 sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on zandonai.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.13.3-1 (s390)                                   05 Oct 2011 10:33 ║
+║ bedtools 2.13.4-1 (s390)                                   29 Oct 2011 04:44 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.13.3-1
-Source Version: 2.13.3-1
+Version: 2.13.4-1
+Source Version: 2.13.4-1
 Architecture: s390
 Get:1 http://ftp.de.debian.org unstable InRelease [146 kB]
-Get:2 http://incoming.debian.org unstable InRelease [146 kB]
-Get:3 http://ftp.de.debian.org unstable/main Sources [5816 kB]
+Get:2 http://ftp.de.debian.org unstable/main Sources [5874 kB]
+Get:3 http://incoming.debian.org unstable InRelease [146 kB]
 Ign http://incoming.debian.org  InRelease
 Get:4 http://incoming.debian.org  Release.gpg [836 B]
-Get:5 http://incoming.debian.org unstable/main Sources [5816 kB]
-Get:6 http://ftp.de.debian.org unstable/contrib Sources [57.1 kB]
-Get:7 http://ftp.de.debian.org unstable/non-free Sources [103 kB]
-Get:8 http://ftp.de.debian.org unstable/main s390 Packages [7557 kB]
-Get:9 http://ftp.de.debian.org unstable/contrib s390 Packages [54.0 kB]
+Get:5 http://incoming.debian.org unstable/main Sources [5874 kB]
+Get:6 http://ftp.de.debian.org unstable/contrib Sources [56.5 kB]
+Get:7 http://ftp.de.debian.org unstable/non-free Sources [104 kB]
+Get:8 http://ftp.de.debian.org unstable/main s390 Packages [7610 kB]
+Get:9 http://ftp.de.debian.org unstable/contrib s390 Packages [54.2 kB]
 Ign http://ftp.de.debian.org unstable/contrib TranslationIndex
 Get:10 http://ftp.de.debian.org unstable/main TranslationIndex [2045 B]
 Ign http://ftp.de.debian.org unstable/contrib Translation-en
-Get:11 http://incoming.debian.org unstable/contrib Sources [57.1 kB]
-Get:12 http://incoming.debian.org unstable/non-free Sources [103 kB]
-Get:13 http://incoming.debian.org unstable/main s390 Packages [7557 kB]
-Get:14 http://incoming.debian.org unstable/contrib s390 Packages [54.0 kB]
+Get:11 http://incoming.debian.org unstable/contrib Sources [56.5 kB]
+Get:12 http://incoming.debian.org unstable/non-free Sources [104 kB]
+Get:13 http://incoming.debian.org unstable/main s390 Packages [7610 kB]
+Get:14 http://incoming.debian.org unstable/contrib s390 Packages [54.2 kB]
 Ign http://incoming.debian.org unstable/contrib TranslationIndex
 Get:15 http://incoming.debian.org unstable/main TranslationIndex [2045 B]
 Get:16 http://incoming.debian.org  Release [1604 B]
-Get:17 http://incoming.debian.org  Sources [36.2 kB]
-Get:18 http://incoming.debian.org  Packages [277 kB]
+Get:17 http://incoming.debian.org  Sources [37.0 kB]
+Get:18 http://incoming.debian.org  Packages [332 kB]
 Ign http://incoming.debian.org unstable/contrib Translation-en
 Ign http://incoming.debian.org  Translation-en
-Fetched 27.8 MB in 30s (908 kB/s)
+Fetched 28.1 MB in 24s (1137 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -84,11 +84,11 @@ Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
-Need to get 666 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.3-1 (dsc) [1967 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.3-1 (tar) [660 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.3-1 (diff) [4282 B]
-Fetched 666 kB in 1s (348 kB/s)
+Need to get 922 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.4-1 (dsc) [1967 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.4-1 (tar) [916 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.4-1 (diff) [4231 B]
+Fetched 922 kB in 2s (461 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -102,18 +102,18 @@ Check arch
 Build-Depends: build-essential, fakeroot
 Checking for already installed dependencies...
 build-essential: already installed (11.5)
-fakeroot: already installed (1.18-1)
+fakeroot: already installed (1.18.1-1)
 Checking for dependency conflicts...
 Installing positive dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 17 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 40 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 17 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 40 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -125,19 +125,19 @@ Checking for already installed dependencies...
 base-files: already installed (6.5)
 base-passwd: already installed (3.5.23)
 bash: already installed (4.1-3)
-coreutils: already installed (8.13-2)
+coreutils: already installed (8.13-3)
 dash: already installed (0.5.7-2)
-debianutils: already installed (4.0.2)
+debianutils: already installed (4.0.3)
 diffutils: already installed (1:3.0-1)
 dpkg: already installed (1.16.1)
-e2fsprogs: already installed (1.42~WIP-2011-09-25-1)
+e2fsprogs: already installed (1.42~WIP-2011-10-05-2)
 findutils: already installed (4.4.2-1+b1)
 grep: already installed (2.9-2)
 gzip: already installed (1.4-1)
 hostname: already installed (3.06)
-ncurses-base: already installed (5.9-1)
-ncurses-bin: already installed (5.9-1)
-perl-base: already installed (5.12.4-4)
+ncurses-base: already installed (5.9-2)
+ncurses-bin: already installed (5.9-2)
+perl-base: already installed (5.12.4-5)
 sed: already installed (4.2.1-9)
 login: already installed (1:4.1.4.2+svn3283-3)
 sysvinit-utils: already installed (2.88dsf-13.11)
@@ -175,24 +175,24 @@ The following NEW packages will be installed:
   bsdmainutils cdbs debhelper diffstat file gettext gettext-base groff-base
   html2text intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3
   libpipeline1 libunistring0 libxml2 man-db po-debconf quilt zlib1g-dev
-0 upgraded, 21 newly installed, 0 to remove and 17 not upgraded.
-Need to get 9823 kB of archives.
-After this operation, 28.8 MB of additional disk space will be used.
+0 upgraded, 21 newly installed, 0 to remove and 40 not upgraded.
+Need to get 9864 kB of archives.
+After this operation, 28.0 MB of additional disk space will be used.
 Get:1 http://ftp.de.debian.org/debian/ unstable/main libpipeline1 s390 1.2.0-3 [39.0 kB]
 Get:2 http://ftp.de.debian.org/debian/ unstable/main libpcre3 s390 8.12-4 [228 kB]
-Get:3 http://ftp.de.debian.org/debian/ unstable/main bsdmainutils s390 8.2.3 [209 kB]
-Get:4 http://ftp.de.debian.org/debian/ unstable/main groff-base s390 1.21-6 [1156 kB]
-Get:5 http://ftp.de.debian.org/debian/ unstable/main man-db s390 2.6.0.2-2 [1029 kB]
-Get:6 http://ftp.de.debian.org/debian/ unstable/main libmagic1 s390 5.08-1 [255 kB]
-Get:7 http://ftp.de.debian.org/debian/ unstable/main file s390 5.08-1 [52.2 kB]
-Get:8 http://ftp.de.debian.org/debian/ unstable/main gettext-base s390 0.18.1.1-4 [143 kB]
-Get:9 http://ftp.de.debian.org/debian/ unstable/main libxml2 s390 2.7.8.dfsg-4 [879 kB]
-Get:10 http://ftp.de.debian.org/debian/ unstable/main cdbs all 0.4.99 [77.1 kB]
-Get:11 http://ftp.de.debian.org/debian/ unstable/main html2text s390 1.3.2a-15 [101 kB]
-Get:12 http://ftp.de.debian.org/debian/ unstable/main libglib2.0-0 s390 2.28.6-1 [1639 kB]
-Get:13 http://ftp.de.debian.org/debian/ unstable/main libcroco3 s390 0.6.2-1 [128 kB]
-Get:14 http://ftp.de.debian.org/debian/ unstable/main libunistring0 s390 0.9.3-4 [431 kB]
-Get:15 http://ftp.de.debian.org/debian/ unstable/main gettext s390 0.18.1.1-4 [2073 kB]
+Get:3 http://ftp.de.debian.org/debian/ unstable/main libglib2.0-0 s390 2.28.8-1 [1681 kB]
+Get:4 http://ftp.de.debian.org/debian/ unstable/main libxml2 s390 2.7.8.dfsg-5 [879 kB]
+Get:5 http://ftp.de.debian.org/debian/ unstable/main libcroco3 s390 0.6.2-2 [122 kB]
+Get:6 http://ftp.de.debian.org/debian/ unstable/main libunistring0 s390 0.9.3-5 [433 kB]
+Get:7 http://ftp.de.debian.org/debian/ unstable/main bsdmainutils s390 8.2.3 [209 kB]
+Get:8 http://ftp.de.debian.org/debian/ unstable/main groff-base s390 1.21-6 [1156 kB]
+Get:9 http://ftp.de.debian.org/debian/ unstable/main man-db s390 2.6.0.2-2 [1029 kB]
+Get:10 http://ftp.de.debian.org/debian/ unstable/main libmagic1 s390 5.09-2 [257 kB]
+Get:11 http://ftp.de.debian.org/debian/ unstable/main file s390 5.09-2 [52.6 kB]
+Get:12 http://ftp.de.debian.org/debian/ unstable/main gettext-base s390 0.18.1.1-5 [143 kB]
+Get:13 http://ftp.de.debian.org/debian/ unstable/main cdbs all 0.4.99 [77.1 kB]
+Get:14 http://ftp.de.debian.org/debian/ unstable/main html2text s390 1.3.2a-15 [101 kB]
+Get:15 http://ftp.de.debian.org/debian/ unstable/main gettext s390 0.18.1.1-5 [2073 kB]
 Get:16 http://ftp.de.debian.org/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
 Get:17 http://ftp.de.debian.org/debian/ unstable/main po-debconf all 1.0.16+nmu1 [223 kB]
 Get:18 http://ftp.de.debian.org/debian/ unstable/main debhelper all 8.9.8 [552 kB]
@@ -200,12 +200,20 @@ Get:19 http://ftp.de.debian.org/debian/ unstable/main diffstat s390 1.54-1 [28.4
 Get:20 http://ftp.de.debian.org/debian/ unstable/main quilt all 0.48-8 [357 kB]
 Get:21 http://ftp.de.debian.org/debian/ unstable/main zlib1g-dev s390 1:1.2.3.4.dfsg-3 [193 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 9823 kB in 6s (1414 kB/s)
+Fetched 9864 kB in 2s (3441 kB/s)
 Selecting previously unselected package libpipeline1.
-(Reading database ... 10624 files and directories currently installed.)
+(Reading database ... 10631 files and directories currently installed.)
 Unpacking libpipeline1 (from .../libpipeline1_1.2.0-3_s390.deb) ...
 Selecting previously unselected package libpcre3.
 Unpacking libpcre3 (from .../libpcre3_8.12-4_s390.deb) ...
+Selecting previously unselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.28.8-1_s390.deb) ...
+Selecting previously unselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5_s390.deb) ...
+Selecting previously unselected package libcroco3.
+Unpacking libcroco3 (from .../libcroco3_0.6.2-2_s390.deb) ...
+Selecting previously unselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-5_s390.deb) ...
 Selecting previously unselected package bsdmainutils.
 Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_s390.deb) ...
 Selecting previously unselected package groff-base.
@@ -213,25 +221,17 @@ Unpacking groff-base (from .../groff-base_1.21-6_s390.deb) ...
 Selecting previously unselected package man-db.
 Unpacking man-db (from .../man-db_2.6.0.2-2_s390.deb) ...
 Selecting previously unselected package libmagic1.
-Unpacking libmagic1 (from .../libmagic1_5.08-1_s390.deb) ...
+Unpacking libmagic1 (from .../libmagic1_5.09-2_s390.deb) ...
 Selecting previously unselected package file.
-Unpacking file (from .../archives/file_5.08-1_s390.deb) ...
+Unpacking file (from .../archives/file_5.09-2_s390.deb) ...
 Selecting previously unselected package gettext-base.
-Unpacking gettext-base (from .../gettext-base_0.18.1.1-4_s390.deb) ...
-Selecting previously unselected package libxml2.
-Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-4_s390.deb) ...
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_s390.deb) ...
 Selecting previously unselected package cdbs.
 Unpacking cdbs (from .../archives/cdbs_0.4.99_all.deb) ...
 Selecting previously unselected package html2text.
 Unpacking html2text (from .../html2text_1.3.2a-15_s390.deb) ...
-Selecting previously unselected package libglib2.0-0.
-Unpacking libglib2.0-0 (from .../libglib2.0-0_2.28.6-1_s390.deb) ...
-Selecting previously unselected package libcroco3.
-Unpacking libcroco3 (from .../libcroco3_0.6.2-1_s390.deb) ...
-Selecting previously unselected package libunistring0.
-Unpacking libunistring0 (from .../libunistring0_0.9.3-4_s390.deb) ...
 Selecting previously unselected package gettext.
-Unpacking gettext (from .../gettext_0.18.1.1-4_s390.deb) ...
+Unpacking gettext (from .../gettext_0.18.1.1-5_s390.deb) ...
 Selecting previously unselected package intltool-debian.
 Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
 Selecting previously unselected package po-debconf.
@@ -246,23 +246,23 @@ Selecting previously unselected package zlib1g-dev.
 Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_s390.deb) ...
 Setting up libpipeline1 (1.2.0-3) ...
 Setting up libpcre3 (8.12-4) ...
+Setting up libglib2.0-0 (2.28.8-1) ...
+No schema files found: doing nothing.
+Setting up libxml2 (2.7.8.dfsg-5) ...
+Setting up libcroco3 (0.6.2-2) ...
+Setting up libunistring0 (0.9.3-5) ...
 Setting up bsdmainutils (8.2.3) ...
 update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
 update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
 Setting up groff-base (1.21-6) ...
 Setting up man-db (2.6.0.2-2) ...
 Building database of manual pages ...
-Setting up libmagic1 (5.08-1) ...
-Setting up file (5.08-1) ...
-Setting up gettext-base (0.18.1.1-4) ...
-Setting up libxml2 (2.7.8.dfsg-4) ...
+Setting up libmagic1 (5.09-2) ...
+Setting up file (5.09-2) ...
+Setting up gettext-base (0.18.1.1-5) ...
 Setting up cdbs (0.4.99) ...
 Setting up html2text (1.3.2a-15) ...
-Setting up libglib2.0-0 (2.28.6-1) ...
-No schema files found: doing nothing.
-Setting up libcroco3 (0.6.2-1) ...
-Setting up libunistring0 (0.9.3-4) ...
-Setting up gettext (0.18.1.1-4) ...
+Setting up gettext (0.18.1.1-5) ...
 Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu1) ...
 Setting up debhelper (8.9.8) ...
@@ -273,11 +273,11 @@ Removing negative dependencies:
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 17 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 40 not upgraded.
 Checking correctness of dependencies...
 Kernel: Linux 2.6.32-5-s390x s390 (s390x)
-Toolchain package versions: binutils_2.21.53.20110922-1 dpkg-dev_1.16.1 g++-4.6_4.6.1-13 gcc-4.6_4.6.1-13 libc6-dev_2.13-21 libstdc++6_4.6.1-13 libstdc++6-4.6-dev_4.6.1-13 linux-libc-dev_3.0.0-4
-Package versions: apt_0.8.15.8 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 binutils_2.21.53.20110922-1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 cdbs_0.4.99 coreutils_8.13-2 cpp_4:4.6.1-3 cpp-4.6_4.6.1-13 dash_0.5.7-2 debconf_1.5.41 debconf-i18n_1.5.41 debfoster_2.7-1.1 debhelper_8.9.8 debian-archive-keyring_2010.08.28 debianutils_4.0.2 diffstat_1.54-1 diffutils_1:3.0-1 dpkg_1.16.1 dpkg-dev_1.16.1 e2fslibs_1.42~WIP-2011-09-25-1 e2fsprogs_1.42~WIP-2011-09-25-1 fakeroot_1.18-1 file_5.08-1 findutils_4.4.2-1+b1 g++_4:4.6.1-3 g++-4.6_4.6.1-13 gcc_4:4.6.1-3 gcc-4.4-base_4.4.6-11 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.1-13 gcc-4.6-base_4.6.1-13 gettext_0.18.1.1-4 gettext-base_0.18.1.1-4 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.4-1 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.11 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-3 libattr1_1:2.4.46-3 libblkid1_2.19.1-5 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc6_2.13-21 libc6-dev_2.13-21 libcomerr2_1.42~WIP-2011-09-25-1 libcroco3_0.6.2-1 libdb5.1_5.1.25-11 libdpkg-perl_1.16.1 libgc1c2_1:7.1-8 libgcc1_1:4.6.1-13 libgdbm3_1.8.3-10 libglib2.0-0_2.28.6-1 libgmp10_2:5.0.2+dfsg-1 libgomp1_4.6.1-13 liblocale-gettext-perl_1.05-7 liblzma2_5.1.1alpha+20110809-2 libmagic1_5.08-1 libmount1_2.19.1-5 libmpc2_0.9-3 libmpfr4_3.0.1-6 libncurses5_5.9-1 libpam-modules_1.1.3-4 libpam-modules-bin_1.1.3-4 libpam-runtime_1.1.3-4 libpam0g_1.1.3-4 libpcre3_8.12-4 libpipeline1_1.2.0-3 libreadline6_6.2-4 libselinux1_2.1.0-1 libsepol1_2.1.0-1.1 libslang2_2.2.4-3 libss2_1.42~WIP-2011-09-25-1 libstdc++6_4.6.1-13 libstdc++6-4.6-dev_4.6.1-13 libtext-charwidth-perl_0.04-7 libtext-iconv-perl_1.7-4 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libunistring0_0.9.3-4 libusb-0.1-4_2:0.1.12-19 libuuid1_2.19.1-5 libxml2_2.7.8.dfsg-4 linux-libc-dev_3.0.0-4 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-2 mawk_1.3.3-15 mount_2.19.1-5 multiarch-support_2.13-21 ncurses-base_5.9-1 ncurses-bin_5.9-1 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.4-4 perl-base_5.12.4-4 perl-modules_5.12.4-4 po-debconf_1.0.16+nmu1 quilt_0.48-8 readline-common_6.2-4 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.2-2 sysv-rc_2.88dsf-13.11 sysvinit_2.88dsf-13.11 sysvinit-utils_2.88dsf-13.11 tar_1.26-2 tzdata_2011k-1 util-linux_2.19.1-5 xz-utils_5.1.1alpha+20110809-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+Toolchain package versions: binutils_2.21.90.20111004-1 dpkg-dev_1.16.1 g++-4.6_4.6.1-13 gcc-4.6_4.6.1-13 libc6-dev_2.13-21 libstdc++6_4.6.1-13 libstdc++6-4.6-dev_4.6.1-13 linux-libc-dev_3.0.0-5
+Package versions: apt_0.8.15.8 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 binutils_2.21.90.20111004-1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 cdbs_0.4.99 coreutils_8.13-3 cpp_4:4.6.1-3 cpp-4.6_4.6.1-13 dash_0.5.7-2 debconf_1.5.41 debconf-i18n_1.5.41 debfoster_2.7-1.1 debhelper_8.9.8 debian-archive-keyring_2010.08.28 debianutils_4.0.3 diffstat_1.54-1 diffutils_1:3.0-1 dpkg_1.16.1 dpkg-dev_1.16.1 e2fslibs_1.42~WIP-2011-10-05-2 e2fsprogs_1.42~WIP-2011-10-05-2 fakeroot_1.18.1-1 file_5.09-2 findutils_4.4.2-1+b1 g++_4:4.6.1-3 g++-4.6_4.6.1-13 gcc_4:4.6.1-3 gcc-4.4-base_4.4.6-11 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.1-13 gcc-4.6-base_4.6.1-13 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.4-1 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.11 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-3 libattr1_1:2.4.46-3 libblkid1_2.19.1-5 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc6_2.13-21 libc6-dev_2.13-21 libcomerr2_1.42~WIP-2011-10-05-2 libcroco3_0.6.2-2 libdb5.1_5.1.25-11 libdpkg-perl_1.16.1 libgc1c2_1:7.1-8 libgcc1_1:4.6.1-13 libgdbm3_1.8.3-10 libglib2.0-0_2.28.8-1 libgmp10_2:5.0.2+dfsg-1 libgomp1_4.6.1-13 liblocale-gettext-perl_1.05-7 liblzma2_5.1.1alpha+20110809-2 libmagic1_5.09-2 libmount1_2.19.1-5 libmpc2_0.9-3 libmpfr4_3.1.0-1 libncurses5_5.9-2 libpam-modules_1.1.3-4 libpam-modules-bin_1.1.3-4 libpam-runtime_1.1.3-4 libpam0g_1.1.3-4 libpcre3_8.12-4 libpipeline1_1.2.0-3 libreadline6_6.2-6 libselinux1_2.1.0-1 libsepol1_2.1.0-1.1 libslang2_2.2.4-3 libss2_1.42~WIP-2011-10-05-2 libstdc++6_4.6.1-13 libstdc++6-4.6-dev_4.6.1-13 libtext-charwidth-perl_0.04-7 libtext-iconv-perl_1.7-4 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-2 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-19 libuuid1_2.19.1-5 libxml2_2.7.8.dfsg-5 linux-libc-dev_3.0.0-5 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-2 mawk_1.3.3-15 mount_2.19.1-5 multiarch-support_2.13-21 ncurses-base_5.9-2 ncurses-bin_5.9-2 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.4-5 perl-base_5.12.4-5 perl-modules_5.12.4-5 po-debconf_1.0.16+nmu1 quilt_0.48-8 readline-common_6.2-6 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.2-2 sysv-rc_2.88dsf-13.11 sysvinit_2.88dsf-13.11 sysvinit-utils_2.88dsf-13.11 tar_1.26-2 tzdata_2011k-1 util-linux_2.19.1-5 xz-utils_5.1.1alpha+20110809-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -288,12 +288,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Wed Oct  5 08:41:27 2011 UTC using RSA key ID 2295D502
+gpgv: Signature made Sat Oct 29 02:18:35 2011 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.13.3-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.13.3
-dpkg-source: info: unpacking bedtools_2.13.3.orig.tar.xz
-dpkg-source: info: unpacking bedtools_2.13.3-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.13.4-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.13.4
+dpkg-source: info: unpacking bedtools_2.13.4.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.13.4-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -309,24 +309,24 @@ dpkg-buildpackage: dpkg-buildflags (origin: vendor): CXXFLAGS = -g -O2 -fstack-p
 dpkg-buildpackage: dpkg-buildflags (origin: vendor): FFLAGS = -g -O2
 dpkg-buildpackage: dpkg-buildflags (origin: vendor): LDFLAGS = -Wl,-z,relro
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.13.3-1
- dpkg-source --before-build bedtools-2.13.3
+dpkg-buildpackage: source version 2.13.4-1
+ dpkg-source --before-build bedtools-2.13.4
 dpkg-buildpackage: host architecture s390
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
 /usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 dh_clean 
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -339,21 +339,21 @@ test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 /usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 [ -d obj ] || mkdir -p obj
 [ -d bin ] || mkdir -p bin
 Building BEDTools:
@@ -604,7 +604,7 @@ unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-
   * compiling windowBed.cpp
   * linking windowBed
 
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-s390-oUtfeu/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-s390-7mfGTR/bedtools-2.13.4'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
@@ -649,22 +649,22 @@ dh_shlibdeps -pbedtools
 dh_gencontrol -pbedtools  
 dh_md5sums -pbedtools 
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.13.3-1_s390.deb'.
- dpkg-genchanges -B -ms390 Build Daemon (zandonai) <buildd_s390-zandonai@buildd.debian.org> >../bedtools_2.13.3-1_s390.changes
+dpkg-deb: building package `bedtools' in `../bedtools_2.13.4-1_s390.deb'.
+ dpkg-genchanges -B -ms390 Build Daemon (zandonai) <buildd_s390-zandonai@buildd.debian.org> >../bedtools_2.13.4-1_s390.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.13.3
+ dpkg-source --after-build bedtools-2.13.4
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20111005-1037
+Build finished at 20111029-0448
 
-bedtools_2.13.3-1_s390.changes:
+bedtools_2.13.4-1_s390.changes:
 Format: 1.8
-Date: Wed, 05 Oct 2011 17:18:15 +0900
+Date: Sat, 29 Oct 2011 11:08:02 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: s390
-Version: 2.13.3-1
+Version: 2.13.4-1
 Distribution: sid
 Urgency: low
 Maintainer: s390 Build Daemon (zandonai) <buildd_s390-zandonai@buildd.debian.org>
@@ -672,33 +672,34 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.13.3-1) unstable; urgency=low
+ bedtools (2.13.4-1) unstable; urgency=low
  .
-   [ea1c596] New upstream release.
+   [e553c37] New upstream release.
 Checksums-Sha1: 
- 75733846d436cd069c4f45c0bc3798046ff65052 523834 bedtools_2.13.3-1_s390.deb
+ 5a423ec434d0e8494e2755a11c65c73c4f5a07c2 525452 bedtools_2.13.4-1_s390.deb
 Checksums-Sha256: 
- 9e78f4027e5e57d87c901ddda8dc8777945d60e788ba990cf4a9c01a5db542a9 523834 bedtools_2.13.3-1_s390.deb
+ 7063b5d1a3abcd47378e8ba6a7d7c1dd03f7cdf75938fd3273babd57a1cbf801 525452 bedtools_2.13.4-1_s390.deb
 Files: 
- 31c6269b3eb5b0d34373c12aa2bf4869 523834 science optional bedtools_2.13.3-1_s390.deb
+ 187fcb45404b6b106e22b00762fc49c3 525452 science optional bedtools_2.13.4-1_s390.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.13.3-1_s390.deb
+bedtools_2.13.4-1_s390.deb
 ──────────────────────────
 
  new debian package, version 2.0.
- size 523834 bytes: control archive= 1717 bytes.
-     834 bytes,    18 lines      control              
+ size 525452 bytes: control archive= 1732 bytes.
+     864 bytes,    19 lines      control              
     2025 bytes,    35 lines      md5sums              
  Package: bedtools
- Version: 2.13.3-1
+ Version: 2.13.4-1
  Architecture: s390
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 4734
+ Installed-Size: 4740
+ Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
  Section: science
@@ -713,49 +714,49 @@ bedtools_2.13.3-1_s390.deb
   .
   The groupBy utility is distribued in the filo package.
 
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./usr/
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./usr/bin/
--rwxr-xr-x root/root    285616 2011-10-05 10:37 ./usr/bin/coverageBed
--rwxr-xr-x root/root    105796 2011-10-05 10:37 ./usr/bin/linksBed
--rwxr-xr-x root/root    293148 2011-10-05 10:37 ./usr/bin/windowBed
--rwxr-xr-x root/root    113560 2011-10-05 10:37 ./usr/bin/subtractBed
--rwxr-xr-x root/root    280868 2011-10-05 10:37 ./usr/bin/tagBam
--rwxr-xr-x root/root    114968 2011-10-05 10:37 ./usr/bin/flankBed
--rwxr-xr-x root/root     88452 2011-10-05 10:37 ./usr/bin/overlap
--rwxr-xr-x root/root    231568 2011-10-05 10:37 ./usr/bin/bamToBed
--rwxr-xr-x root/root    109648 2011-10-05 10:37 ./usr/bin/complementBed
--rwxr-xr-x root/root    305448 2011-10-05 10:37 ./usr/bin/genomeCoverageBed
--rwxr-xr-x root/root    112724 2011-10-05 10:37 ./usr/bin/maskFastaFromBed
--rwxr-xr-x root/root    145548 2011-10-05 10:37 ./usr/bin/fastaFromBed
--rwxr-xr-x root/root     63832 2011-10-05 10:37 ./usr/bin/unionBedGraphs
--rwxr-xr-x root/root    371160 2011-10-05 10:37 ./usr/bin/pairToBed
--rwxr-xr-x root/root    235752 2011-10-05 10:37 ./usr/bin/bedToBam
--rwxr-xr-x root/root     97464 2011-10-05 10:37 ./usr/bin/bed12ToBed6
--rwxr-xr-x root/root    109200 2011-10-05 10:37 ./usr/bin/mergeBed
--rwxr-xr-x root/root    122076 2011-10-05 10:37 ./usr/bin/bedToIgv
--rwxr-xr-x root/root    176448 2011-10-05 10:37 ./usr/bin/pairToPair
--rwxr-xr-x root/root    104464 2011-10-05 10:37 ./usr/bin/annotateBed
--rwxr-xr-x root/root    133196 2011-10-05 10:37 ./usr/bin/shuffleBed
--rwxr-xr-x root/root    145560 2011-10-05 10:37 ./usr/bin/nucBed
--rwxr-xr-x root/root    120916 2011-10-05 10:37 ./usr/bin/closestBed
--rwxr-xr-x root/root    309532 2011-10-05 10:37 ./usr/bin/multiBamCov
--rwxr-xr-x root/root    358696 2011-10-05 10:37 ./usr/bin/intersectBed
--rwxr-xr-x root/root    145728 2011-10-05 10:37 ./usr/bin/sortBed
--rwxr-xr-x root/root    107056 2011-10-05 10:37 ./usr/bin/slopBed
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./usr/share/
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./usr/share/bedtools/
-drwxr-xr-x root/root         0 2011-10-05 10:34 ./usr/share/bedtools/genomes/
--rwxr-xr-x root/root       856 2011-09-30 19:42 ./usr/share/bedtools/genomes/human.hg18.genome
--rwxr-xr-x root/root       565 2011-09-30 19:42 ./usr/share/bedtools/genomes/mouse.mm8.genome
--rwxr-xr-x root/root      1972 2011-09-30 19:42 ./usr/share/bedtools/genomes/human.hg19.genome
--rwxr-xr-x root/root       585 2011-09-30 19:42 ./usr/share/bedtools/genomes/mouse.mm9.genome
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./usr/share/doc/
-drwxr-xr-x root/root         0 2011-10-05 10:37 ./usr/share/doc/bedtools/
--rw-r--r-- root/root     11213 2011-09-30 19:42 ./usr/share/doc/bedtools/changelog.gz
--rw-r--r-- root/root       440 2011-10-05 08:18 ./usr/share/doc/bedtools/changelog.Debian.gz
--rw-r--r-- root/root      4611 2011-10-03 04:37 ./usr/share/doc/bedtools/copyright
--rw-r--r-- root/root      1442 2011-09-30 19:42 ./usr/share/doc/bedtools/README.rst
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./usr/
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./usr/bin/
+-rwxr-xr-x root/root    289044 2011-10-29 04:48 ./usr/bin/coverageBed
+-rwxr-xr-x root/root    105796 2011-10-29 04:48 ./usr/bin/linksBed
+-rwxr-xr-x root/root    293148 2011-10-29 04:48 ./usr/bin/windowBed
+-rwxr-xr-x root/root    113560 2011-10-29 04:48 ./usr/bin/subtractBed
+-rwxr-xr-x root/root    280868 2011-10-29 04:48 ./usr/bin/tagBam
+-rwxr-xr-x root/root    114968 2011-10-29 04:48 ./usr/bin/flankBed
+-rwxr-xr-x root/root     88452 2011-10-29 04:48 ./usr/bin/overlap
+-rwxr-xr-x root/root    232524 2011-10-29 04:48 ./usr/bin/bamToBed
+-rwxr-xr-x root/root    109648 2011-10-29 04:48 ./usr/bin/complementBed
+-rwxr-xr-x root/root    305560 2011-10-29 04:48 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root    112724 2011-10-29 04:48 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root    145548 2011-10-29 04:48 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root     63832 2011-10-29 04:48 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root    371160 2011-10-29 04:48 ./usr/bin/pairToBed
+-rwxr-xr-x root/root    235752 2011-10-29 04:48 ./usr/bin/bedToBam
+-rwxr-xr-x root/root     97464 2011-10-29 04:48 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root    109200 2011-10-29 04:48 ./usr/bin/mergeBed
+-rwxr-xr-x root/root    122076 2011-10-29 04:48 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root    176448 2011-10-29 04:48 ./usr/bin/pairToPair
+-rwxr-xr-x root/root    104464 2011-10-29 04:48 ./usr/bin/annotateBed
+-rwxr-xr-x root/root    133196 2011-10-29 04:48 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root    145560 2011-10-29 04:48 ./usr/bin/nucBed
+-rwxr-xr-x root/root    122384 2011-10-29 04:48 ./usr/bin/closestBed
+-rwxr-xr-x root/root    309532 2011-10-29 04:48 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root    358696 2011-10-29 04:48 ./usr/bin/intersectBed
+-rwxr-xr-x root/root    145728 2011-10-29 04:48 ./usr/bin/sortBed
+-rwxr-xr-x root/root    107056 2011-10-29 04:48 ./usr/bin/slopBed
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./usr/share/
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2011-10-29 04:45 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       856 2011-10-26 11:47 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root       565 2011-10-26 11:47 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root      1972 2011-10-26 11:47 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       585 2011-10-26 11:47 ./usr/share/bedtools/genomes/mouse.mm9.genome
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./usr/share/doc/
+drwxr-xr-x root/root         0 2011-10-29 04:48 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root     11515 2011-10-26 11:47 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root       584 2011-10-29 02:09 ./usr/share/doc/bedtools/changelog.Debian.gz
+-rw-r--r-- root/root      4611 2011-10-29 01:54 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root      1442 2011-10-26 11:47 ./usr/share/doc/bedtools/README.rst
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -769,7 +770,7 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-s390-sbuild-f49330f7-0046-47af-b265-29c81e0dd95e/build/buildd-bedtools_2.13.3-1-s390-oUtfeu
+Purging /var/lib/schroot/mount/sid-s390-sbuild-5f182113-afe0-4fd0-9912-c4017f9968c8/build/buildd-bedtools_2.13.4-1-s390-7mfGTR
 Not cleaning session: cloned chroot in use
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -777,18 +778,18 @@ Not cleaning session: cloned chroot in use
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: s390
-Build-Space: 109228
-Build-Time: 191
+Build-Space: 109412
+Build-Time: 170
 Distribution: sid
-Install-Time: 13
-Job: bedtools_2.13.3-1
+Install-Time: 10
+Job: bedtools_2.13.4-1
 Package: bedtools
-Package-Time: 247
-Source-Version: 2.13.3-1
-Space: 109228
+Package-Time: 218
+Source-Version: 2.13.4-1
+Space: 109412
 Status: successful
-Version: 2.13.3-1
+Version: 2.13.4-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20111005-1037
-Build needed 00:04:07, 109228k disc space
+Finished at 20111029-0448
+Build needed 00:03:38, 109412k disc space
 Signature with key '2D941D26' requested:

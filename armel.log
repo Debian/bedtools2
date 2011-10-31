@@ -1,4 +1,4 @@
-From buildd@ancina.debian.org Wed Oct 05 09:58:28 2011
+From buildd@ancina.debian.org Sat Oct 29 03:27:48 2011
 Return-path: <buildd@ancina.debian.org>
 Received: from kokkonen.debian.org ([2001:41b8:202:deb:1a1a:0:52c3:4b61])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
@@ -6,70 +6,62 @@ Received: from kokkonen.debian.org ([2001:41b8:202:deb:1a1a:0:52c3:4b61])
 	EMAIL=hostmaster@kokkonen.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@ancina.debian.org>)
-	id 1RBOFA-0002cd-6m
-	for logs@buildd.debian.org; Wed, 05 Oct 2011 09:58:28 +0000
+	id 1RJzaG-0003iC-8y
+	for logs@buildd.debian.org; Sat, 29 Oct 2011 03:27:48 +0000
 Received: from ancina.ugent.be ([157.193.39.13] helo=ancina.debian.org)
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
 	CN=ancina.debian.org, EMAIL=hostmaster@ancina.debian.org (verified)
 	by kokkonen.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@ancina.debian.org>)
-	id 1RBOF9-0002fu-Di
-	for logs@buildd.debian.org; Wed, 05 Oct 2011 09:58:27 +0000
+	id 1RJzaF-0008Uh-Gc
+	for logs@buildd.debian.org; Sat, 29 Oct 2011 03:27:47 +0000
 Received: from buildd by ancina.debian.org with local (Exim 4.69)
 	(envelope-from <buildd@ancina.debian.org>)
-	id 1RBOF8-0002ZS-Ha; Wed, 05 Oct 2011 09:58:26 +0000
+	id 1RJzaE-0005bG-Qb; Sat, 29 Oct 2011 03:27:46 +0000
 MIME-Version: 1.0
 Content-Transfer-Encoding: binary
 X-Mailer: MIME::Lite 3.021 (F2.76; B3.07_01; Q3.07)
-Date: Wed, 5 Oct 2011 09:58:26 +0000
+Date: Sat, 29 Oct 2011 03:27:46 +0000
 From: Build Daemon <buildd@ancina.debian.org>
 To: buildd-porters@ancina.debian.org,logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.13.3-1 on armel (dist=sid)
+Subject: Log for successful build of bedtools_2.13.4-1 on armel (dist=sid)
 Key-Id: 534B6930
-Message-Id: <E1RBOF8-0002ZS-Ha@ancina.debian.org>
+Message-Id: <E1RJzaE-0005bG-Qb@ancina.debian.org>
 Delivered-To: logs@buildd.debian.org
 
 sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on ancina.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.13.3-1 (armel)                                  05 Oct 2011 09:35 ║
+║ bedtools 2.13.4-1 (armel)                                  29 Oct 2011 03:05 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.13.3-1
-Source Version: 2.13.3-1
+Version: 2.13.4-1
+Source Version: 2.13.4-1
 Architecture: armel
-Get:1 http://ftp.de.debian.org sid InRelease [146 kB]
-Get:2 http://incoming.debian.org sid InRelease [146 kB]
-Get:3 http://ftp.de.debian.org sid/main Sources/DiffIndex [2038 B]
+Hit http://ftp.de.debian.org sid InRelease
+Hit http://ftp.de.debian.org sid/main Sources/DiffIndex
+Hit http://incoming.debian.org sid InRelease
 Ign http://incoming.debian.org  InRelease
 Hit http://ftp.de.debian.org sid/contrib Sources/DiffIndex
-Get:4 http://ftp.de.debian.org sid/main armel Packages/DiffIndex [2038 B]
+Hit http://ftp.de.debian.org sid/main armel Packages/DiffIndex
 Hit http://ftp.de.debian.org sid/contrib armel Packages/DiffIndex
 Ign http://ftp.de.debian.org sid/contrib TranslationIndex
-Get:5 http://ftp.de.debian.org sid/main TranslationIndex [2045 B]
-Get:6 http://incoming.debian.org  Release.gpg [836 B]
-Get:7 http://ftp.de.debian.org sid/main 2011-10-05-0826.58.pdiff [5108 B]
-Get:8 http://ftp.de.debian.org sid/main armel 2011-10-05-0826.58.pdiff [3994 B]
-Get:9 http://ftp.de.debian.org sid/main 2011-10-05-0826.58.pdiff [5108 B]
-Get:10 http://incoming.debian.org sid/main Sources/DiffIndex [2038 B]
+Hit http://ftp.de.debian.org sid/main TranslationIndex
+Get:1 http://incoming.debian.org  Release.gpg [836 B]
+Ign http://ftp.de.debian.org sid/contrib Translation-en
+Hit http://incoming.debian.org sid/main Sources/DiffIndex
 Hit http://incoming.debian.org sid/contrib Sources/DiffIndex
-Get:11 http://incoming.debian.org sid/main armel Packages/DiffIndex [2038 B]
+Hit http://incoming.debian.org sid/main armel Packages/DiffIndex
 Hit http://incoming.debian.org sid/contrib armel Packages/DiffIndex
 Ign http://incoming.debian.org sid/contrib TranslationIndex
-Get:12 http://incoming.debian.org sid/main TranslationIndex [2045 B]
-Get:13 http://incoming.debian.org  Release [1604 B]
-Get:14 http://incoming.debian.org sid/main 2011-10-05-0826.58.pdiff [5108 B]
-Get:15 http://incoming.debian.org sid/main armel 2011-10-05-0826.58.pdiff [3994 B]
-Get:16 http://ftp.de.debian.org sid/main armel 2011-10-05-0826.58.pdiff [3994 B]
-Ign http://ftp.de.debian.org sid/contrib Translation-en
-Get:17 http://incoming.debian.org  Sources [36.7 kB]
-Get:18 http://incoming.debian.org  Packages [271 kB]
+Hit http://incoming.debian.org sid/main TranslationIndex
+Get:2 http://incoming.debian.org  Release [1604 B]
+Get:3 http://incoming.debian.org  Sources [36.2 kB]
+Get:4 http://incoming.debian.org  Packages [324 kB]
 Ign http://incoming.debian.org sid/contrib Translation-en
 Ign http://incoming.debian.org  Translation-en
-Get:19 http://incoming.debian.org sid/main 2011-10-05-0826.58.pdiff [5108 B]
-Get:20 http://incoming.debian.org sid/main armel 2011-10-05-0826.58.pdiff [3994 B]
-Fetched 632 kB in 24s (26.0 kB/s)
+Fetched 362 kB in 10s (35.2 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -90,11 +82,11 @@ Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
-Need to get 666 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.3-1 (dsc) [1967 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.3-1 (tar) [660 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.3-1 (diff) [4282 B]
-Fetched 666 kB in 1s (502 kB/s)
+Need to get 922 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.4-1 (dsc) [1967 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.4-1 (tar) [916 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.13.4-1 (diff) [4231 B]
+Fetched 922 kB in 1s (626 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -108,18 +100,18 @@ Check arch
 Build-Depends: build-essential, fakeroot
 Checking for already installed dependencies...
 build-essential: already installed (11.5)
-fakeroot: already installed (1.18-1)
+fakeroot: already installed (1.18.1-1)
 Checking for dependency conflicts...
 Installing positive dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 38 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 38 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -131,32 +123,32 @@ Checking for already installed dependencies...
 base-files: already installed (6.5)
 base-passwd: already installed (3.5.23)
 bash: already installed (4.1-3)
-coreutils: already installed (8.5-1)
-dash: already installed (0.5.7-1)
-debianutils: already installed (4.0.2)
-diffutils: already installed (1:3.0-1)
-dpkg: already installed (1.16.0.3)
-e2fsprogs: already installed (1.42~WIP-2011-09-16-1)
+coreutils: already installed (8.13-3)
+dash: already installed (0.5.7-2)
+debianutils: already installed (4.0.4)
+diffutils: already installed (1:3.2-1)
+dpkg: already installed (1.16.1.1)
+e2fsprogs: already installed (1.42~WIP-2011-10-16-1)
 findutils: already installed (4.4.2-1+b1)
 grep: already installed (2.9-2)
 gzip: already installed (1.4-1)
 hostname: already installed (3.06)
-ncurses-base: already installed (5.9-1)
+ncurses-base: already installed (5.9-2)
 ncurses-bin: already installed (5.9-2)
-perl-base: already installed (5.12.4-5)
+perl-base: already installed (5.12.4-6)
 sed: already installed (4.2.1-9)
 login: already installed (1:4.1.4.2+svn3283-3)
-sysvinit-utils: already installed (2.88dsf-13.11)
-sysvinit: already installed (2.88dsf-13.11)
+sysvinit-utils: already installed (2.88dsf-13.12)
+sysvinit: already installed (2.88dsf-13.12)
 tar: already installed (1.26-2)
 bsdutils: already installed (1:2.19.1-5)
 mount: already installed (2.19.1-5)
 util-linux: already installed (2.19.1-5)
 libc6-dev: already installed (2.13-21)
 gcc: already installed (4:4.6.1-3 >= 4:4.4.3 is satisfied)
-g++: already installed (4:4.6.1-2 >= 4:4.4.3 is satisfied)
+g++: already installed (4:4.6.1-3 >= 4:4.4.3 is satisfied)
 make: already installed (3.81-8.1)
-dpkg-dev: already installed (1.16.1 >= 1.13.5 is satisfied)
+dpkg-dev: already installed (1.16.1.1 >= 1.13.5 is satisfied)
 cdbs: missing
 debhelper: already installed (8.9.8 >= 8 is satisfied)
 quilt: missing
@@ -174,15 +166,15 @@ Recommended packages:
   autotools-dev
 The following NEW packages will be installed:
   cdbs diffstat quilt
-0 upgraded, 3 newly installed, 0 to remove and 38 not upgraded.
+0 upgraded, 3 newly installed, 0 to remove and 8 not upgraded.
 Need to get 0 B/461 kB of archives.
 After this operation, 1215 kB of additional disk space will be used.
-Selecting previously deselected package cdbs.
-(Reading database ... 28011 files and directories currently installed.)
+Selecting previously unselected package cdbs.
+(Reading database ... 23123 files and directories currently installed.)
 Unpacking cdbs (from .../archives/cdbs_0.4.99_all.deb) ...
-Selecting previously deselected package diffstat.
+Selecting previously unselected package diffstat.
 Unpacking diffstat (from .../diffstat_1.54-1_armel.deb) ...
-Selecting previously deselected package quilt.
+Selecting previously unselected package quilt.
 Unpacking quilt (from .../archives/quilt_0.48-8_all.deb) ...
 Processing triggers for man-db ...
 Setting up cdbs (0.4.99) ...
@@ -192,11 +184,11 @@ Removing negative dependencies:
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 38 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
 Checking correctness of dependencies...
 Kernel: Linux 2.6.31-rc9 armel (armv5tel)
-Toolchain package versions: binutils_2.21.53.20110910-1 dpkg-dev_1.16.1 g++-4.6_4.6.1-13 gcc-4.6_4.6.1-13 libc6-dev_2.13-21 libstdc++6_4.6.1-13 libstdc++6-4.6-dev_4.6.1-13 linux-libc-dev_3.0.0-3
-Package versions: adduser_3.113 apex-nslu2_1.6.10 apt_0.8.15.6 apt-utils_0.8.15.6 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 bc_1.06.95-2 bf-utf-source_0.05-0.1 binutils_2.21.53.20110910-1 bison_1:2.4.1.dfsg-3 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 cdbs_0.4.99 coreutils_8.5-1 cpio_2.11-7 cpp_4:4.6.1-3 cpp-4.6_4.6.1-13 cramfsprogs_1.1-6 dash_0.5.7-1 dbus_1.4.16-1 dbus-x11_1.4.16-1 dctrl-tools_2.18 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.8 debian-archive-keyring_2010.08.28 debiandoc-sgml_1.2.25 debianutils_4.0.2 devio_1.2-1+b1 diffstat_1.54-1 diffutils_1:3.0-1 dmsetup_2:1.02.65-1 dns323-firmware-tools_0.3-2 docbook-xml_4.5-7 docbook-xsl_1.75.2+dfsg-5 dpkg_1.16.0.3 dpkg-dev_1.16.1 e2fslibs_1.42~WIP-2011-09-16-1 e2fsprogs_1.42~WIP-2011-09-16-1 fakeroot_1.18-1 file_5.08-1 findutils_4.4.2-1+b1 fontconfig_2.8.0-3 fontconfig-config_2.8.0-3 g++_4:4.6.1-2 g++-4.6_4.6.1-13 gawk_1:3.1.8+dfsg-0.1 gcc_4:4.6.1-3 gcc-4.2-base_4.2.4-6 gcc-4.4-base_4.4.6-11 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.1-13 gcc-4.6-base_4.6.1-13 gconf2_2.32.4-1 gconf2-common_2.32.4-1 genext2fs_1.4.1-3 genisoimage_9:1.1.11-2 gettext_0.18.1.1-4 gettext-base_0.18.1.1-4 gir1.2-atk-1.0_2.2.0-1 gir1.2-freedesktop_0.10.8-2+b1 gir1.2-gdkpixbuf-2.0_2.24.0-1 gir1.2-glib-2.0_0.10.8-2+b1 gir1.2-pango-1.0_1.28.4-3 gnome-mime-data_2.18.0-1 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gvfs_1.6.4-4 gzip_1.4-1 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.11 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-3 libart-2.0-2_2.3.21-1 libasound2_1.0.24.1-4 libaspell15_0.60.7~20110707-1 libatasmart4_0.17+git20100219-3 libatk1.0-0_2.2.0-1 libatk1.0-data_2.2.0-1 libatk1.0-dev_2.2.0-1 libattr1_1:2.4.46-3 libavahi-client3_0.6.30-5 libavahi-common-data_0.6.30-5 libavahi-common3_0.6.30-5 libavahi-glib1_0.6.30-5 libblas3gf_1.2.20110419-2 libblkid1_2.19.1-5 libbluetooth-dev_4.96-2 libbluetooth3_4.96-2 libbogl-dev_0.1.18-5 libbogl0_0.1.18-5 libbonobo2-0_2.24.3-1 libbonobo2-common_2.24.3-1 libbonoboui2-0_2.24.3-1 libbonoboui2-common_2.24.3-1 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc6_2.13-21 libc6-dev_2.13-21 libc6-pic_2.13-21 libcairo-gobject2_1.10.2-6.1 libcairo-script-interpreter2_1.10.2-6.1 libcairo2_1.10.2-6.1 libcairo2-dev_1.10.2-6.1 libcanberra0_0.28-1 libcomerr2_1.42~WIP-2011-10-01-2 libcroco3_0.6.2-1 libcups2_1.5.0-8 libdatrie1_0.2.4-3 libdb4.8_4.8.30-10 libdb5.1_5.1.25-11 libdbus-1-3_1.4.16-1 libdbus-glib-1-2_0.98-1 libdevmapper1.02.1_2:1.02.65-1 libdpkg-perl_1.16.1 libdrm2_2.4.26-1 libenchant1c2a_1.6.0-3 libexpat1_2.0.1-7 libexpat1-dev_2.0.1-7 libfam0_2.7.0-17 libffi-dev_3.0.10-1 libffi5_3.0.10-1 libfontconfig1_2.8.0-3 libfontconfig1-dev_2.8.0-3 libfontenc1_1:1.1.0-1 libfreetype6_2.4.6-2 libfreetype6-dev_2.4.6-2 libgail18_2.24.6-1 libgc1c2_1:7.1-8 libgcc1_1:4.6.1-13 libgconf2-4_2.32.4-1 libgcrypt11_1.5.0-3 libgd2-noxpm_2.0.36~rc1~dfsg-5.1+b1 libgdbm3_1.8.3-10 libgdk-pixbuf2.0-0_2.24.0-1 libgdk-pixbuf2.0-dev_2.24.0-1 libgdu0_2.32.1-1 libgfortran3_4.6.1-13 libgirepository-1.0-1_0.10.8-2+b1 libgl1-mesa-glx_7.11-6 libglade2-0_1:2.6.4-1 libglapi-mesa_7.11-6 libglib2.0-0_2.28.6-1 libglib2.0-bin_2.28.6-1 libglib2.0-data_2.28.6-1 libglib2.0-dev_2.28.6-1 libgmp10_2:5.0.2+dfsg-1 libgnome-keyring0_3.2.0-2 libgnome2-0_2.32.1-1 libgnome2-common_2.32.1-1 libgnomecanvas2-0_2.30.3-1 libgnomecanvas2-common_2.30.3-1 libgnomeui-0_2.24.5-2 libgnomeui-common_2.24.5-2 libgnomevfs2-0_1:2.24.4-1 libgnomevfs2-common_1:2.24.4-1 libgnutls26_2.12.11-1 libgomp1_4.6.1-13 libgpg-error0_1.10-1 libgpm2_1.20.4-4 libgssapi-krb5-2_1.9.1+dfsg-3 libgtk2.0-0_2.24.6-1 libgtk2.0-common_2.24.6-1 libgtk2.0-dev_2.24.6-1 libgtkspell0_2.0.16-1 libgudev-1.0-0_172-1 libhtml-parser-perl_3.68-1+b1 libhtml-tagset-perl_3.20-2 libhunspell-1.2-0_1.2.14-4 libice-dev_2:1.0.7-2 libice6_2:1.0.7-2 libidl0_0.8.14-0.2 libidn11_1.22-3 libjasper1_1.900.1-10 libjpeg8_8c-2 libk5crypto3_1.9.1+dfsg-3 libkeyutils1_1.5.2-2 libkrb5-3_1.9.1+dfsg-3 libkrb5support0_1.9.1+dfsg-3 liblapack3gf_3.3.1-1 liblcms1_1.19.dfsg-1+b1 libldap-2.4-2_2.4.25-3 libltdl7_2.4-4 liblvm2app2.2_2.02.86-1 liblzma2_5.1.1alpha+20110809-2 libmagic1_5.08-1 libmount1_2.19.1-5 libmpc2_0.9-3 libmpfr4_3.0.1-6 libmysqlclient16_5.1.58-1 libncurses5_5.9-2 libncurses5-dev_5.9-2 libncursesw5_5.9-1 libnewt-dev_0.52.11-2.1 libnewt-pic_0.52.11-2.1 libnewt0.52_0.52.11-2.1 libogg0_1.2.2~dfsg-1 liborbit2_1:2.14.18-0.2 libp11-kit0_0.7-2 libpam-modules_1.1.3-2 libpam-modules-bin_1.1.3-2 libpam-runtime_1.1.3-2 libpam0g_1.1.3-4 libpango1.0-0_1.28.4-3 libpango1.0-dev_1.28.4-3 libparted0debian1_2.3-8 libpcre3_8.12-4 libpipeline1_1.2.0-3 libpisock-dev_0.12.5-4 libpisock9_0.12.5-4 libpisync1_0.12.5-4 libpixman-1-0_0.22.2-1 libpixman-1-dev_0.22.2-1 libpng12-0_1.2.46-3 libpng12-dev_1.2.46-3 libpolkit-gobject-1-0_0.102-1 libpopt0_1.16-1 libpthread-stubs0_0.3-2.1 libpthread-stubs0-dev_0.3-2.1 libpython2.6_2.6.7-4 libpython2.7_2.7.2-5 libreadline5_5.2-10 libreadline6_6.2-6 libroman-perl_1.23-1 libruby1.8_1.8.7.352-2 libsasl2-2_2.1.25.dfsg1-2 libselinux1_2.1.0-1 libsepol1_2.1.0-1.1 libsgmls-perl_1.03ii-32 libsgutils2-2_1.32-1 libsigsegv2_2.9-4 libslang2_2.2.4-3 libslang2-dev_2.2.4-3 libslang2-pic_2.2.4-3 libsm-dev_2:1.2.0-2 libsm6_2:1.2.0-2 libsp1c2_1.3.4-1.2.1-47.1 libsqlite3-0_3.7.8-1 libss2_1.42~WIP-2011-09-25-1 libssl-dev_1.0.0e-2 libssl1.0.0_1.0.0e-2 libstdc++6_4.6.1-13 libstdc++6-4.6-dev_4.6.1-13 libtasn1-3_2.9-4 libtdb1_1.2.9-4+b1 libtext-format-perl_0.53-1 libthai-data_0.1.15-2 libthai0_0.1.15-2 libtiff4_3.9.5-2 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-2 libtinfo5_5.9-2 libudev0_172-1 libunistring0_0.9.3-4 liburi-perl_1.59-1 libusb-0.1-4_2:0.1.12-19 libusb-dev_2:0.1.12-19 libuuid1_2.19.1-5 libvolume-id1_0.141-2 libvorbis0a_1.3.2-1 libvorbisfile3_1.3.2-1 libx11-6_2:1.4.4-2 libx11-data_2:1.4.4-2 libx11-dev_2:1.4.4-2 libxau-dev_1:1.0.6-3 libxau6_1:1.0.6-3 libxaw7_2:1.0.9-2 libxcb-render0_1.7-3 libxcb-render0-dev_1.7-3 libxcb-shape0_1.7-3 libxcb-shm0_1.7-3 libxcb-shm0-dev_1.7-3 libxcb1_1.7-3 libxcb1-dev_1.7-3 libxcomposite-dev_1:0.4.3-2 libxcomposite1_1:0.4.3-2 libxcursor-dev_1:1.1.12-1 libxcursor1_1:1.1.12-1 libxdamage-dev_1:1.1.3-2 libxdamage1_1:1.1.3-2 libxdmcp-dev_1:1.1.0-3 libxdmcp6_1:1.1.0-3 libxext-dev_2:1.3.0-3 libxext6_2:1.3.0-3 libxfixes-dev_1:5.0-4 libxfixes3_1:5.0-4 libxft-dev_2.2.0-3 libxft2_2.2.0-3 libxi-dev_2:1.4.3-3 libxi6_2:1.4.3-3 libxinerama-dev_2:1.1.1-3 libxinerama1_2:1.1.1-3 libxml2_2.7.8.dfsg-4 libxml2-utils_2.7.8.dfsg-4 libxmu6_2:1.1.0-2 libxmuu1_2:1.1.0-2 libxpm4_1:3.5.9-1 libxrandr-dev_2:1.3.2-2 libxrandr2_2:1.3.2-2 libxrender-dev_1:0.9.6-2 libxrender1_1:0.9.6-2 libxslt1.1_1.1.26-8 libxt6_1:1.1.1-2 libxtst6_2:1.2.0-3 libxv1_2:1.0.6-2 libxxf86dga1_2:1.1.2-1 libxxf86vm1_1:1.1.1-2 linux-libc-dev_3.0.0-3 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 m4_1.4.16-2 make_3.81-8.1 man-db_2.6.0.2-2 mawk_1.3.3-15 mime-support_3.51-1 mklibs_0.1.33 mklibs-copy_0.1.33 module-init-tools_3.16-1 mount_2.19.1-5 multiarch-support_2.13-18 mysql-common_5.1.58-1 ncurses-base_5.9-1 ncurses-bin_5.9-2 netbase_4.46 nullmailer_1:1.05-1 openssl_1.0.0d-3 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.4-5 perl-base_5.12.4-5 perl-modules_5.12.4-5 pkg-config_0.26-1 po-debconf_1.0.16+nmu1 procps_1:3.2.8-11 psmisc_22.14-1 python_2.7.2-7 python-all_2.7.2-7 python-all-dev_2.7.2-7 python-cairo_1.8.8-1+b2 python-central_0.6.17 python-dateutil_1.5-1 python-dev_2.7.2-7 python-egenix-mx-base-dev_3.2.1-1 python-egenix-mxdatetime_3.2.1-1 python-egenix-mxtools_3.2.1-1 python-gconf_2.28.1-3 python-glade2_2.24.0-2 python-gnome2_2.28.1-3 python-gobject_2.28.6-5 python-gobject-dev_2.28.6-5 python-gtk2_2.24.0-2 python-gtk2-dev_2.24.0-2 python-gtkspell_2.25.3-10.1 python-imaging_1.1.7-4 python-minimal_2.7.2-7 python-mysqldb_1.2.2-10+b3 python-numpy_1:1.5.1-2+b1 python-pisock_0.12.5-4 python-pyorbit_2.24.0-6+b1 python-pyparsing_1.5.2-2 python-reportlab_2.5-1.1 python-support_1.0.14 python-tz_2011h-0.1 python-vobject_0.8.1c-4 python2.6_2.6.7-4 python2.6-dev_2.6.7-4 python2.6-minimal_2.6.7-4 python2.7_2.7.2-5 python2.7-dev_2.7.2-5 python2.7-minimal_2.7.2-5 quilt_0.48-8 readline-common_6.2-4 ruby1.8_1.8.7.352-2 scons_2.1.0-1 sed_4.2.1-9 sensible-utils_0.0.6 sgml-base_1.26+nmu1 sgml-data_2.0.6 sgmlspl_1.03ii-32 shared-mime-info_0.90-1 slugimage_1:0.0+r104-5 sp_1.3.4-1.2.1-47.1 sudo_1.8.2-1 swig_2.0.4-4 swig2.0_2.0.4-4 sysv-rc_2.88dsf-13.11 sysvinit_2.88dsf-13.11 sysvinit-utils_2.88dsf-13.11 tar_1.26-2 ttf-dejavu-core_2.33-2 tzdata_2011k-1 u-boot-tools_2011.06-4 uboot-mkimage_2011.06-4 ucf_3.0025+nmu2 udev_172-1 udisks_1.0.4-1 util-linux_2.19.1-5 wget_1.13-1 x11-common_1:7.6+9 x11-utils_7.6+3 x11proto-composite-dev_1:0.4.2-2 x11proto-core-dev_7.0.22-1 x11proto-damage-dev_1:1.2.1-2 x11proto-fixes-dev_1:5.0-2 x11proto-input-dev_2.0.2-2 x11proto-kb-dev_1.0.5-2 x11proto-randr-dev_1.3.2-2 x11proto-render-dev_2:0.11.1-2 x11proto-xext-dev_7.2.0-3 x11proto-xinerama-dev_1.2.1-2 xml-core_0.13 xorg-sgml-doctools_1:1.8-2 xsltproc_1.1.26-8 xtrans-dev_1.2.6-2 xz-utils_5.1.1alpha+20110809-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+Toolchain package versions: binutils_2.21.90.20111025-1 dpkg-dev_1.16.1.1 g++-4.6_4.6.2-1 gcc-4.6_4.6.2-1 libc6-dev_2.13-21 libstdc++6_4.6.2-1 libstdc++6-4.6-dev_4.6.2-1 linux-libc-dev_3.0.0-5
+Package versions: apex-nslu2_1.6.10 apt_0.8.15.9 apt-utils_0.8.15.9 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 bc_1.06.95-2 bf-utf-source_0.05-0.1 binutils_2.21.90.20111025-1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 ca-certificates_20111022 cdbs_0.4.99 cmake_2.8.5-1 cmake-data_2.8.5-1 coreutils_8.13-3 cpio_2.11-7 cpp_4:4.6.1-3 cpp-4.6_4.6.2-1 cramfsprogs_1.1-6 dash_0.5.7-2 dctrl-tools_2.19 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.8 debian-archive-keyring_2010.08.28 debiandoc-sgml_1.2.25 debianutils_4.0.4 devio_1.2-1+b1 diffstat_1.54-1 diffutils_1:3.2-1 dmsetup_2:1.02.67-1 dns323-firmware-tools_0.3-2 docbook-xml_4.5-7 docbook-xsl_1.75.2+dfsg-5 dpkg_1.16.1.1 dpkg-dev_1.16.1.1 e2fslibs_1.42~WIP-2011-10-16-1 e2fsprogs_1.42~WIP-2011-10-16-1 emacsen-common_1.4.22 fakeroot_1.18.1-1 file_5.09-2 findutils_4.4.2-1+b1 fontconfig_2.8.0-3 fontconfig-config_2.8.0-3 g++_4:4.6.1-3 g++-4.6_4.6.2-1 gawk_1:3.1.8+dfsg-0.1 gcc_4:4.6.1-3 gcc-4.2-base_4.2.4-6 gcc-4.4-base_4.4.6-11 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.2-1 gcc-4.6-base_4.6.2-1 generatorrunner_0.6.14-2 genext2fs_1.4.1-3 genisoimage_9:1.1.11-2 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.4-1 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.12 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-3 libapiextractor-dev_0.10.8-1 libapiextractor0.10_0.10.8-1 libarchive1_2.8.5-3+b1 libattr1_1:2.4.46-3 libaudio2_1.9.3-1 libblkid1_2.19.1-5 libbogl-dev_0.1.18-5 libbogl0_0.1.18-5 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc6_2.13-21 libc6-dev_2.13-21 libc6-pic_2.13-21 libcomerr2_1.42~WIP-2011-10-16-1 libcroco3_0.6.2-2 libcurl3_7.21.7-3 libcurl3-gnutls_7.21.7-3 libdb4.8_4.8.30-10 libdb5.1_5.1.25-11 libdbus-1-3_1.4.16-1 libdevmapper1.02.1_2:1.02.67-1 libdpkg-perl_1.16.1.1 libexpat1_2.0.1-7 libexpat1-dev_2.0.1-7 libfontconfig1_2.8.0-3 libfreetype6_2.4.7-2 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-1 libgcrypt11_1.5.0-3 libgd2-noxpm_2.0.36~rc1~dfsg-6 libgdbm3_1.8.3-10 libgenrunner-dev_0.6.14-2 libgenrunner0.6_0.6.14-2 libglib2.0-0_2.28.8-1 libgmp10_2:5.0.2+dfsg-2 libgnutls26_2.12.11-1 libgomp1_4.6.2-1 libgpg-error0_1.10-1 libgpm2_1.20.4-4 libgssapi-krb5-2_1.9.1+dfsg-3 libhtml-parser-perl_3.69-1 libhtml-tagset-perl_3.20-2 libice6_2:1.0.7-2 libidn11_1.22-3 libjpeg8_8c-2 libk5crypto3_1.9.1+dfsg-3 libkeyutils1_1.5.2-2 libkrb5-3_1.9.1+dfsg-3 libkrb5support0_1.9.1+dfsg-3 liblcms1_1.19.dfsg-1+b1 libldap-2.4-2_2.4.25-4 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmng1_1.0.10-3 libmount1_2.19.1-5 libmpc2_0.9-4 libmpfr4_3.1.0-2 libncurses5_5.9-2 libncursesw5_5.9-2 libnewt-dev_0.52.11-2.1 libnewt-pic_0.52.11-2.1 libnewt0.52_0.52.11-2.1 libp11-kit0_0.7-2 libpam-modules_1.1.3-4 libpam-modules-bin_1.1.3-4 libpam-runtime_1.1.3-4 libpam0g_1.1.3-4 libpcre3_8.12-4 libpipeline1_1.2.0-3 libpng12-0_1.2.46-3 libpng12-dev_1.2.46-3 libpython2.6_2.6.7-4 libpython2.7_2.7.2-7 libqt4-dbus_4:4.7.3-8 libqt4-declarative_4:4.7.3-8 libqt4-designer_4:4.7.3-8 libqt4-dev_4:4.7.3-8 libqt4-help_4:4.7.3-8 libqt4-network_4:4.7.3-8 libqt4-qt3support_4:4.7.3-8 libqt4-script_4:4.7.3-8 libqt4-scripttools_4:4.7.3-8 libqt4-sql_4:4.7.3-8 libqt4-svg_4:4.7.3-8 libqt4-test_4:4.7.3-8 libqt4-xml_4:4.7.3-8 libqt4-xmlpatterns_4:4.7.3-8 libqtcore4_4:4.7.3-8 libqtgui4_4:4.7.3-8 libreadline5_5.2-11 libreadline6_6.2-7 libroman-perl_1.23-1 librtmp0_2.4~20110711.gitc28f1bab-1 libruby1.8_1.8.7.352-2 libsasl2-2_2.1.25.dfsg1-2 libselinux1_2.1.0-1 libsepol1_2.1.0-1.1 libsgmls-perl_1.03ii-32 libsigsegv2_2.9-4 libslang2_2.2.4-3 libslang2-dev_2.2.4-3 libslang2-pic_2.2.4-3 libsm6_2:1.2.0-2 libsp1c2_1.3.4-1.2.1-47.1 libsparsehash-dev_1.10-1 libsqlite3-0_3.7.8-1 libss2_1.42~WIP-2011-10-16-1 libssh2-1_1.2.8-2 libssl-dev_1.0.0e-2 libssl1.0.0_1.0.0e-2 libstdc++6_4.6.2-1 libstdc++6-4.6-dev_4.6.2-1 libtasn1-3_2.9-4 libtext-format-perl_0.53-1 libtiff4_3.9.5-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-2 libudev0_172-1 libunistring0_0.9.3-4 liburi-perl_1.59-1 libusb-0.1-4_2:0.1.12-19 libuuid1_2.19.1-5 libvolume-id1_0.141-2 libx11-6_2:1.4.4-2 libx11-data_2:1.4.4-2 libxau6_1:1.0.6-3 libxcb1_1.7-3 libxdmcp6_1:1.1.0-3 libxext6_2:1.3.0-3 libxml2_2.7.8.dfsg-5 libxmlrpc-core-c3_1.16.33-3.1 libxrender1_1:0.9.6-2 libxslt1.1_1.1.26-8 libxt6_1:1.1.1-2 linux-libc-dev_3.0.0-5 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-2 mawk_1.3.3-16 mime-support_3.51-1 mklibs_0.1.33 mklibs-copy_0.1.33 module-init-tools_3.16-1 mount_2.19.1-5 multiarch-support_2.13-21 ncurses-base_5.9-2 ncurses-bin_5.9-2 netbase_4.46 nullmailer_1:1.05-1 openssl_1.0.0e-2 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.4-6 perl-base_5.12.4-6 perl-modules_5.12.4-6 po-debconf_1.0.16+nmu1 procps_1:3.2.8-11 psmisc_22.14-1 python_2.7.2-9 python-all_2.7.2-9 python-all-dbg_2.7.2-9 python-all-dev_2.7.2-9 python-dbg_2.7.2-9 python-dev_2.7.2-9 python-minimal_2.7.2-9 python2.6_2.6.7-4 python2.6-dbg_2.6.7-4 python2.6-dev_2.6.7-4 python2.6-minimal_2.6.7-4 python2.7_2.7.2-7 python2.7-dbg_2.7.2-7 python2.7-dev_2.7.2-7 python2.7-minimal_2.7.2-7 qt4-linguist-tools_4:4.7.3-8 qt4-qmake_4:4.7.3-8 quilt_0.48-8 readline-common_6.2-7 ruby1.8_1.8.7.352-2 sed_4.2.1-9 sensible-utils_0.0.6 sgml-base_1.26+nmu1 sgml-data_2.0.6 sgmlspl_1.03ii-32 slugimage_1:0.0+r104-5 sp_1.3.4-1.2.1-47.1 sudo_1.8.3-1 sysv-rc_2.88dsf-13.12 sysvinit_2.88dsf-13.12 sysvinit-utils_2.88dsf-13.12 tar_1.26-2 ttf-dejavu-core_2.33-2 tzdata_2011m-1 u-boot-tools_2011.09-1 uboot-mkimage_2011.09-1 ucf_3.0025+nmu2 util-linux_2.19.1-5 wget_1.13.4-1 x11-common_1:7.6+9 xml-core_0.13 xsltproc_1.1.26-8 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -207,12 +199,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Wed Oct  5 08:41:27 2011 UTC using RSA key ID 2295D502
+gpgv: Signature made Sat Oct 29 02:18:35 2011 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.13.3-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.13.3
-dpkg-source: info: unpacking bedtools_2.13.3.orig.tar.xz
-dpkg-source: info: unpacking bedtools_2.13.3-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.13.4-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.13.4
+dpkg-source: info: unpacking bedtools_2.13.4.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.13.4-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -222,30 +214,25 @@ Check disc space
 dpkg-buildpackage
 ─────────────────
 
-dpkg-buildpackage: dpkg-buildflags (origin: vendor): CFLAGS = -g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security
-dpkg-buildpackage: dpkg-buildflags (origin: vendor): CPPFLAGS = 
-dpkg-buildpackage: dpkg-buildflags (origin: vendor): CXXFLAGS = -g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security
-dpkg-buildpackage: dpkg-buildflags (origin: vendor): FFLAGS = -g -O2
-dpkg-buildpackage: dpkg-buildflags (origin: vendor): LDFLAGS = -Wl,-z,relro
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.13.3-1
- dpkg-source --before-build bedtools-2.13.3
+dpkg-buildpackage: source version 2.13.4-1
+ dpkg-source --before-build bedtools-2.13.4
 dpkg-buildpackage: host architecture armel
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
-/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 dh_clean 
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -258,21 +245,21 @@ test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
-/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
+make[1]: Entering directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 [ -d obj ] || mkdir -p obj
 [ -d bin ] || mkdir -p bin
 Building BEDTools:
@@ -290,7 +277,7 @@ Building BEDTools:
   * compiling chromsweep.cpp
 
 - Building in src/utils/gzstream
-g++ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
+g++ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
 
 - Building in src/utils/fileType
   * compiling fileType.cpp
@@ -350,10 +337,6 @@ Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
 Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
-Fasta.cpp: In member function 'std::string FastaReference::getSubSequence(std::string, int, int)':
-Fasta.cpp:308:55: warning: ignoring return value of 'size_t fread(void*, size_t, size_t, FILE*)', declared with attribute warn_unused_result [-Wunused-result]
-Fasta.cpp: In member function 'std::string FastaReference::getSequence(std::string)':
-Fasta.cpp:266:47: warning: ignoring return value of 'size_t fread(void*, size_t, size_t, FILE*)', declared with attribute warn_unused_result [-Wunused-result]
   * compiling split.cpp
 
 - Building in src/utils/genomeFile
@@ -523,7 +506,7 @@ unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-
   * compiling windowBed.cpp
   * linking windowBed
 
-make[1]: Leaving directory `/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools-2.13.3'
+make[1]: Leaving directory `/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools-2.13.4'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
@@ -595,22 +578,22 @@ dpkg-shlibdeps: warning: debian/bedtools/usr/bin/complementBed contains an unres
 dh_gencontrol -pbedtools  
 dh_md5sums -pbedtools 
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.13.3-1_armel.deb'.
- dpkg-genchanges -B -marmel Build Daemon (ancina) <buildd_armel-ancina@buildd.debian.org> >../bedtools_2.13.3-1_armel.changes
+dpkg-deb: building package `bedtools' in `../bedtools_2.13.4-1_armel.deb'.
+ dpkg-genchanges -B -marmel Build Daemon (ancina) <buildd_armel-ancina@buildd.debian.org> >../bedtools_2.13.4-1_armel.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.13.3
+ dpkg-source --after-build bedtools-2.13.4
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20111005-0958
+Build finished at 20111029-0327
 
-bedtools_2.13.3-1_armel.changes:
+bedtools_2.13.4-1_armel.changes:
 Format: 1.8
-Date: Wed, 05 Oct 2011 17:18:15 +0900
+Date: Sat, 29 Oct 2011 11:08:02 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: armel
-Version: 2.13.3-1
+Version: 2.13.4-1
 Distribution: sid
 Urgency: low
 Maintainer: armel Build Daemon (ancina) <buildd_armel-ancina@buildd.debian.org>
@@ -618,33 +601,34 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.13.3-1) unstable; urgency=low
+ bedtools (2.13.4-1) unstable; urgency=low
  .
-   [ea1c596] New upstream release.
+   [e553c37] New upstream release.
 Checksums-Sha1: 
- 6dffa715e001bd06b2d6b28414ecdbf56a3c6970 533770 bedtools_2.13.3-1_armel.deb
+ 9f3ddd65de23e3d9f429aeed4acf58dbe9d74006 536930 bedtools_2.13.4-1_armel.deb
 Checksums-Sha256: 
- 701dd9294529c8cc82f74e9aa19200b76e2f4ce4d59558552327f80d215acc17 533770 bedtools_2.13.3-1_armel.deb
+ 1fc8440979c587c0331388d62f020c01e7da0684cb06e2226f32da365d43a988 536930 bedtools_2.13.4-1_armel.deb
 Files: 
- 23bf2ca7e0bd482f6452b11b81e3d317 533770 science optional bedtools_2.13.3-1_armel.deb
+ cbe86889ba6a8d9ca338addb04f4bc70 536930 science optional bedtools_2.13.4-1_armel.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.13.3-1_armel.deb
+bedtools_2.13.4-1_armel.deb
 ───────────────────────────
 
  new debian package, version 2.0.
- size 533770 bytes: control archive= 1713 bytes.
-     835 bytes,    18 lines      control              
+ size 536930 bytes: control archive= 1729 bytes.
+     865 bytes,    19 lines      control              
     2025 bytes,    35 lines      md5sums              
  Package: bedtools
- Version: 2.13.3-1
+ Version: 2.13.4-1
  Architecture: armel
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 3942
+ Installed-Size: 3948
+ Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.4), libgcc1 (>= 1:4.4.0), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
  Section: science
@@ -659,7 +643,7 @@ bedtools_2.13.3-1_armel.deb
   .
   The groupBy utility is distribued in the filo package.
 
-dpkg-deb: file `/var/lib/schroot/mount/sid-armel-sbuild-6403b615-c722-4314-b6b7-19773bad4d98/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo/bedtools_2.13.3-1_armel.deb' contains ununderstood data member data.tar.xz     , giving up
+dpkg-deb: file `/var/lib/schroot/mount/sid-armel-sbuild-e9c05b69-e231-4b61-a0b6-46d1571b58ec/build/buildd-bedtools_2.13.4-1-armel-YeGMVB/bedtools_2.13.4-1_armel.deb' contains ununderstood data member data.tar.xz     , giving up
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -673,19 +657,19 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-armel-sbuild-6403b615-c722-4314-b6b7-19773bad4d98/build/buildd-bedtools_2.13.3-1-armel-Bl0Obo
+Purging /var/lib/schroot/mount/sid-armel-sbuild-e9c05b69-e231-4b61-a0b6-46d1571b58ec/build/buildd-bedtools_2.13.4-1-armel-YeGMVB
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 38 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following packages will be REMOVED:
   cdbs* diffstat* quilt*
-0 upgraded, 0 newly installed, 3 to remove and 38 not upgraded.
+0 upgraded, 0 newly installed, 3 to remove and 8 not upgraded.
 After this operation, 1215 kB disk space will be freed.
-(Reading database ... 28146 files and directories currently installed.)
+(Reading database ... 23257 files and directories currently installed.)
 Removing cdbs ...
 Removing quilt ...
 Purging configuration files for quilt ...
@@ -697,18 +681,18 @@ Processing triggers for man-db ...
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: armel
-Build-Space: 98156
-Build-Time: 1263
+Build-Space: 97844
+Build-Time: 1247
 Distribution: sid
 Install-Time: 29
-Job: bedtools_2.13.3-1
+Job: bedtools_2.13.4-1
 Package: bedtools
-Package-Time: 1344
-Source-Version: 2.13.3-1
-Space: 98156
+Package-Time: 1312
+Source-Version: 2.13.4-1
+Space: 97844
 Status: successful
-Version: 2.13.3-1
+Version: 2.13.4-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20111005-0958
-Build needed 00:22:24, 98156k disc space
+Finished at 20111029-0327
+Build needed 00:21:52, 97844k disc space
 Signature with key '534B6930' requested:
