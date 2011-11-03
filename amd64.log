@@ -1,18 +1,18 @@
 sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on aqwa.igloo
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.14.1-1 (amd64)                                 03 nov. 2011 11:20 ║
+║ bedtools 2.14.2-1 (amd64)                                 03 nov. 2011 12:16 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.14.1-1
-Source Version: 2.14.1-1
+Version: 2.14.2-1
+Source Version: 2.14.2-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/bedtools-z_ThSh/bedtools-2.14.1' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/bedtools-z_ThSh' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/sid-amd64-sbuild-3e540590-7d1c-4243-ba3b-53a07e74d07c' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/bedtools-QsgfFg/bedtools-2.14.2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/bedtools-QsgfFg' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/sid-amd64-sbuild-477eea52-6f46-4e46-9b26-94b226dd7f20' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -37,14 +37,14 @@ Reading state information...
 Local sources
 ─────────────
 
-bedtools_2.14.1-1.dsc exists in .; copying to chroot
+bedtools_2.14.2-1.dsc exists in .; copying to chroot
 
 Check arch
 ──────────
 
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-5E1xJl/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-XlI36l/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -60,7 +60,7 @@ The following NEW packages will be installed:
   sbuild-build-depends-core-dummy
 debconf: delaying package configuration, since apt-utils is not installed
 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 0 B/714 B of archives.
+Need to get 0 B/718 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
 (Reading database ... 10741 files and directories currently installed.)
@@ -68,7 +68,7 @@ Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-du
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, zlib1g-dev
 Filtered Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, zlib1g-dev
-dpkg-deb: building package `sbuild-build-depends-bedtools-dummy' in `/«BUILDDIR»/resolver-cn0oaO/apt_archive/sbuild-build-depends-bedtools-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-bedtools-dummy' in `/«BUILDDIR»/resolver-KIXilH/apt_archive/sbuild-build-depends-bedtools-dummy.deb'.
 OK
 Reading package lists...
 
@@ -187,10 +187,10 @@ Package versions: apt_0.8.15.9 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 binu
 Unpack source
 ─────────────
 
-dpkg-source: warning: extracting unsigned source package (bedtools_2.14.1-1.dsc)
-dpkg-source: info: extracting bedtools in bedtools-2.14.1
-dpkg-source: info: unpacking bedtools_2.14.1.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.14.1-1.debian.tar.gz
+dpkg-source: warning: extracting unsigned source package (bedtools_2.14.2-1.dsc)
+dpkg-source: info: extracting bedtools in bedtools-2.14.2
+dpkg-source: info: unpacking bedtools_2.14.2.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.14.2-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -208,7 +208,7 @@ SCHROOT_CHROOT_NAME=sid-amd64-sbuild
 SCHROOT_COMMAND=env
 SCHROOT_GID=1000
 SCHROOT_GROUP=charles
-SCHROOT_SESSION_ID=sid-amd64-sbuild-3e540590-7d1c-4243-ba3b-53a07e74d07c
+SCHROOT_SESSION_ID=sid-amd64-sbuild-477eea52-6f46-4e46-9b26-94b226dd7f20
 SCHROOT_UID=1000
 SCHROOT_USER=charles
 SHELL=/bin/sh
@@ -220,9 +220,9 @@ dpkg-buildpackage
 ─────────────────
 
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.14.1-1
+dpkg-buildpackage: source version 2.14.2-1
 dpkg-buildpackage: source changed by Charles Plessy <plessy@debian.org>
- dpkg-source --before-build bedtools-2.14.1
+ dpkg-source --before-build bedtools-2.14.2
 dpkg-buildpackage: host architecture amd64
  fakeroot debian/rules clean
 test -x debian/rules
@@ -246,14 +246,14 @@ Restoring src/utils/gzstream/gzstream.C
 No patches applied
 rm -rf ./.pc
 rm -f debian/stamp-patch*
- dpkg-source -b bedtools-2.14.1
+ dpkg-source -b bedtools-2.14.2
 dpkg-source: info: using source format `3.0 (quilt)'
 dpkg-source: info: patches are not applied, applying them now
 dpkg-source: info: applying gzstream.h.patch
-dpkg-source: info: building bedtools using existing ./bedtools_2.14.1.orig.tar.gz
+dpkg-source: info: building bedtools using existing ./bedtools_2.14.2.orig.tar.gz
 dpkg-source: warning: ignoring deletion of file src/utils/bedFile/bedFile.h.orig
-dpkg-source: info: building bedtools in bedtools_2.14.1-1.debian.tar.gz
-dpkg-source: info: building bedtools in bedtools_2.14.1-1.dsc
+dpkg-source: info: building bedtools in bedtools_2.14.2-1.debian.tar.gz
+dpkg-source: info: building bedtools in bedtools_2.14.2-1.dsc
  debian/rules build
 test -x debian/rules
 mkdir -p "."
@@ -569,14 +569,14 @@ dh_shlibdeps -pbedtools
 dh_gencontrol -pbedtools  
 dh_md5sums -pbedtools 
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.14.1-1_amd64.deb'.
- dpkg-genchanges  >../bedtools_2.14.1-1_amd64.changes
+dpkg-deb: building package `bedtools' in `../bedtools_2.14.2-1_amd64.deb'.
+ dpkg-genchanges  >../bedtools_2.14.2-1_amd64.changes
 dpkg-genchanges: including full source code in upload
- dpkg-source --after-build bedtools-2.14.1
+ dpkg-source --after-build bedtools-2.14.2
 dpkg-source: info: unapplying gzstream.h.patch
 dpkg-buildpackage: full upload (original source is included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20111103-1123
+Build finished at 20111103-1219
 
 Finished
 ────────
@@ -588,15 +588,15 @@ I: Built successfully
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.14.1-1_amd64.changes:
+bedtools_2.14.2-1_amd64.changes:
 ────────────────────────────────
 
 Format: 1.8
-Date: Thu, 03 Nov 2011 11:14:35 +0900
+Date: Thu, 03 Nov 2011 12:15:32 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: source amd64
-Version: 2.14.1-1
+Version: 2.14.2-1
 Distribution: unstable
 Urgency: low
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
@@ -604,42 +604,42 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.14.1-1) unstable; urgency=low
+ bedtools (2.14.2-1) unstable; urgency=low
  .
-   [bce732c] New upstream release and new tool, multiBedIntersect.
+   [356313d] Bugfix release.
 Checksums-Sha1: 
- 6ac64965adebaa8daf913c7a645fcdbcb31a3796 1081 bedtools_2.14.1-1.dsc
- 2a49fb48c4a84ceb88fe4b9f973f7b32239d9312 921855 bedtools_2.14.1.orig.tar.gz
- 1f744b6c1d32e2cacea24b067f0561cce09be183 4282 bedtools_2.14.1-1.debian.tar.gz
- 0704612762b96e9d0e1fef6a1312bf8984957d48 672084 bedtools_2.14.1-1_amd64.deb
+ ad36d19bb521f9346237588b9458bb97bb3e865b 1081 bedtools_2.14.2-1.dsc
+ ff2a6f15de1e6ebadf7b4571bab3d66ed6405bc3 921999 bedtools_2.14.2.orig.tar.gz
+ 1bc35cb8b2e58f45c294ecf45814c7492fdd1ead 4317 bedtools_2.14.2-1.debian.tar.gz
+ 193e54bb136ea0234d1a0f6479543c33a6f6d67e 671402 bedtools_2.14.2-1_amd64.deb
 Checksums-Sha256: 
- b2b11b1ca1973648d8b45261792e38218a3ee19dc318b39d308acfc83caceb96 1081 bedtools_2.14.1-1.dsc
- 2a8b3199ac5ab24e92d57771363a10b40fb943a11d04d92cf511185c819f28df 921855 bedtools_2.14.1.orig.tar.gz
- 8081aeb790948a33af955dbb9d6bf2fee99b916b15eb94e9503b44f4f4ce1ed2 4282 bedtools_2.14.1-1.debian.tar.gz
- 050e5c57ecb8b5883e7f73baaeba1a094d2e4708839c6098d2176a34b53ddb64 672084 bedtools_2.14.1-1_amd64.deb
+ 4a6b04e9f24f250c302299e47c07e3b158d6655e8a96a647ef9b3831ad89c6fc 1081 bedtools_2.14.2-1.dsc
+ e6fb2f35a51614bd15b479585b421100690232e8987a5afa267cfe84cdee81cd 921999 bedtools_2.14.2.orig.tar.gz
+ 9183aada06617fcfb952259219057978d02cf89fe7eecc9c477748662cff26f5 4317 bedtools_2.14.2-1.debian.tar.gz
+ e8ae29aa6916fb3353fd04b0fd19c3addf228638d442cd6bad64069d9efa4ce7 671402 bedtools_2.14.2-1_amd64.deb
 Files: 
- c42dd1b3c10ed0838ef4cd443de79760 1081 science optional bedtools_2.14.1-1.dsc
- 0250cd4e2588bfa69be8ed67a703ce17 921855 science optional bedtools_2.14.1.orig.tar.gz
- 3ea8a26995be82395b2b7cfb4cb6952d 4282 science optional bedtools_2.14.1-1.debian.tar.gz
- 493db6f9d2d5a9d55a9c13b551e2a1ea 672084 science optional bedtools_2.14.1-1_amd64.deb
+ 7816be43fd7920228b83d645daed8afb 1081 science optional bedtools_2.14.2-1.dsc
+ 761f9c4027857c03be7f661ef1a6b22e 921999 science optional bedtools_2.14.2.orig.tar.gz
+ a44f90874bc670029759f9ff9196f091 4317 science optional bedtools_2.14.2-1.debian.tar.gz
+ 69ed637ef969f6167c0041f450b263e4 671402 science optional bedtools_2.14.2-1_amd64.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.14.1-1_amd64.deb
+bedtools_2.14.2-1_amd64.deb
 ───────────────────────────
 
  new debian package, version 2.0.
- size 672084 bytes: control archive= 1731 bytes.
+ size 671402 bytes: control archive= 1734 bytes.
      865 bytes,    19 lines      control              
     2025 bytes,    35 lines      md5sums              
  Package: bedtools
- Version: 2.14.1-1
+ Version: 2.14.2-1
  Architecture: amd64
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 4695
+ Installed-Size: 4696
  Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
@@ -655,49 +655,49 @@ bedtools_2.14.1-1_amd64.deb
   .
   The groupBy utility is distribued in the filo package.
 
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./usr/
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./usr/share/
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./usr/share/bedtools/
-drwxr-xr-x root/root         0 2011-11-03 11:20 ./usr/share/bedtools/genomes/
--rwxr-xr-x root/root       585 2011-11-03 06:45 ./usr/share/bedtools/genomes/mouse.mm9.genome
--rwxr-xr-x root/root       856 2011-11-03 06:45 ./usr/share/bedtools/genomes/human.hg18.genome
--rwxr-xr-x root/root      1972 2011-11-03 06:45 ./usr/share/bedtools/genomes/human.hg19.genome
--rwxr-xr-x root/root       565 2011-11-03 06:45 ./usr/share/bedtools/genomes/mouse.mm8.genome
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./usr/share/doc/
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./usr/share/doc/bedtools/
--rw-r--r-- root/root      1442 2011-11-03 06:45 ./usr/share/doc/bedtools/README.rst
--rw-r--r-- root/root      4611 2011-11-03 11:11 ./usr/share/doc/bedtools/copyright
--rw-r--r-- root/root     11515 2011-11-03 06:45 ./usr/share/doc/bedtools/changelog.gz
--rw-r--r-- root/root       634 2011-11-03 11:15 ./usr/share/doc/bedtools/changelog.Debian.gz
-drwxr-xr-x root/root         0 2011-11-03 11:22 ./usr/bin/
--rwxr-xr-x root/root    147112 2011-11-03 11:22 ./usr/bin/fastaFromBed
--rwxr-xr-x root/root    180000 2011-11-03 11:22 ./usr/bin/pairToPair
--rwxr-xr-x root/root    276496 2011-11-03 11:22 ./usr/bin/coverageBed
--rwxr-xr-x root/root    229232 2011-11-03 11:22 ./usr/bin/bedToBam
--rwxr-xr-x root/root     93664 2011-11-03 11:22 ./usr/bin/overlap
--rwxr-xr-x root/root    110184 2011-11-03 11:22 ./usr/bin/linksBed
--rwxr-xr-x root/root    114112 2011-11-03 11:22 ./usr/bin/mergeBed
--rwxr-xr-x root/root    114168 2011-11-03 11:22 ./usr/bin/complementBed
--rwxr-xr-x root/root    147136 2011-11-03 11:22 ./usr/bin/nucBed
--rwxr-xr-x root/root    118856 2011-11-03 11:22 ./usr/bin/flankBed
--rwxr-xr-x root/root    267728 2011-11-03 11:22 ./usr/bin/tagBam
--rwxr-xr-x root/root    345576 2011-11-03 11:22 ./usr/bin/intersectBed
--rwxr-xr-x root/root    118328 2011-11-03 11:22 ./usr/bin/maskFastaFromBed
--rwxr-xr-x root/root    110136 2011-11-03 11:22 ./usr/bin/slopBed
--rwxr-xr-x root/root    110000 2011-11-03 11:22 ./usr/bin/annotateBed
--rwxr-xr-x root/root    118192 2011-11-03 11:22 ./usr/bin/subtractBed
--rwxr-xr-x root/root    135320 2011-11-03 11:22 ./usr/bin/shuffleBed
--rwxr-xr-x root/root    278856 2011-11-03 11:22 ./usr/bin/windowBed
--rwxr-xr-x root/root    150952 2011-11-03 11:22 ./usr/bin/sortBed
--rwxr-xr-x root/root    101856 2011-11-03 11:22 ./usr/bin/bed12ToBed6
--rwxr-xr-x root/root    126592 2011-11-03 11:22 ./usr/bin/closestBed
--rwxr-xr-x root/root    218312 2011-11-03 11:22 ./usr/bin/bamToBed
--rwxr-xr-x root/root    356352 2011-11-03 11:22 ./usr/bin/pairToBed
--rwxr-xr-x root/root    294888 2011-11-03 11:22 ./usr/bin/genomeCoverageBed
--rwxr-xr-x root/root     65032 2011-11-03 11:22 ./usr/bin/unionBedGraphs
--rwxr-xr-x root/root    126480 2011-11-03 11:22 ./usr/bin/bedToIgv
--rwxr-xr-x root/root    292848 2011-11-03 11:22 ./usr/bin/multiBamCov
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./usr/
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./usr/share/
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2011-11-03 12:17 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       585 2011-11-03 08:56 ./usr/share/bedtools/genomes/mouse.mm9.genome
+-rwxr-xr-x root/root       856 2011-11-03 08:56 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root      1972 2011-11-03 08:56 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       565 2011-11-03 08:56 ./usr/share/bedtools/genomes/mouse.mm8.genome
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./usr/share/doc/
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root      1442 2011-11-03 08:56 ./usr/share/doc/bedtools/README.rst
+-rw-r--r-- root/root      4611 2011-11-03 12:15 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root     11638 2011-11-03 08:56 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root       661 2011-11-03 12:15 ./usr/share/doc/bedtools/changelog.Debian.gz
+drwxr-xr-x root/root         0 2011-11-03 12:19 ./usr/bin/
+-rwxr-xr-x root/root    147112 2011-11-03 12:19 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root    180032 2011-11-03 12:19 ./usr/bin/pairToPair
+-rwxr-xr-x root/root    276528 2011-11-03 12:19 ./usr/bin/coverageBed
+-rwxr-xr-x root/root    229232 2011-11-03 12:19 ./usr/bin/bedToBam
+-rwxr-xr-x root/root     93664 2011-11-03 12:19 ./usr/bin/overlap
+-rwxr-xr-x root/root    110216 2011-11-03 12:19 ./usr/bin/linksBed
+-rwxr-xr-x root/root    114112 2011-11-03 12:19 ./usr/bin/mergeBed
+-rwxr-xr-x root/root    114168 2011-11-03 12:19 ./usr/bin/complementBed
+-rwxr-xr-x root/root    147136 2011-11-03 12:19 ./usr/bin/nucBed
+-rwxr-xr-x root/root    118888 2011-11-03 12:19 ./usr/bin/flankBed
+-rwxr-xr-x root/root    267760 2011-11-03 12:19 ./usr/bin/tagBam
+-rwxr-xr-x root/root    345608 2011-11-03 12:19 ./usr/bin/intersectBed
+-rwxr-xr-x root/root    118328 2011-11-03 12:19 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root    110168 2011-11-03 12:19 ./usr/bin/slopBed
+-rwxr-xr-x root/root    110000 2011-11-03 12:19 ./usr/bin/annotateBed
+-rwxr-xr-x root/root    118192 2011-11-03 12:19 ./usr/bin/subtractBed
+-rwxr-xr-x root/root    135352 2011-11-03 12:19 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root    278888 2011-11-03 12:19 ./usr/bin/windowBed
+-rwxr-xr-x root/root    150952 2011-11-03 12:19 ./usr/bin/sortBed
+-rwxr-xr-x root/root    101856 2011-11-03 12:19 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root    126624 2011-11-03 12:19 ./usr/bin/closestBed
+-rwxr-xr-x root/root    218312 2011-11-03 12:19 ./usr/bin/bamToBed
+-rwxr-xr-x root/root    356352 2011-11-03 12:19 ./usr/bin/pairToBed
+-rwxr-xr-x root/root    294888 2011-11-03 12:19 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root     65032 2011-11-03 12:19 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root    126480 2011-11-03 12:19 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root    292880 2011-11-03 12:19 ./usr/bin/multiBamCov
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -822,18 +822,18 @@ Removing zlib1g-dev ...
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 137012
-Build-Time: 156
+Build-Space: 137016
+Build-Time: 149
 Distribution: unstable
-Install-Time: 11
-Job: bedtools_2.14.1-1.dsc
+Install-Time: 12
+Job: bedtools_2.14.2-1.dsc
 Lintian: pass
 Package: bedtools
-Package-Time: 172
-Source-Version: 2.14.1-1
-Space: 137012
+Package-Time: 167
+Source-Version: 2.14.2-1
+Space: 137016
 Status: successful
-Version: 2.14.1-1
+Version: 2.14.2-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20111103-1123
-Build needed 00:02:52, 137012k disc space
+Finished at 20111103-1219
+Build needed 00:02:47, 137016k disc space
