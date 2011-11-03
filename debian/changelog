@@ -1,3 +1,9 @@
+bedtools (2.14.2-1) unstable; urgency=low
+
+  [356313d] Bugfix release.
+
+ -- Charles Plessy <plessy@debian.org>  Thu, 03 Nov 2011 12:15:32 +0900
+
 bedtools (2.14.1-1) unstable; urgency=low
 
   [bce732c] New upstream release and new tool, multiBedIntersect.

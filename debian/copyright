@@ -1,5 +1,5 @@
 Format: http://dep.debian.net/deps/dep5/
-Source: http://bedtools.googlecode.com/files/BEDTools.v2.14.1.tar.gz
+Source: http://bedtools.googlecode.com/files/BEDTools.v2.14.2.tar.gz
 
 Files: *
 Copyright: © 2009,2010,2011 Aaron Quinlan
