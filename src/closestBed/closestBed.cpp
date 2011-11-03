@@ -138,14 +138,15 @@ void BedClosest::FindWindowOverlaps(BED &a, vector<BED> &hits) {
                             curDistance = -curDistance;
                         }
                     }
-                    
                     if (abs(curDistance) < minDistance) {
+                        minDistance = abs(curDistance);
                         closestB.clear();
                         closestB.push_back(*h);
                         distances.clear();
                         distances.push_back(curDistance);
                     }
                     else if (abs(curDistance) == minDistance) {
+                        minDistance = abs(curDistance);
                         closestB.push_back(*h);
                         distances.push_back(curDistance);
                     }

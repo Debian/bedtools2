@@ -420,7 +420,11 @@ public:
     void Close(void);
 
     // Get the next BED entry in an opened BED file.
-    BedLineStatus GetNextBed (BED &bed, int &lineNum);
+    BedLineStatus GetNextBed (BED &bed, int &lineNum, bool forceSorted = false);
+    
+    // Returns the next MERGED (i.e., non-overlapping) interval in an opened BED file
+    // NOTE: assumes input file is sorted by chrom then start
+    bool GetNextMergedBed(BED &merged_bed, int &lineNum);
 
     // load a BED file into a map keyed by chrom, then bin. value is vector of BEDs
     void loadBedFileIntoMap();
@@ -487,6 +491,11 @@ private:
     istream   *_bedStream;
     string _bedLine;
     vector<string> _bedFields;
+    int _merged_start;
+    int _merged_end;
+    string _merged_chrom;
+    int _prev_start;
+    string _prev_chrom;
 
     void setZeroBased(bool zeroBased);
     void setGff (bool isGff);
