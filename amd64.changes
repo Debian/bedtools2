@@ -2,11 +2,11 @@
 Hash: SHA256
 
 Format: 1.8
-Date: Thu, 03 Nov 2011 12:15:32 +0900
+Date: Fri, 04 Nov 2011 09:25:38 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: source amd64
-Version: 2.14.2-1
+Version: 2.14.3-1
 Distribution: unstable
 Urgency: low
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
@@ -14,39 +14,39 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.14.2-1) unstable; urgency=low
+ bedtools (2.14.3-1) unstable; urgency=low
  .
-   [356313d] Bugfix release.
+   [04f6aa3] Bugfix release.
 Checksums-Sha1: 
- 097fc5899be2e89d150dbc3524083c40e024e315 1967 bedtools_2.14.2-1.dsc
- ff2a6f15de1e6ebadf7b4571bab3d66ed6405bc3 921999 bedtools_2.14.2.orig.tar.gz
- 1bc35cb8b2e58f45c294ecf45814c7492fdd1ead 4317 bedtools_2.14.2-1.debian.tar.gz
- 193e54bb136ea0234d1a0f6479543c33a6f6d67e 671402 bedtools_2.14.2-1_amd64.deb
+ f7160e8ca716de33a5dda76b8f154c5ba09cb431 1967 bedtools_2.14.3-1.dsc
+ f9c45453e76b0eeb87f1204fe07311bc0a2236d9 922009 bedtools_2.14.3.orig.tar.gz
+ c5d4f4957e510d84970da1a968b8eea251b99554 4338 bedtools_2.14.3-1.debian.tar.gz
+ 4c2395b977d1905ef2620644a7f5f5c652a7fcac 691314 bedtools_2.14.3-1_amd64.deb
 Checksums-Sha256: 
- da5f0c31d5b1717019dced55d4e28356f88de36e5ea0d7417d9ae043737ee44d 1967 bedtools_2.14.2-1.dsc
- e6fb2f35a51614bd15b479585b421100690232e8987a5afa267cfe84cdee81cd 921999 bedtools_2.14.2.orig.tar.gz
- 9183aada06617fcfb952259219057978d02cf89fe7eecc9c477748662cff26f5 4317 bedtools_2.14.2-1.debian.tar.gz
- e8ae29aa6916fb3353fd04b0fd19c3addf228638d442cd6bad64069d9efa4ce7 671402 bedtools_2.14.2-1_amd64.deb
+ baa590a81978cdb12feb3eda4e68c23473069eb89de5f624edfce143047cccb3 1967 bedtools_2.14.3-1.dsc
+ 5b6918754adfc326054c8a750d5ab2528621a4818ff67b4545b129cbcdf5790f 922009 bedtools_2.14.3.orig.tar.gz
+ 42d3fadc72d39d11fa52106698da598d5f6615c1f8754947c90a873562fdfab8 4338 bedtools_2.14.3-1.debian.tar.gz
+ 0ab0e22c60328cfffcbebe9a8f27baa49fdb0b96a9b30c377ec02d6552ebf776 691314 bedtools_2.14.3-1_amd64.deb
 Files: 
- 106beb28ab75111ac0f04dc8381e3b62 1967 science optional bedtools_2.14.2-1.dsc
- 761f9c4027857c03be7f661ef1a6b22e 921999 science optional bedtools_2.14.2.orig.tar.gz
- a44f90874bc670029759f9ff9196f091 4317 science optional bedtools_2.14.2-1.debian.tar.gz
- 69ed637ef969f6167c0041f450b263e4 671402 science optional bedtools_2.14.2-1_amd64.deb
+ e9c8e8eab757e0592a6bc5006dd6baf0 1967 science optional bedtools_2.14.3-1.dsc
+ 5b8638bf5fca93ee69347cbd241d1ca1 922009 science optional bedtools_2.14.3.orig.tar.gz
+ a3faca50594d0ec4d458f40f8651bce0 4338 science optional bedtools_2.14.3-1.debian.tar.gz
+ 32cc88d48c9a82d59f002164b35ecb6b 691314 science optional bedtools_2.14.3-1_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQIcBAEBCAAGBQJOsgifAAoJEMW9bI8ildUCiN4QAKnzluymJdECbcVZMuot4Sxu
-tow3r1vzZZ+feRS+4YK126qmJTpYrLaaGIUxXKEWnPA6BKFdut3YkXoMU7joGcBP
-2ztR6VI7AYPguNWEghQai8dgbm5Ysc4tyJivC/Y4dD+C5/kZqlObwT0Kr7PFayVK
-LSSbwbX9aEMepzjFiVLVkOPFPHJpLBUCLRi/vhoDT9kLkFb6eIhJ6WRSCtxs6Meu
-r3av/XAaA69+1hhW0WdYlNf6vzzbyrQLCiGaQhdfJXj61HChjt2hvwPW1Ky5lCXH
-oNsPpdHemzROiptqjSCDR8EUNLTNou0iGx+FqLsRnWYa5OoNijF9LV2kyoyw6ogg
-GRHtvPY/slz5xkScVsT40wgs5CmVxC4CDFjNogjzs4cmEfHb5K6VkCFYkr1FvPYq
-4ztgyEQVUe0pkkFKuBLeEZsytfUbPeMfPvedfP1Asyb93gFplCuLIcg0chT9PyFG
-pFJEsoX6xmG9MgLNqLiWjQ+x6Ah6AkQn1x/d1JTLNcnmUd7wN6ev3x8oPJu9kBZM
-uHk+D/pvIINwMiAEUBoGmQcbQEi18B7IBZlZyd3Ln/kfqhOQk+dm19zylZvRyxD6
-lLsiZpBcb/aShA/Kp4cvWnO6yz3ahJH4rY6VTOx0zavyxb90Bk/YRWFqtshOYMjd
-a/MnxD4vlyceC4zJ8I5K
-=A4Hw
+iQIcBAEBCAAGBQJOtJOAAAoJEMW9bI8ildUCZPwP/RkZDCWieF3gFdYWAQ3YOlJ2
+i5CRjZEQ7MDj2+ZYJqK/yl1uFMWMY/bwYnsNfA5sRfFFttPZzH4gazpHlTyCzPKk
+zb2U6m1I9h8TR+jpqobvtcioabCSJ5jXcbxL+9euL8riLLS18hN/LNjSgV6vQ2o4
+bYoO1ugnT/2J6fOqGv6taAsaqSOJmtdgJ6lmjSU7wBlkmtnTRhzbg2nHXoEEryBQ
+yIact95/2ycjgL11H/eA1Y2+MZCh7MlSqU2lLvHoAiabbtBRWgwstHTBip0QQZVF
+oUiu9Rbu54+4ncFxH0emHNETmw2sCgKM7DxAMxej4kbX8uNYGeJ0CYBO9KfORcnd
+aXhK4K6fqDj0W55FCZxRBNB+vNvT8kpSDuIA3uvV7SqXdrNpICyCkepsEQY/lRjh
+Mg8ZOEfUN0hAVT/5igE33pOBF9mKA7tZz2bKx2PgIGgaQPeZRVM92XiNBtTja0gh
+mNU37xUndKsCJDJO2WGktzHAcRQdvqtSrieRGaLp/Xqx6f1Fe8f5vH5xnZyDNMML
+pLxFTw1aOvjxV1euDg52/pMT9QsfLVbWO57caypeUMn5ju0Hch/65al14xjZoGzC
+dqd4EwJZSCbcKJ4eNvK7fGRGb29emXhv2edt0AdPqzdBzQ/XXSlKSMhUC4ho98sw
+PJDXDzF4jfA2h2Vy98A9
+=rBn+
 -----END PGP SIGNATURE-----
