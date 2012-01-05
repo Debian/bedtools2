@@ -13,14 +13,18 @@
 #include "flankBed.h"
 
 
-BedFlank::BedFlank(string &bedFile, string &genomeFile, bool forceStrand, float leftFlank, float rightFlank, bool fractional) {
+BedFlank::BedFlank(string &bedFile, string &genomeFile, bool forceStrand, 
+                   float leftFlank, float rightFlank, bool fractional,
+                   bool printHeader) 
+{
 
     _bedFile      = bedFile;
     _genomeFile   = genomeFile;
     _forceStrand  = forceStrand;
     _leftFlank    = leftFlank;
     _rightFlank   = rightFlank;
-    _fractional   = fractional; 
+    _fractional   = fractional;
+    _printHeader  = printHeader;
 
     _bed    = new BedFile(bedFile);
     _genome = new GenomeFile(genomeFile);
@@ -37,15 +41,16 @@ BedFlank::~BedFlank(void) {
 
 void BedFlank::FlankBed() {
 
-    int lineNum = 0;
-    BED bedEntry, nullBed;     // used to store the current BED line from the BED file.
-    BedLineStatus bedStatus;
+    BED bedEntry;     // used to store the current BED line from the BED file.
 
     _bed->Open();
-    bedStatus = _bed->GetNextBed(bedEntry, lineNum);
-    while (bedStatus != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
-
+    // report A's header first if asked.
+    if (_printHeader == true) {
+        _bed->PrintHeader();
+    }
+        
+    while (_bed->GetNextBed(bedEntry)) {
+        if (_bed->_status == BED_VALID) {
             int leftFlank  = _leftFlank;
             int rightFlank = _rightFlank;            
             if (_fractional == true) {
@@ -61,9 +66,7 @@ void BedFlank::FlankBed() {
             {
                 AddStrandedFlank(bedEntry,  leftFlank, rightFlank);                    
             }
-            bedEntry = nullBed;
         }
-        bedStatus = _bed->GetNextBed(bedEntry, lineNum);
     }
     _bed->Close();
 }

@@ -15,15 +15,15 @@
 using namespace std;
 
 // define the version
-#define PROGRAM_NAME "tagBam"
+#define PROGRAM_NAME "bedtools tag"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void tagbam_help(void);
 
-int main(int argc, char* argv[]) {
+int tagbam_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
     bool haveFraction     = false;
     bool useNames         = false;
     bool useScores        = false;
+    bool useIntervals     = false;
     bool sameStrand       = false;
     bool diffStrand       = false;
     bool haveBam          = false;
@@ -61,7 +62,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) tagbam_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -108,6 +109,9 @@ int main(int argc, char* argv[]) {
         }
         else if (PARAMETER_CHECK("-scores", 7, parameterLength)) {
             useScores = true;
+        }
+        else if (PARAMETER_CHECK("-intervals", 10, parameterLength)) {
+            useIntervals = true;
         }
         else if (PARAMETER_CHECK("-s", 2, parameterLength)) {
             sameStrand = true;
@@ -156,28 +160,43 @@ int main(int argc, char* argv[]) {
         cerr << endl << "*****" << endl << "*****ERROR: Use -scores or -names, not both. " << endl << "*****" << endl;
         showHelp = true;
     }
+    if (useScores && useIntervals) {
+        cerr << endl << "*****" << endl << "*****ERROR: Use -scores or -intervals, not both. " << endl << "*****" << endl;
+        showHelp = true;
+    }
+    if (useNames && useIntervals) {
+        cerr << endl << "*****" << endl << "*****ERROR: Use -names or -intervals, not both. " << endl << "*****" << endl;
+        showHelp = true;
+    }
+    if (!haveLabels && useIntervals) {
+        cerr << endl << "*****" << endl << "*****ERROR: Supply -labels when using -intervals. " << endl << "*****" << endl;
+        showHelp = true;
+    }
     if (haveTag && tag.size() > 2) {
         cerr << endl << "*****" << endl << "*****ERROR: Custom tags should be at most two characters per the SAM specification. " << endl << "*****" << endl;
         showHelp = true;
     }
 
+
     if (!showHelp) {
-        TagBam *ba = new TagBam(bamFile, inputFiles, inputLabels, tag, useNames, useScores, sameStrand, diffStrand, overlapFraction);
+        TagBam *ba = new TagBam(bamFile, inputFiles, inputLabels, 
+                                tag, useNames, useScores,  
+                                useIntervals, sameStrand, diffStrand, 
+                                overlapFraction);
         ba->Tag();
         delete ba;
         return 0;
     }
     else {
-        ShowHelp();
+        tagbam_help();
     }
+    return 0;
 }
 
-void ShowHelp(void) {
+void tagbam_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+    cerr << "\nTool:    bedtools tag (aka tagBam)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
     cerr << "Summary: Annotates a BAM file based on overlaps with multiple BED/GFF/VCF files" << endl;
     cerr << "\t on the intervals in -i." << endl << endl;
 
@@ -201,9 +220,11 @@ void ShowHelp(void) {
     cerr << "\t-names\t"        << "Use the name field from the annotation files to populate tags." << endl;
     cerr                        << "\t\tBy default, the -labels values are used." << endl << endl;
 
-    cerr << "\t-scores\t"    << "A list of 1-based columns for each annotation file" << endl;
-    cerr                        << "\t\tin which a color can be found." << endl << endl;
-    
+    cerr << "\t-scores\t"       << "Use the score field from the annotation files to populate tags." << endl;
+    cerr                        << "\t\tBy default, the -labels values are used." << endl << endl;    
+
+    cerr << "\t-intervals\t"    << "Use the full interval (including name, score, and strand) to populate tags." << endl;
+    cerr                        << "\t\t\tRequires the -labels option to identify from which file the interval came." << endl << endl;    
     
     exit(1);
 }

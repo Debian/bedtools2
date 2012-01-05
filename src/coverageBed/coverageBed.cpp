@@ -51,27 +51,22 @@ void BedCoverage::CollectCoverageBed() {
     // that we can easily compare "A" to it for overlaps
     _bedB->loadBedCovFileIntoMap();
 
-    int lineNum = 0;                    // current input line number
-    BED a, nullBed;
-    BedLineStatus bedStatus;
-
+    BED a;
     _bedA->Open();
     // process each entry in A
-    while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (_bedA->GetNextBed(a)) {
+        if (_bedA->_status == BED_VALID) {
             // process the BED entry as a single block
             if (_obeySplits == false)
                 _bedB->countHits(a, _sameStrand, _diffStrand, _countsOnly);
             // split the BED into discrete blocksand process each independently.
             else {
                 bedVector bedBlocks;
-                splitBedIntoBlocks(a, lineNum, bedBlocks);
-
+                splitBedIntoBlocks(a, bedBlocks);
                 // use countSplitHits to avoid over-counting each split chunk
                 // as distinct read coverage.
                 _bedB->countSplitHits(bedBlocks, _sameStrand, _diffStrand, _countsOnly);
             }
-            a = nullBed;
         }
     }
     _bedA->Close();

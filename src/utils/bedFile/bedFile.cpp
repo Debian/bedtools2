@@ -15,16 +15,16 @@
 /************************************************
 Helper functions
 *************************************************/
-void splitBedIntoBlocks(const BED &bed, int lineNum, bedVector &bedBlocks) {
+void splitBedIntoBlocks(const BED &bed, bedVector &bedBlocks) {
 
     if (bed.otherFields.size() < 6) {
-        cerr << "Input error: Cannot split into blocks. Found interval with fewer than 12 columns on line " << lineNum << "." << endl;
+        cerr << "Input error: Cannot split into blocks. Found interval with fewer than 12 columns." << endl;
         exit(1);
     }
 
     int blockCount = atoi(bed.otherFields[3].c_str());
     if ( blockCount <= 0 ) {
-        cerr << "Input error: found interval having <= 0 blocks on line " << lineNum << "." << endl;
+        cerr << "Input error: found interval having <= 0 blocks." << endl;
         exit(1);
     }
     else if ( blockCount == 1 ) {
@@ -42,7 +42,7 @@ void splitBedIntoBlocks(const BED &bed, int lineNum, bedVector &bedBlocks) {
         Tokenize(blockStarts, starts, ",");
 
         if ( sizes.size() != (size_t) blockCount || starts.size() != (size_t) blockCount ) {
-            cerr << "Input error: found interval with block-counts not matching starts/sizes on line " << lineNum << "." << endl;
+            cerr << "Input error: found interval with block-counts not matching starts/sizes on line." << endl;
             exit(1);
         }
 
@@ -151,6 +151,8 @@ void BedFile::Open(void) {
             exit (1);
         }
     }
+    // save the file's header (if there is one)
+    GetHeader();
 }
 
 // Rewind the pointer back to the beginning of the file
@@ -164,73 +166,115 @@ void BedFile::Seek(unsigned long offset) {
 }
 
 // Jump to a specific byte in the file
-bool BedFile::Empty() {
-    return _bedStream->eof();
+bool BedFile::Empty(void) {
+    return _status == BED_INVALID || _status == BED_BLANK;
 }
-
 
 // Close the BED file
 void BedFile::Close(void) {
     if (bedFile != "stdin" && bedFile != "-") delete _bedStream;
 }
 
+void BedFile::GetLine(void) {
+    // parse the bedStream pointer
+    getline(*_bedStream, _bedLine);
+    // increment the line number
+    _lineNum++;
+    // split into a string vector.
+    Tokenize(_bedLine, _bedFields);
+}
 
-BedLineStatus BedFile::GetNextBed(BED &bed, int &lineNum, bool forceSorted) {
+// Extract and store the header for the file.
+void BedFile::GetHeader(void) {
+    while(getline(*_bedStream, _bedLine))
+    {
+        _lineNum++;
+        // look for header lines.  ^# headers can span multiple lines, 
+        // but ^[browser|track|chrom] headers must occur on the 1st line.
+        if ( (_bedLine.find("#")       == 0) ||
+             (_bedLine.find("browser") == 0) ||
+             (_bedLine.find("track")   == 0) 
+           )
+        {
+            _header += _bedLine + '\n';
+        }
+        // we are done with the header. stop looking
+        // and indicate that the first data line has been read
+        // (i.e., _bedLine now houses the first data line)
+        else
+        {
+            _firstLine = true;
+            break;
+        }
+    }
+}
+
+// Dump the header
+void BedFile::PrintHeader(void) {
+    cout << _header;
+}
+
+
+bool BedFile::GetNextBed(BED &bed, bool forceSorted) {
 
     // make sure there are still lines to process.
     // if so, tokenize, validate and return the BED entry.
     _bedFields.clear();
     // clear out the previous bed's data
     if (_bedStream->good()) {
-        // parse the bedStream pointer
-        getline(*_bedStream, _bedLine);
-        lineNum++;
-
-        // split into a string vector.
-        Tokenize(_bedLine, _bedFields);
-
-        // load the BED struct as long as it's a valid BED entry.
-        BedLineStatus status = parseLine(bed, _bedFields, lineNum);
-        if (!forceSorted) {
-            return status;
+        // read the next line in the file and parse into discrete fields
+        if (!_firstLine)
+            GetLine();
+        else {
+            // handle the first line as a special case because
+            // of reading the header.
+            Tokenize(_bedLine, _bedFields);
+            _firstLine = false;
         }
-        else if (status == BED_VALID) {
+        // load the BED struct as long as it's a valid BED entry.
+        _status = parseLine(bed, _bedFields);
+        if (_status == BED_INVALID) return false;
+        
+        if (_status == BED_VALID) {
             if (bed.chrom == _prev_chrom) {
                 if ((int) bed.start >= _prev_start) {
                     _prev_chrom = bed.chrom;
                     _prev_start = bed.start;
-                    return status;
                 }
-                else {
-                    cerr << "ERROR: input file: (" << bedFile << ") is not sorted by chrom then start" << endl;
+                else if (forceSorted) {
+                    cerr << "ERROR: input file: (" << bedFile 
+                         << ") is not sorted by chrom then start." << endl
+                         << "       The start coordinate at line " << _lineNum 
+                         << " is less than the start at line " << _lineNum-1 
+                         << endl;
                     exit(1);
                 }
             }
-            else if (bed.chrom > _prev_chrom) {
+            else if (bed.chrom != _prev_chrom) {
                 _prev_chrom = bed.chrom;
                 _prev_start = bed.start;
-                return status;
             }
-            else if (bed.chrom < _prev_chrom) {
-                cerr << "ERROR: input file: (" << bedFile << ") is not sorted by chrom then start" << endl;
-                exit(1);
-            }
+            return true;
+        }
+        else if (_status == BED_HEADER || _status == BED_BLANK) 
+        {
+            return true;
         }
     }
 
     // default if file is closed or EOF
-    return BED_INVALID;
+    _status = BED_INVALID;
+    return false;
 }
 
 
-bool BedFile::GetNextMergedBed(BED &merged_bed, int &lineNum) {
+bool BedFile::GetNextMergedBed(BED &merged_bed) {
 
     if (_bedStream->good()) {
         BED bed;
-        BedLineStatus bedStatus;
         // force sorting; hence third param = true
-        while ((bedStatus = GetNextBed(bed, lineNum, true)) != BED_INVALID) {
-            if (bedStatus == BED_VALID) {
+        while (GetNextBed(bed, true)) {
+            if (_status == BED_VALID) {
                 if (((int) bed.start - _merged_end > 0) || 
                    (_merged_end < 0) || 
                    (bed.chrom != _merged_chrom))
@@ -259,7 +303,7 @@ bool BedFile::GetNextMergedBed(BED &merged_bed, int &lineNum) {
             }
         }
         // handle the last merged block in the file.
-        if (bedStatus == BED_INVALID)
+        if (_status == BED_INVALID)
         {
             merged_bed.chrom = _merged_chrom;
             merged_bed.start = _merged_start;
@@ -622,16 +666,13 @@ void BedFile::setBedType (int colNums) {
 
 void BedFile::loadBedFileIntoMap() {
 
-    BED bedEntry, nullBed;
-    int lineNum = 0;
-    BedLineStatus bedStatus;
+    BED bedEntry;
 
     Open();
-    while ((bedStatus = GetNextBed(bedEntry, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (GetNextBed(bedEntry)) {
+        if (_status == BED_VALID) {
             BIN bin = getBin(bedEntry.start, bedEntry.end);
             bedMap[bedEntry.chrom][bin].push_back(bedEntry);
-            bedEntry = nullBed;
         }
     }
     Close();
@@ -640,13 +681,10 @@ void BedFile::loadBedFileIntoMap() {
 
 void BedFile::loadBedCovFileIntoMap() {
 
-    BED bedEntry, nullBed;
-    int lineNum = 0;
-    BedLineStatus bedStatus;
-
+    BED bedEntry;
     Open();
-    while ((bedStatus = GetNextBed(bedEntry, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (GetNextBed(bedEntry)) {
+        if (_status == BED_VALID) {
             BIN bin = getBin(bedEntry.start, bedEntry.end);
 
             BEDCOV bedCov;
@@ -662,7 +700,6 @@ void BedFile::loadBedCovFileIntoMap() {
             bedCov.minOverlapStart = INT_MAX;
 
             bedCovMap[bedEntry.chrom][bin].push_back(bedCov);
-            bedEntry = nullBed;
         }
     }
     Close();
@@ -670,13 +707,10 @@ void BedFile::loadBedCovFileIntoMap() {
 
 void BedFile::loadBedCovListFileIntoMap() {
 
-    BED bedEntry, nullBed;
-    int lineNum = 0;
-    BedLineStatus bedStatus;
-
+    BED bedEntry;
     Open();
-    while ((bedStatus = GetNextBed(bedEntry, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (GetNextBed(bedEntry)) {
+        if (_status == BED_VALID) {
             BIN bin = getBin(bedEntry.start, bedEntry.end);
 
             BEDCOVLIST bedCovList;
@@ -690,7 +724,6 @@ void BedFile::loadBedCovListFileIntoMap() {
             bedCovList.zeroLength   = bedEntry.zeroLength;
 
             bedCovListMap[bedEntry.chrom][bin].push_back(bedCovList);
-            bedEntry = nullBed;
         }
     }
     Close();
@@ -699,15 +732,12 @@ void BedFile::loadBedCovListFileIntoMap() {
 
 void BedFile::loadBedFileIntoMapNoBin() {
 
-    BED bedEntry, nullBed;
-    int lineNum = 0;
-    BedLineStatus bedStatus;
-
+    BED bedEntry;
+    
     Open();
-    while ((bedStatus = this->GetNextBed(bedEntry, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (GetNextBed(bedEntry)) {
+        if (_status == BED_VALID) {
             bedMapNoBin[bedEntry.chrom].push_back(bedEntry);
-            bedEntry = nullBed;
         }
     }
     Close();

@@ -18,15 +18,15 @@
 #include <iostream>
 #include <getopt.h>
 #include <libgen.h> //for basename()
-#include "version.h"
 
 #include "genomeFile.h"
 #include "multiIntersectBed.h"
+#include "version.h"
 
 using namespace std;
 
 // define our program name
-#define PROGRAM_NAME "multiIntersectBed"
+#define PROGRAM_NAME "bedtools multiinter"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
@@ -37,11 +37,10 @@ using namespace std;
 std::string stl_basename(const std::string& path);
 
 // function declarations
-void ShowHelp(void);
-void ShowExamples(void);
+void multiintersect_help(void);
+void multiintersect_examples(void);
 
-
-int main(int argc, char* argv[])
+int multiintersect_main(int argc, char* argv[])
 {
     bool haveFiles         = false;
     bool haveTitles        = false;
@@ -49,6 +48,7 @@ int main(int argc, char* argv[])
     bool haveFiller        = true;
     bool printHeader       = false;
     bool printEmptyRegions = false;
+    bool cluster           = false;
     bool showHelp          = false;
     string genomeFile;
     string basePath;
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 
     //Parse command line options
     if(argc <= 1)
-        ShowHelp();
+        multiintersect_help();
 
     for(int i = 1; i < argc; i++) {
         int parameterLength = (int)strlen(argv[i]);
@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
     }
 
     if(showHelp == true) {
-        ShowHelp();
+        multiintersect_help();
         exit(1);
     }
 
@@ -127,20 +127,23 @@ int main(int argc, char* argv[])
         else if(PARAMETER_CHECK("-empty", 6, parameterLength)) {
             printEmptyRegions = true;
         }
+        else if(PARAMETER_CHECK("-cluster", 8, parameterLength)) {
+            cluster = true;
+        }
         else if(PARAMETER_CHECK("-examples", 9, parameterLength)) {
-            ShowHelp();
-            ShowExamples();
+            multiintersect_help();
+            multiintersect_examples();
             exit(1);
         }
     }
 
     //Sanity checks
     if (inputFiles.empty() == true) {
-        cerr << "Error: missing BedGraph file names (-i) to combine." << endl;
+        cerr << "Error: missing file names (-i) to combine." << endl;
         exit(1);
     }
     if (inputFiles.size() == 1) {
-        cerr << "Error: Only a single BedGraph file was specified. Nothing to combine, exiting." << endl;
+        cerr << "Error: Only a single file was specified. Nothing to combine, exiting." << endl;
         exit(1);
     }
     if (printEmptyRegions && (genomeFile.empty() == true)) {
@@ -155,29 +158,32 @@ int main(int argc, char* argv[])
     MultiIntersectBed mbi(cout, inputFiles, inputTitles, printEmptyRegions, genomeFile, noCoverageValue);
     if (printHeader)
         mbi.PrintHeader();
-    mbi.MultiIntersect();
+    if (!cluster)
+        mbi.MultiIntersect();
+    else
+        mbi.Cluster();
+    
+    return 0;
 }
 
-void ShowHelp(void) {
+void multiintersect_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Authors: Assaf Gordon, CSHL" << endl;
-    cerr << "         Aaron Quinlan (aaronquinlan@gmail.com)" << endl << endl;
-
-    cerr << "Summary: Combines multiple BedGraph files into a single file," << endl;
-    cerr << "\t allowing coverage comparisons between them." << endl << endl;
+    cerr << "\nTool:    bedtools multiinter (aka multiIntersectBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
+    cerr << "Summary: Identifies common intervals among multiple" << endl;
+    cerr << "\t BED/GFF/VCF files." << endl << endl;
 
     cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -i FILE1 FILE2 .. FILEn" << endl;
-    cerr << "\t Assumes that each BedGraph file is sorted by chrom/start " << endl;
-    cerr << "\t and that the intervals in each are non-overlapping." << endl << endl;
+    cerr << "\t Requires that each interval file is sorted by chrom/start. " << endl << endl;
 
     cerr << "Options: " << endl;
+
+    cerr << "\t-cluster\t"      << "Invoke Ryan Layers's clustering algorithm." << endl << endl;
 
     cerr << "\t-header\t\t"     << "Print a header line." << endl;
     cerr                        << "\t\t\t(chrom/start/end + names of each file)." << endl << endl;
 
-    cerr << "\t-names\t\t"      << "A list of names (one / file) to describe each file in -i." << endl;
+    cerr << "\t-names\t\t"      << "A list of names (one/file) to describe each file in -i." << endl;
     cerr                        << "\t\t\tThese names will be printed in the header line." << endl << endl;
 
     cerr << "\t-g\t\t"          << "Use genome file to calculate empty regions." << endl;
@@ -188,91 +194,89 @@ void ShowHelp(void) {
     cerr                        << "\t\t\t- Requires the '-g FILE' parameter.\n" << endl;
 
     cerr << "\t-filler TEXT\t"  << "Use TEXT when representing intervals having no value." << endl;
-    cerr                        << "\t\t\t- Default is '0', but you can use 'N/A' or any other text." << endl << endl;
+    cerr                        << "\t\t\t- Default is '0', but you can use 'N/A' or any text." << endl << endl;
 
     cerr << "\t-examples\t"     << "Show detailed usage examples." << endl << endl;
 }
 
 
 
-void ShowExamples()
+void multiintersect_examples()
 {
     cerr << "Example usage:\n\n"  \
 "== Input files: ==\n" \
 "\n" \
-" $ cat 1.bg\n" \
-" chr1  1000    1500    10\n" \
-" chr1  2000    2100    20\n" \
+" $ cat a.bed\n" \
+" chr1  6   12\n" \
+" chr1  10  20\n" \
+" chr1  22  27\n" \
+" chr1  24  30\n" \
 "\n" \
-" $ cat 2.bg\n" \
-" chr1  900 1600    60\n" \
-" chr1  1700    2050    50\n" \
+" $ cat b.bed\n" \
+" chr1  12  32\n" \
+" chr1  14  30\n" \
 "\n" \
-" $ cat 3.bg\n" \
-" chr1  1980    2070    80\n" \
-" chr1  2090    2100    20\n" \
+" $ cat c.bed\n" \
+" chr1  8   15\n" \
+" chr1  10  14\n" \
+" chr1  32  34\n" \
 "\n" \
 " $ cat sizes.txt\n" \
 " chr1  5000\n" \
 "\n" \
-"== Union/combine the files: ==\n" \
+"== Multi-intersect the files: ==\n" \
 "\n" \
-" $ unionBedGraphs -i 1.bg 2.bg 3.bg\n" \
-" chr1  900 1000    0   60  0\n" \
-" chr1  1000    1500    10  60  0\n" \
-" chr1  1500    1600    0   60  0\n" \
-" chr1  1700    1980    0   50  0\n" \
-" chr1  1980    2000    0   50  80\n" \
-" chr1  2000    2050    20  50  80\n" \
-" chr1  2050    2070    20  0   80\n" \
-" chr1  2070    2090    20  0   0\n" \
-" chr1  2090    2100    20  0   20\n" \
+" $ multiIntersectBed -i a.bed b.bed c.bed\n" \
+"chr1	6	8	1	1	1	0	0\n" \
+"chr1	8	12	2	1,3	1	0	1\n" \
+"chr1	12	15	3	1,2,3	1	1	1\n" \
+"chr1	15	20	2	1,2	1	1	0\n" \
+"chr1	20	22	1	2	0	1	0\n" \
+"chr1	22	30	2	1,2	1	1	0\n" \
+"chr1	30	32	1	2	0	1	0\n" \
+"chr1	32	34	1	3	0	0	1\n" \
 "\n" \
-"== Union/combine the files, with a header line (titles are the file names): ==\n" \
+"== Multi-intersect the files, with a header line (titles are the file names): ==\n" \
 "\n" \
-" $ unionBedGraphs -header -i 1.bg 2.bg 3.bg\n" \
-" chrom start   end 1   2   3\n" \
-" chr1  900 1000    0   60  0\n" \
-" chr1  1000    1500    10  60  0\n" \
-" chr1  1500    1600    0   60  0\n" \
-" chr1  1700    1980    0   50  0\n" \
-" chr1  1980    2000    0   50  80\n" \
-" chr1  2000    2050    20  50  80\n" \
-" chr1  2050    2070    20  0   80\n" \
-" chr1  2070    2090    20  0   0\n" \
-" chr1  2090    2100    20  0   20\n" \
+" $ multiIntersectBed -header -i a.bed b.bed c.bed\n" \
+" chrom	start	end	num	list	a.bed	b.bed	c.bed\n" \
+" chr1	6	8	1	1	1	0	0\n" \
+" chr1	8	12	2	1,3	1	0	1\n" \
+" chr1	12	15	3	1,2,3	1	1	1\n" \
+" chr1	15	20	2	1,2	1	1	0\n" \
+" chr1	20	22	1	2	0	1	0\n" \
+" chr1	22	30	2	1,2	1	1	0\n" \
+" chr1	30	32	1	2	0	1	0\n" \
+" chr1	32	34	1	3	0	0	1\n" \
 "\n" \
-"== Union/combine the files, with a header line and custom names: ==\n" \
+"== Multi-intersect the files, with a header line and custom names: ==\n" \
 "\n" \
-" $ unionBedGraphs -header -i 1.bg 2.bg 3.bg -names WT-1 WT-2 KO-1\n" \
-" chrom start   end WT-1    WT-2    KO-1\n" \
-" chr1  900 1000    0   60  0\n" \
-" chr1  1000    1500    10  60  0\n" \
-" chr1  1500    1600    0   60  0\n" \
-" chr1  1700    1980    0   50  0\n" \
-" chr1  1980    2000    0   50  80\n" \
-" chr1  2000    2050    20  50  80\n" \
-" chr1  2050    2070    20  0   80\n" \
-" chr1  2070    2090    20  0   0\n" \
-" chr1  2090    2100    20  0   20\n" \
+" $ multiIntersectBed -header -i a.bed b.bed c.bed -names A B C\n" \
+" chrom	start	end	num	list	A	B	C\n" \
+" chr1	6	8	1	A	1	0	0\n" \
+" chr1	8	12	2	A,C	1	0	1\n" \
+" chr1	12	15	3	A,B,C	1	1	1\n" \
+" chr1	15	20	2	A,B	1	1	0\n" \
+" chr1	20	22	1	B	0	1	0\n" \
+" chr1	22	30	2	A,B	1	1	0\n" \
+" chr1	30	32	1	B	0	1	0\n" \
+" chr1	32	34	1	C	0	0	1\n" \
 "\n" \
-"== Union/combine, showing empty regions (note, requires -g): ==\n" \
+"== Multi-intersect the files, showing empty regions (note, requires -g): ==\n" \
 "\n" \
-" $ unionBedGraphs -header -empty -g sizes.TXT -i 1.bg 2.bg 3.bg\n" \
-" chrom start   end 1   2   3\n" \
-" chr1  0   900 0   0   0\n" \
-" chr1  900 1000    0   60  0\n" \
-" chr1  1000    1500    10  60  0\n" \
-" chr1  1500    1600    0   60  0\n" \
-" chr1  1600    1700    0   0   0\n" \
-" chr1  1700    1980    0   50  0\n" \
-" chr1  1980    2000    0   50  80\n" \
-" chr1  2000    2050    20  50  80\n" \
-" chr1  2050    2070    20  0   80\n" \
-" chr1  2070    2090    20  0   0\n" \
-" chr1  2090    2100    20  0   20\n" \
-" chr1  2100    5000    0   0   0\n" \
-"\n" \
+" $ multiIntersectBed -header -i a.bed b.bed c.bed -names A B C -empty -g sizes.txt\n" \
+" chrom	start	end	num	list	A	B	C\n" \
+" chr1	0	6	0	none	0	0	0\n" \
+" chr1	6	8	1	A	1	0	0\n" \
+" chr1	8	12	2	A,C	1	0	1\n" \
+" chr1	12	15	3	A,B,C	1	1	1\n" \
+" chr1	15	20	2	A,B	1	1	0\n" \
+" chr1	20	22	1	B	0	1	0\n" \
+" chr1	22	30	2	A,B	1	1	0\n" \
+" chr1	30	32	1	B	0	1	0\n" \
+" chr1	32	34	1	C	0	0	1\n" \
+" chr1	34	5000	0	none	0	0	0\n" \
+"\n"
 ;
 }
 
@@ -291,4 +295,3 @@ std::string stl_basename(const std::string& path)
 
     return result;
 }
-

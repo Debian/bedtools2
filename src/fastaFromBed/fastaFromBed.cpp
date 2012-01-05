@@ -104,27 +104,35 @@ void Bed2Fa::ExtractDNA() {
     fr->open(_dbFile, memmap);
 
     BED bed, nullBed;
-    int lineNum = 0;
-    BedLineStatus bedStatus;
     string sequence;
 
     _bed->Open();
-    while ((bedStatus = _bed->GetNextBed(bed, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (_bed->GetNextBed(bed)) {
+        if (_bed->_status == BED_VALID) {
             // make sure we are extracting >= 1 bp
             if (bed.zeroLength == false) {
+    
                 size_t seqLength = fr->sequenceLength(bed.chrom);
-                // make sure this feature will not exceed the end of the chromosome.
-                if ( (bed.start <= seqLength) && (bed.end <= seqLength) ) 
-                {
-                    int length = bed.end - bed.start;
-                    sequence = fr->getSubSequence(bed.chrom, bed.start, length);
-                    ReportDNA(bed, sequence);
+                // seqLength > 0 means chrom was found in index.
+                // seqLength == 0 otherwise.
+                if (seqLength) {
+                    // make sure this feature will not exceed the end of the chromosome.
+                    if ( (bed.start <= seqLength) && (bed.end <= seqLength) ) 
+                    {
+                        int length = bed.end - bed.start;
+                        sequence = fr->getSubSequence(bed.chrom, bed.start, length);
+                        ReportDNA(bed, sequence);
+                    }
+                    else
+                    {
+                        cerr << "Feature (" << bed.chrom << ":" << bed.start << "-" << bed.end << ") beyond the length of "
+                            << bed.chrom << " size (" << seqLength << " bp).  Skipping." << endl;
+                    }
                 }
                 else
                 {
-                    cerr << "Feature (" << bed.chrom << ":" << bed.start << "-" << bed.end << ") beyond the length of "
-                        << bed.chrom << " size (" << seqLength << " bp).  Skipping." << endl;
+                    cerr << "WARNING. chromosome (" << bed.chrom << 
+                            ") was not found in the FASTA file. Skipping."<< endl;
                 }
             }
             // handle zeroLength 

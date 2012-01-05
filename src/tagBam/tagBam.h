@@ -14,7 +14,6 @@
 
 #include "bedFile.h"
 
-#include "version.h"
 #include "api/BamReader.h"
 #include "api/BamWriter.h"
 #include "api/BamAux.h"
@@ -41,7 +40,7 @@ public:
     // constructor
     TagBam(const string &bamFile, const vector<string> &annoFileNames,
                 const vector<string> &annoLabels, const string &tag, 
-                bool useNames, bool useScores, bool sameStrand, 
+                bool useNames, bool useScores, bool useIntervals, bool sameStrand, 
                 bool diffStrand, float overlapFraction);
 
     // destructor
@@ -66,6 +65,7 @@ private:
     // should we use the name field from the annotation files?
     bool _useNames;
     bool _useScores;
+    bool _useIntervals;
     
     // do we care about strandedness when tagging?
     bool _sameStrand;
