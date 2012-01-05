@@ -1,23 +1,23 @@
-From buildd@rossini.debian.net Thu Nov 03 04:07:06 2011
+From buildd@rossini.debian.net Sat Nov 05 11:59:02 2011
 Return-path: <buildd@rossini.debian.net>
 Received: from io.ethz.ch ([129.132.80.17] helo=io.debian.net)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@rossini.debian.net>)
-	id 1RLoZy-0005x0-Og
-	for logs@buildd.debian.org; Thu, 03 Nov 2011 04:07:06 +0000
+	id 1RMetp-0005vK-Dy
+	for logs@buildd.debian.org; Sat, 05 Nov 2011 11:59:02 +0000
 Received: from hurd.ethz.ch ([192.33.98.55] helo=rossini.debian.net)
 	by io.debian.net with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@rossini.debian.net>)
-	id 1RLoZt-0002zC-UU; Thu, 03 Nov 2011 05:06:58 +0100
+	id 1RMetj-000JFM-Ty; Sat, 05 Nov 2011 12:58:56 +0100
 Received: from buildd by rossini.debian.net with local (Exim 4.72)
 	(envelope-from <buildd@rossini.debian.net>)
-	id 1RLoZs-0000HZ-G6; Thu, 03 Nov 2011 04:06:56 +0000
-Date: Thu, 03 Nov 2011 04:06:56 +0000
-Message-Id: <E1RLoZs-0000HZ-G6@rossini.debian.net>
+	id 1RMeti-0001HI-34; Sat, 05 Nov 2011 11:58:54 +0000
+Date: Sat, 05 Nov 2011 11:58:54 +0000
+Message-Id: <E1RMeti-0001HI-34@rossini.debian.net>
 From: Build Daemon <buildd@rossini.debian.net>
 To: samuel.thibault@ens-lyon.org, mbanck@gmx.net, logs@buildd.debian-ports.org,
 	logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.14.2-1 on hurd-i386 (dist=sid)
+Subject: Log for successful build of bedtools_2.14.3-1 on hurd-i386 (dist=sid)
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 Delivered-To: logs@buildd.debian.org
@@ -25,12 +25,12 @@ Delivered-To: logs@buildd.debian.org
 sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on rossini.debian.net
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.14.2-1 (hurd-i386)                              03 Nov 2011 03:50 ║
+║ bedtools 2.14.3-1 (hurd-i386)                              05 Nov 2011 11:39 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.14.2-1
-Source Version: 2.14.2-1
+Version: 2.14.3-1
+Source Version: 2.14.3-1
 Architecture: hurd-i386
 Ign file: ./ InRelease
 Ign file: ./ Release.gpg
@@ -41,34 +41,34 @@ Hit http://ftp.ch.debian.org experimental InRelease
 Hit http://ftp.fr.debian.org unstable InRelease
 Hit http://ftp.fr.debian.org experimental InRelease
 Ign http://incoming.debian.org  InRelease
-Ign http://ftp.debian-ports.org unreleased InRelease
-Get:1 http://incoming.debian.org  Release.gpg [836 B]
 Hit http://ftp.ch.debian.org unstable/main Sources/DiffIndex
-Hit http://ftp.debian-ports.org unreleased Release.gpg
-Get:2 http://incoming.debian.org  Release [1604 B]
+Get:1 http://incoming.debian.org  Release.gpg [836 B]
+Ign http://ftp.debian-ports.org unreleased InRelease
 Hit http://ftp.ch.debian.org unstable/contrib Sources/DiffIndex
 Hit http://ftp.ch.debian.org unstable/non-free Sources/DiffIndex
 Hit http://ftp.ch.debian.org unstable/main hurd-i386 Packages/DiffIndex
 Hit http://ftp.ch.debian.org unstable/main TranslationIndex
-Hit http://ftp.debian-ports.org unreleased Release
+Hit http://incoming.debian.org  Release
 Hit http://ftp.ch.debian.org experimental/main Sources/DiffIndex
 Hit http://ftp.ch.debian.org experimental/contrib Sources/DiffIndex
 Hit http://ftp.ch.debian.org experimental/non-free Sources/DiffIndex
+Hit http://ftp.debian-ports.org unreleased Release.gpg
 Hit http://ftp.fr.debian.org unstable/main Sources/DiffIndex
-Get:3 http://incoming.debian.org  Sources [40.9 kB]
+Hit http://ftp.debian-ports.org unreleased Release
 Hit http://ftp.fr.debian.org unstable/contrib Sources/DiffIndex
 Hit http://ftp.fr.debian.org unstable/non-free Sources/DiffIndex
-Get:4 http://incoming.debian.org  Packages [602 kB]
 Hit http://ftp.fr.debian.org unstable/main hurd-i386 Packages/DiffIndex
-Hit http://ftp.fr.debian.org unstable/main TranslationIndex
 Hit http://ftp.debian-ports.org unreleased/main hurd-i386 Packages
+Hit http://incoming.debian.org  Sources
+Hit http://ftp.fr.debian.org unstable/main TranslationIndex
 Hit http://ftp.fr.debian.org experimental/main Sources/DiffIndex
 Hit http://ftp.fr.debian.org experimental/contrib Sources/DiffIndex
 Hit http://ftp.fr.debian.org experimental/non-free Sources/DiffIndex
+Hit http://incoming.debian.org  Packages
 Ign http://ftp.debian-ports.org unreleased/main TranslationIndex
 Ign http://incoming.debian.org  Translation-en
 Ign http://ftp.debian-ports.org unreleased/main Translation-en
-Fetched 646 kB in 2min 35s (4163 B/s)
+Fetched 836 B in 2min 50s (5 B/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -90,10 +90,10 @@ Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
 Need to get 928 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.14.2-1 (dsc) [1967 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.14.2-1 (tar) [922 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.14.2-1 (diff) [4317 B]
-Fetched 928 kB in 6s (152 kB/s)
+Get:1 http://ftp.ch.debian.org/debian/ unstable/main bedtools 2.14.3-1 (dsc) [1967 B]
+Get:2 http://ftp.ch.debian.org/debian/ unstable/main bedtools 2.14.3-1 (tar) [922 kB]
+Get:3 http://ftp.ch.debian.org/debian/ unstable/main bedtools 2.14.3-1 (diff) [4338 B]
+Fetched 928 kB in 0s (1742 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -116,7 +116,7 @@ Reading state information...
 The following package was automatically installed and is no longer required:
   libboost-iostreams1.42.0
 Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 22 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
@@ -124,7 +124,7 @@ Reading state information...
 The following package was automatically installed and is no longer required:
   libboost-iostreams1.42.0
 Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 22 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -141,14 +141,14 @@ dash: already installed (0.5.7-2)
 debianutils: already installed (4.0.4)
 diffutils: already installed (1:3.0-1)
 dpkg: already installed (1.16.1)
-e2fsprogs: already installed (1.42~WIP-2011-10-09-1)
+e2fsprogs: already installed (1.42~WIP-2011-10-16-1)
 findutils: already installed (4.4.2-1+b1)
 grep: already installed (2.9-2)
 gzip: already installed (1.3.12-9)
 hostname: already installed (3.06)
 hurd: already installed (20110519-3)
 ncurses-base: already installed (5.9-2)
-ncurses-bin: already installed (5.9-2)
+ncurses-bin: already installed (5.9-4)
 perl-base: already installed (5.12.4-4)
 sed: already installed (4.2.1-9)
 sysvinit-utils: already installed (2.88dsf-13.11)
@@ -164,7 +164,7 @@ dpkg-dev: already installed (1.16.1 >= 1.13.5 is satisfied)
 hurd-dev: already installed (20110519-3)
 cdbs: missing
 debhelper: missing
-Using default version 8.9.8
+Using default version 8.9.9
 quilt: missing
 zlib1g-dev: missing
 Checking for dependency conflicts...
@@ -187,7 +187,7 @@ The following NEW packages will be installed:
   cdbs debhelper diffstat file gettext gettext-base html2text intltool-debian
   libcroco3 libexpat1 libglib2.0-0 libmagic1 libunistring0 libxml2 po-debconf
   quilt zlib1g-dev
-0 upgraded, 17 newly installed, 0 to remove and 22 not upgraded.
+0 upgraded, 17 newly installed, 0 to remove and 21 not upgraded.
 Need to get 0 B/7203 kB of archives.
 After this operation, 20.4 MB of additional disk space will be used.
 WARNING: The following packages cannot be authenticated!
@@ -196,7 +196,7 @@ WARNING: The following packages cannot be authenticated!
   diffstat quilt zlib1g-dev
 Authentication warning overridden.
 Selecting previously unselected package libglib2.0-0.
-(Reading database ... 12467 files and directories currently installed.)
+(Reading database ... 12466 files and directories currently installed.)
 Unpacking libglib2.0-0 (from .../libglib2.0-0_2.28.8-1_hurd-i386.deb) ...
 Selecting previously unselected package libxml2.
 Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5_hurd-i386.deb) ...
@@ -223,7 +223,7 @@ Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) .
 Selecting previously unselected package po-debconf.
 Unpacking po-debconf (from .../po-debconf_1.0.16+nmu1_all.deb) ...
 Selecting previously unselected package debhelper.
-Unpacking debhelper (from .../debhelper_8.9.8_all.deb) ...
+Unpacking debhelper (from .../debhelper_8.9.9_all.deb) ...
 Selecting previously unselected package diffstat.
 Unpacking diffstat (from .../diffstat_1.54-1_hurd-i386.deb) ...
 Selecting previously unselected package quilt.
@@ -246,7 +246,7 @@ Setting up html2text (1.3.2a-15+b1) ...
 Setting up gettext (0.18.1.1-5) ...
 Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu1) ...
-Setting up debhelper (8.9.8) ...
+Setting up debhelper (8.9.9) ...
 Setting up diffstat (1.54-1) ...
 Setting up quilt (0.48-8) ...
 Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
@@ -257,11 +257,11 @@ Reading state information...
 The following package was automatically installed and is no longer required:
   libboost-iostreams1.42.0
 Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 22 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Checking correctness of dependencies...
 Kernel: GNU 0.3 hurd-i386 (i686-AT386)
 Toolchain package versions: binutils_2.21.53.20110823-3+hurd.1 dpkg-dev_1.16.1 g++-4.5_4.5.3-9 g++-4.6_4.6.1-9+hurd.1 gcc-4.4_4.4.6-11 gcc-4.5_4.5.3-9 gcc-4.6_4.6.1-9+hurd.1 gnumach-dev_2:1.3.99.dfsg.git20111010-1 hurd-dev_20110519-3 libc0.3-dev_2.13-21 libstdc++6_4.6.1-9+hurd.1 libstdc++6-4.5-dev_4.5.3-9 libstdc++6-4.6-dev_4.6.1-9+hurd.1
-Package versions: adduser_3.113 apt_0.8.15.8 apt-utils_0.8.15.8 base-files_6.5 base-passwd_3.5.23 bash_4.1-3+hurd.1 binutils_2.21.53.20110823-3+hurd.1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 cdbs_0.4.99 coreutils_8.13-3 cpio_2.11-7 cpp_4:4.6.1-3 cpp-4.4_4.4.6-11 cpp-4.5_4.5.3-9 cpp-4.6_4.6.1-9+hurd.1 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.8 debian-archive-keyring_2010.08.28 debian-ports-archive-keyring_2011.01.12 debianutils_4.0.4 diffstat_1.54-1 diffutils_1:3.0-1 dpkg_1.16.1 dpkg-dev_1.16.1 e2fslibs_1.42~WIP-2011-10-09-1 e2fsprogs_1.42~WIP-2011-10-09-1 fakeroot_1.15.1-1 file_5.09-2 findutils_4.4.2-1+b1 g++_4:4.6.1-3 g++-4.5_4.5.3-9 g++-4.6_4.6.1-9+hurd.1 gawk_1:3.1.8+dfsg-0.1 gcc_4:4.6.1-3 gcc-4.2-base_4.2.4-6+b1 gcc-4.4_4.4.6-11 gcc-4.4-base_4.4.6-11 gcc-4.5_4.5.3-9 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.1-9+hurd.1 gcc-4.6-base_4.6.1-9+hurd.1 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gfortran_4:4.6.1-3 gfortran-4.4_4.4.6-11 gfortran-4.6_4.6.1-9+hurd.1 gnumach-dev_2:1.3.99.dfsg.git20111010-1 gnupg_1.4.11-3 gobjc-4.4_4.4.6-11 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.3.12-9 hostname_3.06 html2text_1.3.2a-15+b1 hurd_20110519-3 hurd-dev_20110519-3 ifupdown_0.6.9+hurd.1 inetutils-tools_2:1.8-3 initscripts_2.88dsf-13.11 insserv_1.14.0-2.1 install-info_4.13a.dfsg.1-8 intltool-debian_0.35.0+20060710.1 libacl1_2.2.47-3 libattr1_1:2.4.46-3 libblkid1_2.19.1-5 libboost-iostreams1.42.0_1.42.0-4+b3 libboost-iostreams1.46.1_1.46.1-7 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc0.3_2.13-21 libc0.3-dev_2.13-21 libc0.3-xen_2.13-21 libcomerr2_1.42~WIP-2011-10-16-1 libcroco3_0.6.2-2 libdb5.1_5.1.25-11 libdigest-sha1-perl_2.13-2 libdpkg-perl_1.16.1 libelfg0_0.8.13-3 libexpat1_2.0.1-7.2 libfribidi0_0.19.2-1 libgc1c2_1:7.1-8 libgcc1_1:4.6.1-9+hurd.1 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-10 libgfortran3_4.6.1-9+hurd.1 libglib2.0-0_2.28.8-1 libgmp10_2:5.0.2+dfsg-2 libgmpxx4ldbl_2:5.0.2+dfsg-2 libgnutls26_2.12.10-2 libgomp1_4.6.1-9+hurd.1 libgpg-error0_1.10-1 libident_0.22-3 libidn11_1.22-3 libldap-2.4-2_2.4.25-3 liblocale-gettext-perl_1.05-7 liblzma2_5.1.1alpha+20110809-2 libmagic1_5.09-2 libmpc2_0.9-4 libmpfr4_3.1.0-2 libncurses5_5.9-2 libncursesw5_5.9-2 libnewt0.52_0.52.11-2.1 libobjc2_4.5.3-9 libp11-kit0_0.7-2 libpam-modules_1.1.3-4 libpam-modules-bin_1.1.3-4 libpam-runtime_1.1.3-4 libpam0g_1.1.3-5 libparted0debian1_2.3-3+hurd.1 libpcre3_8.12-4 libpipeline1_1.2.0-3 libpng12-0_1.2.46-3 libpopt0_1.16-1 libpthread-stubs0_0.3-2.1+hurd.1 libpthread-stubs0-dev_0.3-2.1+hurd.1 libquadmath0_4.6.1-9+hurd.1 libreadline6_6.2-7 libsasl2-2_2.1.24~rc1.dfsg1+cvs2011-05-23-6 libsasl2-modules_2.1.24~rc1.dfsg1+cvs2011-05-23-6 libsigsegv2_2.9-4 libslang2_2.2.4-3 libss2_1.42~WIP-2011-10-09-1 libssl0.9.8_0.9.8o-7+b1 libssl1.0.0_1.0.0e-2 libstdc++6_4.6.1-9+hurd.1 libstdc++6-4.5-dev_4.5.3-9 libstdc++6-4.6-dev_4.6.1-9+hurd.1 libsysfs2_2.1.0+repack-1 libtasn1-3_2.10-1 libtext-charwidth-perl_0.04-7 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-2 libunistring0_0.9.3-5 libusb-0.1-4p_2:0.1.12-13+hurd.1 libuuid1_2.19.1-5 libxml2_2.7.8.dfsg-5 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-2 mawk_1.3.3-15 multiarch-support_2.13-21 ncurses-base_5.9-2 ncurses-bin_5.9-2 netbase_4.46 netcat-traditional_1.10-39 original-awk_2011-08-10-1 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.4-4 perl-base_5.12.4-4 perl-modules_5.12.4-4 po-debconf_1.0.16+nmu1 procps_1:3.2.8-11 psmisc_22.3-1 quilt_0.48-8 random-egd_0.5-0+hurd.1 readline-common_6.2-7 sed_4.2.1-9 sensible-utils_0.0.6 sysv-rc_2.88dsf-13.11 sysvinit_2.88dsf-13.11 sysvinit-utils_2.88dsf-13.11 tar_1.26-2 type-handling_0.2.23 tzdata_2011l-1 util-linux_2.19.1-5 wget_1.13-1 whiptail_0.52.11-2.1 xz-utils_5.1.1alpha+20110809-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+Package versions: adduser_3.113 apt_0.8.15.8 apt-utils_0.8.15.8 base-files_6.5 base-passwd_3.5.23 bash_4.1-3+hurd.1 binutils_2.21.53.20110823-3+hurd.1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 cdbs_0.4.99 coreutils_8.13-3 cpio_2.11-7 cpp_4:4.6.1-3 cpp-4.4_4.4.6-11 cpp-4.5_4.5.3-9 cpp-4.6_4.6.1-9+hurd.1 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.9 debian-archive-keyring_2010.08.28 debian-ports-archive-keyring_2011.01.12 debianutils_4.0.4 diffstat_1.54-1 diffutils_1:3.0-1 dpkg_1.16.1 dpkg-dev_1.16.1 e2fslibs_1.42~WIP-2011-10-16-1 e2fsprogs_1.42~WIP-2011-10-16-1 fakeroot_1.15.1-1 file_5.09-2 findutils_4.4.2-1+b1 g++_4:4.6.1-3 g++-4.5_4.5.3-9 g++-4.6_4.6.1-9+hurd.1 gawk_1:3.1.8+dfsg-0.1 gcc_4:4.6.1-3 gcc-4.2-base_4.2.4-6+b1 gcc-4.4_4.4.6-11 gcc-4.4-base_4.4.6-11 gcc-4.5_4.5.3-9 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.1-9+hurd.1 gcc-4.6-base_4.6.1-9+hurd.1 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gfortran_4:4.6.1-3 gfortran-4.4_4.4.6-11 gfortran-4.6_4.6.1-9+hurd.1 gnumach-dev_2:1.3.99.dfsg.git20111010-1 gnupg_1.4.11-3 gobjc-4.4_4.4.6-11 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.3.12-9 hostname_3.06 html2text_1.3.2a-15+b1 hurd_20110519-3 hurd-dev_20110519-3 ifupdown_0.6.9+hurd.1 inetutils-tools_2:1.8-3 initscripts_2.88dsf-13.11 insserv_1.14.0-2.1 install-info_4.13a.dfsg.1-8 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-4 libattr1_1:2.4.46-3 libblkid1_2.19.1-5 libboost-iostreams1.42.0_1.42.0-4+b3 libboost-iostreams1.46.1_1.46.1-7 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc0.3_2.13-21 libc0.3-dev_2.13-21 libc0.3-xen_2.13-21 libcomerr2_1.42~WIP-2011-10-16-1 libcroco3_0.6.2-2 libdb5.1_5.1.25-11 libdigest-sha1-perl_2.13-2 libdpkg-perl_1.16.1 libelfg0_0.8.13-3 libexpat1_2.0.1-7.2 libfribidi0_0.19.2-1 libgc1c2_1:7.1-8 libgcc1_1:4.6.1-9+hurd.1 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-10 libgfortran3_4.6.1-9+hurd.1 libglib2.0-0_2.28.8-1 libgmp10_2:5.0.2+dfsg-2 libgmpxx4ldbl_2:5.0.2+dfsg-2 libgnutls26_2.12.10-2 libgomp1_4.6.1-9+hurd.1 libgpg-error0_1.10-1 libident_0.22-3 libidn11_1.22-3 libldap-2.4-2_2.4.25-3 liblocale-gettext-perl_1.05-7 liblzma2_5.1.1alpha+20110809-2 libmagic1_5.09-2 libmpc2_0.9-4 libmpfr4_3.1.0-2 libncurses5_5.9-4 libncursesw5_5.9-4 libnewt0.52_0.52.11-2.1 libobjc2_4.5.3-9 libp11-kit0_0.7-2 libpam-modules_1.1.3-4 libpam-modules-bin_1.1.3-4 libpam-runtime_1.1.3-4 libpam0g_1.1.3-5 libparted0debian1_2.3-3+hurd.1 libpcre3_8.12-4 libpipeline1_1.2.0-3 libpng12-0_1.2.46-3 libpopt0_1.16-1 libpthread-stubs0_0.3-2.1+hurd.1 libpthread-stubs0-dev_0.3-2.1+hurd.1 libquadmath0_4.6.1-9+hurd.1 libreadline6_6.2-7 libsasl2-2_2.1.24~rc1.dfsg1+cvs2011-05-23-6 libsasl2-modules_2.1.24~rc1.dfsg1+cvs2011-05-23-6 libsigsegv2_2.9-4 libslang2_2.2.4-3 libss2_1.42~WIP-2011-10-09-1 libssl0.9.8_0.9.8o-7+b1 libssl1.0.0_1.0.0e-2 libstdc++6_4.6.1-9+hurd.1 libstdc++6-4.5-dev_4.5.3-9 libstdc++6-4.6-dev_4.6.1-9+hurd.1 libsysfs2_2.1.0+repack-1 libtasn1-3_2.10-1 libtext-charwidth-perl_0.04-7 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4p_2:0.1.12-13+hurd.1 libuuid1_2.19.1-5 libxml2_2.7.8.dfsg-5 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-2 mawk_1.3.3-15 multiarch-support_2.13-21 ncurses-base_5.9-2 ncurses-bin_5.9-4 netbase_4.46 netcat-traditional_1.10-39 original-awk_2011-08-10-1 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.12.4-4 perl-base_5.12.4-4 perl-modules_5.12.4-4 po-debconf_1.0.16+nmu1 procps_1:3.2.8-11 psmisc_22.3-1 quilt_0.48-8 random-egd_0.5-0+hurd.1 readline-common_6.2-7 sed_4.2.1-9 sensible-utils_0.0.6 sysv-rc_2.88dsf-13.11 sysvinit_2.88dsf-13.11 sysvinit-utils_2.88dsf-13.11 tar_1.26-2 type-handling_0.2.23 tzdata_2011l-1 util-linux_2.19.1-5 wget_1.13-1 whiptail_0.52.11-2.1 xz-utils_5.1.1alpha+20110809-2 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -272,12 +272,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Thu Nov  3 03:21:00 2011 UTC using RSA key ID 2295D502
+gpgv: Signature made Sat Nov  5 01:38:08 2011 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.14.2-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.14.2
-dpkg-source: info: unpacking bedtools_2.14.2.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.14.2-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.14.3-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.14.3
+dpkg-source: info: unpacking bedtools_2.14.3.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.14.3-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -293,24 +293,24 @@ dpkg-buildpackage: dpkg-buildflags (origin: vendor): CXXFLAGS = -g -O2 -fstack-p
 dpkg-buildpackage: dpkg-buildflags (origin: vendor): FFLAGS = -g -O2
 dpkg-buildpackage: dpkg-buildflags (origin: vendor): LDFLAGS = -Wl,-z,relro
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.14.2-1
- dpkg-source --before-build bedtools-2.14.2
+dpkg-buildpackage: source version 2.14.3-1
+ dpkg-source --before-build bedtools-2.14.3
 dpkg-buildpackage: host architecture hurd-i386
  /usr/bin/fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
 /usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Entering directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Leaving directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 dh_clean 
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Entering directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Leaving directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -323,21 +323,21 @@ rm -f debian/stamp-patch*
 test -x debian/rules
 mkdir -p "."
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Entering directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Entering directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Leaving directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 /usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Entering directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 [ -d obj ] || mkdir -p obj
 [ -d bin ] || mkdir -p bin
 Building BEDTools:
@@ -422,9 +422,9 @@ Fasta.cpp:266:47: warning: ignoring return value of 'size_t fread(void*, size_t,
   * compiling split.cpp
 
 - Building in src/utils/genomeFile
-  * compiling genomeFile.cpp
 genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
 genomeFile.cpp:61:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
+  * compiling genomeFile.cpp
 
 - Building in src/annotateBed
   * compiling annotateMain.cpp
@@ -516,9 +516,11 @@ multiBamCovMain.cpp:39:10: warning: variable 'haveBams' set but not used [-Wunus
 - Building in src/multiIntersectBed
   * compiling multiIntersectBed.cpp
   * compiling multiIntersectBedMain.cpp
-multiIntersectBedMain.cpp:24:31: fatal error: MultiIntersectBed.h: No such file or directory
-compilation terminated.
-make[2]: *** [../../obj//multiIntersectBedMain.o] Error 1
+multiIntersectBedMain.cpp: In function 'int main(int, char**)':
+multiIntersectBedMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
+multiIntersectBedMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
+multiIntersectBedMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
+  * linking multiIntersectBed
 
 - Building in src/nucBed
   * compiling nucBedMain.cpp
@@ -583,11 +585,11 @@ tagBamMain.cpp:38:10: warning: variable 'haveFraction' set but not used [-Wunuse
 
 - Building in src/unionBedGraphs
   * compiling unionBedGraphs.cpp
+  * compiling unionBedGraphsMain.cpp
 unionBedGraphsMain.cpp: In function 'int main(int, char**)':
 unionBedGraphsMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-  * compiling unionBedGraphsMain.cpp
   * linking unionBedGraphs
 
 - Building in src/windowBed
@@ -595,7 +597,7 @@ unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-
   * compiling windowBed.cpp
   * linking windowBed
 
-make[1]: Leaving directory `/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50/bedtools-2.14.2'
+make[1]: Leaving directory `/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR/bedtools-2.14.3'
 touch debian/stamp-makefile-build
  /usr/bin/fakeroot debian/rules binary-arch
 DEB_MAKE_CHECK_TARGET unset, not running checks
@@ -640,22 +642,22 @@ dh_shlibdeps -pbedtools
 dh_gencontrol -pbedtools  
 dh_md5sums -pbedtools 
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.14.2-1_hurd-i386.deb'.
- dpkg-genchanges -B -mDebian GNU/Hurd Build Daemon <buildd_hurd-i386-rossini@buildd.debian.org> >../bedtools_2.14.2-1_hurd-i386.changes
+dpkg-deb: building package `bedtools' in `../bedtools_2.14.3-1_hurd-i386.deb'.
+ dpkg-genchanges -B -mDebian GNU/Hurd Build Daemon <buildd_hurd-i386-rossini@buildd.debian.org> >../bedtools_2.14.3-1_hurd-i386.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.14.2
+ dpkg-source --after-build bedtools-2.14.3
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20111103-0406
+Build finished at 20111105-1158
 
-bedtools_2.14.2-1_hurd-i386.changes:
+bedtools_2.14.3-1_hurd-i386.changes:
 Format: 1.8
-Date: Thu, 03 Nov 2011 12:15:32 +0900
+Date: Fri, 04 Nov 2011 09:25:38 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: hurd-i386
-Version: 2.14.2-1
+Version: 2.14.3-1
 Distribution: sid
 Urgency: low
 Maintainer: Debian GNU/Hurd Build Daemon <buildd_hurd-i386-rossini@buildd.debian.org>
@@ -663,33 +665,33 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.14.2-1) unstable; urgency=low
+ bedtools (2.14.3-1) unstable; urgency=low
  .
-   [356313d] Bugfix release.
+   [04f6aa3] Bugfix release.
 Checksums-Sha1: 
- dc6a53d72b587f81b0be5abcadecf3d826d25762 685282 bedtools_2.14.2-1_hurd-i386.deb
+ 78cec7a6dc1559b1477c22d1c3036be5c04d2b78 706072 bedtools_2.14.3-1_hurd-i386.deb
 Checksums-Sha256: 
- 5150c5992855eec99032e6f24e2d15f1f465b16e349784c56556a4af99c1c84c 685282 bedtools_2.14.2-1_hurd-i386.deb
+ 5d896b34dce2b5c8bba0c6683c96c43fee283b0ef4530ebffd4e3991d10ee531 706072 bedtools_2.14.3-1_hurd-i386.deb
 Files: 
- a9812484c705604e1d0e333bfb4af2b8 685282 science optional bedtools_2.14.2-1_hurd-i386.deb
+ d53831595be0a04ce1b9d29268576cb0 706072 science optional bedtools_2.14.3-1_hurd-i386.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.14.2-1_hurd-i386.deb
+bedtools_2.14.3-1_hurd-i386.deb
 ───────────────────────────────
 
  new debian package, version 2.0.
- size 685282 bytes: control archive= 1737 bytes.
+ size 706072 bytes: control archive= 1767 bytes.
      869 bytes,    19 lines      control              
-    2025 bytes,    35 lines      md5sums              
+    2085 bytes,    36 lines      md5sums              
  Package: bedtools
- Version: 2.14.2-1
+ Version: 2.14.3-1
  Architecture: hurd-i386
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 4655
+ Installed-Size: 4793
  Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc0.3 (>= 2.4), libgcc1 (>= 4.2.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
@@ -705,49 +707,50 @@ bedtools_2.14.2-1_hurd-i386.deb
   .
   The groupBy utility is distribued in the filo package.
 
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./usr/
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./usr/share/
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./usr/share/doc/
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./usr/share/doc/bedtools/
--rw-r--r-- root/root      1442 2011-11-02 23:56 ./usr/share/doc/bedtools/README.rst
--rw-r--r-- root/root      4611 2011-11-03 03:15 ./usr/share/doc/bedtools/copyright
--rw-r--r-- root/root     11638 2011-11-02 23:56 ./usr/share/doc/bedtools/changelog.gz
--rw-r--r-- root/root       661 2011-11-03 03:15 ./usr/share/doc/bedtools/changelog.Debian.gz
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./usr/share/bedtools/
-drwxr-xr-x root/root         0 2011-11-03 03:54 ./usr/share/bedtools/genomes/
--rwxr-xr-x root/root       856 2011-11-02 23:56 ./usr/share/bedtools/genomes/human.hg18.genome
--rwxr-xr-x root/root      1972 2011-11-02 23:56 ./usr/share/bedtools/genomes/human.hg19.genome
--rwxr-xr-x root/root       565 2011-11-02 23:56 ./usr/share/bedtools/genomes/mouse.mm8.genome
--rwxr-xr-x root/root       585 2011-11-02 23:56 ./usr/share/bedtools/genomes/mouse.mm9.genome
-drwxr-xr-x root/root         0 2011-11-03 04:04 ./usr/bin/
--rwxr-xr-x root/root    104532 2011-11-03 04:04 ./usr/bin/annotateBed
--rwxr-xr-x root/root    223904 2011-11-03 04:04 ./usr/bin/bamToBed
--rwxr-xr-x root/root     96364 2011-11-03 04:04 ./usr/bin/bed12ToBed6
--rwxr-xr-x root/root    228132 2011-11-03 04:04 ./usr/bin/bedToBam
--rwxr-xr-x root/root    121688 2011-11-03 04:04 ./usr/bin/bedToIgv
--rwxr-xr-x root/root    122976 2011-11-03 04:04 ./usr/bin/closestBed
--rwxr-xr-x root/root    105832 2011-11-03 04:04 ./usr/bin/complementBed
--rwxr-xr-x root/root    285024 2011-11-03 04:04 ./usr/bin/coverageBed
--rwxr-xr-x root/root    142684 2011-11-03 04:04 ./usr/bin/fastaFromBed
--rwxr-xr-x root/root    114788 2011-11-03 04:04 ./usr/bin/flankBed
--rwxr-xr-x root/root    301428 2011-11-03 04:04 ./usr/bin/genomeCoverageBed
--rwxr-xr-x root/root    350580 2011-11-03 04:04 ./usr/bin/intersectBed
--rwxr-xr-x root/root    105984 2011-11-03 04:04 ./usr/bin/linksBed
--rwxr-xr-x root/root    109928 2011-11-03 04:04 ./usr/bin/maskFastaFromBed
--rwxr-xr-x root/root    108636 2011-11-03 04:04 ./usr/bin/mergeBed
--rwxr-xr-x root/root    297452 2011-11-03 04:04 ./usr/bin/multiBamCov
--rwxr-xr-x root/root    142848 2011-11-03 04:04 ./usr/bin/nucBed
--rwxr-xr-x root/root     88172 2011-11-03 04:04 ./usr/bin/overlap
--rwxr-xr-x root/root    366976 2011-11-03 04:04 ./usr/bin/pairToBed
--rwxr-xr-x root/root    178292 2011-11-03 04:04 ./usr/bin/pairToPair
--rwxr-xr-x root/root    129976 2011-11-03 04:04 ./usr/bin/shuffleBed
--rwxr-xr-x root/root    105704 2011-11-03 04:04 ./usr/bin/slopBed
--rwxr-xr-x root/root    143848 2011-11-03 04:04 ./usr/bin/sortBed
--rwxr-xr-x root/root    113436 2011-11-03 04:04 ./usr/bin/subtractBed
--rwxr-xr-x root/root    272752 2011-11-03 04:04 ./usr/bin/tagBam
--rwxr-xr-x root/root     59976 2011-11-03 04:04 ./usr/bin/unionBedGraphs
--rwxr-xr-x root/root    285032 2011-11-03 04:04 ./usr/bin/windowBed
+drwxr-xr-x root/root         0 2011-11-05 11:55 ./
+drwxr-xr-x root/root         0 2011-11-05 11:55 ./usr/
+drwxr-xr-x root/root         0 2011-11-05 11:55 ./usr/share/
+drwxr-xr-x root/root         0 2011-11-05 11:54 ./usr/share/doc/
+drwxr-xr-x root/root         0 2011-11-05 11:55 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root      1442 2011-11-03 07:14 ./usr/share/doc/bedtools/README.rst
+-rw-r--r-- root/root      4611 2011-11-04 00:24 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root     11638 2011-11-03 07:14 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root       686 2011-11-04 00:26 ./usr/share/doc/bedtools/changelog.Debian.gz
+drwxr-xr-x root/root         0 2011-11-05 11:55 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2011-11-05 11:44 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       856 2011-11-03 07:14 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root      1972 2011-11-03 07:14 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       565 2011-11-03 07:14 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root       585 2011-11-03 07:14 ./usr/share/bedtools/genomes/mouse.mm9.genome
+drwxr-xr-x root/root         0 2011-11-05 11:55 ./usr/bin/
+-rwxr-xr-x root/root    104532 2011-11-05 11:55 ./usr/bin/annotateBed
+-rwxr-xr-x root/root    223904 2011-11-05 11:55 ./usr/bin/bamToBed
+-rwxr-xr-x root/root     96364 2011-11-05 11:55 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root    228132 2011-11-05 11:55 ./usr/bin/bedToBam
+-rwxr-xr-x root/root    121688 2011-11-05 11:55 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root    122976 2011-11-05 11:55 ./usr/bin/closestBed
+-rwxr-xr-x root/root    105832 2011-11-05 11:55 ./usr/bin/complementBed
+-rwxr-xr-x root/root    285024 2011-11-05 11:55 ./usr/bin/coverageBed
+-rwxr-xr-x root/root    142684 2011-11-05 11:55 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root    114788 2011-11-05 11:55 ./usr/bin/flankBed
+-rwxr-xr-x root/root    301428 2011-11-05 11:55 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root    350580 2011-11-05 11:55 ./usr/bin/intersectBed
+-rwxr-xr-x root/root    105984 2011-11-05 11:55 ./usr/bin/linksBed
+-rwxr-xr-x root/root    109928 2011-11-05 11:55 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root    108636 2011-11-05 11:55 ./usr/bin/mergeBed
+-rwxr-xr-x root/root    297452 2011-11-05 11:55 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root    141472 2011-11-05 11:55 ./usr/bin/multiIntersectBed
+-rwxr-xr-x root/root    142848 2011-11-05 11:55 ./usr/bin/nucBed
+-rwxr-xr-x root/root     88172 2011-11-05 11:55 ./usr/bin/overlap
+-rwxr-xr-x root/root    366976 2011-11-05 11:55 ./usr/bin/pairToBed
+-rwxr-xr-x root/root    178292 2011-11-05 11:55 ./usr/bin/pairToPair
+-rwxr-xr-x root/root    129976 2011-11-05 11:55 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root    105704 2011-11-05 11:55 ./usr/bin/slopBed
+-rwxr-xr-x root/root    143848 2011-11-05 11:55 ./usr/bin/sortBed
+-rwxr-xr-x root/root    113436 2011-11-05 11:55 ./usr/bin/subtractBed
+-rwxr-xr-x root/root    272752 2011-11-05 11:55 ./usr/bin/tagBam
+-rwxr-xr-x root/root     59976 2011-11-05 11:55 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root    285032 2011-11-05 11:55 ./usr/bin/windowBed
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -761,14 +764,14 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /home/buildd/build/chroot-sid/build/buildd-bedtools_2.14.2-1-hurd-i386-gOrR50
+Purging /home/buildd/build/chroot-sid/build/buildd-bedtools_2.14.3-1-hurd-i386-yYHAkR
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following package was automatically installed and is no longer required:
   libboost-iostreams1.42.0
 Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 22 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Reading package lists...
 Building dependency tree...
 Reading state information...
@@ -779,9 +782,9 @@ The following packages will be REMOVED:
   cdbs* debhelper* diffstat* file* gettext* gettext-base* html2text*
   intltool-debian* libcroco3* libexpat1* libglib2.0-0* libmagic1*
   libunistring0* libxml2* po-debconf* quilt* zlib1g-dev*
-0 upgraded, 0 newly installed, 17 to remove and 22 not upgraded.
+0 upgraded, 0 newly installed, 17 to remove and 21 not upgraded.
 After this operation, 20.4 MB disk space will be freed.
-(Reading database ... 13441 files and directories currently installed.)
+(Reading database ... 13440 files and directories currently installed.)
 Removing cdbs ...
 Removing debhelper ...
 Removing quilt ...
@@ -815,18 +818,18 @@ Processing triggers for install-info ...
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: hurd-i386
-Build-Space: 95452
-Build-Time: 718
+Build-Space: 97260
+Build-Time: 846
 Distribution: sid
-Install-Time: 58
-Job: bedtools_2.14.2-1
+Install-Time: 71
+Job: bedtools_2.14.3-1
 Package: bedtools
-Package-Time: 979
-Source-Version: 2.14.2-1
-Space: 95452
+Package-Time: 1125
+Source-Version: 2.14.3-1
+Space: 97260
 Status: successful
-Version: 2.14.2-1
+Version: 2.14.3-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20111103-0406
-Build needed 00:16:19, 95452k disc space
+Finished at 20111105-1158
+Build needed 00:18:45, 97260k disc space
 
