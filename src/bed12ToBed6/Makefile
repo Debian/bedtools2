@@ -5,7 +5,11 @@ BIN_DIR = ../../bin/
 # -------------------
 # define our includes
 # -------------------
-INCLUDES = -I$(UTILITIES_DIR)/bedFile/ -I$(UTILITIES_DIR)/lineFileUtilities/ -I$(UTILITIES_DIR)/version/ -I$(UTILITIES_DIR)/gzstream/ -I$(UTILITIES_DIR)/fileType/
+INCLUDES = -I$(UTILITIES_DIR)/bedFile/ \
+           -I$(UTILITIES_DIR)/lineFileUtilities/ \
+           -I$(UTILITIES_DIR)/gzstream/ \
+           -I$(UTILITIES_DIR)/fileType/ \
+           -I$(UTILITIES_DIR)/version/
 
 # ----------------------------------
 # define our source and object files
@@ -18,14 +22,9 @@ BUILT_OBJECTS= $(patsubst %,$(OBJ_DIR)/%,$(OBJECTS))
 PROGRAM= bed12ToBed6
 
 
-all: $(PROGRAM)
+all: $(BUILT_OBJECTS)
 
 .PHONY: all
-
-
-$(PROGRAM): $(BUILT_OBJECTS) $(EXT_OBJECTS)
-	@echo "  * linking $(PROGRAM)"
-	@$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ $(LIBS)
 
 $(BUILT_OBJECTS): $(SOURCES)
 	@echo "  * compiling" $(*F).cpp

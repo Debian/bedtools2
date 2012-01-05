@@ -18,7 +18,7 @@
 #include <string>
 #include "bedFile.h"
 #include "genomeFile.h"
-#include "intervalItem.h"
+#include "Point.h"
 
 class MultiIntersectBed
 {
@@ -33,7 +33,7 @@ private:
 
     std::ostream    &output;
 
-    INTERVALS_PRIORITY_QUEUE queue;
+    POINT_PQUEUE queue;
     std::string              current_chrom;
     map<int, bool>           files_with_coverage;
     int                      current_non_zero_inputs;
@@ -56,6 +56,9 @@ public:
 
     // Combines all interval files
     void MultiIntersect();
+    
+    // 
+    void Cluster();
 
     // Print the header line: chrom/start/end + name of each bedgraph file.
     void PrintHeader();
@@ -94,19 +97,6 @@ private:
        Returns 'true' if ALL intervals from ALL BedGraph files were used
     */
     bool        AllFilesDone();
-
-    /*
-       Extract the next coordinate from the queue, and updates the current coverage information.
-       If multiple interval share the same coordinate values, all of them are handled.
-       If an END coordinate is consumed, the next interval (from the corresponding file) is read.
-     */
-    CHRPOS ConsumeNextCoordinate();
-
-    /*
-       Updates the coverage information based on the given item.
-       Item can be a START coordinate or an END coordiante.
-     */
-    void UpdateInformation(const IntervalItem &item);
 
     /*
        prints chrom/start/end and the current depth coverage values of all the files.

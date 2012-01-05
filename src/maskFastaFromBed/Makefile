@@ -5,7 +5,12 @@ BIN_DIR = ../../bin/
 # -------------------
 # define our includes
 # -------------------
-INCLUDES = -I$(UTILITIES_DIR)/bedFile/ -I$(UTILITIES_DIR)/sequenceUtilities/ -I$(UTILITIES_DIR)/lineFileUtilities/ -I$(UTILITIES_DIR)/version/ -I$(UTILITIES_DIR)/gzstream/ -I$(UTILITIES_DIR)/fileType/
+INCLUDES = -I$(UTILITIES_DIR)/bedFile/ \
+           -I$(UTILITIES_DIR)/sequenceUtilities/ \
+           -I$(UTILITIES_DIR)/lineFileUtilities/ \
+           -I$(UTILITIES_DIR)/gzstream/ \
+           -I$(UTILITIES_DIR)/fileType/ \
+           -I$(UTILITIES_DIR)/version/
 
 # ----------------------------------
 # define our source and object files
@@ -17,13 +22,9 @@ EXT_OBJECTS=$(patsubst %,$(OBJ_DIR)/%,$(_EXT_OBJECTS))
 BUILT_OBJECTS= $(patsubst %,$(OBJ_DIR)/%,$(OBJECTS))
 PROGRAM= maskFastaFromBed
 
-all: $(PROGRAM)
+all: $(BUILT_OBJECTS)
 
 .PHONY: all
-
-$(PROGRAM): $(BUILT_OBJECTS) $(EXT_OBJECTS)
-	@echo "  * linking $(PROGRAM)"
-	@$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ $(LIBS)
 
 $(BUILT_OBJECTS): $(SOURCES)
 	@echo "  * compiling" $(*F).cpp

@@ -15,16 +15,16 @@
 using namespace std;
 
 // define our program name
-#define PROGRAM_NAME "flankBed"
+#define PROGRAM_NAME "bedtools flank"
 
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void flank_help(void);
 
-int main(int argc, char* argv[]) {
+int flank_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -43,6 +43,7 @@ int main(int argc, char* argv[]) {
     float leftSlop   = 0.0;
     float rightSlop  = 0.0;
     bool  fractional = false;
+    bool printHeader        = false;
 
     for(int i = 1; i < argc; i++) {
         int parameterLength = (int)strlen(argv[i]);
@@ -53,7 +54,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) flank_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -101,6 +102,9 @@ int main(int argc, char* argv[]) {
         else if(PARAMETER_CHECK("-pct", 4, parameterLength)) {
             fractional = true;
         }
+        else if(PARAMETER_CHECK("-header", 7, parameterLength)) {
+            printHeader = true;
+        }
         else {
           cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
             showHelp = true;
@@ -126,22 +130,22 @@ int main(int argc, char* argv[]) {
     }
 
     if (!showHelp) {
-        BedFlank *bc = new BedFlank(bedFile, genomeFile, forceStrand, leftSlop, rightSlop, fractional);
+        BedFlank *bc = new BedFlank(bedFile, genomeFile, forceStrand, 
+                                    leftSlop, rightSlop, fractional, printHeader);
         delete bc;
 
         return 0;
     }
     else {
-        ShowHelp();
+        flank_help();
     }
+    return 0;
 }
 
-void ShowHelp(void) {
-
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+void flank_help(void) {
+    
+    cerr << "\nTool:    bedtools flank (aka flankBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";
     cerr << "Summary: Creates flanking interval(s) for each BED/GFF/VCF feature." << endl << endl;
 
     cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -i <bed/gff/vcf> -g <genome> [-b <int> or (-l and -r)]" << endl << endl;
@@ -150,10 +154,12 @@ void ShowHelp(void) {
     cerr << "\t-b\t"                << "Create flanking intervak using -b base pairs in each direction." << endl;
     cerr                            << "\t\t- (Integer) or (Float, e.g. 0.1) if used with -pct." << endl << endl;
 
-    cerr << "\t-l\t"                << "The number of base pairs that a flank should start from orig. start coordinate." << endl;
+    cerr << "\t-l\t"                << "The number of base pairs that a flank should start from" << endl;
+    cerr                            << "\t\torig. start coordinate." << endl;    
     cerr                            << "\t\t- (Integer) or (Float, e.g. 0.1) if used with -pct." << endl << endl;
         
-    cerr << "\t-r\t"                << "The number of base pairs that a flank should end from orig. end coordinate." << endl;
+    cerr << "\t-r\t"                << "The number of base pairs that a flank should end from" << endl;
+    cerr                            << "\t\torig. end coordinate." << endl;
     cerr                            << "\t\t- (Integer) or (Float, e.g. 0.1) if used with -pct." << endl << endl;
         
     cerr << "\t-s\t"                << "Define -l and -r based on strand." << endl;
@@ -163,6 +169,8 @@ void ShowHelp(void) {
     cerr << "\t-pct\t"              << "Define -l and -r as a fraction of the feature's length." << endl;
     cerr                            << "\t\tE.g. if used on a 1000bp feature, -l 0.50, " << endl;
     cerr                            << "\t\twill add 500 bp \"upstream\".  Default = false." << endl << endl;
+    
+    cerr << "\t-header\t"           << "Print the header from the input file prior to results." << endl << endl;
 
     cerr << "Notes: " << endl;
     cerr << "\t(1)  Starts will be set to 0 if options would force it below 0." << endl;

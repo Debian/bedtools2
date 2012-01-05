@@ -18,7 +18,8 @@
 */
 BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSlop,
                      bool anyHit, bool noHit, bool writeCount, bool strandWindows,
-                     bool matchOnSameStrand, bool matchOnDiffStrand, bool bamInput, bool bamOutput, bool isUncompressedBam) {
+                     bool matchOnSameStrand, bool matchOnDiffStrand, bool bamInput, 
+                     bool bamOutput, bool isUncompressedBam, bool printHeader) {
 
     _bedAFile      = bedAFile;
     _bedBFile      = bedBFile;
@@ -35,6 +36,7 @@ BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSl
     _bamInput            = bamInput;
     _bamOutput           = bamOutput;
     _isUncompressedBam   = isUncompressedBam;
+    _printHeader         = printHeader;
 
     _bedA          = new BedFile(bedAFile);
     _bedB          = new BedFile(bedBFile);
@@ -126,18 +128,19 @@ void BedWindow::WindowIntersectBed() {
     // that we can easily compare "A" to it for overlaps
     _bedB->loadBedFileIntoMap();
 
-    BED a, nullBed;
-    int lineNum = 0;                    // current input line number
-    BedLineStatus bedStatus;
-    vector<BED> hits;                   // vector of potential hits
+    BED a;
+    vector<BED> hits;
     hits.reserve(100);
 
     _bedA->Open();
-    while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    // report A's header first if asked.
+    if (_printHeader == true) {
+        _bedA->PrintHeader();
+    }
+    while (_bedA->GetNextBed(a)) {
+        if (_bedA->_status == BED_VALID) {
             FindWindowOverlaps(a, hits);
             hits.clear();
-            a = nullBed;
         }
     }
     _bedA->Close();

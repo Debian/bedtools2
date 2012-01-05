@@ -23,7 +23,7 @@ const int SLOPGROWTH = 2048000;
 */
 BedClosest::BedClosest(string &bedAFile, string &bedBFile, bool sameStrand, bool diffStrand,
                        string &tieMode, bool reportDistance, bool signDistance, string &_strandedDistMode,
-                       bool ignoreOverlaps) 
+                       bool ignoreOverlaps, bool printHeader) 
     : _bedAFile(bedAFile)
     , _bedBFile(bedBFile)
     , _tieMode(tieMode)
@@ -33,6 +33,7 @@ BedClosest::BedClosest(string &bedAFile, string &bedBFile, bool sameStrand, bool
     , _signDistance(signDistance)
     , _strandedDistMode(_strandedDistMode)
     , _ignoreOverlaps(ignoreOverlaps)
+    , _printHeader(printHeader)
 {
     _bedA           = new BedFile(_bedAFile);
     _bedB           = new BedFile(_bedBFile);
@@ -213,19 +214,20 @@ void BedClosest::FindClosestBed() {
     // that we can easily compare "A" to it for overlaps
     _bedB->loadBedFileIntoMap();
 
-    BED a, nullBed;
-    int lineNum = 0;                    // current input line number
+    BED a;
     vector<BED> hits;                   // vector of potential hits
     hits.reserve(100);
-    BedLineStatus bedStatus;
 
     _bedA->Open();
+    // report A's header first if asked.
+    if (_printHeader == true) {
+        _bedA->PrintHeader();
+    }
     // process each entry in A in search of the closest feature in B
-    while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (_bedA->GetNextBed(a)) {
+        if (_bedA->_status == BED_VALID) {
             FindWindowOverlaps(a, hits);
             hits.clear();
-            a = nullBed;
         }
     }
     _bedA->Close();

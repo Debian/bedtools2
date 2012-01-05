@@ -6,13 +6,14 @@ BIN_DIR = ../../bin/
 # define our includes
 # -------------------
 INCLUDES = -I$(UTILITIES_DIR)/bedFile/ \
-           -I$(UTILITIES_DIR)/version/ \
            -I$(UTILITIES_DIR)/gzstream/ \
            -I$(UTILITIES_DIR)/genomeFile/ \
            -I$(UTILITIES_DIR)/lineFileUtilities/ \
            -I$(UTILITIES_DIR)/fileType/ \
            -I$(UTILITIES_DIR)/BamTools/include \
-           -I$(UTILITIES_DIR)/BamTools-Ancillary
+           -I$(UTILITIES_DIR)/BamTools-Ancillary \
+           -I$(UTILITIES_DIR)/version/
+
 # ----------------------------------
 # define our source and object files
 # ----------------------------------
@@ -24,13 +25,9 @@ BUILT_OBJECTS= $(patsubst %,$(OBJ_DIR)/%,$(OBJECTS))
 PROGRAM= tagBam
 
 
-all: $(PROGRAM)
+all: $(BUILT_OBJECTS)
 
 .PHONY: all
-
-$(PROGRAM): $(BUILT_OBJECTS) $(EXT_OBJECTS)
-	@echo "  * linking $(PROGRAM)"
-	@$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ -L$(UTILITIES_DIR)/BamTools/lib/ -lbamtools $(LIBS)
 
 $(BUILT_OBJECTS): $(SOURCES)
 	@echo "  * compiling" $(*F).cpp

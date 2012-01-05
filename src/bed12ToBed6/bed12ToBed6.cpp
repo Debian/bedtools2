@@ -12,7 +12,6 @@
 #include "lineFileUtilities.h"
 #include "bedFile.h"
 #include "version.h"
-
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -22,21 +21,21 @@ using namespace std;
 
 
 // define our program name
-#define PROGRAM_NAME "bed12ToBed6"
+#define PROGRAM_NAME "bedtools bed12tobed6"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 
 // function declarations
-void ShowHelp(void);
+void bed12tobed6_help(void);
 void DetermineBedInput(BedFile *bed);
 void ProcessBed(istream &bedInput, BedFile *bed);
 
 
 bool addBlockNums = false;
 
-int main(int argc, char* argv[]) {
+int bed12tobed6_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -54,7 +53,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) bed12tobed6_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -88,17 +87,16 @@ int main(int argc, char* argv[]) {
         DetermineBedInput(bed);
     }
     else {
-        ShowHelp();
+        bed12tobed6_help();
     }
+    return 0;
 }
 
 
-void ShowHelp(void) {
+void bed12tobed6_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+    cerr << "\nTool:    bedtools bed12tobed6 (aka bed12ToBed6)" << endl;
+    cerr << "Version: " << VERSION << "\n";
     cerr << "Summary: Splits BED12 features into discrete BED6 features." << endl << endl;
 
     cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -i <bed12>" << endl << endl;
@@ -135,16 +133,14 @@ void DetermineBedInput(BedFile *bed) {
 void ProcessBed(istream &bedInput, BedFile *bed) {
 
     // process each BED entry and convert to BAM
-    BED bedEntry, nullBed;
-    int lineNum = 0;
-    BedLineStatus bedStatus;
+    BED bedEntry;
     // open the BED file for reading.
     bed->Open();
-    while ((bedStatus = bed->GetNextBed(bedEntry, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (bed->GetNextBed(bedEntry)) {
+        if (bed->_status == BED_VALID) {
 
             bedVector bedBlocks;  // vec to store the discrete BED "blocks" from a
-            splitBedIntoBlocks(bedEntry, lineNum, bedBlocks);
+            splitBedIntoBlocks(bedEntry, bedBlocks);
 
             for (int i = 0; i < (int) bedBlocks.size(); ++i) {
                 if (addBlockNums == false) {
@@ -160,7 +156,6 @@ void ProcessBed(istream &bedInput, BedFile *bed) {
                                                         (int) ((bedBlocks.size()+1)-i), bedBlocks[i].strand.c_str());
                 }
             }
-            bedEntry = nullBed;
         }
     }
     // close up

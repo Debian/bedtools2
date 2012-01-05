@@ -13,14 +13,17 @@
 #include "slopBed.h"
 
 
-BedSlop::BedSlop(string &bedFile, string &genomeFile, bool forceStrand, float leftSlop, float rightSlop, bool fractional) {
+BedSlop::BedSlop(string &bedFile, string &genomeFile, bool forceStrand, 
+                 float leftSlop, float rightSlop, bool fractional,
+                 bool printHeader) {
 
     _bedFile     = bedFile;
     _genomeFile  = genomeFile;
     _forceStrand = forceStrand;
     _leftSlop    = leftSlop;
     _rightSlop   = rightSlop;
-    _fractional  = fractional; 
+    _fractional  = fractional;
+    _printHeader = printHeader;
 
     _bed    = new BedFile(bedFile);
     _genome = new GenomeFile(genomeFile);
@@ -37,14 +40,15 @@ BedSlop::~BedSlop(void) {
 
 void BedSlop::SlopBed() {
 
-    int lineNum = 0;
-    BED bedEntry, nullBed;     // used to store the current BED line from the BED file.
-    BedLineStatus bedStatus;
+    BED bedEntry;     // used to store the current BED line from the BED file.
 
     _bed->Open();
-    bedStatus = _bed->GetNextBed(bedEntry, lineNum);
-    while (bedStatus != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    // report header first if asked.
+    if (_printHeader == true) {
+        _bed->PrintHeader();
+    }        
+    while (_bed->GetNextBed(bedEntry)) {    
+        if (_bed->_status == BED_VALID) {
             if (_fractional == false) {
                 AddSlop(bedEntry, (int) _leftSlop, (int) _rightSlop);
             }
@@ -54,9 +58,7 @@ void BedSlop::SlopBed() {
                 AddSlop(bedEntry, leftSlop, rightSlop);
             }
             _bed->reportBedNewLine(bedEntry);
-            bedEntry = nullBed;
         }
-        bedStatus = _bed->GetNextBed(bedEntry, lineNum);
     }
     _bed->Close();
 }

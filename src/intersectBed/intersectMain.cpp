@@ -15,16 +15,16 @@
 using namespace std;
 
 // define our program name
-#define PROGRAM_NAME "intersectBed"
+#define PROGRAM_NAME "bedtools intersect"
 
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void intersect_help(void);
 
-int main(int argc, char* argv[]) {
+int intersect_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -54,6 +54,8 @@ int main(int argc, char* argv[]) {
     bool outputIsBam        = true;
     bool uncompressedBam    = false;
     bool sortedInput        = false;
+    bool printHeader        = false;
+
     // check to see if we should print out some help
     if(argc <= 1) showHelp = true;
 
@@ -66,7 +68,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) intersect_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -145,7 +147,10 @@ int main(int argc, char* argv[]) {
         }
         else if(PARAMETER_CHECK("-sorted", 7, parameterLength)) {
             sortedInput = true;
-        }        
+        }
+        else if(PARAMETER_CHECK("-header", 7, parameterLength)) {
+            printHeader = true;
+        }
         else {
             cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
             showHelp = true;
@@ -212,21 +217,21 @@ int main(int argc, char* argv[]) {
 
         BedIntersect *bi = new BedIntersect(bedAFile, bedBFile, anyHit, writeA, writeB, writeOverlap,
                                             writeAllOverlap, overlapFraction, noHit, writeCount, sameStrand, diffStrand,
-                                            reciprocalFraction, obeySplits, inputIsBam, outputIsBam, uncompressedBam, sortedInput);
+                                            reciprocalFraction, obeySplits, inputIsBam, outputIsBam, uncompressedBam, 
+                                            sortedInput, printHeader);
         delete bi;
         return 0;
     }
     else {
-        ShowHelp();
+        intersect_help();
+        return 0;
     }
 }
 
-void ShowHelp(void) {
+void intersect_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+    cerr << "\nTool:    bedtools intersect (aka intersectBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
     cerr << "Summary: Report overlaps between two feature files." << endl << endl;
 
     cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -a <bed/gff/vcf> -b <bed/gff/vcf>" << endl << endl;
@@ -235,7 +240,7 @@ void ShowHelp(void) {
 
     cerr << "\t-abam\t"         << "The A input file is in BAM format.  Output will be BAM as well." << endl << endl;
 
-    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default is to write compressed BAM." << endl << endl;
+    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default writes compressed BAM." << endl << endl;
 
     cerr << "\t-bed\t"          << "When using BAM input (-abam), write output as BED. The default" << endl;
     cerr                        << "\t\tis to write output in BAM when using -abam." << endl << endl;
@@ -275,19 +280,20 @@ void ShowHelp(void) {
     cerr                        << "\t\t- In other words, if -f is 0.90 and -r is used, this requires" << endl;
     cerr                        << "\t\t  that B overlap 90% of A and A _also_ overlaps 90% of B." << endl << endl;
 
-    cerr << "\t-s\t"            << "Require same strandedness.  That is, only report hits in B that" << endl;
-    cerr                        << "\t\toverlap A on the _same_ strand." << endl;
+    cerr << "\t-s\t"            << "Require same strandedness.  That is, only report hits in B" << endl;
+    cerr                        << "\t\tthat overlap A on the _same_ strand." << endl;
     cerr                        << "\t\t- By default, overlaps are reported without respect to strand." << endl << endl;
 
-    cerr << "\t-S\t"            << "Require different strandedness.  That is, only report hits in B that" << endl;
-    cerr                        << "\t\toverlap A on the _opposite_ strand." << endl;
+    cerr << "\t-S\t"            << "Require different strandedness.  That is, only report hits in B" << endl;
+    cerr                        << "\t\tthat overlap A on the _opposite_ strand." << endl;
     cerr                        << "\t\t- By default, overlaps are reported without respect to strand." << endl << endl;
 
     cerr << "\t-split\t"        << "Treat \"split\" BAM or BED12 entries as distinct BED intervals." << endl << endl;
 
-    cerr << "\t-sorted\t"        << "Use the \"chromsweep\" algorithm for sorted (-k1,1 -k2,2n) input" << endl;
-    cerr                        << "\t\tNOTE: this will trust, but not enforce that data is sorted. Caveat emptor." << endl << endl;
-
+    cerr << "\t-sorted\t"       << "Use the \"chromsweep\" algorithm for sorted (-k1,1 -k2,2n) input" << endl << endl;
+    
+    cerr << "\t-header\t"       << "Print the header from the A file prior to results." << endl << endl;
+ 
     // end the program here
     exit(1);
 
