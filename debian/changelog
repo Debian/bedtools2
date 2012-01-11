@@ -1,8 +1,11 @@
-bedtools (2.15.0-1) UNRELEASED; urgency=low
+bedtools (2.15.0-1) unstable; urgency=low
 
-  [3f8e754] Imported Upstream version 2.15.0
+  [3f8e754] Upstream version 2.15.0.
+  [f27b295] Build-depend on python because of scripts/makeBashScripts.py.
+  [2e3e8e8] Removed the /usr/bin/groupBy wrapper, as groupBy is also
+    distributed by the filo package.
 
- -- Charles Plessy <plessy@debian.org>  Thu, 05 Jan 2012 10:53:58 +0900
+ -- Charles Plessy <plessy@debian.org>  Wed, 11 Jan 2012 15:07:45 +0900
 
 bedtools (2.14.3-1) unstable; urgency=low
 
