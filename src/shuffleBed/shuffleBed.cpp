@@ -81,13 +81,12 @@ BedShuffle::~BedShuffle(void) {
 
 
 void BedShuffle::Shuffle() {
-    BED bedEntry, nullBed;     // used to store the current BED line from the BED file.
+    BED bedEntry;
     _bed->Open();
     while (_bed->GetNextBed(bedEntry)) {
         if (_bed->_status == BED_VALID) {
             ChooseLocus(bedEntry);
             _bed->reportBedNewLine(bedEntry);
-            bedEntry = nullBed;
         }
     }
     _bed->Close();
@@ -97,8 +96,7 @@ void BedShuffle::Shuffle() {
 
 void BedShuffle::ShuffleWithExclusions() {
 
-    BED bedEntry, nullBed;     // used to store the current BED line from the BED file.
-
+    BED bedEntry;
     _bed->Open();
     while (_bed->GetNextBed(bedEntry)) {
         if (_bed->_status == BED_VALID) {
@@ -111,8 +109,8 @@ void BedShuffle::ShuffleWithExclusions() {
             {
                 // choose a new locus
                 ChooseLocus(bedEntry);
-                haveOverlap = _exclude->FindOneOrMoreOverlapsPerBin(bedEntry.chrom, bedEntry.start, bedEntry.end,
-                                                                    bedEntry.strand, false, _overlapFraction);
+                haveOverlap = _exclude->anyHits(bedEntry.chrom, bedEntry.start, bedEntry.end,
+                                                bedEntry.strand, false, false, _overlapFraction, false);
                 tries++;
             } while ((haveOverlap == true) && (tries <= MAX_TRIES));
             
@@ -124,7 +122,6 @@ void BedShuffle::ShuffleWithExclusions() {
                 _bed->reportBedNewLine(bedEntry);
             }
         }
-        bedEntry = nullBed;
     }
     _bed->Close();
 }

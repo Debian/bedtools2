@@ -98,10 +98,6 @@ int merge_main(int argc, char* argv[]) {
         cerr << endl << "*****" << endl << "*****ERROR: Need -i BED file. " << endl << "*****" << endl;
         showHelp = true;
     }
-    if (reportNames && numEntries) {
-        cerr << endl << "*****" << endl << "*****ERROR: Request either -n OR -nms, not both." << endl << "*****" << endl;
-        showHelp = true;
-    }
     if ((reportScores == true) && (scoreOp != "sum")  && (scoreOp != "max")    && (scoreOp != "min") && (scoreOp != "mean") &&
         (scoreOp != "mode") && (scoreOp != "median") && (scoreOp != "antimode") && (scoreOp != "collapse")) 
     {
@@ -154,6 +150,7 @@ void merge_help(void) {
     cerr << "\t(1) All output, regardless of input type (e.g., GFF or VCF)" << endl;
     cerr << "\t    will in BED format with zero-based starts" << endl << endl;
 
+    cerr << "\t(2) The input file (-i) file must be sorted by chrom, then start." << endl << endl;
 
     // end the program here
     exit(1);

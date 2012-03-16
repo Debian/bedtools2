@@ -17,6 +17,7 @@
 #include "api/BamReader.h"
 #include "api/BamWriter.h"
 #include "api/BamAux.h"
+#include "BlockedIntervals.h"
 #include "BamAncillary.h"
 using namespace BamTools;
 
@@ -36,7 +37,7 @@ public:
     // constructor
     BedIntersect(string bedAFile, string bedBFile, bool anyHit,
                                bool writeA, bool writeB, bool writeOverlap, bool writeAllOverlap,
-                               float overlapFraction, bool noHit, bool writeCount, bool sameStrand, bool diffStrand,
+                               float overlapFraction, bool noHit, bool leftJoin, bool writeCount, bool sameStrand, bool diffStrand,
                                bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam,
                                bool sortedInput, bool printHeader);
 
@@ -63,6 +64,7 @@ private:
 
     bool  _anyHit;
     bool  _noHit;
+    bool  _leftJoin;
     bool  _writeCount;        // do we want a count of the number of overlaps in B?
     bool  _obeySplits;
     bool  _bamInput;
@@ -88,10 +90,11 @@ private:
 
     bool FindOverlaps(const BED &a, vector<BED> &hits);
 
-    bool FindOneOrMoreOverlap(const BED &a);
+    bool FindBlockedOverlaps(const BED &a, const vector<BED> &a_blocks, 
+        const vector<BED> &hits, bool a_is_bam);
 
     void ReportOverlapDetail(int overlapBases, const BED &a, const BED &b, CHRPOS s, CHRPOS e);
-    
+
     void ReportOverlapSummary(const BED &a, const int &numOverlapsFound);
 
 };

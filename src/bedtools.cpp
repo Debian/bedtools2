@@ -36,6 +36,7 @@ using namespace std;
 
 int annotate_main(int argc, char* argv[]);//
 int bamtobed_main(int argc, char* argv[]);//
+int bamtofastq_main(int argc, char* argv[]);//
 int bed12tobed6_main(int argc, char* argv[]); //
 int bedtobam_main(int argc, char* argv[]);//
 int bedtoigv_main(int argc, char* argv[]);//
@@ -44,6 +45,7 @@ int closest_main(int argc, char* argv[]); //
 int cluster_main(int argc, char* argv[]); //
 int complement_main(int argc, char* argv[]);//
 int coverage_main(int argc, char* argv[]); //
+int expand_main(int argc, char* argv[]);//
 int fastafrombed_main(int argc, char* argv[]);//
 int flank_main(int argc, char* argv[]); //
 int genomecoverage_main(int argc, char* argv[]);//
@@ -52,12 +54,14 @@ int groupby_main(int argc, char* argv[]);//
 int intersect_main(int argc, char* argv[]); //
 int links_main(int argc, char* argv[]);//
 int maskfastafrombed_main(int argc, char* argv[]);//
+int map_main(int argc, char* argv[]); //
 int merge_main(int argc, char* argv[]); //
 int multibamcov_main(int argc, char* argv[]);//
 int multiintersect_main(int argc, char* argv[]);//
 int nuc_main(int argc, char* argv[]);//
 int pairtobed_main(int argc, char* argv[]);//
 int pairtopair_main(int argc, char* argv[]);//
+int random_main(int argc, char* argv[]); //
 int shuffle_main(int argc, char* argv[]); //
 int slop_main(int argc, char* argv[]); //
 int sort_main(int argc, char* argv[]); //
@@ -82,6 +86,7 @@ int main(int argc, char *argv[])
     else if (sub_cmd == "window")      return window_main(argc-1, argv+1);
     else if (sub_cmd == "closest")     return closest_main(argc-1, argv+1);
     else if (sub_cmd == "coverage")    return coverage_main(argc-1, argv+1);
+    else if (sub_cmd == "map")         return map_main(argc-1, argv+1);
     else if (sub_cmd == "genomecov")   return genomecoverage_main(argc-1, argv+1);
     else if (sub_cmd == "merge")       return merge_main(argc-1, argv+1);
     else if (sub_cmd == "cluster")     return cluster_main(argc-1, argv+1);    
@@ -90,6 +95,7 @@ int main(int argc, char *argv[])
     else if (sub_cmd == "slop")        return slop_main(argc-1, argv+1);
     else if (sub_cmd == "flank")       return flank_main(argc-1, argv+1);
     else if (sub_cmd == "sort")        return sort_main(argc-1, argv+1);
+    else if (sub_cmd == "random")      return random_main(argc-1, argv+1);
     else if (sub_cmd == "shuffle")     return shuffle_main(argc-1, argv+1);
     else if (sub_cmd == "annotate")    return annotate_main(argc-1, argv+1);
 
@@ -104,6 +110,7 @@ int main(int argc, char *argv[])
     // format conversion tools
     else if (sub_cmd == "bamtobed")    return bamtobed_main(argc-1, argv+1);
     else if (sub_cmd == "bedtobam")    return bedtobam_main(argc-1, argv+1);
+    else if (sub_cmd == "bamtofastq")  return bamtofastq_main(argc-1, argv+1);
     else if (sub_cmd == "bedpetobam")  return bedpetobam_main(argc-1, argv+1);
     else if (sub_cmd == "bed12tobed6") return bed12tobed6_main(argc-1, argv+1);
 
@@ -122,6 +129,8 @@ int main(int argc, char *argv[])
     else if (sub_cmd == "links")       return links_main(argc-1, argv+1);
     else if (sub_cmd == "makewindows") return windowmaker_main(argc-1, argv+1);
     else if (sub_cmd == "groupby")     return groupby_main(argc-1, argv+1);
+    else if (sub_cmd == "expand")      return expand_main(argc-1, argv+1);
+
     // help
     else if (sub_cmd == "-h" || sub_cmd == "--help" ||
              sub_cmd == "-help")
@@ -156,7 +165,7 @@ int main(int argc, char *argv[])
         cerr << "error: unrecognized command: " << argv[1] << endl << endl;
         return 1;
     }
-    return 0;   
+    return 0;
 }
 
 int bedtools_help(void)
@@ -172,6 +181,7 @@ int bedtools_help(void)
     cout  << "    window        "  << "Find overlapping intervals within a window around an interval.\n";
     cout  << "    closest       "  << "Find the closest, potentially non-overlapping interval.\n";    
     cout  << "    coverage      "  << "Compute the coverage over defined intervals.\n";
+    cout  << "    map           "  << "Apply a function to a column for each overlapping interval.\n";
     cout  << "    genomecov     "  << "Compute the coverage over an entire genome.\n";
     cout  << "    merge         "  << "Combine overlapping/nearby intervals into a single interval.\n";
     cout  << "    cluster       "  << "Cluster (but don't merge) overlapping/nearby intervals.\n";
@@ -180,6 +190,7 @@ int bedtools_help(void)
     cout  << "    slop          "  << "Adjust the size of intervals.\n";
     cout  << "    flank         "  << "Create new intervals from the flanks of existing intervals.\n";
     cout  << "    sort          "  << "Order the intervals in a file.\n";
+    cout  << "    random        "  << "Generate random intervals in a genome.\n";
     cout  << "    shuffle       "  << "Randomly redistrubute intervals in a genome.\n";
     cout  << "    annotate      "  << "Annotate coverage of features from multiple files.\n";
     
@@ -197,6 +208,7 @@ int bedtools_help(void)
     cout  << "[ Format conversion ]" << endl;
     cout  << "    bamtobed      "  << "Convert BAM alignments to BED (& other) formats.\n";
     cout  << "    bedtobam      "  << "Convert intervals to BAM records.\n";
+    cout  << "    bedtofastq    "  << "Convert BAM records to FASTQ records.\n";
     cout  << "    bedpetobam    "  << "Convert BEDPE intervals to BAM records.\n";    
     cout  << "    bed12tobed6   "  << "Breaks BED12 intervals into discrete BED6 intervals.\n";
 
@@ -218,6 +230,7 @@ int bedtools_help(void)
     cout  << "    links         "  << "Create a HTML page of links to UCSC locations.\n";
     cout  << "    makewindows   "  << "Make interval \"windows\" across a genome.\n";
     cout  << "    groupby       "  << "Group by common cols. & summarize oth. cols. (~ SQL \"groupBy\")\n";
+    cout  << "    expand        "  << "Replicate lines based on lists of values in columns.\n";
 
     cout  << endl;
     cout  << "[ General help ]" << endl;
