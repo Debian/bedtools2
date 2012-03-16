@@ -6,6 +6,11 @@ Copyright: © 2009,2010,2011 Aaron Quinlan
  © 2010 - Assaf Gordon, CSHL
 License: GPL-2
 
+Files: src/expand/expand.cpp
+Copyright: © 2009, 2010, 2011 - Aaron Quinlan
+Licence: under-the-MIT-license
+ No further explanation about which MIT license to follow was provided.
+
 Files: src/cuffToTrans/Fasta.cpp
  src/cuffToTrans/Fasta.h
  src/fastaFromBed/Fasta.cpp
