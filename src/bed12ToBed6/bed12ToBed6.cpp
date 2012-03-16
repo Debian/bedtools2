@@ -10,6 +10,7 @@
   Licenced under the GNU General Public License 2.0 license.
 ******************************************************************************/
 #include "lineFileUtilities.h"
+#include "BlockedIntervals.h"
 #include "bedFile.h"
 #include "version.h"
 #include <vector>
@@ -140,7 +141,7 @@ void ProcessBed(istream &bedInput, BedFile *bed) {
         if (bed->_status == BED_VALID) {
 
             bedVector bedBlocks;  // vec to store the discrete BED "blocks" from a
-            splitBedIntoBlocks(bedEntry, bedBlocks);
+            GetBedBlocks(bedEntry, bedBlocks);
 
             for (int i = 0; i < (int) bedBlocks.size(); ++i) {
                 if (addBlockNums == false) {
@@ -153,7 +154,7 @@ void ProcessBed(istream &bedInput, BedFile *bed) {
                                                         i+1, bedBlocks[i].strand.c_str());
                     else 
                         printf ("%s\t%d\t%d\t%s\t%d\t%s\n", bedBlocks[i].chrom.c_str(), bedBlocks[i].start, bedBlocks[i].end, bedBlocks[i].name.c_str(),
-                                                        (int) ((bedBlocks.size()+1)-i), bedBlocks[i].strand.c_str());
+                                                        (int) ((bedBlocks.size())-i), bedBlocks[i].strand.c_str());
                 }
             }
         }

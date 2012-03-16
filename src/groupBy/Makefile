@@ -10,15 +10,14 @@ INCLUDES = -I$(UTILITIES_DIR)/tabFile/ \
            -I$(UTILITIES_DIR)/lineFileUtilities/ \
            -I$(UTILITIES_DIR)/gzstream/ \
            -I$(UTILITIES_DIR)/fileType/ \
+           -I$(UTILITIES_DIR)/VectorOps/ \
            -I$(UTILITIES_DIR)/version/
 
 # ----------------------------------
 # define our source and object files
 # ----------------------------------
 SOURCES= groupBy.cpp
-OBJECTS= $(SOURCES:.cpp=.o)
-_EXT_OBJECTS=tabFile.o gzstream.o fileType.o
-EXT_OBJECTS=$(patsubst %,$(OBJ_DIR)/%,$(_EXT_OBJECTS))
+OBJECTS= groupBy.o
 BUILT_OBJECTS= $(patsubst %,$(OBJ_DIR)/%,$(OBJECTS))
 
 all: $(BUILT_OBJECTS)
@@ -29,15 +28,9 @@ all: $(BUILT_OBJECTS)
 $(BUILT_OBJECTS): $(SOURCES)
 	@echo "  * compiling" $(*F).cpp
 	@$(CXX) -c -o $@ $(*F).cpp $(LDFLAGS) $(CXXFLAGS) $(INCLUDES)
-
-$(EXT_OBJECTS):
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/tabFile/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/gzstream/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/lineFileUtilities/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/fileType/	
 	
 clean:
 	@echo "Cleaning up."
-	@rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
+	@rm -f $(OBJ_DIR)/groupBy.o
 
 .PHONY: clean

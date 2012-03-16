@@ -10,7 +10,8 @@ import os
 
 def main():
     tool_map =  {'annotate': 'annotateBed', 
-                 'bamtobed': 'bamToBed', 
+                 'bamtobed': 'bamToBed',
+                 'bamtofastq': 'bamToFastq', 
                  'bed12tobed6': 'bed12ToBed6', 
                  'bedpetobam': 'bedpeToBam', 
                  'bedtobam': 'bedToBam', 
@@ -18,6 +19,7 @@ def main():
                  'cluster': 'clusterBed',
                  'complement': 'complementBed',
                  'coverage': 'coverageBed', 
+                 'expand': 'expandCols',
                  'flank': 'flankBed', 
                  'genomecov': 'genomeCoverageBed', 
                  'getfasta': 'fastaFromBed',
@@ -25,6 +27,7 @@ def main():
                  'igv': 'bedToIgv', 
                  'intersect': 'intersectBed', 
                  'links': 'linksBed', 
+                 'map': 'mapBed', 
                  'maskfasta': 'maskFastaFromBed', 
                  'merge': 'mergeBed', 
                  'multicov': 'multiBamCov', 
@@ -33,6 +36,7 @@ def main():
                  'overlap': 'getOverlap', 
                  'pairtobed': 'pairToBed', 
                  'pairtopair': 'pairToPair', 
+                 'random': 'randomBed', 
                  'shuffle': 'shuffleBed', 
                  'slop': 'slopBed', 
                  'sort': 'sortBed', 

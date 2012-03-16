@@ -85,11 +85,11 @@ struct BED {
     string name;
     string score;
     string strand;
-
-    // Add'l fields for BED12 and/or custom BED annotations
-    vector<string> otherFields;
-
-    // experimental fields for the FJOIN approach.
+    // all of the original fields in the record
+    vector<string> fields;
+    // indices of the "other" fields
+    vector<uint16_t> other_idxs;
+    // is this a zero length feature: i.e., start == end
     bool   zeroLength;
 
 public:
@@ -103,7 +103,8 @@ public:
       name(""),
       score(""),
       strand(""),
-      otherFields(),
+      fields(),
+      other_idxs(),
       zeroLength(false)
     {}
 
@@ -115,7 +116,8 @@ public:
       name(""),
       score(""),
       strand(""),
-      otherFields(),
+      fields(),
+      other_idxs(),
       zeroLength(false)
     {}
 
@@ -127,7 +129,8 @@ public:
       name(""),
       score(""),
       strand(strand),
-      otherFields(),
+      fields(),
+      other_idxs(),
       zeroLength(false)
     {}
 
@@ -140,20 +143,22 @@ public:
       name(name),
       score(score),
       strand(strand),
-      otherFields(),
+      fields(),
+      other_idxs(),
       zeroLength(false)
     {}
 
     // BEDALL
     BED(string chrom, CHRPOS start, CHRPOS end, string name,
-        string score, string strand, vector<string> otherFields)
+        string score, string strand, vector<string> fields, vector<uint16_t> other_idxs)
     : chrom(chrom),
       start(start),
       end(end),
       name(name),
       score(score),
       strand(strand),
-      otherFields(otherFields),
+      fields(fields),
+      other_idxs(other_idxs),
       zeroLength(false)
     {}
     
@@ -189,10 +194,11 @@ struct BEDCOV {
     string score;
     string strand;
 
-    // Add'l fields for BED12 and/or custom BED annotations
-    vector<string> otherFields;
-
-    // flag a zero-length feature
+    // all of the original fields in the record
+    vector<string> fields;
+    // indices of the "other" fields
+    vector<uint16_t> other_idxs;
+    // is this a zero length feature: i.e., start == end
     bool   zeroLength;
     
     // Additional fields specific to computing coverage
@@ -211,7 +217,8 @@ struct BEDCOV {
       name(""),
       score(""),
       strand(""),
-      otherFields(),
+      fields(),
+      other_idxs(),
       zeroLength(false),
       depthMap(),
       count(0),
@@ -234,10 +241,11 @@ struct BEDCOVLIST {
     string score;
     string strand;
 
-    // Add'l fields for BED12 and/or custom BED annotations
-    vector<string> otherFields;
-    
-    // flag a zero-length feature
+    // all of the original fields in the record
+    vector<string> fields;
+    // indices of the "other" fields
+    vector<uint16_t> other_idxs;
+    // is this a zero length feature: i.e., start == end
     bool   zeroLength;
 
     // Additional fields specific to computing coverage
@@ -256,7 +264,8 @@ struct BEDCOVLIST {
       name(""),
       score(""),
       strand(""),
-      otherFields(),
+      fields(),
+      other_idxs(),
       zeroLength(false),
       depthMapList(),
       counts(0),
@@ -290,29 +299,16 @@ typedef vector<BEDCOV> bedCovVector;
 typedef vector<MATE> mateVector;
 typedef vector<BEDCOVLIST> bedCovListVector;
 
-typedef map<BIN, bedVector,    std::less<BIN> > binsToBeds;
-typedef map<BIN, bedCovVector, std::less<BIN> > binsToBedCovs;
-typedef map<BIN, mateVector, std::less<BIN> > binsToMates;
-typedef map<BIN, bedCovListVector, std::less<BIN> > binsToBedCovLists;
+typedef map<BIN, bedVector> binsToBeds;
+typedef map<BIN, bedCovVector> binsToBedCovs;
+typedef map<BIN, mateVector> binsToMates;
+typedef map<BIN, bedCovListVector> binsToBedCovLists;
 
-typedef map<string, binsToBeds, std::less<string> >    masterBedMap;
-typedef map<string, binsToBedCovs, std::less<string> > masterBedCovMap;
-typedef map<string, binsToMates, std::less<string> > masterMateMap;
-typedef map<string, binsToBedCovLists, std::less<string> > masterBedCovListMap;
-typedef map<string, bedVector, std::less<string> >     masterBedMapNoBin;
-
-
-// EXPERIMENTAL - wait for TR1
-// typedef vector<BED>    bedVector;
-// typedef vector<BEDCOV> bedCovVector;
-//
-// typedef tr1::unordered_map<BIN, bedVector> binsToBeds;
-// typedef tr1::unordered_map<BIN, bedCovVector> binsToBedCovs;
-//
-// typedef tr1::unordered_map<string, binsToBeds>    masterBedMap;
-// typedef tr1::unordered_map<string, binsToBedCovs> masterBedCovMap;
-// typedef tr1::unordered_map<string, bedVector>     masterBedMapNoBin;
-
+typedef map<string, binsToBeds>    masterBedMap;
+typedef map<string, binsToBedCovs> masterBedCovMap;
+typedef map<string, binsToMates> masterMateMap;
+typedef map<string, binsToBedCovLists> masterBedCovListMap;
+typedef map<string, bedVector>     masterBedMapNoBin;
 
 
 // return the genome "bin" for a feature with this start and end
@@ -343,7 +339,7 @@ inline bool isInteger(const std::string& s) {
 }
 
 
-// return the amount of overlap between two features.  Negative if none and the the
+// return the amount of overlap between two features.  Negative if none and the
 // number of negative bases is the distance between the two.
 inline
 int overlaps(CHRPOS aS, CHRPOS aE, CHRPOS bS, CHRPOS bE) {
@@ -430,15 +426,14 @@ public:
     // search for all overlapping features in another BED file.
     // Searches through each relevant genome bin on the same chromosome
     // as the single feature. Note: Adapted from kent source "binKeeperFind"
-    void FindOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand, vector<BED> &hits, bool sameStrand, bool diffStrand);
+    void allHits(string chrom, CHRPOS start, CHRPOS end, string strand, 
+                 vector<BED> &hits, bool sameStrand, bool diffStrand, 
+                 float overlapFraction, bool reciprocal);
 
     // return true if at least one overlap was found.  otherwise, return false.
-    bool FindOneOrMoreOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand,
-                                        bool sameStrand, bool diffStrand, float overlapFraction = 0.0);
+    bool anyHits(string chrom, CHRPOS start, CHRPOS end, string strand,
+                bool sameStrand, bool diffStrand, float overlapFraction, bool reciprocal);
 
-    // return true if at least one __reciprocal__ overlap was found.  otherwise, return false.
-    bool FindOneOrMoreReciprocalOverlapsPerBin(string chrom, CHRPOS start, CHRPOS end, string strand,
-                                                    bool sameStrand, bool diffStrand, float overlapFraction = 0.0);
 
     // Given a chrom, start, end and strand for a single feature,
     // increment a the number of hits for each feature in B file
@@ -461,6 +456,7 @@ public:
     string bedFile;
     unsigned int bedType;  // 3-6, 12 for BED
                            // 9 for GFF
+    bool isBed12;          // is it file of true blocked BED12 records?
     bool isZeroBased;
 
     // Main data structires used by BEDTools
@@ -496,6 +492,7 @@ private:
     void setVcf (bool isVcf);
     void setFileType (FileType type);
     void setBedType (int colNums);
+    void setBed12 (bool isBed12);
 
     /************ Private utilities ***********************/
     void GetHeader(void);
@@ -551,6 +548,21 @@ private:
                     setZeroBased(true);
                     setFileType(BED_FILETYPE);
                     setBedType(numFields);       // we now expect numFields columns in each line
+                    
+                    // test to see if the file has true blocked BED12 records
+                    if (numFields == 12) {
+                        int cdsStart = atoi(lineVector[6].c_str());
+                        int cdsEnd   = atoi(lineVector[7].c_str());
+                        int numExons = atoi(lineVector[9].c_str());
+
+                        if (cdsStart > 0 && cdsEnd > 0&& numExons > 0 &&
+                            lineVector[10].find(",") == 0 &&
+                            lineVector[11].find(",") == 0)
+                        {
+                            setBed12(true);
+                        }
+                        else setBed12(false);
+                    }
                     if (parseBedLine(bed, lineVector, _lineNum, numFields) == true) return BED_VALID;
                 }
                 // it's VCF, assuming the second column is numeric and there are at least 8 fields.
@@ -595,6 +607,7 @@ private:
         // process as long as the number of fields in this
         // line matches what we expect for this file.
         if (numFields == this->bedType) {
+            bed.fields = lineVector;
             bed.chrom = lineVector[0];
             int i;
             i = atoi(lineVector[1].c_str());
@@ -634,7 +647,7 @@ private:
                 bed.score = lineVector[4];
                 bed.strand = lineVector[5];
                 for (unsigned int i = 6; i < lineVector.size(); ++i) {
-                    bed.otherFields.push_back(lineVector[i]);
+                    bed.other_idxs.push_back(i);
                 }
             }
             else if (this->bedType != 3) {
@@ -674,6 +687,7 @@ private:
     template <typename T>
     inline bool parseVcfLine (T &bed, const vector<string> &lineVector, int _lineNum, unsigned int numFields) {
         if (numFields == this->bedType) {
+            bed.fields = lineVector;
             bed.chrom  = lineVector[0];
             bed.start  = atoi(lineVector[1].c_str()) - 1;  // VCF is one-based
             bed.end    = bed.start + lineVector[3].size(); // VCF 4.0 stores the size of the affected REF allele.
@@ -687,7 +701,7 @@ private:
 
             if (this->bedType > 2) {
                 for (unsigned int i = 2; i < numFields; ++i)
-                    bed.otherFields.push_back(lineVector[i]);
+                    bed.other_idxs.push_back(i);
             }
 
             if ((bed.start <= bed.end) && (bed.start >= 0) && (bed.end >= 0)) {
@@ -725,6 +739,7 @@ private:
     template <typename T>
     inline bool parseGffLine (T &bed, const vector<string> &lineVector, int lineNum, unsigned int numFields) {
         if (numFields == this->bedType) {
+            bed.fields = lineVector;
             if (this->bedType >= 8 && _isGff) {
                 bed.chrom = lineVector[0];
                 if (isInteger(lineVector[3]))
@@ -734,11 +749,11 @@ private:
                 bed.name   = lineVector[2];
                 bed.score  = lineVector[5];
                 bed.strand = lineVector[6].c_str();
-                bed.otherFields.push_back(lineVector[1]);  // add GFF "source". unused in BED
-                bed.otherFields.push_back(lineVector[7]);  // add GFF "fname". unused in BED
+                bed.other_idxs.push_back(1);  // add GFF "source". unused in BED
+                bed.other_idxs.push_back(7);  // add GFF "fname". unused in BED
                 // handle the optional 9th field.
                 if (this->bedType == 9)
-                    bed.otherFields.push_back(lineVector[8]);  // add GFF "group". unused in BED
+                    bed.other_idxs.push_back(8);  // add GFF "group". unused in BED
                 bed.start--;
             }
             else {
@@ -783,7 +798,6 @@ public:
     */
     template <typename T>
     inline void reportBedTab(const T &bed) {
-        
         // if it is azeroLength feature, we need to
         // correct the start and end coords to what they were
         // in the original file
@@ -814,11 +828,10 @@ public:
             else if (this->bedType > 6) {
                 printf ("%s\t%d\t%d\t%s\t%s\t%s\t", bed.chrom.c_str(), start, end, bed.name.c_str(),
                                                     bed.score.c_str(), bed.strand.c_str());
-
-                vector<string>::const_iterator othIt = bed.otherFields.begin();
-                vector<string>::const_iterator othEnd = bed.otherFields.end();
+                vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+                vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
                 for ( ; othIt != othEnd; ++othIt) {
-                    printf("%s\t", othIt->c_str());
+                    printf("%s\t", bed.fields[*othIt].c_str());
                 }
             }
         }
@@ -826,27 +839,28 @@ public:
         else if (_isGff == false && _isVcf == true) {
             printf ("%s\t%d\t", bed.chrom.c_str(), start+1);
 
-            vector<string>::const_iterator othIt = bed.otherFields.begin();
-            vector<string>::const_iterator othEnd = bed.otherFields.end();
+            vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+            vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
             for ( ; othIt != othEnd; ++othIt) {
-                printf("%s\t", othIt->c_str());
+                printf("%s\t", bed.fields[*othIt].c_str());
             }
         }
         // GFF
         else if (_isGff == true) {
             // "GFF-8"
             if (this->bedType == 8) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.otherFields[0].c_str(),
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
                                                                  bed.name.c_str(), start+1, end,
                                                                  bed.score.c_str(), bed.strand.c_str(),
-                                                                 bed.otherFields[1].c_str());
+                                                                 bed.fields[bed.other_idxs[1]].c_str());
             }
             // "GFF-9"
             else if (this->bedType == 9) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.otherFields[0].c_str(),
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
                                                                  bed.name.c_str(), start+1, end,
                                                                  bed.score.c_str(), bed.strand.c_str(),
-                                                                 bed.otherFields[1].c_str(), bed.otherFields[2].c_str());
+                                                                 bed.fields[bed.other_idxs[1]].c_str(), 
+                                                                 bed.fields[bed.other_idxs[2]].c_str());
             }
         }
     }
@@ -873,7 +887,6 @@ public:
                 start++;
             end--;
         }
-        
         //BED
         if (_isGff == false && _isVcf == false) {
             if (this->bedType == 3) {
@@ -894,22 +907,22 @@ public:
                 printf ("%s\t%d\t%d\t%s\t%s\t%s", bed.chrom.c_str(), start, end, bed.name.c_str(),
                                                     bed.score.c_str(), bed.strand.c_str());
 
-                vector<string>::const_iterator othIt = bed.otherFields.begin();
-                vector<string>::const_iterator othEnd = bed.otherFields.end();
+                vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+                vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
                 for ( ; othIt != othEnd; ++othIt) {
-                    printf("\t%s", othIt->c_str());
+                    printf("\t%s", bed.fields[*othIt].c_str());
                 }
                 printf("\n");
             }
         }
         // VCF
         else if (_isGff == false && _isVcf == true) {
-            printf ("%s\t%d\t", bed.chrom.c_str(), start+1);
+            printf ("%s\t%d", bed.chrom.c_str(), start+1);
 
-            vector<string>::const_iterator othIt = bed.otherFields.begin();
-            vector<string>::const_iterator othEnd = bed.otherFields.end();
+            vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+            vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
             for ( ; othIt != othEnd; ++othIt) {
-                printf("%s\t", othIt->c_str());
+                printf("\t%s", bed.fields[*othIt].c_str());
             }
             printf("\n");
         }
@@ -917,17 +930,18 @@ public:
         else if (_isGff == true) {
             // "GFF-8"
             if (this->bedType == 8) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.otherFields[0].c_str(),
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
                                                                  bed.name.c_str(), start+1, end,
                                                                  bed.score.c_str(), bed.strand.c_str(),
-                                                                 bed.otherFields[1].c_str());
+                                                                 bed.fields[bed.other_idxs[1]].c_str());
             }
             // "GFF-9"
             else if (this->bedType == 9) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.otherFields[0].c_str(),
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
                                                                  bed.name.c_str(), start+1, end,
                                                                  bed.score.c_str(), bed.strand.c_str(),
-                                                                 bed.otherFields[1].c_str(), bed.otherFields[2].c_str());
+                                                                 bed.fields[bed.other_idxs[1]].c_str(), 
+                                                                 bed.fields[bed.other_idxs[2]].c_str());
             }
         }
     }
@@ -944,7 +958,6 @@ public:
     */
     template <typename T>
     inline void reportBedRangeTab(const T &bed, CHRPOS start, CHRPOS end) {
-        
         // if it is azeroLength feature, we need to
         // correct the start and end coords to what they were
         // in the original file
@@ -971,39 +984,38 @@ public:
             else if (this->bedType > 6) {
                 printf ("%s\t%d\t%d\t%s\t%s\t%s\t", bed.chrom.c_str(), start, end, bed.name.c_str(),
                                                     bed.score.c_str(), bed.strand.c_str());
-
-                vector<string>::const_iterator othIt = bed.otherFields.begin();
-                vector<string>::const_iterator othEnd = bed.otherFields.end();
+                vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+                vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
                 for ( ; othIt != othEnd; ++othIt) {
-                    printf("%s\t", othIt->c_str());
+                    printf("%s\t", bed.fields[*othIt].c_str());
                 }
             }
         }
         // VCF
         else if (_isGff == false && _isVcf == true) {
             printf ("%s\t%d\t", bed.chrom.c_str(), bed.start+1);
-
-            vector<string>::const_iterator othIt = bed.otherFields.begin();
-            vector<string>::const_iterator othEnd = bed.otherFields.end();
+            vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+            vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
             for ( ; othIt != othEnd; ++othIt) {
-                printf("%s\t", othIt->c_str());
+                printf("%s\t", bed.fields[*othIt].c_str());
             }
         }
         // GFF
         else if (_isGff == true) {
             // "GFF-8"
             if (this->bedType == 8) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.otherFields[0].c_str(),
-                                                             bed.name.c_str(), start+1, end,
-                                                             bed.score.c_str(), bed.strand.c_str(),
-                                                             bed.otherFields[1].c_str());
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
+                                                                 bed.name.c_str(), start+1, end,
+                                                                 bed.score.c_str(), bed.strand.c_str(),
+                                                                 bed.fields[bed.other_idxs[1]].c_str());
             }
             // "GFF-9"
             else if (this->bedType == 9) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.otherFields[0].c_str(),
-                                                             bed.name.c_str(), start+1, end,
-                                                             bed.score.c_str(), bed.strand.c_str(),
-                                                             bed.otherFields[1].c_str(), bed.otherFields[2].c_str());
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
+                                                                 bed.name.c_str(), start+1, end,
+                                                                 bed.score.c_str(), bed.strand.c_str(),
+                                                                 bed.fields[bed.other_idxs[1]].c_str(), 
+                                                                 bed.fields[bed.other_idxs[2]].c_str());
             }
         }
     }
@@ -1048,40 +1060,40 @@ public:
                 printf ("%s\t%d\t%d\t%s\t%s\t%s", bed.chrom.c_str(), start, end, bed.name.c_str(),
                                                     bed.score.c_str(), bed.strand.c_str());
 
-                vector<string>::const_iterator othIt = bed.otherFields.begin();
-                vector<string>::const_iterator othEnd = bed.otherFields.end();
+                vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+                vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
                 for ( ; othIt != othEnd; ++othIt) {
-                    printf("\t%s", othIt->c_str());
+                    printf("\t%s", bed.fields[*othIt].c_str());
                 }
                 printf("\n");
             }
         }
         // VCF
         else if (_isGff == false && _isVcf == true) {
-            printf ("%s\t%d\t", bed.chrom.c_str(), bed.start+1);
-
-            vector<string>::const_iterator othIt = bed.otherFields.begin();
-            vector<string>::const_iterator othEnd = bed.otherFields.end();
+            printf ("%s\t%d", bed.chrom.c_str(), bed.start+1);
+            vector<uint16_t>::const_iterator othIt  = bed.other_idxs.begin();
+            vector<uint16_t>::const_iterator othEnd = bed.other_idxs.end();
             for ( ; othIt != othEnd; ++othIt) {
-                printf("%s\t", othIt->c_str());
+                printf("\t%s", bed.fields[*othIt].c_str());
             }
             printf("\n");
         }
         // GFF
         else if (_isGff == true) {
-            // "GFF-9"
-            if (this->bedType == 8) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.otherFields[0].c_str(),
-                                                             bed.name.c_str(), start+1, end,
-                                                             bed.score.c_str(), bed.strand.c_str(),
-                                                             bed.otherFields[1].c_str());
-            }
             // "GFF-8"
+            if (this->bedType == 8) {
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
+                                                                 bed.name.c_str(), start+1, end,
+                                                                 bed.score.c_str(), bed.strand.c_str(),
+                                                                 bed.fields[bed.other_idxs[1]].c_str());
+            }
+            // "GFF-9"
             else if (this->bedType == 9) {
-                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.otherFields[0].c_str(),
-                                                             bed.name.c_str(), start+1, end,
-                                                             bed.score.c_str(), bed.strand.c_str(),
-                                                             bed.otherFields[1].c_str(), bed.otherFields[2].c_str());
+                printf ("%s\t%s\t%s\t%d\t%d\t%s\t%s\t%s\t%s\n", bed.chrom.c_str(), bed.fields[bed.other_idxs[0]].c_str(),
+                                                                 bed.name.c_str(), start+1, end,
+                                                                 bed.score.c_str(), bed.strand.c_str(),
+                                                                 bed.fields[bed.other_idxs[1]].c_str(), 
+                                                                 bed.fields[bed.other_idxs[2]].c_str());
             }
         }
     }
