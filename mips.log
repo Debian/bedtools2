@@ -1,68 +1,69 @@
-From buildd2@lucatelli.debian.org Wed Jan 11 07:45:58 2012
-Return-path: <buildd2@lucatelli.debian.org>
+From buildd2@corelli.debian.org Fri Mar 16 12:56:52 2012
+Return-path: <buildd2@corelli.debian.org>
 Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
 	CN=merikanto.debian.org,
 	EMAIL=hostmaster@merikanto.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
-	(Exim 4.72) (envelope-from <buildd2@lucatelli.debian.org>)
-	id 1Rkssf-0004ld-VX
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 07:45:58 +0000
-Received: from lucatelli.debian.org ([2607:f8f0:610:4000:2e0:98ff:fe00:4141])
+	(Exim 4.72) (envelope-from <buildd2@corelli.debian.org>)
+	id 1S8WiB-0003Ss-UL
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:56:52 +0000
+Received: from corelli.debian.org ([2607:f8f0:610:4000:2e0:98ff:fe00:4489])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
-	CN=lucatelli.debian.org,
-	EMAIL=hostmaster@lucatelli.debian.org (verified)
+	CN=corelli.debian.org, EMAIL=hostmaster@corelli.debian.org (verified)
 	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
-	(Exim 4.72) (envelope-from <buildd2@lucatelli.debian.org>)
-	id 1Rksse-0002EG-7Y
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 07:45:56 +0000
-Received: from buildd2 by lucatelli.debian.org with local (Exim 4.69)
-	(envelope-from <buildd2@lucatelli.debian.org>) id 1Rkssg-0001rZ-SA
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 07:45:58 +0000
-From: buildd on lucatelli <buildd2@lucatelli.debian.org>
+	(Exim 4.72) (envelope-from <buildd2@corelli.debian.org>)
+	id 1S8WiA-0008L9-8R
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:56:51 +0000
+Received: from buildd2 by corelli.debian.org with local (Exim 4.72)
+	(envelope-from <buildd2@corelli.debian.org>) id 1S8Wi6-0007Fp-SG
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:56:47 +0000
+Date: Fri, 16 Mar 2012 12:56:46 +0000
+Message-Id: <E1S8Wi6-0007Fp-SG@corelli.debian.org>
+From: buildd on corelli <buildd2@corelli.debian.org>
 To: logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.15.0-1 on mips (dist=sid)
+Subject: Log for successful build of bedtools_2.16.1-1 on mips (dist=sid)
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <E1Rkssg-0001rZ-SA@lucatelli.debian.org>
-Date: Wed, 11 Jan 2012 07:45:58 +0000
 Delivered-To: logs@buildd.debian.org
 
-sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on lucatelli.debian.org
+sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on corelli.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.15.0-1 (mips)                                   11 Jan 2012 07:08 ║
+║ bedtools 2.16.1-1 (mips)                                   16 Mar 2012 12:13 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.15.0-1
-Source Version: 2.15.0-1
+Version: 2.16.1-1
+Source Version: 2.16.1-1
 Architecture: mips
-Get:1 http://mirror-ubc.debian.org unstable InRelease [189 kB]
-Get:2 http://incoming.debian.org unstable InRelease [189 kB]
-Get:3 http://mirror-ubc.debian.org unstable/main Sources [6000 kB]
+Get:1 http://mirror-ubc.debian.org unstable InRelease [198 kB]
+Get:2 http://incoming.debian.org unstable InRelease [198 kB]
+Get:3 http://mirror-ubc.debian.org unstable/main Sources [6213 kB]
 Ign http://incoming.debian.org  InRelease
 Get:4 http://incoming.debian.org  Release.gpg [836 B]
 Get:5 http://incoming.debian.org  Release [1616 B]
-Get:6 http://incoming.debian.org unstable/main Sources [6000 kB]
+Get:6 http://incoming.debian.org unstable/main Sources [6213 kB]
 Get:7 http://mirror-ubc.debian.org unstable/contrib Sources [54.4 kB]
-Get:8 http://mirror-ubc.debian.org unstable/non-free Sources [100 kB]
-Get:9 http://mirror-ubc.debian.org unstable/main mips Packages [7732 kB]
-Get:10 http://mirror-ubc.debian.org unstable/contrib mips Packages [55.7 kB]
+Get:8 http://mirror-ubc.debian.org unstable/non-free Sources [99.8 kB]
+Get:9 http://mirror-ubc.debian.org unstable/main mips Packages [5732 kB]
+Get:10 http://mirror-ubc.debian.org unstable/contrib mips Packages [37.3 kB]
 Ign http://mirror-ubc.debian.org unstable/contrib TranslationIndex
-Get:11 http://mirror-ubc.debian.org unstable/main TranslationIndex [2085 B]
-Ign http://mirror-ubc.debian.org unstable/contrib Translation-en
-Get:12 http://incoming.debian.org unstable/contrib Sources [54.4 kB]
-Get:13 http://incoming.debian.org unstable/non-free Sources [100 kB]
-Get:14 http://incoming.debian.org unstable/main mips Packages [7732 kB]
-Get:15 http://incoming.debian.org unstable/contrib mips Packages [55.7 kB]
+Get:11 http://mirror-ubc.debian.org unstable/main TranslationIndex [2223 B]
+Get:12 http://mirror-ubc.debian.org unstable/contrib Translation-en [37.1 kB]
+Get:13 http://mirror-ubc.debian.org unstable/main Translation-en [3902 kB]
+Get:14 http://incoming.debian.org unstable/contrib Sources [54.4 kB]
+Get:15 http://incoming.debian.org unstable/non-free Sources [99.8 kB]
+Get:16 http://incoming.debian.org unstable/main mips Packages [5732 kB]
+Get:17 http://incoming.debian.org unstable/contrib mips Packages [37.3 kB]
 Ign http://incoming.debian.org unstable/contrib TranslationIndex
-Get:16 http://incoming.debian.org unstable/main TranslationIndex [2085 B]
-Get:17 http://incoming.debian.org  Sources [49.9 kB]
-Get:18 http://incoming.debian.org  Packages [601 kB]
+Get:18 http://incoming.debian.org unstable/main TranslationIndex [2223 B]
+Get:19 http://incoming.debian.org  Sources [58.9 kB]
+Get:20 http://incoming.debian.org  Packages [687 kB]
+Get:21 http://incoming.debian.org unstable/contrib Translation-en [37.1 kB]
+Get:22 http://incoming.debian.org unstable/main Translation-en [3902 kB]
 Ign http://incoming.debian.org  Translation-en
-Ign http://incoming.debian.org unstable/contrib Translation-en
-Fetched 28.9 MB in 1min 24s (344 kB/s)
+Fetched 33.3 MB in 1min 23s (399 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -83,11 +84,11 @@ Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
-Need to get 969 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (dsc) [1975 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (tar) [963 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (diff) [4499 B]
-Fetched 969 kB in 1s (838 kB/s)
+Need to get 985 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (dsc) [1975 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (tar) [978 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (diff) [5035 B]
+Fetched 985 kB in 1s (895 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -101,18 +102,18 @@ Check arch
 Build-Depends: build-essential, fakeroot
 Checking for already installed dependencies...
 build-essential: already installed (11.5)
-fakeroot: already installed (1.18.1-1)
+fakeroot: already installed (1.18.2-1)
 Checking for dependency conflicts...
 Installing positive dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 58 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 58 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -122,37 +123,37 @@ Checking correctness of dependencies...
 Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, python, zlib1g-dev
 Checking for already installed dependencies...
 base-files: already installed (6.5)
-base-passwd: already installed (3.5.23)
-bash: already installed (4.1-3)
+base-passwd: already installed (3.5.24)
+bash: already installed (4.2-1)
 coreutils: already installed (8.13-3)
 dash: already installed (0.5.7-2)
-debianutils: already installed (4.0.4)
+debianutils: already installed (4.2.1)
 diffutils: already installed (1:3.2-1)
-dpkg: already installed (1.16.1.1)
-e2fsprogs: already installed (1.42~WIP-2011-10-16-1)
-findutils: already installed (4.4.2-1+b1)
-grep: already installed (2.9-2)
+dpkg: already installed (1.16.1.2)
+e2fsprogs: already installed (1.42-1)
+findutils: already installed (4.4.2-4)
+grep: already installed (2.10-1)
 gzip: already installed (1.4-2)
-hostname: already installed (3.06)
+hostname: already installed (3.10)
 ncurses-base: already installed (5.9-4)
 ncurses-bin: already installed (5.9-4)
-perl-base: already installed (5.14.2-3)
+perl-base: already installed (5.14.2-7)
 sed: already installed (4.2.1-9)
 login: already installed (1:4.1.4.2+svn3283-3)
-sysvinit-utils: already installed (2.88dsf-13.13)
-sysvinit: already installed (2.88dsf-13.13)
-tar: already installed (1.26-3)
-bsdutils: already installed (1:2.19.1-5)
-mount: already installed (2.19.1-5)
-util-linux: already installed (2.19.1-5)
-libc6-dev: already installed (2.13-21)
-gcc: already installed (4:4.6.1-3 >= 4:4.4.3 is satisfied)
-g++: already installed (4:4.6.1-3 >= 4:4.4.3 is satisfied)
+sysvinit-utils: already installed (2.88dsf-22)
+sysvinit: already installed (2.88dsf-22)
+tar: already installed (1.26-4)
+bsdutils: already installed (1:2.20.1-1.2)
+mount: already installed (2.20.1-1.2)
+util-linux: already installed (2.20.1-1.2)
+libc6-dev: already installed (2.13-26)
+gcc: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
+g++: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
 make: already installed (3.81-8.1)
-dpkg-dev: already installed (1.16.1.1 >= 1.13.5 is satisfied)
+dpkg-dev: already installed (1.16.1.2 >= 1.13.5 is satisfied)
 cdbs: missing
 debhelper: missing
-Using default version 8.9.14
+Using default version 9.20120312
 quilt: missing
 python: missing
 zlib1g-dev: missing
@@ -166,7 +167,7 @@ The following extra packages will be installed:
   intltool-debian libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0 libmagic1
   libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0 libunistring0
   libxml2 man-db mime-support po-debconf python-minimal python2.7
-  python2.7-minimal
+  python2.7-minimal zlib1g
 Suggested packages:
   wamerican wordlist whois vacation devscripts dh-make gettext-doc groff less
   www-browser libmail-box-perl python-doc python-tk python2.7-doc
@@ -180,60 +181,69 @@ The following NEW packages will be installed:
   libmagic1 libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0
   libunistring0 libxml2 man-db mime-support po-debconf python python-minimal
   python2.7 python2.7-minimal quilt zlib1g-dev
-0 upgraded, 32 newly installed, 0 to remove and 58 not upgraded.
-Need to get 17.1 MB of archives.
-After this operation, 49.3 MB of additional disk space will be used.
-Get:1 http://mirror-ubc.debian.org/debian/ unstable/main libncursesw5 mips 5.9-4 [307 kB]
-Get:2 http://mirror-ubc.debian.org/debian/ unstable/main libpipeline1 mips 1.2.0-5 [35.4 kB]
-Get:3 http://mirror-ubc.debian.org/debian/ unstable/main libssl1.0.0 mips 1.0.0e-3 [1085 kB]
-Get:4 http://mirror-ubc.debian.org/debian/ unstable/main libpcre3 mips 8.12-4 [227 kB]
-Get:5 http://mirror-ubc.debian.org/debian/ unstable/main libffi5 mips 3.0.10-3 [23.0 kB]
-Get:6 http://mirror-ubc.debian.org/debian/ unstable/main libglib2.0-0 mips 2.30.2-4 [1751 kB]
-Get:7 http://mirror-ubc.debian.org/debian/ unstable/main libxml2 mips 2.7.8.dfsg-5.1 [858 kB]
-Get:8 http://mirror-ubc.debian.org/debian/ unstable/main libcroco3 mips 0.6.2-2 [104 kB]
-Get:9 http://mirror-ubc.debian.org/debian/ unstable/main libexpat1 mips 2.0.1-7.2 [143 kB]
-Get:10 http://mirror-ubc.debian.org/debian/ unstable/main libunistring0 mips 0.9.3-5 [411 kB]
-Get:11 http://mirror-ubc.debian.org/debian/ unstable/main libdb4.8 mips 4.8.30-11 [661 kB]
-Get:12 http://mirror-ubc.debian.org/debian/ unstable/main bsdmainutils mips 8.2.3 [206 kB]
-Get:13 http://mirror-ubc.debian.org/debian/ unstable/main groff-base mips 1.21-6 [1152 kB]
-Get:14 http://mirror-ubc.debian.org/debian/ unstable/main man-db mips 2.6.0.2-3 [984 kB]
-Get:15 http://mirror-ubc.debian.org/debian/ unstable/main libmagic1 mips 5.09-2 [249 kB]
-Get:16 http://mirror-ubc.debian.org/debian/ unstable/main file mips 5.09-2 [51.8 kB]
-Get:17 http://mirror-ubc.debian.org/debian/ unstable/main gettext-base mips 0.18.1.1-5 [136 kB]
-Get:18 http://mirror-ubc.debian.org/debian/ unstable/main libsqlite3-0 mips 3.7.9-2 [448 kB]
-Get:19 http://mirror-ubc.debian.org/debian/ unstable/main mime-support all 3.51-1 [35.0 kB]
-Get:20 http://mirror-ubc.debian.org/debian/ unstable/main python2.7-minimal mips 2.7.2-8 [1698 kB]
-Get:21 http://mirror-ubc.debian.org/debian/ unstable/main python2.7 mips 2.7.2-8 [2572 kB]
-Get:22 http://mirror-ubc.debian.org/debian/ unstable/main python-minimal all 2.7.2-9 [39.8 kB]
-Get:23 http://mirror-ubc.debian.org/debian/ unstable/main python all 2.7.2-9 [176 kB]
-Get:24 http://mirror-ubc.debian.org/debian/ unstable/main cdbs all 0.4.100 [77.1 kB]
-Get:25 http://mirror-ubc.debian.org/debian/ unstable/main html2text mips 1.3.2a-15 [103 kB]
-Get:26 http://mirror-ubc.debian.org/debian/ unstable/main gettext mips 0.18.1.1-5 [2032 kB]
-Get:27 http://mirror-ubc.debian.org/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
-Get:28 http://mirror-ubc.debian.org/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
-Get:29 http://mirror-ubc.debian.org/debian/ unstable/main debhelper all 8.9.14 [693 kB]
-Get:30 http://mirror-ubc.debian.org/debian/ unstable/main diffstat mips 1.55-2 [28.6 kB]
-Get:31 http://mirror-ubc.debian.org/debian/ unstable/main quilt all 0.50-2 [381 kB]
-Get:32 http://mirror-ubc.debian.org/debian/ unstable/main zlib1g-dev mips 1:1.2.3.4.dfsg-3 [191 kB]
+The following packages will be upgraded:
+  zlib1g
+1 upgraded, 32 newly installed, 0 to remove and 47 not upgraded.
+Need to get 17.2 MB of archives.
+After this operation, 49.5 MB of additional disk space will be used.
+Get:1 http://mirror-ubc.debian.org/debian/ unstable/main zlib1g mips 1:1.2.6.dfsg-2 [85.3 kB]
+Get:2 http://mirror-ubc.debian.org/debian/ unstable/main libncursesw5 mips 5.9-4 [307 kB]
+Get:3 http://mirror-ubc.debian.org/debian/ unstable/main libpipeline1 mips 1.2.1-1 [36.7 kB]
+Get:4 http://mirror-ubc.debian.org/debian/ unstable/main libssl1.0.0 mips 1.0.0h-1 [1089 kB]
+Get:5 http://mirror-ubc.debian.org/debian/ unstable/main libmagic1 mips 5.10-1 [252 kB]
+Get:6 http://mirror-ubc.debian.org/debian/ unstable/main libpcre3 mips 8.12-4 [227 kB]
+Get:7 http://mirror-ubc.debian.org/debian/ unstable/main libffi5 mips 3.0.10-3 [23.0 kB]
+Get:8 http://mirror-ubc.debian.org/debian/ unstable/main libglib2.0-0 mips 2.30.2-6 [1751 kB]
+Get:9 http://mirror-ubc.debian.org/debian/ unstable/main libxml2 mips 2.7.8.dfsg-7 [859 kB]
+Get:10 http://mirror-ubc.debian.org/debian/ unstable/main libcroco3 mips 0.6.4-2 [139 kB]
+Get:11 http://mirror-ubc.debian.org/debian/ unstable/main libexpat1 mips 2.0.1-7.2 [143 kB]
+Get:12 http://mirror-ubc.debian.org/debian/ unstable/main libunistring0 mips 0.9.3-5 [411 kB]
+Get:13 http://mirror-ubc.debian.org/debian/ unstable/main libdb4.8 mips 4.8.30-11 [661 kB]
+Get:14 http://mirror-ubc.debian.org/debian/ unstable/main bsdmainutils mips 9.0.1 [207 kB]
+Get:15 http://mirror-ubc.debian.org/debian/ unstable/main groff-base mips 1.21-6 [1152 kB]
+Get:16 http://mirror-ubc.debian.org/debian/ unstable/main man-db mips 2.6.1-1 [1027 kB]
+Get:17 http://mirror-ubc.debian.org/debian/ unstable/main file mips 5.10-1 [52.8 kB]
+Get:18 http://mirror-ubc.debian.org/debian/ unstable/main gettext-base mips 0.18.1.1-5 [136 kB]
+Get:19 http://mirror-ubc.debian.org/debian/ unstable/main libsqlite3-0 mips 3.7.10-1 [454 kB]
+Get:20 http://mirror-ubc.debian.org/debian/ unstable/main mime-support all 3.52-1 [35.5 kB]
+Get:21 http://mirror-ubc.debian.org/debian/ unstable/main python2.7-minimal mips 2.7.2-13 [1609 kB]
+Get:22 http://mirror-ubc.debian.org/debian/ unstable/main python2.7 mips 2.7.2-13 [2580 kB]
+Get:23 http://mirror-ubc.debian.org/debian/ unstable/main python-minimal all 2.7.2-10 [40.0 kB]
+Get:24 http://mirror-ubc.debian.org/debian/ unstable/main python all 2.7.2-10 [177 kB]
+Get:25 http://mirror-ubc.debian.org/debian/ unstable/main cdbs all 0.4.109 [79.4 kB]
+Get:26 http://mirror-ubc.debian.org/debian/ unstable/main html2text mips 1.3.2a-15 [103 kB]
+Get:27 http://mirror-ubc.debian.org/debian/ unstable/main gettext mips 0.18.1.1-5 [2032 kB]
+Get:28 http://mirror-ubc.debian.org/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:29 http://mirror-ubc.debian.org/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:30 http://mirror-ubc.debian.org/debian/ unstable/main debhelper all 9.20120312 [694 kB]
+Get:31 http://mirror-ubc.debian.org/debian/ unstable/main diffstat mips 1.55-2 [28.6 kB]
+Get:32 http://mirror-ubc.debian.org/debian/ unstable/main quilt all 0.60-2 [377 kB]
+Get:33 http://mirror-ubc.debian.org/debian/ unstable/main zlib1g-dev mips 1:1.2.6.dfsg-2 [211 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 17.1 MB in 2s (5808 kB/s)
+Fetched 17.2 MB in 3s (5145 kB/s)
+(Reading database ... 10667 files and directories currently installed.)
+Preparing to replace zlib1g 1:1.2.3.4.dfsg-3 (using .../zlib1g_1%3a1.2.6.dfsg-2_mips.deb) ...
+Unpacking replacement zlib1g ...
+Setting up zlib1g (1:1.2.6.dfsg-2) ...
 Selecting previously unselected package libncursesw5.
-(Reading database ... 10643 files and directories currently installed.)
+(Reading database ... 10667 files and directories currently installed.)
 Unpacking libncursesw5 (from .../libncursesw5_5.9-4_mips.deb) ...
 Selecting previously unselected package libpipeline1.
-Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5_mips.deb) ...
+Unpacking libpipeline1 (from .../libpipeline1_1.2.1-1_mips.deb) ...
 Selecting previously unselected package libssl1.0.0.
-Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0e-3_mips.deb) ...
+Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0h-1_mips.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.10-1_mips.deb) ...
 Selecting previously unselected package libpcre3.
 Unpacking libpcre3 (from .../libpcre3_8.12-4_mips.deb) ...
 Selecting previously unselected package libffi5.
 Unpacking libffi5 (from .../libffi5_3.0.10-3_mips.deb) ...
 Selecting previously unselected package libglib2.0-0.
-Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_mips.deb) ...
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-6_mips.deb) ...
 Selecting previously unselected package libxml2.
-Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_mips.deb) ...
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-7_mips.deb) ...
 Selecting previously unselected package libcroco3.
-Unpacking libcroco3 (from .../libcroco3_0.6.2-2_mips.deb) ...
+Unpacking libcroco3 (from .../libcroco3_0.6.4-2_mips.deb) ...
 Selecting previously unselected package libexpat1.
 Unpacking libexpat1 (from .../libexpat1_2.0.1-7.2_mips.deb) ...
 Selecting previously unselected package libunistring0.
@@ -241,31 +251,29 @@ Unpacking libunistring0 (from .../libunistring0_0.9.3-5_mips.deb) ...
 Selecting previously unselected package libdb4.8.
 Unpacking libdb4.8 (from .../libdb4.8_4.8.30-11_mips.deb) ...
 Selecting previously unselected package bsdmainutils.
-Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_mips.deb) ...
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.1_mips.deb) ...
 Selecting previously unselected package groff-base.
 Unpacking groff-base (from .../groff-base_1.21-6_mips.deb) ...
 Selecting previously unselected package man-db.
-Unpacking man-db (from .../man-db_2.6.0.2-3_mips.deb) ...
-Selecting previously unselected package libmagic1.
-Unpacking libmagic1 (from .../libmagic1_5.09-2_mips.deb) ...
+Unpacking man-db (from .../man-db_2.6.1-1_mips.deb) ...
 Selecting previously unselected package file.
-Unpacking file (from .../archives/file_5.09-2_mips.deb) ...
+Unpacking file (from .../archives/file_5.10-1_mips.deb) ...
 Selecting previously unselected package gettext-base.
 Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_mips.deb) ...
 Selecting previously unselected package libsqlite3-0.
-Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.9-2_mips.deb) ...
+Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.10-1_mips.deb) ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.51-1_all.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-1_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.2-8_mips.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.2-13_mips.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.2-8_mips.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.2-13_mips.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.2-9_all.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.2-10_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.2-9_all.deb) ...
+Unpacking python (from .../python_2.7.2-10_all.deb) ...
 Selecting previously unselected package cdbs.
-Unpacking cdbs (from .../archives/cdbs_0.4.100_all.deb) ...
+Unpacking cdbs (from .../archives/cdbs_0.4.109_all.deb) ...
 Selecting previously unselected package html2text.
 Unpacking html2text (from .../html2text_1.3.2a-15_mips.deb) ...
 Selecting previously unselected package gettext.
@@ -275,59 +283,59 @@ Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) .
 Selecting previously unselected package po-debconf.
 Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
 Selecting previously unselected package debhelper.
-Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Unpacking debhelper (from .../debhelper_9.20120312_all.deb) ...
 Selecting previously unselected package diffstat.
 Unpacking diffstat (from .../diffstat_1.55-2_mips.deb) ...
 Selecting previously unselected package quilt.
-Unpacking quilt (from .../archives/quilt_0.50-2_all.deb) ...
+Unpacking quilt (from .../archives/quilt_0.60-2_all.deb) ...
 Selecting previously unselected package zlib1g-dev.
-Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_mips.deb) ...
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.6.dfsg-2_mips.deb) ...
 Setting up libncursesw5 (5.9-4) ...
-Setting up libpipeline1 (1.2.0-5) ...
-Setting up libssl1.0.0 (1.0.0e-3) ...
+Setting up libpipeline1 (1.2.1-1) ...
+Setting up libssl1.0.0 (1.0.0h-1) ...
+Setting up libmagic1 (5.10-1) ...
 Setting up libpcre3 (8.12-4) ...
 Setting up libffi5 (3.0.10-3) ...
-Setting up libglib2.0-0 (2.30.2-4) ...
+Setting up libglib2.0-0 (2.30.2-6) ...
 No schema files found: doing nothing.
-Setting up libxml2 (2.7.8.dfsg-5.1) ...
-Setting up libcroco3 (0.6.2-2) ...
+Setting up libxml2 (2.7.8.dfsg-7) ...
+Setting up libcroco3 (0.6.4-2) ...
 Setting up libexpat1 (2.0.1-7.2) ...
 Setting up libunistring0 (0.9.3-5) ...
 Setting up libdb4.8 (4.8.30-11) ...
-Setting up bsdmainutils (8.2.3) ...
+Setting up bsdmainutils (9.0.1) ...
 update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
 update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
 Setting up groff-base (1.21-6) ...
-Setting up man-db (2.6.0.2-3) ...
+Setting up man-db (2.6.1-1) ...
 Building database of manual pages ...
-Setting up libmagic1 (5.09-2) ...
-Setting up file (5.09-2) ...
+Setting up file (5.10-1) ...
 Setting up gettext-base (0.18.1.1-5) ...
-Setting up libsqlite3-0 (3.7.9-2) ...
-Setting up mime-support (3.51-1) ...
+Setting up libsqlite3-0 (3.7.10-1) ...
+Setting up mime-support (3.52-1) ...
 update-alternatives: using /usr/bin/see to provide /usr/bin/view (view) in auto mode.
-Setting up python2.7-minimal (2.7.2-8) ...
-Setting up python2.7 (2.7.2-8) ...
-Setting up python-minimal (2.7.2-9) ...
-Setting up python (2.7.2-9) ...
-Setting up cdbs (0.4.100) ...
+Setting up python2.7-minimal (2.7.2-13) ...
+Setting up python2.7 (2.7.2-13) ...
+Setting up python-minimal (2.7.2-10) ...
+Setting up python (2.7.2-10) ...
+Setting up cdbs (0.4.109) ...
 Setting up html2text (1.3.2a-15) ...
 Setting up gettext (0.18.1.1-5) ...
 Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu2) ...
-Setting up debhelper (8.9.14) ...
+Setting up debhelper (9.20120312) ...
 Setting up diffstat (1.55-2) ...
-Setting up quilt (0.50-2) ...
-Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
+Setting up quilt (0.60-2) ...
+Setting up zlib1g-dev (1:1.2.6.dfsg-2) ...
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 58 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 47 not upgraded.
 Checking correctness of dependencies...
-Kernel: Linux 2.6.35.4-dsa-octeon mips (mips64)
-Toolchain package versions: binutils_2.21.90.20111025-1 dpkg-dev_1.16.1.1 g++-4.6_4.6.2-4 gcc-4.6_4.6.2-4 libc6-dev_2.13-21 libstdc++6_4.6.2-4 libstdc++6-4.6-dev_4.6.2-4 linux-libc-dev_3.0.0-6
-Package versions: apt_0.8.15.9 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 binutils_2.21.90.20111025-1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.5-7 cdbs_0.4.100 coreutils_8.13-3 cpp_4:4.6.1-3 cpp-4.6_4.6.2-4 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.0.4 diffstat_1.55-2 diffutils_1:3.2-1 dpkg_1.16.1.1 dpkg-dev_1.16.1.1 e2fslibs_1.42~WIP-2011-10-16-1 e2fsprogs_1.42~WIP-2011-10-16-1 fakeroot_1.18.1-1 file_5.09-2 findutils_4.4.2-1+b1 g++_4:4.6.1-3 g++-4.6_4.6.2-4 gcc_4:4.6.1-3 gcc-4.6_4.6.2-4 gcc-4.6-base_4.6.2-4 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.4-2 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.13 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-4 libattr1_1:2.4.46-3 libblkid1_2.19.1-5 libbz2-1.0_1.0.5-7 libc-bin_2.13-21 libc-dev-bin_2.13-21 libc6_2.13-21 libc6-dev_2.13-21 libclass-isa-perl_0.36-2 libcomerr2_1.42~WIP-2011-10-16-1 libcroco3_0.6.2-2 libdb4.8_4.8.30-11 libdb5.1_5.1.25-11 libdpkg-perl_1.16.1.1 libexpat1_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-4 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgomp1_4.6.2-4 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.19.1-5 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libpipeline1_1.2.0-5 libreadline6_6.2-7 libselinux1_2.1.0-4 libsepol1_2.1.0-1.1 libslang2_2.2.4-3 libsqlite3-0_3.7.9-2 libss2_1.42~WIP-2011-10-16-1 libssl1.0.0_1.0.0e-3 libstdc++6_4.6.2-4 libstdc++6-4.6-dev_4.6.2-4 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-19 libuuid1_2.19.1-5 libxml2_2.7.8.dfsg-5.1 linux-libc-dev_3.0.0-6 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mime-support_3.51-1 mount_2.19.1-5 multiarch-support_2.13-21 ncurses-base_5.9-4 ncurses-bin_5.9-4 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-3 perl-base_5.14.2-3 perl-modules_5.14.2-3 po-debconf_1.0.16+nmu2 python_2.7.2-9 python-minimal_2.7.2-9 python2.7_2.7.2-8 python2.7-minimal_2.7.2-8 quilt_0.50-2 readline-common_6.2-7 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.3p1-2 sysv-rc_2.88dsf-13.13 sysvinit_2.88dsf-13.13 sysvinit-utils_2.88dsf-13.13 tar_1.26-3 tzdata_2011n-1 util-linux_2.19.1-5 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+Kernel: Linux 3.2.0-0.bpo.1-octeon mips (mips64)
+Toolchain package versions: binutils_2.22-5 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-12 gcc-4.6_4.6.2-12 libc6-dev_2.13-26 libstdc++6_4.6.2-12 libstdc++6-4.6-dev_4.6.2-12 linux-libc-dev_3.2.4-1
+Package versions: apt_0.8.15.9 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-5 bsdmainutils_9.0.1 bsdutils_1:2.20.1-1.2 build-essential_11.5 bzip2_1.0.6-1 cdbs_0.4.109 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-12 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_9.20120312 debian-archive-keyring_2010.08.28 debianutils_4.2.1 diffstat_1.55-2 diffutils_1:3.2-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.10-1 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-12 gcc_4:4.6.2-4 gcc-4.6_4.6.2-12 gcc-4.6-base_4.6.2-12 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.10 html2text_1.3.2a-15 initscripts_2.88dsf-22 insserv_1.14.0-2.2 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.2 libbz2-1.0_1.0.6-1 libc-bin_2.13-26 libc-dev-bin_2.13-26 libc6_2.13-26 libc6-dev_2.13-26 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.4-2 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-12 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-6 libgmp10_2:5.0.3+dfsg-1 libgomp1_4.6.2-12 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.10-1 libmount1_2.20.1-1.2 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-7 libpam-modules-bin_1.1.3-7 libpam-runtime_1.1.3-7 libpam0g_1.1.3-7 libpcre3_8.12-4 libpipeline1_1.2.1-1 libreadline6_6.2-8 libselinux1_2.1.0-4.1 libsepol1_2.1.0-1.2 libslang2_2.2.4-6 libsqlite3-0_3.7.10-1 libss2_1.42-1 libssl1.0.0_1.0.0h-1 libstdc++6_4.6.2-12 libstdc++6-4.6-dev_4.6.2-12 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.2 libxml2_2.7.8.dfsg-7 linux-libc-dev_3.2.4-1 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28.1 make_3.81-8.1 man-db_2.6.1-1 mawk_1.3.3-16 mime-support_3.52-1 mount_2.20.1-1.2 multiarch-support_2.13-26 ncurses-base_5.9-4 ncurses-bin_5.9-4 netbase_4.47 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-3 perl_5.14.2-7 perl-base_5.14.2-7 perl-modules_5.14.2-7 po-debconf_1.0.16+nmu2 python_2.7.2-10 python-minimal_2.7.2-10 python2.7_2.7.2-13 python2.7-minimal_2.7.2-13 quilt_0.60-2 readline-common_6.2-8 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.3p2-1 sysv-rc_2.88dsf-22 sysvinit_2.88dsf-22 sysvinit-utils_2.88dsf-22 tar_1.26-4 tzdata_2011n-2 ucf_3.0025+nmu2 util-linux_2.20.1-1.2 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.6.dfsg-2 zlib1g-dev_1:1.2.6.dfsg-2
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -338,12 +346,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd2/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Wed Jan 11 06:48:11 2012 UTC using RSA key ID 2295D502
+gpgv: Signature made Fri Mar 16 11:42:52 2012 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.15.0-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.15.0
-dpkg-source: info: unpacking bedtools_2.15.0.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.15.0-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.16.1-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.16.1
+dpkg-source: info: unpacking bedtools_2.16.1.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.16.1-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -354,24 +362,38 @@ dpkg-buildpackage
 ─────────────────
 
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.15.0-1
- dpkg-source --before-build bedtools-2.15.0
+dpkg-buildpackage: source version 2.16.1-1
+ dpkg-source --before-build bedtools-2.16.1
 dpkg-buildpackage: host architecture mips
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
-/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
-Cleaning up.
-make[1]: Leaving directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -k clean
+make[1]: Entering directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
+ * Cleaning-up BamTools API
+ * Cleaning up.
+make[1]: Leaving directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 dh_clean 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
+	rm -f debian/*.debhelper.log
+	rm -f debian/files
+	find .  \( \( -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} \; \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} \; \) \)
+	rm -f *-stamp
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -384,52 +406,44 @@ test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
-cd . && QUILT_PATCHES=/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
+cd . && QUILT_PATCHES=/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
-/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
-[ -d obj ] || mkdir -p obj
-[ -d bin ] || mkdir -p bin
+make[1]: Leaving directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
+/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  
+make[1]: Entering directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 Building BEDTools:
 =========================================================
-- Building in src/utils/lineFileUtilities
-  * compiling lineFileUtilities.cpp
-
+DETECTED_VERSION = v2.16.1
+CURRENT_VERSION  = v2.16.1
+ * Creating BamTools API
 - Building in src/utils/bedFile
   * compiling bedFile.cpp
-
+- Building in src/utils/version
+  * compiling version.cpp
 - Building in src/utils/bedGraphFile
   * compiling bedGraphFile.cpp
-
 - Building in src/utils/chromsweep
   * compiling chromsweep.cpp
-
 - Building in src/utils/gzstream
 g++ -g -O2 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
-
 - Building in src/utils/fileType
   * compiling fileType.cpp
-
 - Building in src/utils/bedFilePE
   * compiling bedFilePE.cpp
-
 - Building in src/utils/sequenceUtilities
   * compiling sequenceUtils.cpp
-
 - Building in src/utils/tabFile
   * compiling tabFile.cpp
-
 - Building in src/utils/BamTools
  * compiling BamAlignment.cpp
  * compiling BamMultiReader.cpp
@@ -469,143 +483,138 @@ g++ -g -O2 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../
  * compiling SamFormatPrinter_p.cpp
  * compiling SamHeaderValidator_p.cpp
  * compiling BamException_p.cpp
-[ -d lib ] || mkdir -p lib
-[ -d include ] || mkdir -p include
-[ -d include/api ] || mkdir -p include/api
-[ -d include/shared ] || mkdir -p include/shared
- * linking libbamtools.a
+ * linking lib/libbamtools.a
 ar cr lib/libbamtools.a src/api/BamAlignment.o src/api/BamMultiReader.o src/api/BamReader.o src/api/BamWriter.o src/api/SamHeader.o src/api/SamProgram.o src/api/SamProgramChain.o src/api/SamReadGroup.o src/api/SamReadGroupDictionary.o src/api/SamSequence.o src/api/SamSequenceDictionary.o src/api/internal/bam/BamHeader_p.o src/api/internal/bam/BamMultiReader_p.o src/api/internal/bam/BamRandomAccessController_p.o src/api/internal/bam/BamReader_p.o src/api/internal/bam/BamWriter_p.o src/api/internal/index/BamIndexFactory_p.o src/api/internal/index/BamStandardIndex_p.o src/api/internal/index/BamToolsIndex_p.o src/api/internal/io/BamDeviceFactory_p.o src/api/internal/io/BamFile_p.o src/api/internal/io/BamFtp_p.o src/api/internal/io/BamHttp_p.o src/api/internal/io/BamPipe_p.o src/api/internal/io/BgzfStream_p.o src/api/internal/io/ByteArray_p.o src/api/internal/io/HostAddress_p.o src/api/internal/io/HostInfo_p.o src/api/internal/io/HttpHeader_p.o src/api/internal/io/ILocalIODevice_p.o src/api/internal/io/RollingBuffer_p.o src/api/internal/io/TcpSocketEngine_p.o src/api/internal/io/TcpSocketEngine_unix_p.o src/api/internal/io/TcpSocket_p.o src/api/internal/sam/SamFormatParser_p.o src/api/internal/sam/SamFormatPrinter_p.o src/api/internal/sam/SamHeaderValidator_p.o src/api/internal/utils/BamException_p.o
-
+ranlib lib/libbamtools.a
 - Building in src/utils/BamTools-Ancillary
   * compiling BamAncillary.cpp
-
+  * compiling BamAncillary.cpp
+- Building in src/utils/BlockedIntervals
+  * compiling BlockedIntervals.cpp
+  * compiling BlockedIntervals.cpp
 - Building in src/utils/Fasta
   * compiling Fasta.cpp
 Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
 Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  * compiling Fasta.cpp
+Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
+Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
   * compiling split.cpp
-
+  * compiling split.cpp
+- Building in src/utils/VectorOps
+  * compiling VectorOps.cpp
 - Building in src/utils/genomeFile
   * compiling genomeFile.cpp
 genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
 genomeFile.cpp:61:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
-
 - Building in src/annotateBed
   * compiling annotateMain.cpp
 annotateMain.cpp: In function 'int annotate_main(int, char**)':
 annotateMain.cpp:39:10: warning: variable 'haveTitles' set but not used [-Wunused-but-set-variable]
   * compiling annotateBed.cpp
-
 - Building in src/bamToBed
   * compiling bamToBed.cpp
 bamToBed.cpp: In function 'int bamtobed_main(int, char**)':
 bamToBed.cpp:74:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
-
+- Building in src/bamToFastq
+  * compiling bamToFastqMain.cpp
+bamToFastqMain.cpp: In function 'int bamtofastq_main(int, char**)':
+bamToFastqMain.cpp:38:10: warning: variable 'haveFastq2' set but not used [-Wunused-but-set-variable]
+  * compiling bamToFastq.cpp
 - Building in src/bedToBam
   * compiling bedToBam.cpp
 bedToBam.cpp: In function 'int bedtobam_main(int, char**)':
 bedToBam.cpp:60:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedpeToBam
   * compiling bedpeToBam.cpp
 bedpeToBam.cpp: In function 'int bedpetobam_main(int, char**)':
 bedpeToBam.cpp:61:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedToIgv
   * compiling bedToIgv.cpp
-
 - Building in src/bed12ToBed6
   * compiling bed12ToBed6.cpp
-
 - Building in src/closestBed
   * compiling closestMain.cpp
   * compiling closestBed.cpp
-
 - Building in src/clusterBed
   * compiling clusterMain.cpp
 clusterMain.cpp: In function 'int cluster_main(int, char**)':
 clusterMain.cpp:38:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling clusterBed.cpp
-
 - Building in src/complementBed
   * compiling complementMain.cpp
   * compiling complementBed.cpp
-
 - Building in src/coverageBed
   * compiling coverageMain.cpp
   * compiling coverageBed.cpp
-
+- Building in src/expand
+  * compiling expand.cpp
 - Building in src/fastaFromBed
   * compiling fastaFromBedMain.cpp
   * compiling fastaFromBed.cpp
-
 - Building in src/flankBed
   * compiling flankBedMain.cpp
   * compiling flankBed.cpp
-
 - Building in src/genomeCoverageBed
   * compiling genomeCoverageMain.cpp
   * compiling genomeCoverageBed.cpp
-
 - Building in src/getOverlap
   * compiling getOverlap.cpp
 getOverlap.cpp: In function 'int getoverlap_main(int, char**)':
 getOverlap.cpp:44:10: warning: variable 'haveColumns' set but not used [-Wunused-but-set-variable]
-
 - Building in src/groupBy
   * compiling groupBy.cpp
 groupBy.cpp: In function 'int groupby_main(int, char**)':
-groupBy.cpp:84:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
-
+groupBy.cpp:64:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
 - Building in src/intersectBed
   * compiling intersectMain.cpp
   * compiling intersectBed.cpp
-
 - Building in src/linksBed
   * compiling linksMain.cpp
   * compiling linksBed.cpp
-
 - Building in src/maskFastaFromBed
   * compiling maskFastaFromBedMain.cpp
   * compiling maskFastaFromBed.cpp
-
+- Building in src/mapBed
+  * compiling mapMain.cpp
+mapMain.cpp: In function 'int map_main(int, char**)':
+mapMain.cpp:44:10: warning: variable 'haveColumn' set but not used [-Wunused-but-set-variable]
+mapMain.cpp:45:10: warning: variable 'haveOperation' set but not used [-Wunused-but-set-variable]
+  * compiling mapBed.cpp
 - Building in src/mergeBed
   * compiling mergeMain.cpp
 mergeMain.cpp: In function 'int merge_main(int, char**)':
 mergeMain.cpp:40:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling mergeBed.cpp
-
 - Building in src/multiBamCov
   * compiling multiBamCovMain.cpp
 multiBamCovMain.cpp: In function 'int multibamcov_main(int, char**)':
 multiBamCovMain.cpp:38:10: warning: variable 'haveBed' set but not used [-Wunused-but-set-variable]
 multiBamCovMain.cpp:39:10: warning: variable 'haveBams' set but not used [-Wunused-but-set-variable]
   * compiling multiBamCov.cpp
-
 - Building in src/multiIntersectBed
-  * compiling multiIntersectBed.cpp
   * compiling multiIntersectBedMain.cpp
 multiIntersectBedMain.cpp: In function 'int multiintersect_main(int, char**)':
 multiIntersectBedMain.cpp:45:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:47:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:48:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling multiIntersectBed.cpp
 - Building in src/nucBed
   * compiling nucBedMain.cpp
   * compiling nucBed.cpp
-
 - Building in src/pairToBed
   * compiling pairToBedMain.cpp
 pairToBedMain.cpp: In function 'int pairtobed_main(int, char**)':
 pairToBedMain.cpp:43:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling pairToBed.cpp
 pairToBed.cpp: In member function 'void BedIntersectPE::FindSpanningOverlaps(const BEDPE&, std::vector<BED>&, const string&)':
-pairToBed.cpp:255:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
+pairToBed.cpp:257:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 pairToBed.cpp: In member function 'bool BedIntersectPE::FindOneOrMoreSpanningOverlaps(const BEDPE&, const string&)':
-pairToBed.cpp:307:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
-
+pairToBed.cpp:310:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 - Building in src/pairToPair
   * compiling pairToPairMain.cpp
 pairToPairMain.cpp: In function 'int pairtopair_main(int, char**)':
@@ -614,59 +623,57 @@ pairToPairMain.cpp:44:10: warning: variable 'haveFraction' set but not used [-Wu
 pairToPair.cpp: In member function 'void PairToPair::FindOverlaps(const BEDPE&)':
 pairToPair.cpp:112:14: warning: variable 'found1' set but not used [-Wunused-but-set-variable]
 pairToPair.cpp:113:14: warning: variable 'found2' set but not used [-Wunused-but-set-variable]
-
+- Building in src/randomBed
+  * compiling randomBedMain.cpp
+  * compiling randomBed.cpp
 - Building in src/shuffleBed
   * compiling shuffleBedMain.cpp
   * compiling shuffleBed.cpp
-
 - Building in src/slopBed
   * compiling slopBedMain.cpp
   * compiling slopBed.cpp
-
 - Building in src/sortBed
   * compiling sortMain.cpp
   * compiling sortBed.cpp
-
 - Building in src/subtractBed
   * compiling subtractMain.cpp
 subtractMain.cpp: In function 'int subtract_main(int, char**)':
 subtractMain.cpp:41:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling subtractBed.cpp
-
 - Building in src/tagBam
   * compiling tagBamMain.cpp
 tagBamMain.cpp: In function 'int tagbam_main(int, char**)':
 tagBamMain.cpp:38:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling tagBam.cpp
-
 - Building in src/unionBedGraphs
-  * compiling unionBedGraphs.cpp
   * compiling unionBedGraphsMain.cpp
 unionBedGraphsMain.cpp: In function 'int unionbedgraphs_main(int, char**)':
 unionBedGraphsMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling unionBedGraphs.cpp
 - Building in src/windowBed
   * compiling windowMain.cpp
   * compiling windowBed.cpp
-
 - Building in src/windowMaker
   * compiling windowMakerMain.cpp
   * compiling windowMaker.cpp
-
 - Building main bedtools binary.
 done.
 - Creating executables for old CLI.
 done.
-make[1]: Leaving directory `/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
 test -x debian/rules
 dh_testroot
 dh_prep 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
 dh_installdirs -A 
+	install -d debian/bedtools
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 DEB_MAKE_CHECK_TARGET unset, not running checks
@@ -674,6 +681,12 @@ DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install targe
 Adding cdbs dependencies to debian/bedtools.substvars
 dh_installdirs -pbedtools 
 dh_installdocs -pbedtools 
+	install -g 0 -o 0 -d debian/bedtools/usr/share/doc/bedtools
+	cp -a README.rst debian/bedtools/usr/share/doc/bedtools
+	chown -R 0:0 debian/bedtools/usr/share/doc
+	chmod -R go=rX debian/bedtools/usr/share/doc
+	chmod -R u\+rw debian/bedtools/usr/share/doc
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/bedtools/usr/share/doc/bedtools/copyright
 dh_installexamples -pbedtools 
 dh_installman -pbedtools  
 dh_installinfo -pbedtools  
@@ -681,83 +694,155 @@ dh_installmenu -pbedtools
 dh_installcron -pbedtools 
 dh_installinit -pbedtools  
 dh_installdebconf -pbedtools 
+	install -o 0 -g 0 -d debian/bedtools/DEBIAN
 dh_installemacsen -pbedtools   
 dh_installcatalogs -pbedtools 
+	grep -s -v '^misc:Depends=' debian/bedtools.substvars > debian/bedtools.substvars.new || true
+	mv debian/bedtools.substvars.new debian/bedtools.substvars
 dh_installpam -pbedtools 
 dh_installlogrotate -pbedtools 
 dh_installlogcheck -pbedtools 
 dh_installchangelogs -pbedtools  RELEASE_HISTORY 
+	install -o 0 -g 0 -p -m644 debian/changelog debian/bedtools/usr/share/doc/bedtools/changelog.Debian
+	install -o 0 -g 0 -p -m644 RELEASE_HISTORY debian/bedtools/usr/share/doc/bedtools/changelog
 dh_installudev -pbedtools 
 dh_lintian -pbedtools 
 dh_bugfiles -pbedtools 
 dh_install -pbedtools  
+	install -d debian/bedtools/usr/bin
+	cp -a ./bin/annotateBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToFastq debian/bedtools/usr/bin/
+	cp -a ./bin/bed12ToBed6 debian/bedtools/usr/bin/
+	cp -a ./bin/bedpeToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToIgv debian/bedtools/usr/bin/
+	cp -a ./bin/bedtools debian/bedtools/usr/bin/
+	cp -a ./bin/closestBed debian/bedtools/usr/bin/
+	cp -a ./bin/clusterBed debian/bedtools/usr/bin/
+	cp -a ./bin/complementBed debian/bedtools/usr/bin/
+	cp -a ./bin/coverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/expandCols debian/bedtools/usr/bin/
+	cp -a ./bin/fastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/flankBed debian/bedtools/usr/bin/
+	cp -a ./bin/genomeCoverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/getOverlap debian/bedtools/usr/bin/
+	cp -a ./bin/groupBy debian/bedtools/usr/bin/
+	cp -a ./bin/intersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/linksBed debian/bedtools/usr/bin/
+	cp -a ./bin/mapBed debian/bedtools/usr/bin/
+	cp -a ./bin/maskFastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/mergeBed debian/bedtools/usr/bin/
+	cp -a ./bin/multiBamCov debian/bedtools/usr/bin/
+	cp -a ./bin/multiIntersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/nucBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToPair debian/bedtools/usr/bin/
+	cp -a ./bin/randomBed debian/bedtools/usr/bin/
+	cp -a ./bin/shuffleBed debian/bedtools/usr/bin/
+	cp -a ./bin/slopBed debian/bedtools/usr/bin/
+	cp -a ./bin/sortBed debian/bedtools/usr/bin/
+	cp -a ./bin/subtractBed debian/bedtools/usr/bin/
+	cp -a ./bin/tagBam debian/bedtools/usr/bin/
+	cp -a ./bin/unionBedGraphs debian/bedtools/usr/bin/
+	cp -a ./bin/windowBed debian/bedtools/usr/bin/
+	cp -a ./bin/windowMaker debian/bedtools/usr/bin/
+	install -d debian/bedtools/usr/share/bedtools
+	cp -a ./genomes debian/bedtools/usr/share/bedtools/
 dh_link -pbedtools  
 dh_installmime -pbedtools 
 dh_installgsettings -pbedtools 
 dh_strip -pbedtools  
+	strip --remove-section=.comment --remove-section=.note debian/bedtools/usr/bin/bedtools
 dh_compress -pbedtools  
+	cd debian/bedtools
+	chmod a-x usr/share/doc/bedtools/changelog usr/share/doc/bedtools/changelog.Debian
+	gzip -9nf usr/share/doc/bedtools/changelog usr/share/doc/bedtools/changelog.Debian
+	cd '/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1'
 dh_fixperms -pbedtools  
+	find debian/bedtools  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/bedtools ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/bedtools/usr/share/doc -type f  ! -regex 'debian/bedtools/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/bedtools/usr/share/man debian/bedtools/usr/man/ debian/bedtools/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/lib/perl5 debian/bedtools/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/bedtools/usr/bin -type f  -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/bedtools/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
 dh_makeshlibs -pbedtools  
-rm /build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools-2.15.0/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
+	rm -f debian/bedtools/DEBIAN/shlibs
+rm /build/buildd2-bedtools_2.16.1-1-mips-d4xmpl/bedtools-2.16.1/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
 dh_installdeb -pbedtools 
 dh_perl -pbedtools 
 dh_shlibdeps -pbedtools    
+	dpkg-shlibdeps -Tdebian/bedtools.substvars debian/bedtools/usr/bin/bedtools
 dh_gencontrol -pbedtools  
+	echo misc:Depends= >> debian/bedtools.substvars
+	dpkg-gencontrol -ldebian/changelog -Tdebian/bedtools.substvars -Pdebian/bedtools
+	chmod 644 debian/bedtools/DEBIAN/control
+	chown 0:0 debian/bedtools/DEBIAN/control
 dh_md5sums -pbedtools 
+	(cd debian/bedtools >/dev/null ; find . -type f  ! -regex '.*/DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
+	chmod 644 debian/bedtools/DEBIAN/md5sums
+	chown 0:0 debian/bedtools/DEBIAN/md5sums
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.15.0-1_mips.deb'.
- dpkg-genchanges -B -mmips Build Daemon (lucatelli) <buildd_mips-lucatelli2@buildd.debian.org> >../bedtools_2.15.0-1_mips.changes
+	dpkg-deb -Z xz --build debian/bedtools ..
+dpkg-deb: building package `bedtools' in `../bedtools_2.16.1-1_mips.deb'.
+ dpkg-genchanges -B -mmips Build Daemon (corelli) <buildd_mips-corelli2@buildd.debian.org> >../bedtools_2.16.1-1_mips.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.15.0
+ dpkg-source --after-build bedtools-2.16.1
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20120111-0745
+Build finished at 20120316-1256
 
-bedtools_2.15.0-1_mips.changes:
+bedtools_2.16.1-1_mips.changes:
 Format: 1.8
-Date: Wed, 11 Jan 2012 15:07:45 +0900
+Date: Fri, 16 Mar 2012 19:06:49 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: mips
-Version: 2.15.0-1
+Version: 2.16.1-1
 Distribution: sid
 Urgency: low
-Maintainer: mips Build Daemon (lucatelli) <buildd_mips-lucatelli2@buildd.debian.org>
+Maintainer: mips Build Daemon (corelli) <buildd_mips-corelli2@buildd.debian.org>
 Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.15.0-1) unstable; urgency=low
+ bedtools (2.16.1-1) unstable; urgency=low
  .
-   [3f8e754] Upstream version 2.15.0.
-   [f27b295] Build-depend on python because of scripts/makeBashScripts.py.
-   [2e3e8e8] Removed the /usr/bin/groupBy wrapper, as groupBy is also
-     distributed by the filo package.
+   b7f2405 New upstream release.
+   4add346 Corrected, updated and normalised Debian copyright.
+   00b426d Conforms to Debian Policy 3.9.3.
+   72c3c94 Verbose Debhelper.
 Checksums-Sha1: 
- 18ab6a1e16b7c6b81e9e55f9796f521e20b4e375 324664 bedtools_2.15.0-1_mips.deb
+ 294633473dfee43e31f80c55eba2198c8f9b1d2d 354186 bedtools_2.16.1-1_mips.deb
 Checksums-Sha256: 
- 1c3d6f313dc1f80c392a649bc5e7da8be91efd3d7344cb8313c25c623dbd85d8 324664 bedtools_2.15.0-1_mips.deb
+ 0f319d419654b948cc905235c6becc025d3a75c194026367adfb0860c3423234 354186 bedtools_2.16.1-1_mips.deb
 Files: 
- a1f13a5324b04f5c71b0cf3e060d8ae0 324664 science optional bedtools_2.15.0-1_mips.deb
+ ead6be44f11d8c16cf85f0503f773e94 354186 science optional bedtools_2.16.1-1_mips.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.15.0-1_mips.deb
+bedtools_2.16.1-1_mips.deb
 ──────────────────────────
 
  new debian package, version 2.0.
- size 324664 bytes: control archive= 1872 bytes.
+ size 354186 bytes: control archive= 1981 bytes.
      864 bytes,    19 lines      control              
-    2299 bytes,    40 lines      md5sums              
+    2506 bytes,    44 lines      md5sums              
  Package: bedtools
- Version: 2.15.0-1
+ Version: 2.16.1-1
  Architecture: mips
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 1345
+ Installed-Size: 1503
  Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.2), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
@@ -773,7 +858,58 @@ bedtools_2.15.0-1_mips.deb
   .
   The groupBy utility is distribued in the filo package.
 
-dpkg-deb: file `/var/lib/schroot/mount/sid-mips-sbuild-56da54ba-13fe-4f72-8e32-a6c8efd538e7/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo/bedtools_2.15.0-1_mips.deb' contains ununderstood data member data.tar.xz     , giving up
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./usr/
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./usr/share/
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2012-03-16 12:17 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       565 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root       585 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm9.genome
+-rwxr-xr-x root/root      1972 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       856 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg18.genome
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./usr/share/doc/
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root      1505 2012-03-13 13:10 ./usr/share/doc/bedtools/README.rst
+-rw-r--r-- root/root     11640 2012-03-13 13:10 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root       934 2012-03-16 10:08 ./usr/share/doc/bedtools/changelog.Debian.gz
+-rw-r--r-- root/root      4827 2012-03-16 04:09 ./usr/share/doc/bedtools/copyright
+drwxr-xr-x root/root         0 2012-03-16 12:55 ./usr/bin/
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/annotateBed
+-rwxr-xr-x root/root   1477568 2012-03-16 12:55 ./usr/bin/bedtools
+-rwxr-xr-x root/root        28 2012-03-16 12:55 ./usr/bin/nucBed
+-rwxr-xr-x root/root        36 2012-03-16 12:55 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/coverageBed
+-rwxr-xr-x root/root        28 2012-03-16 12:55 ./usr/bin/tagBam
+-rwxr-xr-x root/root        30 2012-03-16 12:55 ./usr/bin/flankBed
+-rwxr-xr-x root/root        30 2012-03-16 12:55 ./usr/bin/mergeBed
+-rwxr-xr-x root/root        28 2012-03-16 12:55 ./usr/bin/mapBed
+-rwxr-xr-x root/root        35 2012-03-16 12:55 ./usr/bin/pairToPair
+-rwxr-xr-x root/root        35 2012-03-16 12:55 ./usr/bin/bamToFastq
+-rwxr-xr-x root/root        31 2012-03-16 12:55 ./usr/bin/randomBed
+-rwxr-xr-x root/root        35 2012-03-16 12:55 ./usr/bin/complementBed
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/bamToBed
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/subtractBed
+-rwxr-xr-x root/root        32 2012-03-16 12:55 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root        32 2012-03-16 12:55 ./usr/bin/clusterBed
+-rwxr-xr-x root/root        32 2012-03-16 12:55 ./usr/bin/getOverlap
+-rwxr-xr-x root/root        35 2012-03-16 12:55 ./usr/bin/multiIntersectBed
+-rwxr-xr-x root/root        34 2012-03-16 12:55 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root        35 2012-03-16 12:55 ./usr/bin/bedpeToBam
+-rwxr-xr-x root/root        34 2012-03-16 12:55 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root        36 2012-03-16 12:55 ./usr/bin/windowMaker
+-rwxr-xr-x root/root        30 2012-03-16 12:55 ./usr/bin/linksBed
+-rwxr-xr-x root/root        34 2012-03-16 12:55 ./usr/bin/pairToBed
+-rwxr-xr-x root/root        31 2012-03-16 12:55 ./usr/bin/expandCols
+-rwxr-xr-x root/root        34 2012-03-16 12:55 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root        31 2012-03-16 12:55 ./usr/bin/windowBed
+-rwxr-xr-x root/root        34 2012-03-16 12:55 ./usr/bin/intersectBed
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/bedToBam
+-rwxr-xr-x root/root        29 2012-03-16 12:55 ./usr/bin/slopBed
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root        29 2012-03-16 12:55 ./usr/bin/sortBed
+-rwxr-xr-x root/root        33 2012-03-16 12:55 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root        32 2012-03-16 12:55 ./usr/bin/closestBed
+-rwxr-xr-x root/root        28 2012-03-16 12:55 ./usr/bin/bedToIgv
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -787,7 +923,7 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-mips-sbuild-56da54ba-13fe-4f72-8e32-a6c8efd538e7/build/buildd2-bedtools_2.15.0-1-mips-DGAnfo
+Purging /var/lib/schroot/mount/sid-mips-sbuild-badc569c-02d4-48df-8386-c5135e2e7775/build/buildd2-bedtools_2.16.1-1-mips-d4xmpl
 Not cleaning session: cloned chroot in use
 Can't open average time db /var/lib/sbuild/avg-build-times
 Can't open average space db /var/lib/sbuild/avg-build-space
@@ -797,23 +933,23 @@ Can't open average space db /var/lib/sbuild/avg-build-space
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: mips
-Build-Space: 67684
-Build-Time: 1976
+Build-Space: 78100
+Build-Time: 2348
 Distribution: sid
-Install-Time: 126
-Job: bedtools_2.15.0-1
+Install-Time: 112
+Job: bedtools_2.16.1-1
 Package: bedtools
-Package-Time: 2233
-Source-Version: 2.15.0-1
-Space: 67684
+Package-Time: 2605
+Source-Version: 2.16.1-1
+Space: 78100
 Status: successful
-Version: 2.15.0-1
+Version: 2.16.1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20120111-0745
-Build needed 00:37:13, 67684k disc space
-Signature with key '7A0A8DA2' requested:
+Finished at 20120316-1256
+Build needed 00:43:25, 78100k disc space
+Signature with key 'B5319330' requested:
 
-From buildd@mayer.debian.org Wed Jan 11 10:31:34 2012
+From buildd@mayer.debian.org Fri Mar 16 12:41:35 2012
 Return-path: <buildd@mayer.debian.org>
 Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
@@ -821,60 +957,170 @@ Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
 	EMAIL=hostmaster@merikanto.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@mayer.debian.org>)
-	id 1RkvSw-00038L-4T
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 10:31:34 +0000
+	id 1S8WTO-0008SW-KI
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:41:34 +0000
 Received: from mayer.debian.org ([140.211.166.78])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
 	CN=mayer.debian.org, EMAIL=hostmaster@mayer.debian.org (verified)
 	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@mayer.debian.org>)
-	id 1RkvSu-00016Q-St
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 10:31:33 +0000
-Received: from buildd by mayer.debian.org with local (Exim 4.69)
-	(envelope-from <buildd@mayer.debian.org>) id 1RkvSm-0004n8-Ac
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 10:31:24 +0000
+	id 1S8WTM-0006kt-Sj
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:41:33 +0000
+Received: from buildd by mayer.debian.org with local (Exim 4.72)
+	(envelope-from <buildd@mayer.debian.org>) id 1S8WTJ-0000nS-NG
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:41:29 +0000
+Date: Fri, 16 Mar 2012 12:41:29 +0000
+Message-Id: <E1S8WTJ-0000nS-NG@mayer.debian.org>
 From: buildd on mayer <buildd@mayer.debian.org>
 To: logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.15.0-1 on mipsel (dist=sid)
+Subject: Log for successful build of bedtools_2.16.1-1 on mipsel (dist=sid)
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <E1RkvSm-0004n8-Ac@mayer.debian.org>
-Date: Wed, 11 Jan 2012 10:31:24 +0000
 Delivered-To: logs@buildd.debian.org
 
 sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on mayer.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.15.0-1 (mipsel)                                 11 Jan 2012 10:11 ║
+║ bedtools 2.16.1-1 (mipsel)                                 16 Mar 2012 12:15 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.15.0-1
-Source Version: 2.15.0-1
+Version: 2.16.1-1
+Source Version: 2.16.1-1
 Architecture: mipsel
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Hit http://debian.oregonstate.edu sid InRelease
+Hit http://incoming.debian.org sid InRelease
+Ign http://incoming.debian.org  InRelease
+Get:1 http://incoming.debian.org  Release.gpg [836 B]
+Get:2 http://incoming.debian.org  Release [1616 B]
 Hit http://debian.oregonstate.edu sid/main Sources
 Hit http://debian.oregonstate.edu sid/contrib Sources
 Hit http://debian.oregonstate.edu sid/main mipsel Packages
 Hit http://debian.oregonstate.edu sid/contrib mipsel Packages
 Ign http://debian.oregonstate.edu sid/contrib TranslationIndex
 Hit http://debian.oregonstate.edu sid/main TranslationIndex
-Ign http://debian.oregonstate.edu sid/contrib Translation-en
-Hit http://incoming.debian.org sid InRelease
-Ign http://incoming.debian.org  InRelease
-Get:1 http://incoming.debian.org  Release.gpg [836 B]
+Hit http://debian.oregonstate.edu sid/contrib Translation-en
+Hit http://debian.oregonstate.edu sid/main Translation-en
 Hit http://incoming.debian.org sid/main Sources
 Hit http://incoming.debian.org sid/contrib Sources
 Hit http://incoming.debian.org sid/main mipsel Packages
 Hit http://incoming.debian.org sid/contrib mipsel Packages
 Ign http://incoming.debian.org sid/contrib TranslationIndex
 Hit http://incoming.debian.org sid/main TranslationIndex
-Get:2 http://incoming.debian.org  Release [1616 B]
-Get:3 http://incoming.debian.org  Sources [47.8 kB]
-Get:4 http://incoming.debian.org  Packages [552 kB]
-Ign http://incoming.debian.org sid/contrib Translation-en
+Get:3 http://incoming.debian.org  Sources [58.9 kB]
+Get:4 http://incoming.debian.org  Packages [687 kB]
+Hit http://incoming.debian.org sid/contrib Translation-en
+Hit http://incoming.debian.org sid/main Translation-en
 Ign http://incoming.debian.org  Translation-en
-Fetched 602 kB in 3s (196 kB/s)
+Fetched 748 kB in 5s (127 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -886,20 +1132,92 @@ Check APT
 ─────────
 
 Checking available source versions...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 
 Download source files with APT
 ──────────────────────────────
 
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
-Need to get 969 kB of source archives.
-Get:1 http://debian.oregonstate.edu/debian/ sid/main bedtools 2.15.0-1 (dsc) [1975 B]
-Get:2 http://debian.oregonstate.edu/debian/ sid/main bedtools 2.15.0-1 (tar) [963 kB]
-Get:3 http://debian.oregonstate.edu/debian/ sid/main bedtools 2.15.0-1 (diff) [4499 B]
-Fetched 969 kB in 0s (6316 kB/s)
+Need to get 985 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (dsc) [1975 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (tar) [978 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (diff) [5035 B]
+Fetched 985 kB in 2s (375 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -912,26 +1230,200 @@ Check arch
 
 Build-Depends: build-essential, fakeroot
 Checking for already installed dependencies...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 build-essential: already installed (11.5)
-fakeroot: already installed (1.18.1-1)
+fakeroot: already installed (1.18.2-1)
 Checking for dependency conflicts...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Installing positive dependencies: 
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following packages were automatically installed and are no longer required:
-  libpopt0 groff-base libpipeline1 gettext-base libunistring0 man-db html2text
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 41 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Removing negative dependencies: 
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following packages were automatically installed and are no longer required:
-  libpopt0 groff-base libpipeline1 gettext-base libunistring0 man-db html2text
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 41 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Checking correctness of dependencies...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Install bedtools build dependencies (internal resolver)                      │
@@ -939,73 +1431,221 @@ Checking correctness of dependencies...
 
 Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, python, zlib1g-dev
 Checking for already installed dependencies...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 base-files: already installed (6.5)
-base-passwd: already installed (3.5.23)
-bash: already installed (4.1-3)
+base-passwd: already installed (3.5.24)
+bash: already installed (4.2-1)
 coreutils: already installed (8.13-3)
 dash: already installed (0.5.7-2)
-debianutils: already installed (4.0.4)
+debianutils: already installed (4.2.1)
 diffutils: already installed (1:3.2-1)
-dpkg: already installed (1.16.1.1)
-e2fsprogs: already installed (1.42-1)
-findutils: already installed (4.4.2-1+b1)
-grep: already installed (2.9-2)
+dpkg: already installed (1.16.1.2)
+e2fsprogs: already installed (1.42.1-2)
+findutils: already installed (4.4.2-4)
+grep: already installed (2.10-1)
 gzip: already installed (1.4-2)
-hostname: already installed (3.06)
+hostname: already installed (3.10)
 ncurses-base: already installed (5.9-4)
 ncurses-bin: already installed (5.9-4)
-perl-base: already installed (5.14.2-6)
+perl-base: already installed (5.14.2-9)
 sed: already installed (4.2.1-9)
 login: already installed (1:4.1.4.2+svn3283-3)
-sysvinit-utils: already installed (2.88dsf-13.13)
-sysvinit: already installed (2.88dsf-13.13)
-tar: already installed (1.26-3)
-bsdutils: already installed (1:2.19.1-5)
-mount: already installed (2.19.1-5)
-util-linux: already installed (2.19.1-5)
-libc6-dev: already installed (2.13-24)
+sysvinit-utils: already installed (2.88dsf-22)
+sysvinit: already installed (2.88dsf-22)
+tar: already installed (1.26-4)
+bsdutils: already installed (1:2.20.1-1.2)
+mount: already installed (2.20.1-1.2)
+util-linux: already installed (2.20.1-1.2)
+libc6-dev: already installed (2.13-27)
 gcc: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
-g++: already installed (4:4.6.2-3 >= 4:4.4.3 is satisfied)
+g++: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
 make: already installed (3.81-8.1)
-dpkg-dev: already installed (1.16.1.1 >= 1.13.5 is satisfied)
+dpkg-dev: already installed (1.16.1.2 >= 1.13.5 is satisfied)
 cdbs: missing
 debhelper: missing
-Using default version 8.9.14
+Using default version 9.20120312
 quilt: missing
-python: already installed (2.7.2-9)
-zlib1g-dev: already installed (1:1.2.3.4.dfsg-3)
+python: missing
+zlib1g-dev: missing
 Checking for dependency conflicts...
-Installing positive dependencies: cdbs debhelper quilt
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+Installing positive dependencies: cdbs debhelper quilt python zlib1g-dev
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following package was automatically installed and is no longer required:
-  libpopt0
-Use 'apt-get autoremove' to remove them.
 The following extra packages will be installed:
-  diffstat gettext intltool-debian libcroco3 libffi5 libglib2.0-0 po-debconf
+  diffstat file gettext gettext-base groff-base html2text intltool-debian
+  libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0 libmagic1 libpipeline1
+  libsqlite3-0 libssl1.0.0 libunistring0 libxml2 man-db mime-support
+  po-debconf python-minimal python2.7 python2.7-minimal
 Suggested packages:
-  devscripts dh-make gettext-doc libmail-box-perl procmail graphviz
+  devscripts dh-make gettext-doc groff less www-browser libmail-box-perl
+  python-doc python-tk python2.7-doc binfmt-support procmail graphviz
   default-mta mail-transport-agent
 Recommended packages:
   autotools-dev curl wget lynx-cur autopoint libglib2.0-data shared-mime-info
-  libmail-sendmail-perl
+  xml-core libmail-sendmail-perl
 The following NEW packages will be installed:
-  cdbs debhelper diffstat gettext intltool-debian libcroco3 libffi5
-  libglib2.0-0 po-debconf quilt
+  cdbs debhelper diffstat file gettext gettext-base groff-base html2text
+  intltool-debian libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0 libmagic1
+  libpipeline1 libsqlite3-0 libssl1.0.0 libunistring0 libxml2 man-db
+  mime-support po-debconf python python-minimal python2.7 python2.7-minimal
+  quilt zlib1g-dev
 debconf: delaying package configuration, since apt-utils is not installed
-0 upgraded, 10 newly installed, 0 to remove and 41 not upgraded.
-Need to get 0 B/5314 kB of archives.
-After this operation, 13.8 MB of additional disk space will be used.
+0 upgraded, 29 newly installed, 0 to remove and 21 not upgraded.
+Need to get 0 B/16.3 MB of archives.
+After this operation, 47.9 MB of additional disk space will be used.
+Selecting previously unselected package libpipeline1.
+(Reading database ... 11081 files and directories currently installed.)
+Unpacking libpipeline1 (from .../libpipeline1_1.2.1-1_mipsel.deb) ...
+Selecting previously unselected package libssl1.0.0.
+Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0h-1_mipsel.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.10-1_mipsel.deb) ...
 Selecting previously unselected package libffi5.
-(Reading database ... 14500 files and directories currently installed.)
 Unpacking libffi5 (from .../libffi5_3.0.10-3_mipsel.deb) ...
 Selecting previously unselected package libglib2.0-0.
-Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_mipsel.deb) ...
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-6_mipsel.deb) ...
+Selecting previously unselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-7_mipsel.deb) ...
 Selecting previously unselected package libcroco3.
-Unpacking libcroco3 (from .../libcroco3_0.6.2-2_mipsel.deb) ...
+Unpacking libcroco3 (from .../libcroco3_0.6.4-2_mipsel.deb) ...
+Selecting previously unselected package libexpat1.
+Unpacking libexpat1 (from .../libexpat1_2.0.1-7.2_mipsel.deb) ...
+Selecting previously unselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-5_mipsel.deb) ...
+Selecting previously unselected package libdb4.8.
+Unpacking libdb4.8 (from .../libdb4.8_4.8.30-11_mipsel.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-6_mipsel.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.1-1_mipsel.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../file_5.10-1_mipsel.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_mipsel.deb) ...
+Selecting previously unselected package libsqlite3-0.
+Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.10-1_mipsel.deb) ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.52-1_all.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3~rc1-1_mipsel.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3~rc1-1_mipsel.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.2-10_all.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.2-10_all.deb) ...
 Selecting previously unselected package cdbs.
-Unpacking cdbs (from .../archives/cdbs_0.4.100_all.deb) ...
+Unpacking cdbs (from .../archives/cdbs_0.4.109_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_mipsel.deb) ...
 Selecting previously unselected package gettext.
 Unpacking gettext (from .../gettext_0.18.1.1-5_mipsel.deb) ...
 Selecting previously unselected package intltool-debian.
@@ -1013,35 +1653,126 @@ Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) .
 Selecting previously unselected package po-debconf.
 Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
 Selecting previously unselected package debhelper.
-Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Unpacking debhelper (from .../debhelper_9.20120312_all.deb) ...
 Selecting previously unselected package diffstat.
 Unpacking diffstat (from .../diffstat_1.55-2_mipsel.deb) ...
 Selecting previously unselected package quilt.
-Unpacking quilt (from .../archives/quilt_0.50-2_all.deb) ...
-Processing triggers for man-db ...
+Unpacking quilt (from .../archives/quilt_0.60-2_all.deb) ...
+Selecting previously unselected package zlib1g-dev.
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.6.dfsg-2_mipsel.deb) ...
+Setting up libpipeline1 (1.2.1-1) ...
+Setting up libssl1.0.0 (1.0.0h-1) ...
+Setting up libmagic1 (5.10-1) ...
 Setting up libffi5 (3.0.10-3) ...
-Setting up libglib2.0-0 (2.30.2-4) ...
+Setting up libglib2.0-0 (2.30.2-6) ...
 No schema files found: doing nothing.
-Setting up libcroco3 (0.6.2-2) ...
-Setting up cdbs (0.4.100) ...
+Setting up libxml2 (2.7.8.dfsg-7) ...
+Setting up libcroco3 (0.6.4-2) ...
+Setting up libexpat1 (2.0.1-7.2) ...
+Setting up libunistring0 (0.9.3-5) ...
+Setting up libdb4.8 (4.8.30-11) ...
+Setting up groff-base (1.21-6) ...
+Setting up man-db (2.6.1-1) ...
+Building database of manual pages ...
+Setting up file (5.10-1) ...
+Setting up gettext-base (0.18.1.1-5) ...
+Setting up libsqlite3-0 (3.7.10-1) ...
+Setting up mime-support (3.52-1) ...
+update-alternatives: using /usr/bin/see to provide /usr/bin/view (view) in auto mode.
+Setting up python2.7-minimal (2.7.3~rc1-1) ...
+Setting up python2.7 (2.7.3~rc1-1) ...
+Setting up python-minimal (2.7.2-10) ...
+Setting up python (2.7.2-10) ...
+Setting up cdbs (0.4.109) ...
+Setting up html2text (1.3.2a-15) ...
 Setting up gettext (0.18.1.1-5) ...
 Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu2) ...
-Setting up debhelper (8.9.14) ...
+Setting up debhelper (9.20120312) ...
 Setting up diffstat (1.55-2) ...
-Setting up quilt (0.50-2) ...
+Setting up quilt (0.60-2) ...
+Setting up zlib1g-dev (1:1.2.6.dfsg-2) ...
 Removing negative dependencies: 
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following package was automatically installed and is no longer required:
-  libpopt0
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 41 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
 Checking correctness of dependencies...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Kernel: Linux 2.6.32-5-sb1-bcm91250a mipsel (mips64)
-Toolchain package versions: binutils_2.21.90.20111025-1 dpkg-dev_1.16.1.1 g++-4.6_4.6.2-11 gcc-4.6_4.6.2-11 libc6-dev_2.13-24 libstdc++6_4.6.2-11 libstdc++6-4.6-dev_4.6.2-11 linux-libc-dev_3.1.1-1
-Package versions: apt_0.8.15.9 asciidoc_8.6.6-1 base-files_6.5 base-passwd_3.5.23 bash_4.1-3 binutils_2.21.90.20111025-1 binutils-dev_2.21.90.20111025-1 bsdmainutils_8.2.3 bsdutils_1:2.19.1-5 build-essential_11.5 bzip2_1.0.6-1 cdbs_0.4.100 coreutils_8.13-3 cpio_2.11-7 cpp_4:4.6.2-4 cpp-4.6_4.6.2-11 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.0.4 diffstat_1.55-2 diffutils_1:3.2-1 dmsetup_2:1.02.67-2 docbook-xml_4.5-7 docbook-xsl_1.75.2+dfsg-5 dpkg_1.16.1.1 dpkg-dev_1.16.1.1 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.1-1 file_5.09-2 findutils_4.4.2-1+b1 g++_4:4.6.2-3 g++-4.6_4.6.2-11 gcc_4:4.6.2-4 gcc-4.4-base_4.4.6-14 gcc-4.5-base_4.5.3-9 gcc-4.6_4.6.2-11 gcc-4.6-base_4.6.2-11 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.9-2 groff-base_1.21-6 gzip_1.4-2 hostname_3.06 html2text_1.3.2a-15 initscripts_2.88dsf-13.13 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclass-isa-perl_0.36-2 libcomerr2_1.42-1 libcroco3_0.6.2-2 libdb4.8_4.8.30-10 libdb5.1_5.1.29-1 libdevmapper1.02.1_2:1.02.67-2 libdpkg-perl_1.16.1.1 libdw-dev_0.152-1+b1 libdw1_0.152-1+b1 libelf-dev_0.152-1+b1 libelf1_0.152-1+b1 libexpat1_2.0.1-7.2 libexpat1-dev_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-11 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgomp1_4.6.2-11 libgpg-error0_1.10-2 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.19.1-5 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libnewt-dev_0.52.11-2.1 libnewt0.52_0.52.11-2.1 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libperl-dev_5.14.2-6 libperl5.14_5.14.2-6 libpipeline1_1.2.0-5 libpng12-0_1.2.46-3 libpng12-dev_1.2.46-3 libpopt0_1.16-3 libpython2.7_2.7.2-9 libreadline6_6.2-8 libselinux1_2.1.0-4 libsepol1_2.1.0-1.2 libslang2_2.2.4-3 libslang2-dev_2.2.4-3 libsqlite3-0_3.7.9-3 libss2_1.42~WIP-2011-10-16-1 libssl-dev_1.0.0e-2.1 libssl1.0.0_1.0.0e-2.1 libstdc++6_4.6.2-11 libstdc++6-4.6-dev_4.6.2-11 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libudev0_175-3 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libxml2_2.7.8.dfsg-5.1 libxml2-utils_2.7.8.dfsg-5 libxslt1.1_1.1.26-8 linux-libc-dev_3.1.1-1 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mime-support_3.51-1 module-init-tools_3.16-1 mount_2.19.1-5 multiarch-support_2.13-21 ncurses-base_5.9-4 ncurses-bin_5.9-4 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 po-debconf_1.0.16+nmu2 procps_1:3.2.8-11 python_2.7.2-9 python-dev_2.7.2-9 python-minimal_2.7.2-9 python2.7_2.7.2-9 python2.7-dev_2.7.2-9 python2.7-minimal_2.7.2-9 quilt_0.50-2 readline-common_6.2-7 sed_4.2.1-9 sensible-utils_0.0.6 sgml-base_1.26+nmu1 sgml-data_2.0.6 sysv-rc_2.88dsf-13.13 sysvinit_2.88dsf-13.13 sysvinit-utils_2.88dsf-13.13 tar_1.26-3 tzdata_2011n-2 udev_175-3 util-linux_2.19.1-5 xml-core_0.13 xmlto_0.0.23-2 xsltproc_1.1.26-8 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+Toolchain package versions: binutils_2.22-6 dpkg-dev_1.16.1.2 g++-4.6_4.6.3-1 gcc-4.6_4.6.3-1 libc6-dev_2.13-27 libstdc++6_4.6.3-1 libstdc++6-4.6-dev_4.6.3-1 linux-libc-dev_3.2.4-1
+Package versions: apt_0.8.15.10 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-6 bsdmainutils_9.0.1 bsdutils_1:2.20.1-1.2 build-essential_11.5 bzip2_1.0.6-1 cdbs_0.4.109 coreutils_8.13-3 cpio_2.11-7 cpp_4:4.6.2-4 cpp-4.6_4.6.3-1 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_9.20120312 debian-archive-keyring_2010.08.28 debianutils_4.2.1 diffstat_1.55-2 diffutils_1:3.2-1 dmsetup_2:1.02.67-2 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42.1-2 e2fsprogs_1.42.1-2 fakeroot_1.18.2-1 file_5.10-1 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.3-1 gcc_4:4.6.2-4 gcc-4.4-base_4.4.6-14 gcc-4.5-base_4.5.3-12 gcc-4.6_4.6.3-1 gcc-4.6-base_4.6.3-1 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.10 html2text_1.3.2a-15 initscripts_2.88dsf-22 insserv_1.14.0-2.2 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-3 libbz2-1.0_1.0.6-1 libc-bin_2.13-27 libc-dev-bin_2.13-27 libc6_2.13-27 libc6-dev_2.13-27 libclass-isa-perl_0.36-3 libcomerr2_1.42.1-2 libcroco3_0.6.4-2 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdevmapper1.02.1_2:1.02.67-2 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.3-1 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-6 libgmp10_2:5.0.4+dfsg-1 libgomp1_4.6.3-1 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.10-1 libmount1_2.20.1-3 libmpc2_0.9-4 libmpfr4_3.1.0-4 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-7 libpam-modules-bin_1.1.3-7 libpam-runtime_1.1.3-7 libpam0g_1.1.3-7 libpcre3_8.12-4 libpipeline1_1.2.1-1 libpng12-0_1.2.47-1 libprocps0_1:3.3.2-3 libreadline6_6.2-8 libselinux1_2.1.9-2 libsepol1_2.1.4-1 libslang2_2.2.4-7 libsqlite3-0_3.7.10-1 libss2_1.42-1 libssl1.0.0_1.0.0h-1 libstdc++6_4.6.3-1 libstdc++6-4.6-dev_4.6.3-1 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libudev0_175-3.1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-4 libxml2_2.7.8.dfsg-7 linux-libc-dev_3.2.4-1 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28.1 make_3.81-8.1 man-db_2.6.1-1 mawk_1.3.3-16 mime-support_3.52-1 mount_2.20.1-1.2 multiarch-support_2.13-26 ncurses-base_5.9-4 ncurses-bin_5.9-4 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-3 perl_5.14.2-9 perl-base_5.14.2-9 perl-modules_5.14.2-9 po-debconf_1.0.16+nmu2 procps_1:3.3.2-3 python_2.7.2-10 python-minimal_2.7.2-10 python2.7_2.7.3~rc1-1 python2.7-minimal_2.7.3~rc1-1 quilt_0.60-2 readline-common_6.2-8 sed_4.2.1-9 sensible-utils_0.0.6 sysv-rc_2.88dsf-22 sysvinit_2.88dsf-22 sysvinit-utils_2.88dsf-22 tar_1.26-4 tzdata_2012b-1 ucf_3.0025+nmu2 udev_175-3.1 util-linux_2.20.1-1.2 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.6.dfsg-2 zlib1g-dev_1:1.2.6.dfsg-2
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -1051,13 +1782,49 @@ Package versions: apt_0.8.15.9 asciidoc_8.6.6-1 base-files_6.5 base-passwd_3.5.2
 Unpack source
 ─────────────
 
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Wed Jan 11 06:48:11 2012 UTC using RSA key ID 2295D502
+gpgv: Signature made Fri Mar 16 11:42:52 2012 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.15.0-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.15.0
-dpkg-source: info: unpacking bedtools_2.15.0.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.15.0-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.16.1-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.16.1
+dpkg-source: info: unpacking bedtools_2.16.1.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.16.1-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -1067,25 +1834,75 @@ Check disc space
 dpkg-buildpackage
 ─────────────────
 
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.15.0-1
- dpkg-source --before-build bedtools-2.15.0
+dpkg-buildpackage: source version 2.16.1-1
+ dpkg-source --before-build bedtools-2.16.1
 dpkg-buildpackage: host architecture mipsel
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
-/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
-Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -k clean
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
+ * Cleaning-up BamTools API
+ * Cleaning up.
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 dh_clean 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
+	rm -f debian/*.debhelper.log
+	rm -f debian/files
+	find .  \( \( -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} \; \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} \; \) \)
+	rm -f *-stamp
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -1098,52 +1915,44 @@ test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
-/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
-[ -d obj ] || mkdir -p obj
-[ -d bin ] || mkdir -p bin
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
+/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 Building BEDTools:
 =========================================================
-- Building in src/utils/lineFileUtilities
-  * compiling lineFileUtilities.cpp
-
+DETECTED_VERSION = v2.16.1
+CURRENT_VERSION  = v2.16.1
+ * Creating BamTools API
 - Building in src/utils/bedFile
   * compiling bedFile.cpp
-
+- Building in src/utils/version
+  * compiling version.cpp
 - Building in src/utils/bedGraphFile
   * compiling bedGraphFile.cpp
-
 - Building in src/utils/chromsweep
   * compiling chromsweep.cpp
-
 - Building in src/utils/gzstream
 g++ -g -O2 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
-
 - Building in src/utils/fileType
   * compiling fileType.cpp
-
 - Building in src/utils/bedFilePE
   * compiling bedFilePE.cpp
-
 - Building in src/utils/sequenceUtilities
   * compiling sequenceUtils.cpp
-
 - Building in src/utils/tabFile
   * compiling tabFile.cpp
-
 - Building in src/utils/BamTools
  * compiling BamAlignment.cpp
  * compiling BamMultiReader.cpp
@@ -1183,143 +1992,138 @@ g++ -g -O2 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../
  * compiling SamFormatPrinter_p.cpp
  * compiling SamHeaderValidator_p.cpp
  * compiling BamException_p.cpp
-[ -d lib ] || mkdir -p lib
-[ -d include ] || mkdir -p include
-[ -d include/api ] || mkdir -p include/api
-[ -d include/shared ] || mkdir -p include/shared
- * linking libbamtools.a
+ * linking lib/libbamtools.a
 ar cr lib/libbamtools.a src/api/BamAlignment.o src/api/BamMultiReader.o src/api/BamReader.o src/api/BamWriter.o src/api/SamHeader.o src/api/SamProgram.o src/api/SamProgramChain.o src/api/SamReadGroup.o src/api/SamReadGroupDictionary.o src/api/SamSequence.o src/api/SamSequenceDictionary.o src/api/internal/bam/BamHeader_p.o src/api/internal/bam/BamMultiReader_p.o src/api/internal/bam/BamRandomAccessController_p.o src/api/internal/bam/BamReader_p.o src/api/internal/bam/BamWriter_p.o src/api/internal/index/BamIndexFactory_p.o src/api/internal/index/BamStandardIndex_p.o src/api/internal/index/BamToolsIndex_p.o src/api/internal/io/BamDeviceFactory_p.o src/api/internal/io/BamFile_p.o src/api/internal/io/BamFtp_p.o src/api/internal/io/BamHttp_p.o src/api/internal/io/BamPipe_p.o src/api/internal/io/BgzfStream_p.o src/api/internal/io/ByteArray_p.o src/api/internal/io/HostAddress_p.o src/api/internal/io/HostInfo_p.o src/api/internal/io/HttpHeader_p.o src/api/internal/io/ILocalIODevice_p.o src/api/internal/io/RollingBuffer_p.o src/api/internal/io/TcpSocketEngine_p.o src/api/internal/io/TcpSocketEngine_unix_p.o src/api/internal/io/TcpSocket_p.o src/api/internal/sam/SamFormatParser_p.o src/api/internal/sam/SamFormatPrinter_p.o src/api/internal/sam/SamHeaderValidator_p.o src/api/internal/utils/BamException_p.o
-
+ranlib lib/libbamtools.a
 - Building in src/utils/BamTools-Ancillary
   * compiling BamAncillary.cpp
-
+  * compiling BamAncillary.cpp
+- Building in src/utils/BlockedIntervals
+  * compiling BlockedIntervals.cpp
+  * compiling BlockedIntervals.cpp
 - Building in src/utils/Fasta
   * compiling Fasta.cpp
 Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
 Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  * compiling Fasta.cpp
+Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
+Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
   * compiling split.cpp
-
+  * compiling split.cpp
+- Building in src/utils/VectorOps
+  * compiling VectorOps.cpp
 - Building in src/utils/genomeFile
   * compiling genomeFile.cpp
 genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
 genomeFile.cpp:61:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
-
 - Building in src/annotateBed
   * compiling annotateMain.cpp
 annotateMain.cpp: In function 'int annotate_main(int, char**)':
 annotateMain.cpp:39:10: warning: variable 'haveTitles' set but not used [-Wunused-but-set-variable]
   * compiling annotateBed.cpp
-
 - Building in src/bamToBed
   * compiling bamToBed.cpp
 bamToBed.cpp: In function 'int bamtobed_main(int, char**)':
 bamToBed.cpp:74:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
-
+- Building in src/bamToFastq
+  * compiling bamToFastqMain.cpp
+bamToFastqMain.cpp: In function 'int bamtofastq_main(int, char**)':
+bamToFastqMain.cpp:38:10: warning: variable 'haveFastq2' set but not used [-Wunused-but-set-variable]
+  * compiling bamToFastq.cpp
 - Building in src/bedToBam
   * compiling bedToBam.cpp
 bedToBam.cpp: In function 'int bedtobam_main(int, char**)':
 bedToBam.cpp:60:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedpeToBam
   * compiling bedpeToBam.cpp
 bedpeToBam.cpp: In function 'int bedpetobam_main(int, char**)':
 bedpeToBam.cpp:61:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedToIgv
   * compiling bedToIgv.cpp
-
 - Building in src/bed12ToBed6
   * compiling bed12ToBed6.cpp
-
 - Building in src/closestBed
   * compiling closestMain.cpp
   * compiling closestBed.cpp
-
 - Building in src/clusterBed
   * compiling clusterMain.cpp
 clusterMain.cpp: In function 'int cluster_main(int, char**)':
 clusterMain.cpp:38:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling clusterBed.cpp
-
 - Building in src/complementBed
   * compiling complementMain.cpp
   * compiling complementBed.cpp
-
 - Building in src/coverageBed
   * compiling coverageMain.cpp
   * compiling coverageBed.cpp
-
+- Building in src/expand
+  * compiling expand.cpp
 - Building in src/fastaFromBed
   * compiling fastaFromBedMain.cpp
   * compiling fastaFromBed.cpp
-
 - Building in src/flankBed
   * compiling flankBedMain.cpp
   * compiling flankBed.cpp
-
 - Building in src/genomeCoverageBed
   * compiling genomeCoverageMain.cpp
   * compiling genomeCoverageBed.cpp
-
 - Building in src/getOverlap
   * compiling getOverlap.cpp
 getOverlap.cpp: In function 'int getoverlap_main(int, char**)':
 getOverlap.cpp:44:10: warning: variable 'haveColumns' set but not used [-Wunused-but-set-variable]
-
 - Building in src/groupBy
   * compiling groupBy.cpp
 groupBy.cpp: In function 'int groupby_main(int, char**)':
-groupBy.cpp:84:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
-
+groupBy.cpp:64:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
 - Building in src/intersectBed
   * compiling intersectMain.cpp
   * compiling intersectBed.cpp
-
 - Building in src/linksBed
   * compiling linksMain.cpp
   * compiling linksBed.cpp
-
 - Building in src/maskFastaFromBed
   * compiling maskFastaFromBedMain.cpp
   * compiling maskFastaFromBed.cpp
-
+- Building in src/mapBed
+  * compiling mapMain.cpp
+mapMain.cpp: In function 'int map_main(int, char**)':
+mapMain.cpp:44:10: warning: variable 'haveColumn' set but not used [-Wunused-but-set-variable]
+mapMain.cpp:45:10: warning: variable 'haveOperation' set but not used [-Wunused-but-set-variable]
+  * compiling mapBed.cpp
 - Building in src/mergeBed
   * compiling mergeMain.cpp
 mergeMain.cpp: In function 'int merge_main(int, char**)':
 mergeMain.cpp:40:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling mergeBed.cpp
-
 - Building in src/multiBamCov
   * compiling multiBamCovMain.cpp
 multiBamCovMain.cpp: In function 'int multibamcov_main(int, char**)':
 multiBamCovMain.cpp:38:10: warning: variable 'haveBed' set but not used [-Wunused-but-set-variable]
 multiBamCovMain.cpp:39:10: warning: variable 'haveBams' set but not used [-Wunused-but-set-variable]
   * compiling multiBamCov.cpp
-
 - Building in src/multiIntersectBed
-  * compiling multiIntersectBed.cpp
   * compiling multiIntersectBedMain.cpp
 multiIntersectBedMain.cpp: In function 'int multiintersect_main(int, char**)':
 multiIntersectBedMain.cpp:45:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:47:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:48:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling multiIntersectBed.cpp
 - Building in src/nucBed
   * compiling nucBedMain.cpp
   * compiling nucBed.cpp
-
 - Building in src/pairToBed
   * compiling pairToBedMain.cpp
 pairToBedMain.cpp: In function 'int pairtobed_main(int, char**)':
 pairToBedMain.cpp:43:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling pairToBed.cpp
 pairToBed.cpp: In member function 'void BedIntersectPE::FindSpanningOverlaps(const BEDPE&, std::vector<BED>&, const string&)':
-pairToBed.cpp:255:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
+pairToBed.cpp:257:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 pairToBed.cpp: In member function 'bool BedIntersectPE::FindOneOrMoreSpanningOverlaps(const BEDPE&, const string&)':
-pairToBed.cpp:307:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
-
+pairToBed.cpp:310:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 - Building in src/pairToPair
   * compiling pairToPairMain.cpp
 pairToPairMain.cpp: In function 'int pairtopair_main(int, char**)':
@@ -1328,59 +2132,57 @@ pairToPairMain.cpp:44:10: warning: variable 'haveFraction' set but not used [-Wu
 pairToPair.cpp: In member function 'void PairToPair::FindOverlaps(const BEDPE&)':
 pairToPair.cpp:112:14: warning: variable 'found1' set but not used [-Wunused-but-set-variable]
 pairToPair.cpp:113:14: warning: variable 'found2' set but not used [-Wunused-but-set-variable]
-
+- Building in src/randomBed
+  * compiling randomBedMain.cpp
+  * compiling randomBed.cpp
 - Building in src/shuffleBed
   * compiling shuffleBedMain.cpp
   * compiling shuffleBed.cpp
-
 - Building in src/slopBed
   * compiling slopBedMain.cpp
   * compiling slopBed.cpp
-
 - Building in src/sortBed
   * compiling sortMain.cpp
   * compiling sortBed.cpp
-
 - Building in src/subtractBed
   * compiling subtractMain.cpp
 subtractMain.cpp: In function 'int subtract_main(int, char**)':
 subtractMain.cpp:41:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling subtractBed.cpp
-
 - Building in src/tagBam
   * compiling tagBamMain.cpp
 tagBamMain.cpp: In function 'int tagbam_main(int, char**)':
 tagBamMain.cpp:38:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling tagBam.cpp
-
 - Building in src/unionBedGraphs
-  * compiling unionBedGraphs.cpp
   * compiling unionBedGraphsMain.cpp
 unionBedGraphsMain.cpp: In function 'int unionbedgraphs_main(int, char**)':
 unionBedGraphsMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling unionBedGraphs.cpp
 - Building in src/windowBed
   * compiling windowMain.cpp
   * compiling windowBed.cpp
-
 - Building in src/windowMaker
   * compiling windowMakerMain.cpp
   * compiling windowMaker.cpp
-
 - Building main bedtools binary.
 done.
 - Creating executables for old CLI.
 done.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
 test -x debian/rules
 dh_testroot
 dh_prep 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
 dh_installdirs -A 
+	install -d debian/bedtools
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 DEB_MAKE_CHECK_TARGET unset, not running checks
@@ -1388,6 +2190,12 @@ DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install targe
 Adding cdbs dependencies to debian/bedtools.substvars
 dh_installdirs -pbedtools 
 dh_installdocs -pbedtools 
+	install -g 0 -o 0 -d debian/bedtools/usr/share/doc/bedtools
+	cp -a README.rst debian/bedtools/usr/share/doc/bedtools
+	chown -R 0:0 debian/bedtools/usr/share/doc
+	chmod -R go=rX debian/bedtools/usr/share/doc
+	chmod -R u\+rw debian/bedtools/usr/share/doc
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/bedtools/usr/share/doc/bedtools/copyright
 dh_installexamples -pbedtools 
 dh_installman -pbedtools  
 dh_installinfo -pbedtools  
@@ -1395,46 +2203,118 @@ dh_installmenu -pbedtools
 dh_installcron -pbedtools 
 dh_installinit -pbedtools  
 dh_installdebconf -pbedtools 
+	install -o 0 -g 0 -d debian/bedtools/DEBIAN
 dh_installemacsen -pbedtools   
 dh_installcatalogs -pbedtools 
+	grep -s -v '^misc:Depends=' debian/bedtools.substvars > debian/bedtools.substvars.new || true
+	mv debian/bedtools.substvars.new debian/bedtools.substvars
 dh_installpam -pbedtools 
 dh_installlogrotate -pbedtools 
 dh_installlogcheck -pbedtools 
 dh_installchangelogs -pbedtools  RELEASE_HISTORY 
+	install -o 0 -g 0 -p -m644 debian/changelog debian/bedtools/usr/share/doc/bedtools/changelog.Debian
+	install -o 0 -g 0 -p -m644 RELEASE_HISTORY debian/bedtools/usr/share/doc/bedtools/changelog
 dh_installudev -pbedtools 
 dh_lintian -pbedtools 
 dh_bugfiles -pbedtools 
 dh_install -pbedtools  
+	install -d debian/bedtools/usr/bin
+	cp -a ./bin/annotateBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToFastq debian/bedtools/usr/bin/
+	cp -a ./bin/bed12ToBed6 debian/bedtools/usr/bin/
+	cp -a ./bin/bedpeToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToIgv debian/bedtools/usr/bin/
+	cp -a ./bin/bedtools debian/bedtools/usr/bin/
+	cp -a ./bin/closestBed debian/bedtools/usr/bin/
+	cp -a ./bin/clusterBed debian/bedtools/usr/bin/
+	cp -a ./bin/complementBed debian/bedtools/usr/bin/
+	cp -a ./bin/coverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/expandCols debian/bedtools/usr/bin/
+	cp -a ./bin/fastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/flankBed debian/bedtools/usr/bin/
+	cp -a ./bin/genomeCoverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/getOverlap debian/bedtools/usr/bin/
+	cp -a ./bin/groupBy debian/bedtools/usr/bin/
+	cp -a ./bin/intersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/linksBed debian/bedtools/usr/bin/
+	cp -a ./bin/mapBed debian/bedtools/usr/bin/
+	cp -a ./bin/maskFastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/mergeBed debian/bedtools/usr/bin/
+	cp -a ./bin/multiBamCov debian/bedtools/usr/bin/
+	cp -a ./bin/multiIntersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/nucBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToPair debian/bedtools/usr/bin/
+	cp -a ./bin/randomBed debian/bedtools/usr/bin/
+	cp -a ./bin/shuffleBed debian/bedtools/usr/bin/
+	cp -a ./bin/slopBed debian/bedtools/usr/bin/
+	cp -a ./bin/sortBed debian/bedtools/usr/bin/
+	cp -a ./bin/subtractBed debian/bedtools/usr/bin/
+	cp -a ./bin/tagBam debian/bedtools/usr/bin/
+	cp -a ./bin/unionBedGraphs debian/bedtools/usr/bin/
+	cp -a ./bin/windowBed debian/bedtools/usr/bin/
+	cp -a ./bin/windowMaker debian/bedtools/usr/bin/
+	install -d debian/bedtools/usr/share/bedtools
+	cp -a ./genomes debian/bedtools/usr/share/bedtools/
 dh_link -pbedtools  
 dh_installmime -pbedtools 
 dh_installgsettings -pbedtools 
 dh_strip -pbedtools  
+	strip --remove-section=.comment --remove-section=.note debian/bedtools/usr/bin/bedtools
 dh_compress -pbedtools  
+	cd debian/bedtools
+	chmod a-x usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	gzip -9nf usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	cd '/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1'
 dh_fixperms -pbedtools  
+	find debian/bedtools  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/bedtools ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/bedtools/usr/share/doc -type f  ! -regex 'debian/bedtools/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/bedtools/usr/share/man debian/bedtools/usr/man/ debian/bedtools/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/lib/perl5 debian/bedtools/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/bedtools/usr/bin -type f  -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/bedtools/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
 dh_makeshlibs -pbedtools  
-rm /build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools-2.15.0/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
+	rm -f debian/bedtools/DEBIAN/shlibs
+rm /build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl/bedtools-2.16.1/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
 dh_installdeb -pbedtools 
 dh_perl -pbedtools 
 dh_shlibdeps -pbedtools    
+	dpkg-shlibdeps -Tdebian/bedtools.substvars debian/bedtools/usr/bin/bedtools
 dh_gencontrol -pbedtools  
+	echo misc:Depends= >> debian/bedtools.substvars
+	dpkg-gencontrol -ldebian/changelog -Tdebian/bedtools.substvars -Pdebian/bedtools
+	chmod 644 debian/bedtools/DEBIAN/control
+	chown 0:0 debian/bedtools/DEBIAN/control
 dh_md5sums -pbedtools 
+	(cd debian/bedtools >/dev/null ; find . -type f  ! -regex '.*/DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
+	chmod 644 debian/bedtools/DEBIAN/md5sums
+	chown 0:0 debian/bedtools/DEBIAN/md5sums
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.15.0-1_mipsel.deb'.
- dpkg-genchanges -B -mmipsel Build Daemon (mayer) <buildd_mips-mayer@buildd.debian.org> >../bedtools_2.15.0-1_mipsel.changes
+	dpkg-deb -Z xz --build debian/bedtools ..
+dpkg-deb: building package `bedtools' in `../bedtools_2.16.1-1_mipsel.deb'.
+ dpkg-genchanges -B -mmipsel Build Daemon (mayer) <buildd_mips-mayer@buildd.debian.org> >../bedtools_2.16.1-1_mipsel.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.15.0
+ dpkg-source --after-build bedtools-2.16.1
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20120111-1031
+Build finished at 20120316-1240
 
-bedtools_2.15.0-1_mipsel.changes:
+bedtools_2.16.1-1_mipsel.changes:
 Format: 1.8
-Date: Wed, 11 Jan 2012 15:07:45 +0900
+Date: Fri, 16 Mar 2012 19:06:49 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: mipsel
-Version: 2.15.0-1
+Version: 2.16.1-1
 Distribution: sid
 Urgency: low
 Maintainer: mipsel Build Daemon (mayer) <buildd_mips-mayer@buildd.debian.org>
@@ -1442,36 +2322,36 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.15.0-1) unstable; urgency=low
+ bedtools (2.16.1-1) unstable; urgency=low
  .
-   [3f8e754] Upstream version 2.15.0.
-   [f27b295] Build-depend on python because of scripts/makeBashScripts.py.
-   [2e3e8e8] Removed the /usr/bin/groupBy wrapper, as groupBy is also
-     distributed by the filo package.
+   b7f2405 New upstream release.
+   4add346 Corrected, updated and normalised Debian copyright.
+   00b426d Conforms to Debian Policy 3.9.3.
+   72c3c94 Verbose Debhelper.
 Checksums-Sha1: 
- c269d51b5a5d5de03d017dd7ffdff85bdb3065c8 331704 bedtools_2.15.0-1_mipsel.deb
+ d44fe88544215759e97f1f0e02912cb1dd650530 363526 bedtools_2.16.1-1_mipsel.deb
 Checksums-Sha256: 
- c0390148a76602895228b854f257af4eb0cc4275426a3235ed43163eae716d38 331704 bedtools_2.15.0-1_mipsel.deb
+ 77de6839d9d0bca335452cbcb333518502bd5aad221da61ce914821d075ddd7b 363526 bedtools_2.16.1-1_mipsel.deb
 Files: 
- 0843ce5200d9df3b741d4f2ed819e888 331704 science optional bedtools_2.15.0-1_mipsel.deb
+ 6fe24a0483cfa020297c9334647f3b95 363526 science optional bedtools_2.16.1-1_mipsel.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.15.0-1_mipsel.deb
+bedtools_2.16.1-1_mipsel.deb
 ────────────────────────────
 
  new debian package, version 2.0.
- size 331704 bytes: control archive= 1867 bytes.
+ size 363526 bytes: control archive= 1978 bytes.
      866 bytes,    19 lines      control              
-    2299 bytes,    40 lines      md5sums              
+    2506 bytes,    44 lines      md5sums              
  Package: bedtools
- Version: 2.15.0-1
+ Version: 2.16.1-1
  Architecture: mipsel
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 1344
+ Installed-Size: 1503
  Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.2), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
@@ -1487,7 +2367,58 @@ bedtools_2.15.0-1_mipsel.deb
   .
   The groupBy utility is distribued in the filo package.
 
-dpkg-deb: file `/var/lib/schroot/mount/sid-mipsel-sbuild-ccaa109b-1773-46f4-b628-50974a12f6a4/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N/bedtools_2.15.0-1_mipsel.deb' contains ununderstood data member data.tar.xz     , giving up
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./usr/
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./usr/share/
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./usr/share/doc/
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root      1505 2012-03-13 13:10 ./usr/share/doc/bedtools/README.rst
+-rw-r--r-- root/root      4827 2012-03-16 04:09 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root     11640 2012-03-13 13:10 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root       934 2012-03-16 10:08 ./usr/share/doc/bedtools/changelog.Debian.gz
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       856 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root      1972 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       565 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root       585 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm9.genome
+drwxr-xr-x root/root         0 2012-03-16 12:40 ./usr/bin/
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/annotateBed
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/bamToBed
+-rwxr-xr-x root/root        35 2012-03-16 12:40 ./usr/bin/bamToFastq
+-rwxr-xr-x root/root        36 2012-03-16 12:40 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root        35 2012-03-16 12:40 ./usr/bin/bedpeToBam
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/bedToBam
+-rwxr-xr-x root/root        28 2012-03-16 12:40 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root   1477568 2012-03-16 12:40 ./usr/bin/bedtools
+-rwxr-xr-x root/root        32 2012-03-16 12:40 ./usr/bin/closestBed
+-rwxr-xr-x root/root        32 2012-03-16 12:40 ./usr/bin/clusterBed
+-rwxr-xr-x root/root        35 2012-03-16 12:40 ./usr/bin/complementBed
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/coverageBed
+-rwxr-xr-x root/root        31 2012-03-16 12:40 ./usr/bin/expandCols
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root        30 2012-03-16 12:40 ./usr/bin/flankBed
+-rwxr-xr-x root/root        34 2012-03-16 12:40 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root        32 2012-03-16 12:40 ./usr/bin/getOverlap
+-rwxr-xr-x root/root        34 2012-03-16 12:40 ./usr/bin/intersectBed
+-rwxr-xr-x root/root        30 2012-03-16 12:40 ./usr/bin/linksBed
+-rwxr-xr-x root/root        28 2012-03-16 12:40 ./usr/bin/mapBed
+-rwxr-xr-x root/root        34 2012-03-16 12:40 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root        30 2012-03-16 12:40 ./usr/bin/mergeBed
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root        35 2012-03-16 12:40 ./usr/bin/multiIntersectBed
+-rwxr-xr-x root/root        28 2012-03-16 12:40 ./usr/bin/nucBed
+-rwxr-xr-x root/root        34 2012-03-16 12:40 ./usr/bin/pairToBed
+-rwxr-xr-x root/root        35 2012-03-16 12:40 ./usr/bin/pairToPair
+-rwxr-xr-x root/root        31 2012-03-16 12:40 ./usr/bin/randomBed
+-rwxr-xr-x root/root        32 2012-03-16 12:40 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root        29 2012-03-16 12:40 ./usr/bin/slopBed
+-rwxr-xr-x root/root        29 2012-03-16 12:40 ./usr/bin/sortBed
+-rwxr-xr-x root/root        33 2012-03-16 12:40 ./usr/bin/subtractBed
+-rwxr-xr-x root/root        28 2012-03-16 12:40 ./usr/bin/tagBam
+-rwxr-xr-x root/root        34 2012-03-16 12:40 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root        31 2012-03-16 12:40 ./usr/bin/windowBed
+-rwxr-xr-x root/root        36 2012-03-16 12:40 ./usr/bin/windowMaker
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -1501,60 +2432,269 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-mipsel-sbuild-ccaa109b-1773-46f4-b628-50974a12f6a4/build/buildd-bedtools_2.15.0-1-mipsel-0bLs6N
+Purging /var/lib/schroot/mount/sid-mipsel-sbuild-404e49be-9ffb-4443-8061-ba8fdfd31536/build/buildd-bedtools_2.16.1-1-mipsel-xSnKZl
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following package was automatically installed and is no longer required:
-  libpopt0
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 41 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following package was automatically installed and is no longer required:
-  libpopt0
-Use 'apt-get autoremove' to remove them.
 The following packages will be REMOVED:
-  cdbs* debhelper* diffstat* gettext* intltool-debian* libcroco3* libffi5*
-  libglib2.0-0* po-debconf* quilt*
-0 upgraded, 0 newly installed, 10 to remove and 41 not upgraded.
-After this operation, 13.8 MB disk space will be freed.
-(Reading database ... 15361 files and directories currently installed.)
+  cdbs* debhelper* diffstat* file* gettext* gettext-base* groff-base*
+  html2text* intltool-debian* libcroco3* libdb4.8* libexpat1* libffi5*
+  libglib2.0-0* libmagic1* libpipeline1* libsqlite3-0* libssl1.0.0*
+  libunistring0* libxml2* man-db* mime-support* po-debconf* python*
+  python-minimal* python2.7* python2.7-minimal* quilt* zlib1g-dev*
+0 upgraded, 0 newly installed, 29 to remove and 21 not upgraded.
+After this operation, 47.9 MB disk space will be freed.
+(Reading database ... 13370 files and directories currently installed.)
 Removing cdbs ...
 Removing debhelper ...
 Removing quilt ...
 Purging configuration files for quilt ...
 Removing diffstat ...
+Removing file ...
 Removing po-debconf ...
 Removing intltool-debian ...
 Removing gettext ...
+Removing gettext-base ...
+Removing man-db ...
+Purging configuration files for man-db ...
+Removing groff-base ...
+Purging configuration files for groff-base ...
+Removing html2text ...
+Purging configuration files for html2text ...
 Removing libcroco3 ...
 Purging configuration files for libcroco3 ...
+Removing python ...
+Purging configuration files for python ...
+Removing python2.7 ...
+Purging configuration files for python2.7 ...
+Removing libdb4.8 ...
+Removing libexpat1 ...
+Purging configuration files for libexpat1 ...
 Removing libglib2.0-0 ...
 Purging configuration files for libglib2.0-0 ...
 Removing libffi5 ...
 Purging configuration files for libffi5 ...
-Processing triggers for man-db ...
+Removing libmagic1 ...
+Purging configuration files for libmagic1 ...
+Removing libpipeline1 ...
+Purging configuration files for libpipeline1 ...
+Removing libsqlite3-0 ...
+Purging configuration files for libsqlite3-0 ...
+Removing python-minimal ...
+Removing python2.7-minimal ...
+Purging configuration files for python2.7-minimal ...
+Removing libssl1.0.0 ...
+Purging configuration files for libssl1.0.0 ...
+Removing libunistring0 ...
+Purging configuration files for libunistring0 ...
+Removing libxml2 ...
+Purging configuration files for libxml2 ...
+Removing mime-support ...
+Purging configuration files for mime-support ...
+Removing zlib1g-dev ...
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [sid-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [sid-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [sid-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [wheezy-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [wheezy-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [wheezy-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [squeeze-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [squeeze-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
+W: line 8 [lenny-security-mipsel-sbuild]: Deprecated key 'run-setup-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 9 [lenny-security-mipsel-sbuild]: Deprecated key 'run-exec-scripts' used
+I: This option will be removed in the future; please update your configuration
+W: line 4 [lenny-security-mipsel-sbuild]: Deprecated key 'location' used
+I: This option will be removed in the future; please update your configuration
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: mipsel
-Build-Space: 67640
-Build-Time: 1119
+Build-Space: 78100
+Build-Time: 1338
 Distribution: sid
-Install-Time: 40
-Job: bedtools_2.15.0-1
+Install-Time: 108
+Job: bedtools_2.16.1-1
 Package: bedtools
-Package-Time: 1191
-Source-Version: 2.15.0-1
-Space: 67640
+Package-Time: 1536
+Source-Version: 2.16.1-1
+Space: 78100
 Status: successful
-Version: 2.15.0-1
+Version: 2.16.1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20120111-1031
-Build needed 00:19:51, 67640k disc space
-Signature with key 'B0903E66' requested:
+Finished at 20120316-1240
+Build needed 00:25:36, 78100k disc space
+Signature with key '8C9FAB20' requested:
 

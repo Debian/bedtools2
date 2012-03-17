@@ -1,4 +1,4 @@
-From buildd@zemlinsky.debian.org Wed Jan 11 07:12:45 2012
+From buildd@zemlinsky.debian.org Fri Mar 16 12:26:44 2012
 Return-path: <buildd@zemlinsky.debian.org>
 Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
@@ -6,64 +6,66 @@ Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
 	EMAIL=hostmaster@merikanto.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@zemlinsky.debian.org>)
-	id 1RksMX-0007B4-Fz
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 07:12:45 +0000
+	id 1S8WF1-0003k3-Mh
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:26:43 +0000
 Received: from zemlinsky.debian.org ([2001:7c0:400:1337::818f:a006])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
 	CN=zemlinsky.debian.org,
 	EMAIL=hostmaster@zemlinsky.debian.org (verified)
 	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
 	(Exim 4.72) (envelope-from <buildd@zemlinsky.debian.org>)
-	id 1RksMW-0000hB-Oy; Wed, 11 Jan 2012 07:12:44 +0000
+	id 1S8WF0-0005kx-Qb; Fri, 16 Mar 2012 12:26:42 +0000
 Received: from buildd by zemlinsky.debian.org with local (Exim 4.72)
 	(envelope-from <buildd@zemlinsky.debian.org>)
-	id 1RksMV-0000vt-T3; Wed, 11 Jan 2012 07:12:43 +0000
-Message-Id: <E1RksMV-0000vt-T3@zemlinsky.debian.org>
+	id 1S8WEz-0002Jz-QQ; Fri, 16 Mar 2012 12:26:41 +0000
+Message-Id: <E1S8WEz-0002Jz-QQ@zemlinsky.debian.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: binary
 X-Mailer: MIME::Lite 3.027 (F2.77; B3.08; Q3.08)
-Date: Wed, 11 Jan 2012 07:12:43 +0000
+Date: Fri, 16 Mar 2012 12:26:41 +0000
 From: buildd on zemlinsky <buildd@zemlinsky.debian.org>
 To: phil+buildd@philkern.de,logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.15.0-1 on s390 (dist=sid)
-Key-Id: 1EEA506A
+Subject: Log for successful build of bedtools_2.16.1-1 on s390 (dist=sid)
+Key-Id: E0AC2C92
 Delivered-To: logs@buildd.debian.org
 
 sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on zemlinsky.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.15.0-1 (s390)                                   11 Jan 2012 07:08 ║
+║ bedtools 2.16.1-1 (s390)                                   16 Mar 2012 12:22 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.15.0-1
-Source Version: 2.15.0-1
+Version: 2.16.1-1
+Source Version: 2.16.1-1
 Architecture: s390
-Get:1 http://ftp-stud.hs-esslingen.de unstable InRelease [189 kB]
-Get:2 http://ftp-stud.hs-esslingen.de unstable/main Sources [5991 kB]
-Get:3 http://ftp-stud.hs-esslingen.de unstable/contrib Sources [54.4 kB]
-Get:4 http://ftp-stud.hs-esslingen.de unstable/non-free Sources [100 kB]
-Get:5 http://ftp-stud.hs-esslingen.de unstable/main s390 Packages [7742 kB]
-Get:6 http://incoming.debian.org unstable InRelease [189 kB]
-Get:7 http://ftp-stud.hs-esslingen.de unstable/contrib s390 Packages [54.9 kB]
+Get:1 http://ftp-stud.hs-esslingen.de unstable InRelease [198 kB]
+Get:2 http://ftp-stud.hs-esslingen.de unstable/main Sources [6213 kB]
+Get:3 http://incoming.debian.org unstable InRelease [198 kB]
+Get:4 http://ftp-stud.hs-esslingen.de unstable/contrib Sources [54.4 kB]
+Get:5 http://ftp-stud.hs-esslingen.de unstable/non-free Sources [99.8 kB]
+Get:6 http://ftp-stud.hs-esslingen.de unstable/main s390 Packages [5726 kB]
+Get:7 http://ftp-stud.hs-esslingen.de unstable/contrib s390 Packages [36.7 kB]
 Ign http://ftp-stud.hs-esslingen.de unstable/contrib TranslationIndex
-Get:8 http://ftp-stud.hs-esslingen.de unstable/main TranslationIndex [2085 B]
-Ign http://ftp-stud.hs-esslingen.de unstable/contrib Translation-en
+Get:8 http://ftp-stud.hs-esslingen.de unstable/main TranslationIndex [2223 B]
+Get:9 http://ftp-stud.hs-esslingen.de unstable/contrib Translation-en [37.1 kB]
+Get:10 http://ftp-stud.hs-esslingen.de unstable/main Translation-en [3902 kB]
 Ign http://incoming.debian.org  InRelease
-Get:9 http://incoming.debian.org  Release.gpg [836 B]
-Get:10 http://incoming.debian.org unstable/main Sources [6000 kB]
-Get:11 http://incoming.debian.org unstable/contrib Sources [54.4 kB]
-Get:12 http://incoming.debian.org unstable/non-free Sources [100 kB]
-Get:13 http://incoming.debian.org unstable/main s390 Packages [7748 kB]
-Get:14 http://incoming.debian.org unstable/contrib s390 Packages [54.9 kB]
+Get:11 http://incoming.debian.org  Release.gpg [836 B]
+Get:12 http://incoming.debian.org unstable/main Sources [6213 kB]
+Get:13 http://incoming.debian.org unstable/contrib Sources [54.4 kB]
+Get:14 http://incoming.debian.org unstable/non-free Sources [99.8 kB]
+Get:15 http://incoming.debian.org unstable/main s390 Packages [5726 kB]
+Get:16 http://incoming.debian.org unstable/contrib s390 Packages [36.7 kB]
 Ign http://incoming.debian.org unstable/contrib TranslationIndex
-Get:15 http://incoming.debian.org unstable/main TranslationIndex [2085 B]
-Get:16 http://incoming.debian.org  Release [1616 B]
-Get:17 http://incoming.debian.org  Sources [49.9 kB]
-Get:18 http://incoming.debian.org  Packages [601 kB]
-Ign http://incoming.debian.org unstable/contrib Translation-en
+Get:17 http://incoming.debian.org unstable/main TranslationIndex [2223 B]
+Get:18 http://incoming.debian.org  Release [1616 B]
+Get:19 http://incoming.debian.org unstable/contrib Translation-en [37.1 kB]
+Get:20 http://incoming.debian.org unstable/main Translation-en [3902 kB]
+Get:21 http://incoming.debian.org  Sources [59.8 kB]
+Get:22 http://incoming.debian.org  Packages [692 kB]
 Ign http://incoming.debian.org  Translation-en
-Fetched 28.9 MB in 9s (3034 kB/s)
+Fetched 33.3 MB in 11s (2825 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -84,11 +86,11 @@ Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
-Need to get 969 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (dsc) [1975 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (tar) [963 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (diff) [4499 B]
-Fetched 969 kB in 1s (625 kB/s)
+Need to get 985 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (dsc) [1975 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (tar) [978 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (diff) [5035 B]
+Fetched 985 kB in 1s (657 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -108,12 +110,12 @@ Installing positive dependencies:
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -127,33 +129,33 @@ base-passwd: already installed (3.5.24)
 bash: already installed (4.2-1)
 coreutils: already installed (8.13-3)
 dash: already installed (0.5.7-2)
-debianutils: already installed (4.1)
+debianutils: already installed (4.2.1)
 diffutils: already installed (1:3.2-1)
 dpkg: already installed (1.16.1.2)
 e2fsprogs: already installed (1.42-1)
 findutils: already installed (4.4.2-4)
 grep: already installed (2.10-1)
 gzip: already installed (1.4-2)
-hostname: already installed (3.09)
+hostname: already installed (3.11)
 ncurses-base: already installed (5.9-4)
 ncurses-bin: already installed (5.9-4)
-perl-base: already installed (5.14.2-6)
+perl-base: already installed (5.14.2-7)
 sed: already installed (4.2.1-9)
-login: already installed (1:4.1.4.2+svn3283-3)
-sysvinit-utils: already installed (2.88dsf-18)
-sysvinit: already installed (2.88dsf-18)
+login: already installed (1:4.1.5-1)
+sysvinit-utils: already installed (2.88dsf-22)
+sysvinit: already installed (2.88dsf-22)
 tar: already installed (1.26-4)
-bsdutils: already installed (1:2.20.1-1.1)
-mount: already installed (2.20.1-1.1)
-util-linux: already installed (2.20.1-1.1)
-libc6-dev: already installed (2.13-24)
+bsdutils: already installed (1:2.20.1-1.2)
+mount: already installed (2.20.1-1.2)
+util-linux: already installed (2.20.1-1.2)
+libc6-dev: already installed (2.13-26)
 gcc: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
 g++: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
 make: already installed (3.81-8.1)
 dpkg-dev: already installed (1.16.1.2 >= 1.13.5 is satisfied)
 cdbs: missing
 debhelper: missing
-Using default version 8.9.14
+Using default version 9.20120312
 quilt: missing
 python: missing
 zlib1g-dev: missing
@@ -167,7 +169,7 @@ The following extra packages will be installed:
   intltool-debian libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0 libmagic1
   libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0 libunistring0
   libxml2 man-db mime-support po-debconf python-minimal python2.7
-  python2.7-minimal
+  python2.7-minimal zlib1g
 Suggested packages:
   wamerican wordlist whois vacation devscripts dh-make gettext-doc groff less
   www-browser libmail-box-perl python-doc python-tk python2.7-doc
@@ -181,60 +183,69 @@ The following NEW packages will be installed:
   libmagic1 libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0
   libunistring0 libxml2 man-db mime-support po-debconf python python-minimal
   python2.7 python2.7-minimal quilt zlib1g-dev
-0 upgraded, 32 newly installed, 0 to remove and 1 not upgraded.
-Need to get 17.7 MB of archives.
-After this operation, 49.5 MB of additional disk space will be used.
-Get:1 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libncursesw5 s390 5.9-4 [323 kB]
-Get:2 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libpipeline1 s390 1.2.0-5 [39.0 kB]
-Get:3 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libssl1.0.0 s390 1.0.0e-3 [1223 kB]
-Get:4 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libpcre3 s390 8.12-4 [228 kB]
-Get:5 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libffi5 s390 3.0.10-3 [25.3 kB]
-Get:6 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libglib2.0-0 s390 2.30.2-4 [1874 kB]
-Get:7 http://incoming.debian.org/debian/ unstable/main python2.7-minimal s390 2.7.2-10 [1695 kB]
-Get:8 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libxml2 s390 2.7.8.dfsg-5.1 [879 kB]
-Get:9 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libcroco3 s390 0.6.2-2 [122 kB]
-Get:10 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libexpat1 s390 2.0.1-7.2 [137 kB]
-Get:11 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libunistring0 s390 0.9.3-5 [433 kB]
-Get:12 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libdb4.8 s390 4.8.30-11 [700 kB]
-Get:13 http://ftp-stud.hs-esslingen.de/debian/ unstable/main bsdmainutils s390 8.2.3 [209 kB]
-Get:14 http://ftp-stud.hs-esslingen.de/debian/ unstable/main groff-base s390 1.21-6 [1156 kB]
-Get:15 http://ftp-stud.hs-esslingen.de/debian/ unstable/main man-db s390 2.6.0.2-3 [1029 kB]
-Get:16 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libmagic1 s390 5.09-2 [257 kB]
-Get:17 http://ftp-stud.hs-esslingen.de/debian/ unstable/main file s390 5.09-2 [52.6 kB]
+The following packages will be upgraded:
+  zlib1g
+1 upgraded, 32 newly installed, 0 to remove and 47 not upgraded.
+Need to get 17.9 MB of archives.
+After this operation, 49.4 MB of additional disk space will be used.
+Get:1 http://ftp-stud.hs-esslingen.de/debian/ unstable/main zlib1g s390 1:1.2.6.dfsg-2 [89.4 kB]
+Get:2 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libncursesw5 s390 5.9-4 [323 kB]
+Get:3 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libpipeline1 s390 1.2.1-1 [40.0 kB]
+Get:4 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libssl1.0.0 s390 1.0.0h-1 [1226 kB]
+Get:5 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libmagic1 s390 5.10-1 [259 kB]
+Get:6 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libpcre3 s390 8.12-4 [228 kB]
+Get:7 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libffi5 s390 3.0.10-3 [25.3 kB]
+Get:8 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libglib2.0-0 s390 2.30.2-6 [1875 kB]
+Get:9 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libxml2 s390 2.7.8.dfsg-7 [882 kB]
+Get:10 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libcroco3 s390 0.6.4-2 [149 kB]
+Get:11 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libexpat1 s390 2.0.1-7.2 [137 kB]
+Get:12 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libunistring0 s390 0.9.3-5 [433 kB]
+Get:13 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libdb4.8 s390 4.8.30-11 [700 kB]
+Get:14 http://ftp-stud.hs-esslingen.de/debian/ unstable/main bsdmainutils s390 9.0.1 [213 kB]
+Get:15 http://ftp-stud.hs-esslingen.de/debian/ unstable/main groff-base s390 1.21-6 [1156 kB]
+Get:16 http://ftp-stud.hs-esslingen.de/debian/ unstable/main man-db s390 2.6.1-1 [1068 kB]
+Get:17 http://ftp-stud.hs-esslingen.de/debian/ unstable/main file s390 5.10-1 [53.5 kB]
 Get:18 http://ftp-stud.hs-esslingen.de/debian/ unstable/main gettext-base s390 0.18.1.1-5 [143 kB]
-Get:19 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libsqlite3-0 s390 3.7.9-2 [450 kB]
-Get:20 http://ftp-stud.hs-esslingen.de/debian/ unstable/main mime-support all 3.51-1 [35.0 kB]
-Get:21 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python-minimal all 2.7.2-9 [39.8 kB]
-Get:22 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python all 2.7.2-9 [176 kB]
-Get:23 http://ftp-stud.hs-esslingen.de/debian/ unstable/main cdbs all 0.4.100 [77.1 kB]
-Get:24 http://ftp-stud.hs-esslingen.de/debian/ unstable/main html2text s390 1.3.2a-15 [101 kB]
-Get:25 http://ftp-stud.hs-esslingen.de/debian/ unstable/main gettext s390 0.18.1.1-5 [2073 kB]
-Get:26 http://ftp-stud.hs-esslingen.de/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
-Get:27 http://ftp-stud.hs-esslingen.de/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
-Get:28 http://ftp-stud.hs-esslingen.de/debian/ unstable/main debhelper all 8.9.14 [693 kB]
-Get:29 http://ftp-stud.hs-esslingen.de/debian/ unstable/main diffstat s390 1.55-2 [29.7 kB]
-Get:30 http://ftp-stud.hs-esslingen.de/debian/ unstable/main quilt all 0.50-2 [381 kB]
-Get:31 http://ftp-stud.hs-esslingen.de/debian/ unstable/main zlib1g-dev s390 1:1.2.3.4.dfsg-3 [193 kB]
-Get:32 http://incoming.debian.org/debian/ unstable/main python2.7 s390 2.7.2-10 [2655 kB]
+Get:19 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libsqlite3-0 s390 3.7.10-1 [456 kB]
+Get:20 http://ftp-stud.hs-esslingen.de/debian/ unstable/main mime-support all 3.52-1 [35.5 kB]
+Get:21 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python2.7-minimal s390 2.7.3~rc1-1 [1699 kB]
+Get:22 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python2.7 s390 2.7.3~rc1-1 [2661 kB]
+Get:23 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python-minimal all 2.7.2-10 [40.0 kB]
+Get:24 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python all 2.7.2-10 [177 kB]
+Get:25 http://ftp-stud.hs-esslingen.de/debian/ unstable/main cdbs all 0.4.109 [79.4 kB]
+Get:26 http://ftp-stud.hs-esslingen.de/debian/ unstable/main html2text s390 1.3.2a-15 [101 kB]
+Get:27 http://ftp-stud.hs-esslingen.de/debian/ unstable/main gettext s390 0.18.1.1-5 [2073 kB]
+Get:28 http://ftp-stud.hs-esslingen.de/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:29 http://ftp-stud.hs-esslingen.de/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:30 http://ftp-stud.hs-esslingen.de/debian/ unstable/main debhelper all 9.20120312 [694 kB]
+Get:31 http://ftp-stud.hs-esslingen.de/debian/ unstable/main diffstat s390 1.55-2 [29.7 kB]
+Get:32 http://ftp-stud.hs-esslingen.de/debian/ unstable/main quilt all 0.60-2 [377 kB]
+Get:33 http://ftp-stud.hs-esslingen.de/debian/ unstable/main zlib1g-dev s390 1:1.2.6.dfsg-2 [213 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 17.7 MB in 2s (8525 kB/s)
+Fetched 17.9 MB in 1s (17.1 MB/s)
+(Reading database ... 10800 files and directories currently installed.)
+Preparing to replace zlib1g 1:1.2.6.dfsg-1 (using .../zlib1g_1%3a1.2.6.dfsg-2_s390.deb) ...
+Unpacking replacement zlib1g ...
+Setting up zlib1g (1:1.2.6.dfsg-2) ...
 Selecting previously unselected package libncursesw5.
-(Reading database ... 10720 files and directories currently installed.)
+(Reading database ... 10800 files and directories currently installed.)
 Unpacking libncursesw5 (from .../libncursesw5_5.9-4_s390.deb) ...
 Selecting previously unselected package libpipeline1.
-Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5_s390.deb) ...
+Unpacking libpipeline1 (from .../libpipeline1_1.2.1-1_s390.deb) ...
 Selecting previously unselected package libssl1.0.0.
-Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0e-3_s390.deb) ...
+Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0h-1_s390.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.10-1_s390.deb) ...
 Selecting previously unselected package libpcre3.
 Unpacking libpcre3 (from .../libpcre3_8.12-4_s390.deb) ...
 Selecting previously unselected package libffi5.
 Unpacking libffi5 (from .../libffi5_3.0.10-3_s390.deb) ...
 Selecting previously unselected package libglib2.0-0.
-Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_s390.deb) ...
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-6_s390.deb) ...
 Selecting previously unselected package libxml2.
-Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_s390.deb) ...
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-7_s390.deb) ...
 Selecting previously unselected package libcroco3.
-Unpacking libcroco3 (from .../libcroco3_0.6.2-2_s390.deb) ...
+Unpacking libcroco3 (from .../libcroco3_0.6.4-2_s390.deb) ...
 Selecting previously unselected package libexpat1.
 Unpacking libexpat1 (from .../libexpat1_2.0.1-7.2_s390.deb) ...
 Selecting previously unselected package libunistring0.
@@ -242,31 +253,29 @@ Unpacking libunistring0 (from .../libunistring0_0.9.3-5_s390.deb) ...
 Selecting previously unselected package libdb4.8.
 Unpacking libdb4.8 (from .../libdb4.8_4.8.30-11_s390.deb) ...
 Selecting previously unselected package bsdmainutils.
-Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_s390.deb) ...
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.1_s390.deb) ...
 Selecting previously unselected package groff-base.
 Unpacking groff-base (from .../groff-base_1.21-6_s390.deb) ...
 Selecting previously unselected package man-db.
-Unpacking man-db (from .../man-db_2.6.0.2-3_s390.deb) ...
-Selecting previously unselected package libmagic1.
-Unpacking libmagic1 (from .../libmagic1_5.09-2_s390.deb) ...
+Unpacking man-db (from .../man-db_2.6.1-1_s390.deb) ...
 Selecting previously unselected package file.
-Unpacking file (from .../archives/file_5.09-2_s390.deb) ...
+Unpacking file (from .../archives/file_5.10-1_s390.deb) ...
 Selecting previously unselected package gettext-base.
 Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_s390.deb) ...
 Selecting previously unselected package libsqlite3-0.
-Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.9-2_s390.deb) ...
+Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.10-1_s390.deb) ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.51-1_all.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-1_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.2-10_s390.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3~rc1-1_s390.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.2-10_s390.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3~rc1-1_s390.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.2-9_all.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.2-10_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.2-9_all.deb) ...
+Unpacking python (from .../python_2.7.2-10_all.deb) ...
 Selecting previously unselected package cdbs.
-Unpacking cdbs (from .../archives/cdbs_0.4.100_all.deb) ...
+Unpacking cdbs (from .../archives/cdbs_0.4.109_all.deb) ...
 Selecting previously unselected package html2text.
 Unpacking html2text (from .../html2text_1.3.2a-15_s390.deb) ...
 Selecting previously unselected package gettext.
@@ -276,59 +285,59 @@ Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) .
 Selecting previously unselected package po-debconf.
 Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
 Selecting previously unselected package debhelper.
-Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Unpacking debhelper (from .../debhelper_9.20120312_all.deb) ...
 Selecting previously unselected package diffstat.
 Unpacking diffstat (from .../diffstat_1.55-2_s390.deb) ...
 Selecting previously unselected package quilt.
-Unpacking quilt (from .../archives/quilt_0.50-2_all.deb) ...
+Unpacking quilt (from .../archives/quilt_0.60-2_all.deb) ...
 Selecting previously unselected package zlib1g-dev.
-Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_s390.deb) ...
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.6.dfsg-2_s390.deb) ...
 Setting up libncursesw5 (5.9-4) ...
-Setting up libpipeline1 (1.2.0-5) ...
-Setting up libssl1.0.0 (1.0.0e-3) ...
+Setting up libpipeline1 (1.2.1-1) ...
+Setting up libssl1.0.0 (1.0.0h-1) ...
+Setting up libmagic1 (5.10-1) ...
 Setting up libpcre3 (8.12-4) ...
 Setting up libffi5 (3.0.10-3) ...
-Setting up libglib2.0-0 (2.30.2-4) ...
+Setting up libglib2.0-0 (2.30.2-6) ...
 No schema files found: doing nothing.
-Setting up libxml2 (2.7.8.dfsg-5.1) ...
-Setting up libcroco3 (0.6.2-2) ...
+Setting up libxml2 (2.7.8.dfsg-7) ...
+Setting up libcroco3 (0.6.4-2) ...
 Setting up libexpat1 (2.0.1-7.2) ...
 Setting up libunistring0 (0.9.3-5) ...
 Setting up libdb4.8 (4.8.30-11) ...
-Setting up bsdmainutils (8.2.3) ...
+Setting up bsdmainutils (9.0.1) ...
 update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
 update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
 Setting up groff-base (1.21-6) ...
-Setting up man-db (2.6.0.2-3) ...
+Setting up man-db (2.6.1-1) ...
 Building database of manual pages ...
-Setting up libmagic1 (5.09-2) ...
-Setting up file (5.09-2) ...
+Setting up file (5.10-1) ...
 Setting up gettext-base (0.18.1.1-5) ...
-Setting up libsqlite3-0 (3.7.9-2) ...
-Setting up mime-support (3.51-1) ...
+Setting up libsqlite3-0 (3.7.10-1) ...
+Setting up mime-support (3.52-1) ...
 update-alternatives: using /usr/bin/see to provide /usr/bin/view (view) in auto mode.
-Setting up python2.7-minimal (2.7.2-10) ...
-Setting up python2.7 (2.7.2-10) ...
-Setting up python-minimal (2.7.2-9) ...
-Setting up python (2.7.2-9) ...
-Setting up cdbs (0.4.100) ...
+Setting up python2.7-minimal (2.7.3~rc1-1) ...
+Setting up python2.7 (2.7.3~rc1-1) ...
+Setting up python-minimal (2.7.2-10) ...
+Setting up python (2.7.2-10) ...
+Setting up cdbs (0.4.109) ...
 Setting up html2text (1.3.2a-15) ...
 Setting up gettext (0.18.1.1-5) ...
 Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu2) ...
-Setting up debhelper (8.9.14) ...
+Setting up debhelper (9.20120312) ...
 Setting up diffstat (1.55-2) ...
-Setting up quilt (0.50-2) ...
-Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
+Setting up quilt (0.60-2) ...
+Setting up zlib1g-dev (1:1.2.6.dfsg-2) ...
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 47 not upgraded.
 Checking correctness of dependencies...
 Kernel: Linux 2.6.32-5-s390x s390 (s390x)
-Toolchain package versions: binutils_2.22-3 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-11 gcc-4.6_4.6.2-11 libc6-dev_2.13-24 libstdc++6_4.6.2-11 libstdc++6-4.6-dev_4.6.2-11 linux-libc-dev_3.1.6-1
-Package versions: apt_0.8.15.9 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-3 bsdmainutils_8.2.3 bsdutils_1:2.20.1-1.1 build-essential_11.5 bzip2_1.0.6-1 cdbs_0.4.100 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-11 dash_0.5.7-2 debconf_1.5.41 debconf-i18n_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.1 diffstat_1.55-2 diffutils_1:3.2-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.09-2 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-11 gcc_4:4.6.2-4 gcc-4.4-base_4.4.6-14 gcc-4.5-base_4.5.3-10 gcc-4.6_4.6.2-11 gcc-4.6-base_4.6.2-11 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.09 html2text_1.3.2a-15 initscripts_2.88dsf-18 insserv_1.14.0-2.1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.2-2 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-11 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgomp1_4.6.2-11 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.20.1-1.1 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libpipeline1_1.2.0-5 libreadline6_6.2-8 libselinux1_2.1.0-4 libsepol1_2.1.0-1.2 libslang2_2.2.4-5 libsqlite3-0_3.7.9-2 libss2_1.42-1 libssl1.0.0_1.0.0e-3 libstdc++6_4.6.2-11 libstdc++6-4.6-dev_4.6.2-11 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libxml2_2.7.8.dfsg-5.1 linux-libc-dev_3.1.6-1 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mime-support_3.51-1 mount_2.20.1-1.1 multiarch-support_2.13-24 ncurses-base_5.9-4 ncurses-bin_5.9-4 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 po-debconf_1.0.16+nmu2 python_2.7.2-9 python-minimal_2.7.2-9 python2.7_2.7.2-10 python2.7-minimal_2.7.2-10 quilt_0.50-2 readline-common_6.2-8 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.3p1-2 sysv-rc_2.88dsf-18 sysvinit_2.88dsf-18 sysvinit-utils_2.88dsf-18 tar_1.26-4 tzdata_2011n-2 util-linux_2.20.1-1.1 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+Toolchain package versions: binutils_2.22-5 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-14 gcc-4.6_4.6.2-14 libc6-dev_2.13-26 libstdc++6_4.6.2-14 libstdc++6-4.6-dev_4.6.2-14 linux-libc-dev_3.2.6-1
+Package versions: apt_0.8.15.9 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-5 bsdmainutils_9.0.1 bsdutils_1:2.20.1-1.2 build-essential_11.5 bzip2_1.0.6-1 cdbs_0.4.109 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-14 dash_0.5.7-2 debconf_1.5.41 debconf-i18n_1.5.41 debfoster_2.7-1.1 debhelper_9.20120312 debian-archive-keyring_2010.08.28 debianutils_4.2.1 diffstat_1.55-2 diffutils_1:3.2-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.10-1 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-14 gcc_4:4.6.2-4 gcc-4.4-base_4.4.6-14 gcc-4.5-base_4.5.3-12 gcc-4.6_4.6.2-14 gcc-4.6-base_4.6.2-14 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.11 html2text_1.3.2a-15 initscripts_2.88dsf-22 insserv_1.14.0-2.2 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.2 libbz2-1.0_1.0.6-1 libc-bin_2.13-26 libc-dev-bin_2.13-26 libc6_2.13-26 libc6-dev_2.13-26 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.4-2 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-14 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-6 libgmp10_2:5.0.4+dfsg-1 libgomp1_4.6.2-14 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.10-1 libmount1_2.20.1-1.2 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-7 libpam-modules-bin_1.1.3-7 libpam-runtime_1.1.3-7 libpam0g_1.1.3-7 libpcre3_8.12-4 libpipeline1_1.2.1-1 libreadline6_6.2-8 libselinux1_2.1.0-4.1 libsemanage-common_2.1.0-2 libsemanage1_2.1.0-2 libsepol1_2.1.0-1.2 libslang2_2.2.4-6 libsqlite3-0_3.7.10-1 libss2_1.42-1 libssl1.0.0_1.0.0h-1 libstdc++6_4.6.2-14 libstdc++6-4.6-dev_4.6.2-14 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libustr-1.0-1_1.0.4-2 libuuid1_2.20.1-1.2 libxml2_2.7.8.dfsg-7 linux-libc-dev_3.2.6-1 login_1:4.1.5-1 lsb-base_3.2-28.1 make_3.81-8.1 man-db_2.6.1-1 mawk_1.3.3-16 mime-support_3.52-1 mount_2.20.1-1.2 multiarch-support_2.13-26 ncurses-base_5.9-4 ncurses-bin_5.9-4 passwd_1:4.1.5-1 patch_2.6.1-3 perl_5.14.2-7 perl-base_5.14.2-7 perl-modules_5.14.2-7 po-debconf_1.0.16+nmu2 python_2.7.2-10 python-minimal_2.7.2-10 python2.7_2.7.3~rc1-1 python2.7-minimal_2.7.3~rc1-1 quilt_0.60-2 readline-common_6.2-8 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.3p2-1 sysv-rc_2.88dsf-22 sysvinit_2.88dsf-22 sysvinit-utils_2.88dsf-22 tar_1.26-4 tzdata_2011n-2 ucf_3.0025+nmu2 util-linux_2.20.1-1.2 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.6.dfsg-2 zlib1g-dev_1:1.2.6.dfsg-2
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -339,12 +348,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Wed Jan 11 06:48:11 2012 UTC using RSA key ID 2295D502
+gpgv: Signature made Fri Mar 16 11:42:52 2012 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.15.0-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.15.0
-dpkg-source: info: unpacking bedtools_2.15.0.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.15.0-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.16.1-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.16.1
+dpkg-source: info: unpacking bedtools_2.16.1.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.16.1-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -355,24 +364,38 @@ dpkg-buildpackage
 ─────────────────
 
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.15.0-1
- dpkg-source --before-build bedtools-2.15.0
+dpkg-buildpackage: source version 2.16.1-1
+ dpkg-source --before-build bedtools-2.16.1
 dpkg-buildpackage: host architecture s390
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
-/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
-Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -k clean
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
+ * Cleaning-up BamTools API
+ * Cleaning up.
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 dh_clean 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
+	rm -f debian/*.debhelper.log
+	rm -f debian/files
+	find .  \( \( -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} \; \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} \; \) \)
+	rm -f *-stamp
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -385,52 +408,44 @@ test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
-/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
-[ -d obj ] || mkdir -p obj
-[ -d bin ] || mkdir -p bin
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 Building BEDTools:
 =========================================================
-- Building in src/utils/lineFileUtilities
-  * compiling lineFileUtilities.cpp
-
+DETECTED_VERSION = v2.16.1
+CURRENT_VERSION  = v2.16.1
+ * Creating BamTools API
 - Building in src/utils/bedFile
   * compiling bedFile.cpp
-
+- Building in src/utils/version
+  * compiling version.cpp
 - Building in src/utils/bedGraphFile
   * compiling bedGraphFile.cpp
-
 - Building in src/utils/chromsweep
   * compiling chromsweep.cpp
-
 - Building in src/utils/gzstream
 g++ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
-
 - Building in src/utils/fileType
   * compiling fileType.cpp
-
 - Building in src/utils/bedFilePE
   * compiling bedFilePE.cpp
-
 - Building in src/utils/sequenceUtilities
   * compiling sequenceUtils.cpp
-
 - Building in src/utils/tabFile
   * compiling tabFile.cpp
-
 - Building in src/utils/BamTools
  * compiling BamAlignment.cpp
  * compiling BamMultiReader.cpp
@@ -470,143 +485,138 @@ g++ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-securit
  * compiling SamFormatPrinter_p.cpp
  * compiling SamHeaderValidator_p.cpp
  * compiling BamException_p.cpp
-[ -d lib ] || mkdir -p lib
-[ -d include ] || mkdir -p include
-[ -d include/api ] || mkdir -p include/api
-[ -d include/shared ] || mkdir -p include/shared
- * linking libbamtools.a
+ * linking lib/libbamtools.a
 ar cr lib/libbamtools.a src/api/BamAlignment.o src/api/BamMultiReader.o src/api/BamReader.o src/api/BamWriter.o src/api/SamHeader.o src/api/SamProgram.o src/api/SamProgramChain.o src/api/SamReadGroup.o src/api/SamReadGroupDictionary.o src/api/SamSequence.o src/api/SamSequenceDictionary.o src/api/internal/bam/BamHeader_p.o src/api/internal/bam/BamMultiReader_p.o src/api/internal/bam/BamRandomAccessController_p.o src/api/internal/bam/BamReader_p.o src/api/internal/bam/BamWriter_p.o src/api/internal/index/BamIndexFactory_p.o src/api/internal/index/BamStandardIndex_p.o src/api/internal/index/BamToolsIndex_p.o src/api/internal/io/BamDeviceFactory_p.o src/api/internal/io/BamFile_p.o src/api/internal/io/BamFtp_p.o src/api/internal/io/BamHttp_p.o src/api/internal/io/BamPipe_p.o src/api/internal/io/BgzfStream_p.o src/api/internal/io/ByteArray_p.o src/api/internal/io/HostAddress_p.o src/api/internal/io/HostInfo_p.o src/api/internal/io/HttpHeader_p.o src/api/internal/io/ILocalIODevice_p.o src/api/internal/io/RollingBuffer_p.o src/api/internal/io/TcpSocketEngine_p.o src/api/internal/io/TcpSocketEngine_unix_p.o src/api/internal/io/TcpSocket_p.o src/api/internal/sam/SamFormatParser_p.o src/api/internal/sam/SamFormatPrinter_p.o src/api/internal/sam/SamHeaderValidator_p.o src/api/internal/utils/BamException_p.o
-
+ranlib lib/libbamtools.a
 - Building in src/utils/BamTools-Ancillary
   * compiling BamAncillary.cpp
-
+  * compiling BamAncillary.cpp
+- Building in src/utils/BlockedIntervals
+  * compiling BlockedIntervals.cpp
+  * compiling BlockedIntervals.cpp
 - Building in src/utils/Fasta
   * compiling Fasta.cpp
 Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
 Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  * compiling Fasta.cpp
+Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
+Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
   * compiling split.cpp
-
+  * compiling split.cpp
+- Building in src/utils/VectorOps
+  * compiling VectorOps.cpp
 - Building in src/utils/genomeFile
   * compiling genomeFile.cpp
 genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
 genomeFile.cpp:61:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
-
 - Building in src/annotateBed
   * compiling annotateMain.cpp
 annotateMain.cpp: In function 'int annotate_main(int, char**)':
 annotateMain.cpp:39:10: warning: variable 'haveTitles' set but not used [-Wunused-but-set-variable]
   * compiling annotateBed.cpp
-
 - Building in src/bamToBed
   * compiling bamToBed.cpp
 bamToBed.cpp: In function 'int bamtobed_main(int, char**)':
 bamToBed.cpp:74:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
-
+- Building in src/bamToFastq
+  * compiling bamToFastqMain.cpp
+bamToFastqMain.cpp: In function 'int bamtofastq_main(int, char**)':
+bamToFastqMain.cpp:38:10: warning: variable 'haveFastq2' set but not used [-Wunused-but-set-variable]
+  * compiling bamToFastq.cpp
 - Building in src/bedToBam
   * compiling bedToBam.cpp
 bedToBam.cpp: In function 'int bedtobam_main(int, char**)':
 bedToBam.cpp:60:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedpeToBam
   * compiling bedpeToBam.cpp
 bedpeToBam.cpp: In function 'int bedpetobam_main(int, char**)':
 bedpeToBam.cpp:61:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedToIgv
   * compiling bedToIgv.cpp
-
 - Building in src/bed12ToBed6
   * compiling bed12ToBed6.cpp
-
 - Building in src/closestBed
   * compiling closestMain.cpp
   * compiling closestBed.cpp
-
 - Building in src/clusterBed
   * compiling clusterMain.cpp
 clusterMain.cpp: In function 'int cluster_main(int, char**)':
 clusterMain.cpp:38:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling clusterBed.cpp
-
 - Building in src/complementBed
   * compiling complementMain.cpp
   * compiling complementBed.cpp
-
 - Building in src/coverageBed
   * compiling coverageMain.cpp
   * compiling coverageBed.cpp
-
+- Building in src/expand
+  * compiling expand.cpp
 - Building in src/fastaFromBed
   * compiling fastaFromBedMain.cpp
   * compiling fastaFromBed.cpp
-
 - Building in src/flankBed
   * compiling flankBedMain.cpp
   * compiling flankBed.cpp
-
 - Building in src/genomeCoverageBed
   * compiling genomeCoverageMain.cpp
   * compiling genomeCoverageBed.cpp
-
 - Building in src/getOverlap
   * compiling getOverlap.cpp
 getOverlap.cpp: In function 'int getoverlap_main(int, char**)':
 getOverlap.cpp:44:10: warning: variable 'haveColumns' set but not used [-Wunused-but-set-variable]
-
 - Building in src/groupBy
   * compiling groupBy.cpp
 groupBy.cpp: In function 'int groupby_main(int, char**)':
-groupBy.cpp:84:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
-
+groupBy.cpp:64:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
 - Building in src/intersectBed
   * compiling intersectMain.cpp
   * compiling intersectBed.cpp
-
 - Building in src/linksBed
   * compiling linksMain.cpp
   * compiling linksBed.cpp
-
 - Building in src/maskFastaFromBed
   * compiling maskFastaFromBedMain.cpp
   * compiling maskFastaFromBed.cpp
-
+- Building in src/mapBed
+  * compiling mapMain.cpp
+mapMain.cpp: In function 'int map_main(int, char**)':
+mapMain.cpp:44:10: warning: variable 'haveColumn' set but not used [-Wunused-but-set-variable]
+mapMain.cpp:45:10: warning: variable 'haveOperation' set but not used [-Wunused-but-set-variable]
+  * compiling mapBed.cpp
 - Building in src/mergeBed
   * compiling mergeMain.cpp
 mergeMain.cpp: In function 'int merge_main(int, char**)':
 mergeMain.cpp:40:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling mergeBed.cpp
-
 - Building in src/multiBamCov
   * compiling multiBamCovMain.cpp
 multiBamCovMain.cpp: In function 'int multibamcov_main(int, char**)':
 multiBamCovMain.cpp:38:10: warning: variable 'haveBed' set but not used [-Wunused-but-set-variable]
 multiBamCovMain.cpp:39:10: warning: variable 'haveBams' set but not used [-Wunused-but-set-variable]
   * compiling multiBamCov.cpp
-
 - Building in src/multiIntersectBed
-  * compiling multiIntersectBed.cpp
   * compiling multiIntersectBedMain.cpp
 multiIntersectBedMain.cpp: In function 'int multiintersect_main(int, char**)':
 multiIntersectBedMain.cpp:45:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:47:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:48:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling multiIntersectBed.cpp
 - Building in src/nucBed
   * compiling nucBedMain.cpp
   * compiling nucBed.cpp
-
 - Building in src/pairToBed
   * compiling pairToBedMain.cpp
 pairToBedMain.cpp: In function 'int pairtobed_main(int, char**)':
 pairToBedMain.cpp:43:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling pairToBed.cpp
 pairToBed.cpp: In member function 'void BedIntersectPE::FindSpanningOverlaps(const BEDPE&, std::vector<BED>&, const string&)':
-pairToBed.cpp:255:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
+pairToBed.cpp:257:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 pairToBed.cpp: In member function 'bool BedIntersectPE::FindOneOrMoreSpanningOverlaps(const BEDPE&, const string&)':
-pairToBed.cpp:307:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
-
+pairToBed.cpp:310:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 - Building in src/pairToPair
   * compiling pairToPairMain.cpp
 pairToPairMain.cpp: In function 'int pairtopair_main(int, char**)':
@@ -615,59 +625,57 @@ pairToPairMain.cpp:44:10: warning: variable 'haveFraction' set but not used [-Wu
 pairToPair.cpp: In member function 'void PairToPair::FindOverlaps(const BEDPE&)':
 pairToPair.cpp:112:14: warning: variable 'found1' set but not used [-Wunused-but-set-variable]
 pairToPair.cpp:113:14: warning: variable 'found2' set but not used [-Wunused-but-set-variable]
-
+- Building in src/randomBed
+  * compiling randomBedMain.cpp
+  * compiling randomBed.cpp
 - Building in src/shuffleBed
   * compiling shuffleBedMain.cpp
   * compiling shuffleBed.cpp
-
 - Building in src/slopBed
   * compiling slopBedMain.cpp
   * compiling slopBed.cpp
-
 - Building in src/sortBed
   * compiling sortMain.cpp
   * compiling sortBed.cpp
-
 - Building in src/subtractBed
   * compiling subtractMain.cpp
 subtractMain.cpp: In function 'int subtract_main(int, char**)':
 subtractMain.cpp:41:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling subtractBed.cpp
-
 - Building in src/tagBam
   * compiling tagBamMain.cpp
 tagBamMain.cpp: In function 'int tagbam_main(int, char**)':
 tagBamMain.cpp:38:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling tagBam.cpp
-
 - Building in src/unionBedGraphs
-  * compiling unionBedGraphs.cpp
   * compiling unionBedGraphsMain.cpp
 unionBedGraphsMain.cpp: In function 'int unionbedgraphs_main(int, char**)':
 unionBedGraphsMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling unionBedGraphs.cpp
 - Building in src/windowBed
   * compiling windowMain.cpp
   * compiling windowBed.cpp
-
 - Building in src/windowMaker
   * compiling windowMakerMain.cpp
   * compiling windowMaker.cpp
-
 - Building main bedtools binary.
 done.
 - Creating executables for old CLI.
 done.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
 test -x debian/rules
 dh_testroot
 dh_prep 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
 dh_installdirs -A 
+	install -d debian/bedtools
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 DEB_MAKE_CHECK_TARGET unset, not running checks
@@ -675,6 +683,12 @@ DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install targe
 Adding cdbs dependencies to debian/bedtools.substvars
 dh_installdirs -pbedtools 
 dh_installdocs -pbedtools 
+	install -g 0 -o 0 -d debian/bedtools/usr/share/doc/bedtools
+	cp -a README.rst debian/bedtools/usr/share/doc/bedtools
+	chown -R 0:0 debian/bedtools/usr/share/doc
+	chmod -R go=rX debian/bedtools/usr/share/doc
+	chmod -R u\+rw debian/bedtools/usr/share/doc
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/bedtools/usr/share/doc/bedtools/copyright
 dh_installexamples -pbedtools 
 dh_installman -pbedtools  
 dh_installinfo -pbedtools  
@@ -682,46 +696,118 @@ dh_installmenu -pbedtools
 dh_installcron -pbedtools 
 dh_installinit -pbedtools  
 dh_installdebconf -pbedtools 
+	install -o 0 -g 0 -d debian/bedtools/DEBIAN
 dh_installemacsen -pbedtools   
 dh_installcatalogs -pbedtools 
+	grep -s -v '^misc:Depends=' debian/bedtools.substvars > debian/bedtools.substvars.new || true
+	mv debian/bedtools.substvars.new debian/bedtools.substvars
 dh_installpam -pbedtools 
 dh_installlogrotate -pbedtools 
 dh_installlogcheck -pbedtools 
 dh_installchangelogs -pbedtools  RELEASE_HISTORY 
+	install -o 0 -g 0 -p -m644 debian/changelog debian/bedtools/usr/share/doc/bedtools/changelog.Debian
+	install -o 0 -g 0 -p -m644 RELEASE_HISTORY debian/bedtools/usr/share/doc/bedtools/changelog
 dh_installudev -pbedtools 
 dh_lintian -pbedtools 
 dh_bugfiles -pbedtools 
 dh_install -pbedtools  
+	install -d debian/bedtools/usr/bin
+	cp -a ./bin/annotateBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToFastq debian/bedtools/usr/bin/
+	cp -a ./bin/bed12ToBed6 debian/bedtools/usr/bin/
+	cp -a ./bin/bedpeToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToIgv debian/bedtools/usr/bin/
+	cp -a ./bin/bedtools debian/bedtools/usr/bin/
+	cp -a ./bin/closestBed debian/bedtools/usr/bin/
+	cp -a ./bin/clusterBed debian/bedtools/usr/bin/
+	cp -a ./bin/complementBed debian/bedtools/usr/bin/
+	cp -a ./bin/coverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/expandCols debian/bedtools/usr/bin/
+	cp -a ./bin/fastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/flankBed debian/bedtools/usr/bin/
+	cp -a ./bin/genomeCoverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/getOverlap debian/bedtools/usr/bin/
+	cp -a ./bin/groupBy debian/bedtools/usr/bin/
+	cp -a ./bin/intersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/linksBed debian/bedtools/usr/bin/
+	cp -a ./bin/mapBed debian/bedtools/usr/bin/
+	cp -a ./bin/maskFastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/mergeBed debian/bedtools/usr/bin/
+	cp -a ./bin/multiBamCov debian/bedtools/usr/bin/
+	cp -a ./bin/multiIntersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/nucBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToPair debian/bedtools/usr/bin/
+	cp -a ./bin/randomBed debian/bedtools/usr/bin/
+	cp -a ./bin/shuffleBed debian/bedtools/usr/bin/
+	cp -a ./bin/slopBed debian/bedtools/usr/bin/
+	cp -a ./bin/sortBed debian/bedtools/usr/bin/
+	cp -a ./bin/subtractBed debian/bedtools/usr/bin/
+	cp -a ./bin/tagBam debian/bedtools/usr/bin/
+	cp -a ./bin/unionBedGraphs debian/bedtools/usr/bin/
+	cp -a ./bin/windowBed debian/bedtools/usr/bin/
+	cp -a ./bin/windowMaker debian/bedtools/usr/bin/
+	install -d debian/bedtools/usr/share/bedtools
+	cp -a ./genomes debian/bedtools/usr/share/bedtools/
 dh_link -pbedtools  
 dh_installmime -pbedtools 
 dh_installgsettings -pbedtools 
 dh_strip -pbedtools  
+	strip --remove-section=.comment --remove-section=.note debian/bedtools/usr/bin/bedtools
 dh_compress -pbedtools  
+	cd debian/bedtools
+	chmod a-x usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	gzip -9nf usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	cd '/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1'
 dh_fixperms -pbedtools  
+	find debian/bedtools  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/bedtools ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/bedtools/usr/share/doc -type f  ! -regex 'debian/bedtools/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/bedtools/usr/share/man debian/bedtools/usr/man/ debian/bedtools/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/lib/perl5 debian/bedtools/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/bedtools/usr/bin -type f  -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/bedtools/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
 dh_makeshlibs -pbedtools  
-rm /build/buildd-bedtools_2.15.0-1-s390-Z8mhcA/bedtools-2.15.0/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
+	rm -f debian/bedtools/DEBIAN/shlibs
+rm /build/buildd-bedtools_2.16.1-1-s390-ZJY4QX/bedtools-2.16.1/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
 dh_installdeb -pbedtools 
 dh_perl -pbedtools 
 dh_shlibdeps -pbedtools    
+	dpkg-shlibdeps -Tdebian/bedtools.substvars debian/bedtools/usr/bin/bedtools
 dh_gencontrol -pbedtools  
+	echo misc:Depends= >> debian/bedtools.substvars
+	dpkg-gencontrol -ldebian/changelog -Tdebian/bedtools.substvars -Pdebian/bedtools
+	chmod 644 debian/bedtools/DEBIAN/control
+	chown 0:0 debian/bedtools/DEBIAN/control
 dh_md5sums -pbedtools 
+	(cd debian/bedtools >/dev/null ; find . -type f  ! -regex '.*/DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
+	chmod 644 debian/bedtools/DEBIAN/md5sums
+	chown 0:0 debian/bedtools/DEBIAN/md5sums
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.15.0-1_s390.deb'.
- dpkg-genchanges -B -ms390/s390x Build Daemon (zemlinsky) <buildd_s390x-zemlinsky@buildd.debian.org> >../bedtools_2.15.0-1_s390.changes
+	dpkg-deb -Z xz --build debian/bedtools ..
+dpkg-deb: building package `bedtools' in `../bedtools_2.16.1-1_s390.deb'.
+ dpkg-genchanges -B -ms390/s390x Build Daemon (zemlinsky) <buildd_s390x-zemlinsky@buildd.debian.org> >../bedtools_2.16.1-1_s390.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.15.0
+ dpkg-source --after-build bedtools-2.16.1
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20120111-0712
+Build finished at 20120316-1226
 
-bedtools_2.15.0-1_s390.changes:
+bedtools_2.16.1-1_s390.changes:
 Format: 1.8
-Date: Wed, 11 Jan 2012 15:07:45 +0900
+Date: Fri, 16 Mar 2012 19:06:49 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: s390
-Version: 2.15.0-1
+Version: 2.16.1-1
 Distribution: sid
 Urgency: low
 Maintainer: s390/s390x Build Daemon (zemlinsky) <buildd_s390x-zemlinsky@buildd.debian.org>
@@ -729,36 +815,36 @@ Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.15.0-1) unstable; urgency=low
+ bedtools (2.16.1-1) unstable; urgency=low
  .
-   [3f8e754] Upstream version 2.15.0.
-   [f27b295] Build-depend on python because of scripts/makeBashScripts.py.
-   [2e3e8e8] Removed the /usr/bin/groupBy wrapper, as groupBy is also
-     distributed by the filo package.
+   b7f2405 New upstream release.
+   4add346 Corrected, updated and normalised Debian copyright.
+   00b426d Conforms to Debian Policy 3.9.3.
+   72c3c94 Verbose Debhelper.
 Checksums-Sha1: 
- e32cd1b12422f648505c07d028c5b161091c6321 353440 bedtools_2.15.0-1_s390.deb
+ a51394a8cee66cc0e0469d100b641b38a89b7d97 388520 bedtools_2.16.1-1_s390.deb
 Checksums-Sha256: 
- f9d73fcfe29b096b4ad906a81f10b72067f97d97ea0e47520a4f736e23ba553d 353440 bedtools_2.15.0-1_s390.deb
+ 60f37bcf3e7a6ec0ade5d7de8f5d9dd881316edc7f4779f2ee8a4190f27599e1 388520 bedtools_2.16.1-1_s390.deb
 Files: 
- 22508ed00f7c81d9dff6a28707786112 353440 science optional bedtools_2.15.0-1_s390.deb
+ 8bbfd52d792de3aa5e84e86bbefac711 388520 science optional bedtools_2.16.1-1_s390.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.15.0-1_s390.deb
+bedtools_2.16.1-1_s390.deb
 ──────────────────────────
 
  new debian package, version 2.0.
- size 353440 bytes: control archive= 1871 bytes.
+ size 388520 bytes: control archive= 1975 bytes.
      864 bytes,    19 lines      control              
-    2299 bytes,    40 lines      md5sums              
+    2506 bytes,    44 lines      md5sums              
  Package: bedtools
- Version: 2.15.0-1
+ Version: 2.16.1-1
  Architecture: s390
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 1252
+ Installed-Size: 1394
  Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
@@ -774,54 +860,58 @@ bedtools_2.15.0-1_s390.deb
   .
   The groupBy utility is distribued in the filo package.
 
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./usr/
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./usr/share/
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./usr/share/bedtools/
-drwxr-xr-x root/root         0 2012-01-11 07:09 ./usr/share/bedtools/genomes/
--rwxr-xr-x root/root       585 2012-01-02 10:51 ./usr/share/bedtools/genomes/mouse.mm9.genome
--rwxr-xr-x root/root       856 2012-01-02 10:51 ./usr/share/bedtools/genomes/human.hg18.genome
--rwxr-xr-x root/root       565 2012-01-02 10:51 ./usr/share/bedtools/genomes/mouse.mm8.genome
--rwxr-xr-x root/root      1972 2012-01-02 10:51 ./usr/share/bedtools/genomes/human.hg19.genome
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./usr/share/doc/
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./usr/share/doc/bedtools/
--rw-r--r-- root/root       832 2012-01-11 06:08 ./usr/share/doc/bedtools/changelog.Debian.gz
--rw-r--r-- root/root      4611 2012-01-05 01:53 ./usr/share/doc/bedtools/copyright
--rw-r--r-- root/root     11640 2012-01-02 10:51 ./usr/share/doc/bedtools/changelog.gz
--rw-r--r-- root/root      1442 2012-01-02 10:51 ./usr/share/doc/bedtools/README.rst
-drwxr-xr-x root/root         0 2012-01-11 07:12 ./usr/bin/
--rwxr-xr-x root/root        36 2012-01-11 07:12 ./usr/bin/windowMaker
--rwxr-xr-x root/root        34 2012-01-11 07:12 ./usr/bin/pairToBed
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/bamToBed
--rwxr-xr-x root/root        29 2012-01-11 07:12 ./usr/bin/slopBed
--rwxr-xr-x root/root   1221576 2012-01-11 07:12 ./usr/bin/bedtools
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/subtractBed
--rwxr-xr-x root/root        29 2012-01-11 07:12 ./usr/bin/sortBed
--rwxr-xr-x root/root        34 2012-01-11 07:12 ./usr/bin/genomeCoverageBed
--rwxr-xr-x root/root        30 2012-01-11 07:12 ./usr/bin/flankBed
--rwxr-xr-x root/root        35 2012-01-11 07:12 ./usr/bin/bedpeToBam
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/annotateBed
--rwxr-xr-x root/root        28 2012-01-11 07:12 ./usr/bin/bedToIgv
--rwxr-xr-x root/root        31 2012-01-11 07:12 ./usr/bin/windowBed
--rwxr-xr-x root/root        32 2012-01-11 07:12 ./usr/bin/clusterBed
--rwxr-xr-x root/root        28 2012-01-11 07:12 ./usr/bin/nucBed
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/bedToBam
--rwxr-xr-x root/root        32 2012-01-11 07:12 ./usr/bin/getOverlap
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/fastaFromBed
--rwxr-xr-x root/root        30 2012-01-11 07:12 ./usr/bin/mergeBed
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/multiBamCov
--rwxr-xr-x root/root        36 2012-01-11 07:12 ./usr/bin/bed12ToBed6
--rwxr-xr-x root/root        32 2012-01-11 07:12 ./usr/bin/closestBed
--rwxr-xr-x root/root        35 2012-01-11 07:12 ./usr/bin/complementBed
--rwxr-xr-x root/root        30 2012-01-11 07:12 ./usr/bin/linksBed
--rwxr-xr-x root/root        34 2012-01-11 07:12 ./usr/bin/maskFastaFromBed
--rwxr-xr-x root/root        35 2012-01-11 07:12 ./usr/bin/pairToPair
--rwxr-xr-x root/root        32 2012-01-11 07:12 ./usr/bin/shuffleBed
--rwxr-xr-x root/root        28 2012-01-11 07:12 ./usr/bin/tagBam
--rwxr-xr-x root/root        35 2012-01-11 07:12 ./usr/bin/multiIntersectBed
--rwxr-xr-x root/root        33 2012-01-11 07:12 ./usr/bin/coverageBed
--rwxr-xr-x root/root        34 2012-01-11 07:12 ./usr/bin/intersectBed
--rwxr-xr-x root/root        34 2012-01-11 07:12 ./usr/bin/unionBedGraphs
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./usr/
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./usr/share/
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2012-03-16 12:22 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       585 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm9.genome
+-rwxr-xr-x root/root       856 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root       565 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root      1972 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg19.genome
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./usr/share/doc/
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root       934 2012-03-16 10:08 ./usr/share/doc/bedtools/changelog.Debian.gz
+-rw-r--r-- root/root      4827 2012-03-16 04:09 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root     11640 2012-03-13 13:10 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root      1505 2012-03-13 13:10 ./usr/share/doc/bedtools/README.rst
+drwxr-xr-x root/root         0 2012-03-16 12:26 ./usr/bin/
+-rwxr-xr-x root/root        36 2012-03-16 12:26 ./usr/bin/windowMaker
+-rwxr-xr-x root/root        34 2012-03-16 12:26 ./usr/bin/pairToBed
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/bamToBed
+-rwxr-xr-x root/root        29 2012-03-16 12:26 ./usr/bin/slopBed
+-rwxr-xr-x root/root   1366148 2012-03-16 12:26 ./usr/bin/bedtools
+-rwxr-xr-x root/root        28 2012-03-16 12:26 ./usr/bin/mapBed
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/subtractBed
+-rwxr-xr-x root/root        29 2012-03-16 12:26 ./usr/bin/sortBed
+-rwxr-xr-x root/root        34 2012-03-16 12:26 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root        30 2012-03-16 12:26 ./usr/bin/flankBed
+-rwxr-xr-x root/root        35 2012-03-16 12:26 ./usr/bin/bedpeToBam
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/annotateBed
+-rwxr-xr-x root/root        28 2012-03-16 12:26 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root        31 2012-03-16 12:26 ./usr/bin/windowBed
+-rwxr-xr-x root/root        32 2012-03-16 12:26 ./usr/bin/clusterBed
+-rwxr-xr-x root/root        28 2012-03-16 12:26 ./usr/bin/nucBed
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/bedToBam
+-rwxr-xr-x root/root        32 2012-03-16 12:26 ./usr/bin/getOverlap
+-rwxr-xr-x root/root        35 2012-03-16 12:26 ./usr/bin/bamToFastq
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root        30 2012-03-16 12:26 ./usr/bin/mergeBed
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root        36 2012-03-16 12:26 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root        31 2012-03-16 12:26 ./usr/bin/expandCols
+-rwxr-xr-x root/root        32 2012-03-16 12:26 ./usr/bin/closestBed
+-rwxr-xr-x root/root        35 2012-03-16 12:26 ./usr/bin/complementBed
+-rwxr-xr-x root/root        31 2012-03-16 12:26 ./usr/bin/randomBed
+-rwxr-xr-x root/root        30 2012-03-16 12:26 ./usr/bin/linksBed
+-rwxr-xr-x root/root        34 2012-03-16 12:26 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root        35 2012-03-16 12:26 ./usr/bin/pairToPair
+-rwxr-xr-x root/root        32 2012-03-16 12:26 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root        28 2012-03-16 12:26 ./usr/bin/tagBam
+-rwxr-xr-x root/root        35 2012-03-16 12:26 ./usr/bin/multiIntersectBed
+-rwxr-xr-x root/root        33 2012-03-16 12:26 ./usr/bin/coverageBed
+-rwxr-xr-x root/root        34 2012-03-16 12:26 ./usr/bin/intersectBed
+-rwxr-xr-x root/root        34 2012-03-16 12:26 ./usr/bin/unionBedGraphs
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -835,7 +925,7 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-s390-sbuild-8e9a11ca-c237-49e8-9c2c-7ea133bf8333/build/buildd-bedtools_2.15.0-1-s390-Z8mhcA
+Purging /var/lib/schroot/mount/sid-s390-sbuild-53766b8b-5bdd-44cf-bca9-514ab6d33688/build/buildd-bedtools_2.16.1-1-s390-ZJY4QX
 Not cleaning session: cloned chroot in use
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -843,87 +933,89 @@ Not cleaning session: cloned chroot in use
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: s390
-Build-Space: 77652
-Build-Time: 191
+Build-Space: 89552
+Build-Time: 232
 Distribution: sid
-Install-Time: 20
-Job: bedtools_2.15.0-1
+Install-Time: 21
+Job: bedtools_2.16.1-1
 Package: bedtools
-Package-Time: 227
-Source-Version: 2.15.0-1
-Space: 77652
+Package-Time: 272
+Source-Version: 2.16.1-1
+Space: 89552
 Status: successful
-Version: 2.15.0-1
+Version: 2.16.1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20120111-0712
-Build needed 00:03:47, 77652k disc space
-Signature with key '1EEA506A' requested:
-From buildd@zandonai.debian.org Wed Jan 11 07:15:44 2012
-Return-path: <buildd@zandonai.debian.org>
-Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
+Finished at 20120316-1226
+Build needed 00:04:32, 89552k disc space
+Signature with key 'E0AC2C92' requested:
+From buildd@zemlinsky.debian.org Fri Mar 16 12:18:42 2012
+Return-path: <buildd@zemlinsky.debian.org>
+Received: from kokkonen.debian.org ([2001:41b8:202:deb:1a1a:0:52c3:4b61])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
-	CN=merikanto.debian.org,
-	EMAIL=hostmaster@merikanto.debian.org (verified)
+	CN=kokkonen.debian.org,
+	EMAIL=hostmaster@kokkonen.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
-	(Exim 4.72) (envelope-from <buildd@zandonai.debian.org>)
-	id 1RksPP-0007Xc-Uz
-	for logs@buildd.debian.org; Wed, 11 Jan 2012 07:15:44 +0000
-Received: from zandonai.debian.org ([80.245.147.46])
+	(Exim 4.72) (envelope-from <buildd@zemlinsky.debian.org>)
+	id 1S8W7G-00029z-7n
+	for logs@buildd.debian.org; Fri, 16 Mar 2012 12:18:42 +0000
+Received: from zemlinsky.debian.org ([2001:7c0:400:1337::818f:a006])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
-	CN=zandonai.debian.org,
-	EMAIL=hostmaster@zandonai.debian.org (verified)
-	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
-	(Exim 4.72) (envelope-from <buildd@zandonai.debian.org>)
-	id 1RksPP-0000rQ-6u; Wed, 11 Jan 2012 07:15:43 +0000
-Received: from buildd by zandonai.debian.org with local (Exim 4.72)
-	(envelope-from <buildd@zandonai.debian.org>)
-	id 1RksPO-0001Ag-Nj; Wed, 11 Jan 2012 07:15:42 +0000
-Message-Id: <E1RksPO-0001Ag-Nj@zandonai.debian.org>
+	CN=zemlinsky.debian.org,
+	EMAIL=hostmaster@zemlinsky.debian.org (verified)
+	by kokkonen.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+	(Exim 4.72) (envelope-from <buildd@zemlinsky.debian.org>)
+	id 1S8W7F-00057G-AL; Fri, 16 Mar 2012 12:18:41 +0000
+Received: from buildd by zemlinsky.debian.org with local (Exim 4.72)
+	(envelope-from <buildd@zemlinsky.debian.org>)
+	id 1S8W7F-0003Xc-5i; Fri, 16 Mar 2012 12:18:41 +0000
+Message-Id: <E1S8W7F-0003Xc-5i@zemlinsky.debian.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: binary
 X-Mailer: MIME::Lite 3.027 (F2.77; B3.08; Q3.08)
-Date: Wed, 11 Jan 2012 07:15:42 +0000
-From: buildd on zandonai <buildd@zandonai.debian.org>
+Date: Fri, 16 Mar 2012 12:18:41 +0000
+From: buildd on zemlinsky <buildd@zemlinsky.debian.org>
 To: aurelien@aurel32.net,phil+buildd@philkern.de,logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.15.0-1 on s390x (dist=sid)
-Key-Id: 96C8554F
+Subject: Log for successful build of bedtools_2.16.1-1 on s390x (dist=sid)
+Key-Id: 6A3F7E2B
 Delivered-To: logs@buildd.debian.org
 
-sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on zandonai.debian.org
+sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on zemlinsky.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.15.0-1 (s390x)                                  11 Jan 2012 07:09 ║
+║ bedtools 2.16.1-1 (s390x)                                  16 Mar 2012 12:14 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.15.0-1
-Source Version: 2.15.0-1
+Version: 2.16.1-1
+Source Version: 2.16.1-1
 Architecture: s390x
-Get:1 http://ftp.de.debian.org unstable InRelease [189 kB]
-Get:2 http://incoming.debian.org unstable InRelease [189 kB]
-Get:3 http://ftp.de.debian.org unstable/main Sources [6000 kB]
+Hit http://ftp-stud.hs-esslingen.de unstable InRelease
+Hit http://ftp-stud.hs-esslingen.de unstable/main Sources
+Hit http://ftp-stud.hs-esslingen.de unstable/contrib Sources
+Get:1 http://ftp-stud.hs-esslingen.de unstable/non-free Sources [99.8 kB]
+Hit http://ftp-stud.hs-esslingen.de unstable/main s390x Packages
+Hit http://ftp-stud.hs-esslingen.de unstable/contrib s390x Packages
+Ign http://ftp-stud.hs-esslingen.de unstable/contrib TranslationIndex
+Hit http://ftp-stud.hs-esslingen.de unstable/main TranslationIndex
+Hit http://ftp-stud.hs-esslingen.de unstable/contrib Translation-en
+Hit http://ftp-stud.hs-esslingen.de unstable/main Translation-en
+Hit http://incoming.debian.org unstable InRelease
 Ign http://incoming.debian.org  InRelease
-Get:4 http://incoming.debian.org  Release.gpg [836 B]
-Get:5 http://incoming.debian.org unstable/main Sources [6000 kB]
-Get:6 http://ftp.de.debian.org unstable/contrib Sources [54.4 kB]
-Get:7 http://ftp.de.debian.org unstable/non-free Sources [100 kB]
-Get:8 http://ftp.de.debian.org unstable/main s390x Packages [7090 kB]
-Get:9 http://ftp.de.debian.org unstable/contrib s390x Packages [51.3 kB]
-Ign http://ftp.de.debian.org unstable/contrib TranslationIndex
-Get:10 http://ftp.de.debian.org unstable/main TranslationIndex [2085 B]
-Ign http://ftp.de.debian.org unstable/contrib Translation-en
-Get:11 http://incoming.debian.org unstable/contrib Sources [54.4 kB]
-Get:12 http://incoming.debian.org unstable/non-free Sources [100 kB]
-Get:13 http://incoming.debian.org unstable/main s390x Packages [7090 kB]
-Get:14 http://incoming.debian.org unstable/contrib s390x Packages [51.3 kB]
+Get:2 http://incoming.debian.org  Release.gpg [836 B]
+Hit http://incoming.debian.org unstable/main Sources
+Hit http://incoming.debian.org unstable/contrib Sources
+Get:3 http://incoming.debian.org unstable/non-free Sources [99.8 kB]
+Hit http://incoming.debian.org unstable/main s390x Packages
+Hit http://incoming.debian.org unstable/contrib s390x Packages
 Ign http://incoming.debian.org unstable/contrib TranslationIndex
-Get:15 http://incoming.debian.org unstable/main TranslationIndex [2085 B]
-Get:16 http://incoming.debian.org  Release [1616 B]
-Get:17 http://incoming.debian.org  Sources [49.9 kB]
-Get:18 http://incoming.debian.org  Packages [601 kB]
-Ign http://incoming.debian.org unstable/contrib Translation-en
+Hit http://incoming.debian.org unstable/main TranslationIndex
+Get:4 http://incoming.debian.org  Release [1616 B]
+Hit http://incoming.debian.org unstable/contrib Translation-en
+Hit http://incoming.debian.org unstable/main Translation-en
+Get:5 http://incoming.debian.org  Sources [58.9 kB]
+Get:6 http://incoming.debian.org  Packages [687 kB]
 Ign http://incoming.debian.org  Translation-en
-Fetched 27.6 MB in 25s (1088 kB/s)
+Fetched 948 kB in 2s (446 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -944,11 +1036,11 @@ Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
 git://git.debian.org/git/debian-med/bedtools.git
-Need to get 969 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (dsc) [1975 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (tar) [963 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.15.0-1 (diff) [4499 B]
-Fetched 969 kB in 1s (485 kB/s)
+Need to get 985 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (dsc) [1975 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (tar) [978 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (diff) [5035 B]
+Fetched 985 kB in 1s (611 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -968,12 +1060,12 @@ Installing positive dependencies:
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 47 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 47 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -982,14 +1074,14 @@ Checking correctness of dependencies...
 
 Build-Depends: libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, python, zlib1g-dev
 Checking for already installed dependencies...
-libc6-dev: already installed (2.13-24)
+libc6-dev: already installed (2.13-26)
 gcc: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
 g++: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
 make: already installed (3.81-8.1+b1)
 dpkg-dev: already installed (1.16.1.2 >= 1.13.5 is satisfied)
 cdbs: missing
 debhelper: missing
-Using default version 8.9.14
+Using default version 9.20120312
 quilt: missing
 python: missing
 zlib1g-dev: missing
@@ -1003,7 +1095,7 @@ The following extra packages will be installed:
   intltool-debian libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0 libmagic1
   libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0 libunistring0
   libxml2 man-db mime-support po-debconf python-minimal python2.7
-  python2.7-minimal
+  python2.7-minimal zlib1g
 Suggested packages:
   wamerican wordlist whois vacation devscripts dh-make gettext-doc groff less
   www-browser libmail-box-perl python-doc python-tk python2.7-doc
@@ -1017,60 +1109,69 @@ The following NEW packages will be installed:
   libmagic1 libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0
   libunistring0 libxml2 man-db mime-support po-debconf python python-minimal
   python2.7 python2.7-minimal quilt zlib1g-dev
-0 upgraded, 32 newly installed, 0 to remove and 1 not upgraded.
-Need to get 17.9 MB of archives.
-After this operation, 51.2 MB of additional disk space will be used.
-Get:1 http://ftp.de.debian.org/debian/ unstable/main libncursesw5 s390x 5.9-4+b1 [326 kB]
-Get:2 http://ftp.de.debian.org/debian/ unstable/main libpipeline1 s390x 1.2.0-5+b1 [39.8 kB]
-Get:3 http://ftp.de.debian.org/debian/ unstable/main libssl1.0.0 s390x 1.0.0e-3 [1221 kB]
-Get:4 http://ftp.de.debian.org/debian/ unstable/main libpcre3 s390x 8.12-4+b1 [235 kB]
-Get:5 http://ftp.de.debian.org/debian/ unstable/main libffi5 s390x 3.0.10-3+b1 [26.2 kB]
-Get:6 http://ftp.de.debian.org/debian/ unstable/main libglib2.0-0 s390x 2.30.2-4+b1 [1867 kB]
-Get:7 http://ftp.de.debian.org/debian/ unstable/main libxml2 s390x 2.7.8.dfsg-5.1 [891 kB]
-Get:8 http://ftp.de.debian.org/debian/ unstable/main libcroco3 s390x 0.6.2-2+b1 [123 kB]
-Get:9 http://ftp.de.debian.org/debian/ unstable/main libexpat1 s390x 2.0.1-7.2 [141 kB]
-Get:10 http://ftp.de.debian.org/debian/ unstable/main libunistring0 s390x 0.9.3-5+b1 [442 kB]
-Get:11 http://ftp.de.debian.org/debian/ unstable/main libdb4.8 s390x 4.8.30-11 [714 kB]
-Get:12 http://ftp.de.debian.org/debian/ unstable/main bsdmainutils s390x 8.2.3+b1 [211 kB]
-Get:13 http://ftp.de.debian.org/debian/ unstable/main groff-base s390x 1.21-6+b1 [1184 kB]
-Get:14 http://ftp.de.debian.org/debian/ unstable/main man-db s390x 2.6.0.2-3+b1 [1029 kB]
-Get:15 http://ftp.de.debian.org/debian/ unstable/main libmagic1 s390x 5.09-2+b1 [252 kB]
-Get:16 http://ftp.de.debian.org/debian/ unstable/main file s390x 5.09-2+b1 [52.9 kB]
-Get:17 http://ftp.de.debian.org/debian/ unstable/main gettext-base s390x 0.18.1.1-5+b1 [157 kB]
-Get:18 http://ftp.de.debian.org/debian/ unstable/main libsqlite3-0 s390x 3.7.9-2 [443 kB]
-Get:19 http://ftp.de.debian.org/debian/ unstable/main mime-support all 3.51-1 [35.0 kB]
-Get:20 http://ftp.de.debian.org/debian/ unstable/main python2.7-minimal s390x 2.7.2-10 [1742 kB]
-Get:21 http://ftp.de.debian.org/debian/ unstable/main python2.7 s390x 2.7.2-10 [2672 kB]
-Get:22 http://ftp.de.debian.org/debian/ unstable/main python-minimal all 2.7.2-9 [39.8 kB]
-Get:23 http://ftp.de.debian.org/debian/ unstable/main python all 2.7.2-9 [176 kB]
-Get:24 http://ftp.de.debian.org/debian/ unstable/main cdbs all 0.4.100 [77.1 kB]
-Get:25 http://ftp.de.debian.org/debian/ unstable/main html2text s390x 1.3.2a-15+b1 [111 kB]
-Get:26 http://ftp.de.debian.org/debian/ unstable/main gettext s390x 0.18.1.1-5+b1 [2163 kB]
-Get:27 http://ftp.de.debian.org/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
-Get:28 http://ftp.de.debian.org/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
-Get:29 http://ftp.de.debian.org/debian/ unstable/main debhelper all 8.9.14 [693 kB]
-Get:30 http://ftp.de.debian.org/debian/ unstable/main diffstat s390x 1.55-2 [30.4 kB]
-Get:31 http://ftp.de.debian.org/debian/ unstable/main quilt all 0.50-2 [381 kB]
-Get:32 http://ftp.de.debian.org/debian/ unstable/main zlib1g-dev s390x 1:1.2.3.4.dfsg-3+b1 [199 kB]
+The following packages will be upgraded:
+  zlib1g
+1 upgraded, 32 newly installed, 0 to remove and 46 not upgraded.
+Need to get 18.1 MB of archives.
+After this operation, 51.5 MB of additional disk space will be used.
+Get:1 http://ftp-stud.hs-esslingen.de/debian/ unstable/main zlib1g s390x 1:1.2.6.dfsg-2 [91.1 kB]
+Get:2 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libncursesw5 s390x 5.9-4+b1 [326 kB]
+Get:3 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libpipeline1 s390x 1.2.1-1 [40.5 kB]
+Get:4 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libssl1.0.0 s390x 1.0.0h-1 [1224 kB]
+Get:5 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libmagic1 s390x 5.10-1 [255 kB]
+Get:6 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libpcre3 s390x 8.12-4+b1 [235 kB]
+Get:7 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libffi5 s390x 3.0.10-3+b1 [26.2 kB]
+Get:8 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libglib2.0-0 s390x 2.30.2-6 [1867 kB]
+Get:9 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libxml2 s390x 2.7.8.dfsg-7 [894 kB]
+Get:10 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libcroco3 s390x 0.6.4-2 [150 kB]
+Get:11 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libexpat1 s390x 2.0.1-7.2 [141 kB]
+Get:12 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libunistring0 s390x 0.9.3-5+b1 [442 kB]
+Get:13 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libdb4.8 s390x 4.8.30-11 [714 kB]
+Get:14 http://ftp-stud.hs-esslingen.de/debian/ unstable/main bsdmainutils s390x 9.0.1 [214 kB]
+Get:15 http://ftp-stud.hs-esslingen.de/debian/ unstable/main groff-base s390x 1.21-6+b1 [1184 kB]
+Get:16 http://ftp-stud.hs-esslingen.de/debian/ unstable/main man-db s390x 2.6.1-1 [1070 kB]
+Get:17 http://ftp-stud.hs-esslingen.de/debian/ unstable/main file s390x 5.10-1 [53.6 kB]
+Get:18 http://ftp-stud.hs-esslingen.de/debian/ unstable/main gettext-base s390x 0.18.1.1-5+b1 [157 kB]
+Get:19 http://ftp-stud.hs-esslingen.de/debian/ unstable/main libsqlite3-0 s390x 3.7.10-1 [448 kB]
+Get:20 http://ftp-stud.hs-esslingen.de/debian/ unstable/main mime-support all 3.52-1 [35.5 kB]
+Get:21 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python2.7-minimal s390x 2.7.3~rc1-1 [1744 kB]
+Get:22 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python2.7 s390x 2.7.3~rc1-1 [2677 kB]
+Get:23 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python-minimal all 2.7.2-10 [40.0 kB]
+Get:24 http://ftp-stud.hs-esslingen.de/debian/ unstable/main python all 2.7.2-10 [177 kB]
+Get:25 http://ftp-stud.hs-esslingen.de/debian/ unstable/main cdbs all 0.4.109 [79.4 kB]
+Get:26 http://ftp-stud.hs-esslingen.de/debian/ unstable/main html2text s390x 1.3.2a-15+b1 [111 kB]
+Get:27 http://ftp-stud.hs-esslingen.de/debian/ unstable/main gettext s390x 0.18.1.1-5+b1 [2163 kB]
+Get:28 http://ftp-stud.hs-esslingen.de/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:29 http://ftp-stud.hs-esslingen.de/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:30 http://ftp-stud.hs-esslingen.de/debian/ unstable/main debhelper all 9.20120312 [694 kB]
+Get:31 http://ftp-stud.hs-esslingen.de/debian/ unstable/main diffstat s390x 1.55-2 [30.4 kB]
+Get:32 http://ftp-stud.hs-esslingen.de/debian/ unstable/main quilt all 0.60-2 [377 kB]
+Get:33 http://ftp-stud.hs-esslingen.de/debian/ unstable/main zlib1g-dev s390x 1:1.2.6.dfsg-2 [217 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 17.9 MB in 6s (2938 kB/s)
+Fetched 18.1 MB in 1s (9669 kB/s)
+(Reading database ... 10788 files and directories currently installed.)
+Preparing to replace zlib1g 1:1.2.6.dfsg-1 (using .../zlib1g_1%3a1.2.6.dfsg-2_s390x.deb) ...
+Unpacking replacement zlib1g ...
+Setting up zlib1g (1:1.2.6.dfsg-2) ...
 Selecting previously unselected package libncursesw5.
-(Reading database ... 10708 files and directories currently installed.)
+(Reading database ... 10788 files and directories currently installed.)
 Unpacking libncursesw5 (from .../libncursesw5_5.9-4+b1_s390x.deb) ...
 Selecting previously unselected package libpipeline1.
-Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5+b1_s390x.deb) ...
+Unpacking libpipeline1 (from .../libpipeline1_1.2.1-1_s390x.deb) ...
 Selecting previously unselected package libssl1.0.0.
-Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0e-3_s390x.deb) ...
+Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0h-1_s390x.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.10-1_s390x.deb) ...
 Selecting previously unselected package libpcre3.
 Unpacking libpcre3 (from .../libpcre3_8.12-4+b1_s390x.deb) ...
 Selecting previously unselected package libffi5.
 Unpacking libffi5 (from .../libffi5_3.0.10-3+b1_s390x.deb) ...
 Selecting previously unselected package libglib2.0-0.
-Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4+b1_s390x.deb) ...
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-6_s390x.deb) ...
 Selecting previously unselected package libxml2.
-Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_s390x.deb) ...
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-7_s390x.deb) ...
 Selecting previously unselected package libcroco3.
-Unpacking libcroco3 (from .../libcroco3_0.6.2-2+b1_s390x.deb) ...
+Unpacking libcroco3 (from .../libcroco3_0.6.4-2_s390x.deb) ...
 Selecting previously unselected package libexpat1.
 Unpacking libexpat1 (from .../libexpat1_2.0.1-7.2_s390x.deb) ...
 Selecting previously unselected package libunistring0.
@@ -1078,31 +1179,29 @@ Unpacking libunistring0 (from .../libunistring0_0.9.3-5+b1_s390x.deb) ...
 Selecting previously unselected package libdb4.8.
 Unpacking libdb4.8 (from .../libdb4.8_4.8.30-11_s390x.deb) ...
 Selecting previously unselected package bsdmainutils.
-Unpacking bsdmainutils (from .../bsdmainutils_8.2.3+b1_s390x.deb) ...
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.1_s390x.deb) ...
 Selecting previously unselected package groff-base.
 Unpacking groff-base (from .../groff-base_1.21-6+b1_s390x.deb) ...
 Selecting previously unselected package man-db.
-Unpacking man-db (from .../man-db_2.6.0.2-3+b1_s390x.deb) ...
-Selecting previously unselected package libmagic1.
-Unpacking libmagic1 (from .../libmagic1_5.09-2+b1_s390x.deb) ...
+Unpacking man-db (from .../man-db_2.6.1-1_s390x.deb) ...
 Selecting previously unselected package file.
-Unpacking file (from .../file_5.09-2+b1_s390x.deb) ...
+Unpacking file (from .../archives/file_5.10-1_s390x.deb) ...
 Selecting previously unselected package gettext-base.
 Unpacking gettext-base (from .../gettext-base_0.18.1.1-5+b1_s390x.deb) ...
 Selecting previously unselected package libsqlite3-0.
-Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.9-2_s390x.deb) ...
+Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.10-1_s390x.deb) ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.51-1_all.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-1_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.2-10_s390x.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3~rc1-1_s390x.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.2-10_s390x.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3~rc1-1_s390x.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.2-9_all.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.2-10_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.2-9_all.deb) ...
+Unpacking python (from .../python_2.7.2-10_all.deb) ...
 Selecting previously unselected package cdbs.
-Unpacking cdbs (from .../archives/cdbs_0.4.100_all.deb) ...
+Unpacking cdbs (from .../archives/cdbs_0.4.109_all.deb) ...
 Selecting previously unselected package html2text.
 Unpacking html2text (from .../html2text_1.3.2a-15+b1_s390x.deb) ...
 Selecting previously unselected package gettext.
@@ -1112,59 +1211,59 @@ Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) .
 Selecting previously unselected package po-debconf.
 Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
 Selecting previously unselected package debhelper.
-Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Unpacking debhelper (from .../debhelper_9.20120312_all.deb) ...
 Selecting previously unselected package diffstat.
 Unpacking diffstat (from .../diffstat_1.55-2_s390x.deb) ...
 Selecting previously unselected package quilt.
-Unpacking quilt (from .../archives/quilt_0.50-2_all.deb) ...
+Unpacking quilt (from .../archives/quilt_0.60-2_all.deb) ...
 Selecting previously unselected package zlib1g-dev.
-Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3+b1_s390x.deb) ...
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.6.dfsg-2_s390x.deb) ...
 Setting up libncursesw5 (5.9-4+b1) ...
-Setting up libpipeline1 (1.2.0-5+b1) ...
-Setting up libssl1.0.0 (1.0.0e-3) ...
+Setting up libpipeline1 (1.2.1-1) ...
+Setting up libssl1.0.0 (1.0.0h-1) ...
+Setting up libmagic1 (5.10-1) ...
 Setting up libpcre3 (8.12-4+b1) ...
 Setting up libffi5 (3.0.10-3+b1) ...
-Setting up libglib2.0-0 (2.30.2-4+b1) ...
+Setting up libglib2.0-0 (2.30.2-6) ...
 No schema files found: doing nothing.
-Setting up libxml2 (2.7.8.dfsg-5.1) ...
-Setting up libcroco3 (0.6.2-2+b1) ...
+Setting up libxml2 (2.7.8.dfsg-7) ...
+Setting up libcroco3 (0.6.4-2) ...
 Setting up libexpat1 (2.0.1-7.2) ...
 Setting up libunistring0 (0.9.3-5+b1) ...
 Setting up libdb4.8 (4.8.30-11) ...
-Setting up bsdmainutils (8.2.3+b1) ...
+Setting up bsdmainutils (9.0.1) ...
 update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
 update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
 Setting up groff-base (1.21-6+b1) ...
-Setting up man-db (2.6.0.2-3+b1) ...
+Setting up man-db (2.6.1-1) ...
 Building database of manual pages ...
-Setting up libmagic1 (5.09-2+b1) ...
-Setting up file (5.09-2+b1) ...
+Setting up file (5.10-1) ...
 Setting up gettext-base (0.18.1.1-5+b1) ...
-Setting up libsqlite3-0 (3.7.9-2) ...
-Setting up mime-support (3.51-1) ...
+Setting up libsqlite3-0 (3.7.10-1) ...
+Setting up mime-support (3.52-1) ...
 update-alternatives: using /usr/bin/see to provide /usr/bin/view (view) in auto mode.
-Setting up python2.7-minimal (2.7.2-10) ...
-Setting up python2.7 (2.7.2-10) ...
-Setting up python-minimal (2.7.2-9) ...
-Setting up python (2.7.2-9) ...
-Setting up cdbs (0.4.100) ...
+Setting up python2.7-minimal (2.7.3~rc1-1) ...
+Setting up python2.7 (2.7.3~rc1-1) ...
+Setting up python-minimal (2.7.2-10) ...
+Setting up python (2.7.2-10) ...
+Setting up cdbs (0.4.109) ...
 Setting up html2text (1.3.2a-15+b1) ...
 Setting up gettext (0.18.1.1-5+b1) ...
 Setting up intltool-debian (0.35.0+20060710.1) ...
 Setting up po-debconf (1.0.16+nmu2) ...
-Setting up debhelper (8.9.14) ...
+Setting up debhelper (9.20120312) ...
 Setting up diffstat (1.55-2) ...
-Setting up quilt (0.50-2) ...
-Setting up zlib1g-dev (1:1.2.3.4.dfsg-3+b1) ...
+Setting up quilt (0.60-2) ...
+Setting up zlib1g-dev (1:1.2.6.dfsg-2) ...
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 46 not upgraded.
 Checking correctness of dependencies...
 Kernel: Linux 2.6.32-5-s390x s390x (s390x)
-Toolchain package versions: binutils_2.22-3 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-11 gcc-4.6_4.6.2-11 libc6-dev_2.13-24 libstdc++6_4.6.2-11 libstdc++6-4.6-dev_4.6.2-11 linux-libc-dev_3.1.6-1
-Package versions: apt_0.8.15.9+b1 base-files_6.5+b1 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-3 bsdmainutils_8.2.3+b1 bsdutils_1:2.20.1-1.1 build-essential_11.5+b1 bzip2_1.0.6-1 cdbs_0.4.100 coreutils_8.13-3+b1 cpp_4:4.6.2-4 cpp-4.6_4.6.2-11 dash_0.5.7-2+b1 debconf_1.5.41 debconf-i18n_1.5.41 debfoster_2.7-1.1+b1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.1 diffstat_1.55-2 diffutils_1:3.2-1+b1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.09-2+b1 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-11 gcc_4:4.6.2-4 gcc-4.6_4.6.2-11 gcc-4.6-base_4.6.2-11 gettext_0.18.1.1-5+b1 gettext-base_0.18.1.1-5+b1 gnupg_1.4.11-3+b1 gpgv_1.4.11-3+b1 grep_2.10-1 groff-base_1.21-6+b1 gzip_1.4-2+b1 hostname_3.09 html2text_1.3.2a-15+b1 initscripts_2.88dsf-18 insserv_1.14.0-2.1+b1 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.2-2+b1 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3+b1 libgc1c2_1:7.1-8+b1 libgcc1_1:4.6.2-11 libgdbm3_1.8.3-10+b1 libglib2.0-0_2.30.2-4+b1 libgmp10_2:5.0.2+dfsg-2+b1 libgomp1_4.6.2-11 liblocale-gettext-perl_1.05-7+b2 liblzma5_5.1.1alpha+20110809-3+b1 libmagic1_5.09-2+b1 libmount1_2.20.1-1.1 libmpc2_0.9-4+b1 libmpfr4_3.1.0-3+b1 libncurses5_5.9-4+b1 libncursesw5_5.9-4+b1 libpam-modules_1.1.3-6+b1 libpam-modules-bin_1.1.3-6+b1 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6+b1 libpcre3_8.12-4+b1 libpipeline1_1.2.0-5+b1 libreadline6_6.2-8+b1 libselinux1_2.1.0-4+b1 libsepol1_2.1.0-1.2 libslang2_2.2.4-5 libsqlite3-0_3.7.9-2 libss2_1.42-1 libssl1.0.0_1.0.0e-3 libstdc++6_4.6.2-11 libstdc++6-4.6-dev_4.6.2-11 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b2 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-4+b1 libunistring0_0.9.3-5+b1 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libxml2_2.7.8.dfsg-5.1 linux-libc-dev_3.1.6-1 login_1:4.1.4.2+svn3283-3+b1 lsb-base_3.2-28 make_3.81-8.1+b1 man-db_2.6.0.2-3+b1 mawk_1.3.3-16+b1 mime-support_3.51-1 mount_2.20.1-1.1 multiarch-support_2.13-24 ncurses-base_5.9-4 ncurses-bin_5.9-4+b1 passwd_1:4.1.4.2+svn3283-3+b1 patch_2.6.1-2+b1 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 po-debconf_1.0.16+nmu2 python_2.7.2-9 python-minimal_2.7.2-9 python2.7_2.7.2-10 python2.7-minimal_2.7.2-10 quilt_0.50-2 readline-common_6.2-8 sed_4.2.1-9+b1 sensible-utils_0.0.6 sudo_1.8.3p1-2+b1 sysv-rc_2.88dsf-18 sysvinit_2.88dsf-18 sysvinit-utils_2.88dsf-18 tar_1.26-4 tzdata_2011n-2 util-linux_2.20.1-1.1 xz-utils_5.1.1alpha+20110809-3+b1 zlib1g_1:1.2.3.4.dfsg-3+b1 zlib1g-dev_1:1.2.3.4.dfsg-3+b1
+Toolchain package versions: binutils_2.22-5 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-14 gcc-4.6_4.6.2-14 libc6-dev_2.13-26 libstdc++6_4.6.2-14 libstdc++6-4.6-dev_4.6.2-14 linux-libc-dev_3.2.6-1
+Package versions: apt_0.8.15.9+b1 base-files_6.5+b1 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-5 bsdmainutils_9.0.1 bsdutils_1:2.20.1-1.2 build-essential_11.5+b1 bzip2_1.0.6-1 cdbs_0.4.109 coreutils_8.13-3+b1 cpp_4:4.6.2-4 cpp-4.6_4.6.2-14 dash_0.5.7-2+b1 debconf_1.5.41 debconf-i18n_1.5.41 debfoster_2.7-1.1+b1 debhelper_9.20120312 debian-archive-keyring_2010.08.28 debianutils_4.2.1 diffstat_1.55-2 diffutils_1:3.2-1+b1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.10-1 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-14 gcc_4:4.6.2-4 gcc-4.6_4.6.2-14 gcc-4.6-base_4.6.2-14 gettext_0.18.1.1-5+b1 gettext-base_0.18.1.1-5+b1 gnupg_1.4.11-3+b1 gpgv_1.4.11-3+b1 grep_2.10-1 groff-base_1.21-6+b1 gzip_1.4-2+b1 hostname_3.11 html2text_1.3.2a-15+b1 initscripts_2.88dsf-22 insserv_1.14.0-2.2 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.2 libbz2-1.0_1.0.6-1 libc-bin_2.13-26 libc-dev-bin_2.13-26 libc6_2.13-26 libc6-dev_2.13-26 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.4-2 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3+b1 libgc1c2_1:7.1-8+b1 libgcc1_1:4.6.2-14 libgdbm3_1.8.3-10+b1 libglib2.0-0_2.30.2-6 libgmp10_2:5.0.4+dfsg-1 libgomp1_4.6.2-14 liblocale-gettext-perl_1.05-7+b2 liblzma5_5.1.1alpha+20110809-3+b1 libmagic1_5.10-1 libmount1_2.20.1-1.2 libmpc2_0.9-4+b1 libmpfr4_3.1.0-3+b1 libncurses5_5.9-4+b1 libncursesw5_5.9-4+b1 libpam-modules_1.1.3-7 libpam-modules-bin_1.1.3-7 libpam-runtime_1.1.3-7 libpam0g_1.1.3-7 libpcre3_8.12-4+b1 libpipeline1_1.2.1-1 libreadline6_6.2-8+b1 libselinux1_2.1.0-4.1 libsemanage-common_2.1.0-2 libsemanage1_2.1.0-2 libsepol1_2.1.0-1.2 libslang2_2.2.4-6 libsqlite3-0_3.7.10-1 libss2_1.42-1 libssl1.0.0_1.0.0h-1 libstdc++6_4.6.2-14 libstdc++6-4.6-dev_4.6.2-14 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b2 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-4+b1 libunistring0_0.9.3-5+b1 libusb-0.1-4_2:0.1.12-20 libustr-1.0-1_1.0.4-2 libuuid1_2.20.1-1.2 libxml2_2.7.8.dfsg-7 linux-libc-dev_3.2.6-1 login_1:4.1.5-1 lsb-base_3.2-28.1 make_3.81-8.1+b1 man-db_2.6.1-1 mawk_1.3.3-16+b1 mime-support_3.52-1 mount_2.20.1-1.2 multiarch-support_2.13-26 ncurses-base_5.9-4 ncurses-bin_5.9-4+b1 passwd_1:4.1.5-1 patch_2.6.1-3 perl_5.14.2-7 perl-base_5.14.2-7 perl-modules_5.14.2-7 po-debconf_1.0.16+nmu2 python_2.7.2-10 python-minimal_2.7.2-10 python2.7_2.7.3~rc1-1 python2.7-minimal_2.7.3~rc1-1 quilt_0.60-2 readline-common_6.2-8 sed_4.2.1-9+b1 sensible-utils_0.0.6 sudo_1.8.3p2-1 sysv-rc_2.88dsf-22 sysvinit_2.88dsf-22 sysvinit-utils_2.88dsf-22 tar_1.26-4 tzdata_2011n-2 ucf_3.0025+nmu2 util-linux_2.20.1-1.2 xz-utils_5.1.1alpha+20110809-3+b1 zlib1g_1:1.2.6.dfsg-2 zlib1g-dev_1:1.2.6.dfsg-2
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -1175,12 +1274,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Wed Jan 11 06:48:11 2012 UTC using RSA key ID 2295D502
+gpgv: Signature made Fri Mar 16 11:42:52 2012 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.15.0-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.15.0
-dpkg-source: info: unpacking bedtools_2.15.0.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.15.0-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.16.1-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.16.1
+dpkg-source: info: unpacking bedtools_2.16.1.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.16.1-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -1191,24 +1290,38 @@ dpkg-buildpackage
 ─────────────────
 
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.15.0-1
- dpkg-source --before-build bedtools-2.15.0
+dpkg-buildpackage: source version 2.16.1-1
+ dpkg-source --before-build bedtools-2.16.1
 dpkg-buildpackage: host architecture s390x
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
-/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
-Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -k clean
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
+ * Cleaning-up BamTools API
+ * Cleaning up.
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 dh_clean 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
+	rm -f debian/*.debhelper.log
+	rm -f debian/files
+	find .  \( \( -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} \; \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} \; \) \)
+	rm -f *-stamp
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -1221,52 +1334,44 @@ test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
-/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
-[ -d obj ] || mkdir -p obj
-[ -d bin ] || mkdir -p bin
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  
+make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 Building BEDTools:
 =========================================================
-- Building in src/utils/lineFileUtilities
-  * compiling lineFileUtilities.cpp
-
+DETECTED_VERSION = v2.16.1
+CURRENT_VERSION  = v2.16.1
+ * Creating BamTools API
 - Building in src/utils/bedFile
   * compiling bedFile.cpp
-
+- Building in src/utils/version
+  * compiling version.cpp
 - Building in src/utils/bedGraphFile
   * compiling bedGraphFile.cpp
-
 - Building in src/utils/chromsweep
   * compiling chromsweep.cpp
-
 - Building in src/utils/gzstream
 g++ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
-
 - Building in src/utils/fileType
   * compiling fileType.cpp
-
 - Building in src/utils/bedFilePE
   * compiling bedFilePE.cpp
-
 - Building in src/utils/sequenceUtilities
   * compiling sequenceUtils.cpp
-
 - Building in src/utils/tabFile
   * compiling tabFile.cpp
-
 - Building in src/utils/BamTools
  * compiling BamAlignment.cpp
  * compiling BamMultiReader.cpp
@@ -1305,148 +1410,143 @@ src/api/internal/io/BamHttp_p.cpp:396:66: warning: comparison between signed and
  * compiling TcpSocketEngine_unix_p.cpp
  * compiling TcpSocket_p.cpp
 src/api/internal/io/TcpSocket_p.cpp: In member function 'std::string BamTools::Internal::TcpSocket::ReadLine(int64_t)':
-src/api/internal/io/TcpSocket_p.cpp:335:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+src/api/internal/io/TcpSocket_p.cpp:336:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
  * compiling SamFormatParser_p.cpp
  * compiling SamFormatPrinter_p.cpp
  * compiling SamHeaderValidator_p.cpp
  * compiling BamException_p.cpp
-[ -d lib ] || mkdir -p lib
-[ -d include ] || mkdir -p include
-[ -d include/api ] || mkdir -p include/api
-[ -d include/shared ] || mkdir -p include/shared
- * linking libbamtools.a
+ * linking lib/libbamtools.a
 ar cr lib/libbamtools.a src/api/BamAlignment.o src/api/BamMultiReader.o src/api/BamReader.o src/api/BamWriter.o src/api/SamHeader.o src/api/SamProgram.o src/api/SamProgramChain.o src/api/SamReadGroup.o src/api/SamReadGroupDictionary.o src/api/SamSequence.o src/api/SamSequenceDictionary.o src/api/internal/bam/BamHeader_p.o src/api/internal/bam/BamMultiReader_p.o src/api/internal/bam/BamRandomAccessController_p.o src/api/internal/bam/BamReader_p.o src/api/internal/bam/BamWriter_p.o src/api/internal/index/BamIndexFactory_p.o src/api/internal/index/BamStandardIndex_p.o src/api/internal/index/BamToolsIndex_p.o src/api/internal/io/BamDeviceFactory_p.o src/api/internal/io/BamFile_p.o src/api/internal/io/BamFtp_p.o src/api/internal/io/BamHttp_p.o src/api/internal/io/BamPipe_p.o src/api/internal/io/BgzfStream_p.o src/api/internal/io/ByteArray_p.o src/api/internal/io/HostAddress_p.o src/api/internal/io/HostInfo_p.o src/api/internal/io/HttpHeader_p.o src/api/internal/io/ILocalIODevice_p.o src/api/internal/io/RollingBuffer_p.o src/api/internal/io/TcpSocketEngine_p.o src/api/internal/io/TcpSocketEngine_unix_p.o src/api/internal/io/TcpSocket_p.o src/api/internal/sam/SamFormatParser_p.o src/api/internal/sam/SamFormatPrinter_p.o src/api/internal/sam/SamHeaderValidator_p.o src/api/internal/utils/BamException_p.o
-
+ranlib lib/libbamtools.a
 - Building in src/utils/BamTools-Ancillary
   * compiling BamAncillary.cpp
-
+  * compiling BamAncillary.cpp
+- Building in src/utils/BlockedIntervals
+  * compiling BlockedIntervals.cpp
+  * compiling BlockedIntervals.cpp
 - Building in src/utils/Fasta
   * compiling Fasta.cpp
 Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
 Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
 Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  * compiling Fasta.cpp
+Fasta.cpp: In member function 'void FastaIndexEntry::clear()':
+Fasta.cpp:28:14: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:31:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
   * compiling split.cpp
-
+  * compiling split.cpp
+- Building in src/utils/VectorOps
+  * compiling VectorOps.cpp
 - Building in src/utils/genomeFile
   * compiling genomeFile.cpp
 genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
 genomeFile.cpp:61:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
-
 - Building in src/annotateBed
   * compiling annotateMain.cpp
 annotateMain.cpp: In function 'int annotate_main(int, char**)':
 annotateMain.cpp:39:10: warning: variable 'haveTitles' set but not used [-Wunused-but-set-variable]
   * compiling annotateBed.cpp
-
 - Building in src/bamToBed
   * compiling bamToBed.cpp
 bamToBed.cpp: In function 'int bamtobed_main(int, char**)':
 bamToBed.cpp:74:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
-
+- Building in src/bamToFastq
+  * compiling bamToFastqMain.cpp
+bamToFastqMain.cpp: In function 'int bamtofastq_main(int, char**)':
+bamToFastqMain.cpp:38:10: warning: variable 'haveFastq2' set but not used [-Wunused-but-set-variable]
+  * compiling bamToFastq.cpp
 - Building in src/bedToBam
   * compiling bedToBam.cpp
 bedToBam.cpp: In function 'int bedtobam_main(int, char**)':
 bedToBam.cpp:60:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedpeToBam
   * compiling bedpeToBam.cpp
 bedpeToBam.cpp: In function 'int bedpetobam_main(int, char**)':
 bedpeToBam.cpp:61:10: warning: variable 'haveMapQual' set but not used [-Wunused-but-set-variable]
-
 - Building in src/bedToIgv
   * compiling bedToIgv.cpp
-
 - Building in src/bed12ToBed6
   * compiling bed12ToBed6.cpp
-
 - Building in src/closestBed
   * compiling closestMain.cpp
   * compiling closestBed.cpp
-
 - Building in src/clusterBed
   * compiling clusterMain.cpp
 clusterMain.cpp: In function 'int cluster_main(int, char**)':
 clusterMain.cpp:38:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling clusterBed.cpp
-
 - Building in src/complementBed
   * compiling complementMain.cpp
   * compiling complementBed.cpp
-
 - Building in src/coverageBed
   * compiling coverageMain.cpp
   * compiling coverageBed.cpp
-
+- Building in src/expand
+  * compiling expand.cpp
 - Building in src/fastaFromBed
   * compiling fastaFromBedMain.cpp
   * compiling fastaFromBed.cpp
-
 - Building in src/flankBed
   * compiling flankBedMain.cpp
   * compiling flankBed.cpp
-
 - Building in src/genomeCoverageBed
   * compiling genomeCoverageMain.cpp
   * compiling genomeCoverageBed.cpp
-
 - Building in src/getOverlap
   * compiling getOverlap.cpp
 getOverlap.cpp: In function 'int getoverlap_main(int, char**)':
 getOverlap.cpp:44:10: warning: variable 'haveColumns' set but not used [-Wunused-but-set-variable]
-
 - Building in src/groupBy
   * compiling groupBy.cpp
 groupBy.cpp: In function 'int groupby_main(int, char**)':
-groupBy.cpp:84:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
-
+groupBy.cpp:64:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
 - Building in src/intersectBed
   * compiling intersectMain.cpp
   * compiling intersectBed.cpp
-
 - Building in src/linksBed
   * compiling linksMain.cpp
   * compiling linksBed.cpp
-
 - Building in src/maskFastaFromBed
   * compiling maskFastaFromBedMain.cpp
   * compiling maskFastaFromBed.cpp
-
+- Building in src/mapBed
+  * compiling mapMain.cpp
+mapMain.cpp: In function 'int map_main(int, char**)':
+mapMain.cpp:44:10: warning: variable 'haveColumn' set but not used [-Wunused-but-set-variable]
+mapMain.cpp:45:10: warning: variable 'haveOperation' set but not used [-Wunused-but-set-variable]
+  * compiling mapBed.cpp
 - Building in src/mergeBed
   * compiling mergeMain.cpp
 mergeMain.cpp: In function 'int merge_main(int, char**)':
 mergeMain.cpp:40:10: warning: variable 'haveMaxDistance' set but not used [-Wunused-but-set-variable]
   * compiling mergeBed.cpp
-
 - Building in src/multiBamCov
   * compiling multiBamCovMain.cpp
 multiBamCovMain.cpp: In function 'int multibamcov_main(int, char**)':
 multiBamCovMain.cpp:38:10: warning: variable 'haveBed' set but not used [-Wunused-but-set-variable]
 multiBamCovMain.cpp:39:10: warning: variable 'haveBams' set but not used [-Wunused-but-set-variable]
   * compiling multiBamCov.cpp
-
 - Building in src/multiIntersectBed
-  * compiling multiIntersectBed.cpp
   * compiling multiIntersectBedMain.cpp
 multiIntersectBedMain.cpp: In function 'int multiintersect_main(int, char**)':
 multiIntersectBedMain.cpp:45:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:47:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 multiIntersectBedMain.cpp:48:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling multiIntersectBed.cpp
 - Building in src/nucBed
   * compiling nucBedMain.cpp
   * compiling nucBed.cpp
-
 - Building in src/pairToBed
   * compiling pairToBedMain.cpp
 pairToBedMain.cpp: In function 'int pairtobed_main(int, char**)':
 pairToBedMain.cpp:43:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling pairToBed.cpp
 pairToBed.cpp: In member function 'void BedIntersectPE::FindSpanningOverlaps(const BEDPE&, std::vector<BED>&, const string&)':
-pairToBed.cpp:255:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
+pairToBed.cpp:257:12: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 pairToBed.cpp: In member function 'bool BedIntersectPE::FindOneOrMoreSpanningOverlaps(const BEDPE&, const string&)':
-pairToBed.cpp:307:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
-
+pairToBed.cpp:310:9: warning: variable 'spanLength' set but not used [-Wunused-but-set-variable]
 - Building in src/pairToPair
   * compiling pairToPairMain.cpp
 pairToPairMain.cpp: In function 'int pairtopair_main(int, char**)':
@@ -1455,59 +1555,57 @@ pairToPairMain.cpp:44:10: warning: variable 'haveFraction' set but not used [-Wu
 pairToPair.cpp: In member function 'void PairToPair::FindOverlaps(const BEDPE&)':
 pairToPair.cpp:112:14: warning: variable 'found1' set but not used [-Wunused-but-set-variable]
 pairToPair.cpp:113:14: warning: variable 'found2' set but not used [-Wunused-but-set-variable]
-
+- Building in src/randomBed
+  * compiling randomBedMain.cpp
+  * compiling randomBed.cpp
 - Building in src/shuffleBed
   * compiling shuffleBedMain.cpp
   * compiling shuffleBed.cpp
-
 - Building in src/slopBed
   * compiling slopBedMain.cpp
   * compiling slopBed.cpp
-
 - Building in src/sortBed
   * compiling sortMain.cpp
   * compiling sortBed.cpp
-
 - Building in src/subtractBed
   * compiling subtractMain.cpp
 subtractMain.cpp: In function 'int subtract_main(int, char**)':
 subtractMain.cpp:41:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling subtractBed.cpp
-
 - Building in src/tagBam
   * compiling tagBamMain.cpp
 tagBamMain.cpp: In function 'int tagbam_main(int, char**)':
 tagBamMain.cpp:38:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling tagBam.cpp
-
 - Building in src/unionBedGraphs
-  * compiling unionBedGraphs.cpp
   * compiling unionBedGraphsMain.cpp
 unionBedGraphsMain.cpp: In function 'int unionbedgraphs_main(int, char**)':
 unionBedGraphsMain.cpp:46:10: warning: variable 'haveFiles' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:48:10: warning: variable 'haveGenome' set but not used [-Wunused-but-set-variable]
 unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-Wunused-but-set-variable]
-
+  * compiling unionBedGraphs.cpp
 - Building in src/windowBed
   * compiling windowMain.cpp
   * compiling windowBed.cpp
-
 - Building in src/windowMaker
   * compiling windowMakerMain.cpp
   * compiling windowMaker.cpp
-
 - Building main bedtools binary.
 done.
 - Creating executables for old CLI.
 done.
-make[1]: Leaving directory `/build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0'
+make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
 test -x debian/rules
 dh_testroot
 dh_prep 
+	rm -f debian/bedtools.substvars
+	rm -f debian/bedtools.*.debhelper
+	rm -rf debian/bedtools/
 dh_installdirs -A 
+	install -d debian/bedtools
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
 DEB_MAKE_CHECK_TARGET unset, not running checks
@@ -1515,6 +1613,12 @@ DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install targe
 Adding cdbs dependencies to debian/bedtools.substvars
 dh_installdirs -pbedtools 
 dh_installdocs -pbedtools 
+	install -g 0 -o 0 -d debian/bedtools/usr/share/doc/bedtools
+	cp -a README.rst debian/bedtools/usr/share/doc/bedtools
+	chown -R 0:0 debian/bedtools/usr/share/doc
+	chmod -R go=rX debian/bedtools/usr/share/doc
+	chmod -R u\+rw debian/bedtools/usr/share/doc
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/bedtools/usr/share/doc/bedtools/copyright
 dh_installexamples -pbedtools 
 dh_installman -pbedtools  
 dh_installinfo -pbedtools  
@@ -1522,83 +1626,155 @@ dh_installmenu -pbedtools
 dh_installcron -pbedtools 
 dh_installinit -pbedtools  
 dh_installdebconf -pbedtools 
+	install -o 0 -g 0 -d debian/bedtools/DEBIAN
 dh_installemacsen -pbedtools   
 dh_installcatalogs -pbedtools 
+	grep -s -v '^misc:Depends=' debian/bedtools.substvars > debian/bedtools.substvars.new || true
+	mv debian/bedtools.substvars.new debian/bedtools.substvars
 dh_installpam -pbedtools 
 dh_installlogrotate -pbedtools 
 dh_installlogcheck -pbedtools 
 dh_installchangelogs -pbedtools  RELEASE_HISTORY 
+	install -o 0 -g 0 -p -m644 debian/changelog debian/bedtools/usr/share/doc/bedtools/changelog.Debian
+	install -o 0 -g 0 -p -m644 RELEASE_HISTORY debian/bedtools/usr/share/doc/bedtools/changelog
 dh_installudev -pbedtools 
 dh_lintian -pbedtools 
 dh_bugfiles -pbedtools 
 dh_install -pbedtools  
+	install -d debian/bedtools/usr/bin
+	cp -a ./bin/annotateBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToBed debian/bedtools/usr/bin/
+	cp -a ./bin/bamToFastq debian/bedtools/usr/bin/
+	cp -a ./bin/bed12ToBed6 debian/bedtools/usr/bin/
+	cp -a ./bin/bedpeToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToBam debian/bedtools/usr/bin/
+	cp -a ./bin/bedToIgv debian/bedtools/usr/bin/
+	cp -a ./bin/bedtools debian/bedtools/usr/bin/
+	cp -a ./bin/closestBed debian/bedtools/usr/bin/
+	cp -a ./bin/clusterBed debian/bedtools/usr/bin/
+	cp -a ./bin/complementBed debian/bedtools/usr/bin/
+	cp -a ./bin/coverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/expandCols debian/bedtools/usr/bin/
+	cp -a ./bin/fastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/flankBed debian/bedtools/usr/bin/
+	cp -a ./bin/genomeCoverageBed debian/bedtools/usr/bin/
+	cp -a ./bin/getOverlap debian/bedtools/usr/bin/
+	cp -a ./bin/groupBy debian/bedtools/usr/bin/
+	cp -a ./bin/intersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/linksBed debian/bedtools/usr/bin/
+	cp -a ./bin/mapBed debian/bedtools/usr/bin/
+	cp -a ./bin/maskFastaFromBed debian/bedtools/usr/bin/
+	cp -a ./bin/mergeBed debian/bedtools/usr/bin/
+	cp -a ./bin/multiBamCov debian/bedtools/usr/bin/
+	cp -a ./bin/multiIntersectBed debian/bedtools/usr/bin/
+	cp -a ./bin/nucBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToBed debian/bedtools/usr/bin/
+	cp -a ./bin/pairToPair debian/bedtools/usr/bin/
+	cp -a ./bin/randomBed debian/bedtools/usr/bin/
+	cp -a ./bin/shuffleBed debian/bedtools/usr/bin/
+	cp -a ./bin/slopBed debian/bedtools/usr/bin/
+	cp -a ./bin/sortBed debian/bedtools/usr/bin/
+	cp -a ./bin/subtractBed debian/bedtools/usr/bin/
+	cp -a ./bin/tagBam debian/bedtools/usr/bin/
+	cp -a ./bin/unionBedGraphs debian/bedtools/usr/bin/
+	cp -a ./bin/windowBed debian/bedtools/usr/bin/
+	cp -a ./bin/windowMaker debian/bedtools/usr/bin/
+	install -d debian/bedtools/usr/share/bedtools
+	cp -a ./genomes debian/bedtools/usr/share/bedtools/
 dh_link -pbedtools  
 dh_installmime -pbedtools 
 dh_installgsettings -pbedtools 
 dh_strip -pbedtools  
+	strip --remove-section=.comment --remove-section=.note debian/bedtools/usr/bin/bedtools
 dh_compress -pbedtools  
+	cd debian/bedtools
+	chmod a-x usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	gzip -9nf usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	cd '/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1'
 dh_fixperms -pbedtools  
+	find debian/bedtools  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/bedtools ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/bedtools/usr/share/doc -type f  ! -regex 'debian/bedtools/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/bedtools/usr/share/man debian/bedtools/usr/man/ debian/bedtools/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/bedtools/usr/lib/perl5 debian/bedtools/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/bedtools/usr/bin -type f  -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/bedtools/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
 dh_makeshlibs -pbedtools  
-rm /build/buildd-bedtools_2.15.0-1-s390x-6s5uie/bedtools-2.15.0/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
+	rm -f debian/bedtools/DEBIAN/shlibs
+rm /build/buildd-bedtools_2.16.1-1-s390x-CaK8CS/bedtools-2.16.1/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
 dh_installdeb -pbedtools 
 dh_perl -pbedtools 
 dh_shlibdeps -pbedtools    
+	dpkg-shlibdeps -Tdebian/bedtools.substvars debian/bedtools/usr/bin/bedtools
 dh_gencontrol -pbedtools  
+	echo misc:Depends= >> debian/bedtools.substvars
+	dpkg-gencontrol -ldebian/changelog -Tdebian/bedtools.substvars -Pdebian/bedtools
+	chmod 644 debian/bedtools/DEBIAN/control
+	chown 0:0 debian/bedtools/DEBIAN/control
 dh_md5sums -pbedtools 
+	(cd debian/bedtools >/dev/null ; find . -type f  ! -regex '.*/DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
+	chmod 644 debian/bedtools/DEBIAN/md5sums
+	chown 0:0 debian/bedtools/DEBIAN/md5sums
 dh_builddeb -pbedtools -- -Z xz
-dpkg-deb: building package `bedtools' in `../bedtools_2.15.0-1_s390x.deb'.
- dpkg-genchanges -B -ms390/s390x Build Daemon (zandonai) <buildd_s390-zandonai@buildd.debian.org> >../bedtools_2.15.0-1_s390x.changes
+	dpkg-deb -Z xz --build debian/bedtools ..
+dpkg-deb: building package `bedtools' in `../bedtools_2.16.1-1_s390x.deb'.
+ dpkg-genchanges -B -ms390/s390x Build Daemon (zemlinsky) <buildd_s390x-zemlinsky@buildd.debian.org> >../bedtools_2.16.1-1_s390x.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.15.0
+ dpkg-source --after-build bedtools-2.16.1
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20120111-0715
+Build finished at 20120316-1218
 
-bedtools_2.15.0-1_s390x.changes:
+bedtools_2.16.1-1_s390x.changes:
 Format: 1.8
-Date: Wed, 11 Jan 2012 15:07:45 +0900
+Date: Fri, 16 Mar 2012 19:06:49 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: s390x
-Version: 2.15.0-1
+Version: 2.16.1-1
 Distribution: sid
 Urgency: low
-Maintainer: s390/s390x Build Daemon (zandonai) <buildd_s390-zandonai@buildd.debian.org>
+Maintainer: s390/s390x Build Daemon (zemlinsky) <buildd_s390x-zemlinsky@buildd.debian.org>
 Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.15.0-1) unstable; urgency=low
+ bedtools (2.16.1-1) unstable; urgency=low
  .
-   [3f8e754] Upstream version 2.15.0.
-   [f27b295] Build-depend on python because of scripts/makeBashScripts.py.
-   [2e3e8e8] Removed the /usr/bin/groupBy wrapper, as groupBy is also
-     distributed by the filo package.
+   b7f2405 New upstream release.
+   4add346 Corrected, updated and normalised Debian copyright.
+   00b426d Conforms to Debian Policy 3.9.3.
+   72c3c94 Verbose Debhelper.
 Checksums-Sha1: 
- 9b44e0dc102233b93ada99aafbaf8d26c2b8f0cb 399096 bedtools_2.15.0-1_s390x.deb
+ 424cae8f7eead80d7cde6b6e5ff19bbb341002af 439128 bedtools_2.16.1-1_s390x.deb
 Checksums-Sha256: 
- 32136babe58c75e0ae6d7837a58199e48c7a5d4cea69ff4f966517ba34104558 399096 bedtools_2.15.0-1_s390x.deb
+ 152d71f6e27f61b20bc49d0a888a243dcac5643582a16170670900b3dfd8620d 439128 bedtools_2.16.1-1_s390x.deb
 Files: 
- 5ba3774a3acd328ac007d5dcfa83f288 399096 science optional bedtools_2.15.0-1_s390x.deb
+ ac4b1186a2ef597687c0e5c823a25624 439128 science optional bedtools_2.16.1-1_s390x.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.15.0-1_s390x.deb
+bedtools_2.16.1-1_s390x.deb
 ───────────────────────────
 
  new debian package, version 2.0.
- size 399096 bytes: control archive= 1867 bytes.
+ size 439128 bytes: control archive= 1980 bytes.
      866 bytes,    19 lines      control              
-    2299 bytes,    40 lines      md5sums              
+    2506 bytes,    44 lines      md5sums              
  Package: bedtools
- Version: 2.15.0-1
+ Version: 2.16.1-1
  Architecture: s390x
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 1436
+ Installed-Size: 1604
  Pre-Depends: dpkg (>= 1.15.6)
  Depends: libc6 (>= 2.13), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), zlib1g (>= 1:1.1.4)
  Suggests: filo
@@ -1614,54 +1790,58 @@ bedtools_2.15.0-1_s390x.deb
   .
   The groupBy utility is distribued in the filo package.
 
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./usr/
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./usr/bin/
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/coverageBed
--rwxr-xr-x root/root        30 2012-01-11 07:15 ./usr/bin/linksBed
--rwxr-xr-x root/root        32 2012-01-11 07:15 ./usr/bin/clusterBed
--rwxr-xr-x root/root        31 2012-01-11 07:15 ./usr/bin/windowBed
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/subtractBed
--rwxr-xr-x root/root        28 2012-01-11 07:15 ./usr/bin/tagBam
--rwxr-xr-x root/root        30 2012-01-11 07:15 ./usr/bin/flankBed
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/bamToBed
--rwxr-xr-x root/root        35 2012-01-11 07:15 ./usr/bin/complementBed
--rwxr-xr-x root/root        34 2012-01-11 07:15 ./usr/bin/genomeCoverageBed
--rwxr-xr-x root/root        32 2012-01-11 07:15 ./usr/bin/getOverlap
--rwxr-xr-x root/root        35 2012-01-11 07:15 ./usr/bin/bedpeToBam
--rwxr-xr-x root/root   1409912 2012-01-11 07:15 ./usr/bin/bedtools
--rwxr-xr-x root/root        34 2012-01-11 07:15 ./usr/bin/maskFastaFromBed
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/fastaFromBed
--rwxr-xr-x root/root        34 2012-01-11 07:15 ./usr/bin/unionBedGraphs
--rwxr-xr-x root/root        34 2012-01-11 07:15 ./usr/bin/pairToBed
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/bedToBam
--rwxr-xr-x root/root        36 2012-01-11 07:15 ./usr/bin/bed12ToBed6
--rwxr-xr-x root/root        36 2012-01-11 07:15 ./usr/bin/windowMaker
--rwxr-xr-x root/root        30 2012-01-11 07:15 ./usr/bin/mergeBed
--rwxr-xr-x root/root        28 2012-01-11 07:15 ./usr/bin/bedToIgv
--rwxr-xr-x root/root        35 2012-01-11 07:15 ./usr/bin/pairToPair
--rwxr-xr-x root/root        35 2012-01-11 07:15 ./usr/bin/multiIntersectBed
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/annotateBed
--rwxr-xr-x root/root        32 2012-01-11 07:15 ./usr/bin/shuffleBed
--rwxr-xr-x root/root        28 2012-01-11 07:15 ./usr/bin/nucBed
--rwxr-xr-x root/root        32 2012-01-11 07:15 ./usr/bin/closestBed
--rwxr-xr-x root/root        33 2012-01-11 07:15 ./usr/bin/multiBamCov
--rwxr-xr-x root/root        34 2012-01-11 07:15 ./usr/bin/intersectBed
--rwxr-xr-x root/root        29 2012-01-11 07:15 ./usr/bin/sortBed
--rwxr-xr-x root/root        29 2012-01-11 07:15 ./usr/bin/slopBed
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./usr/share/
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./usr/share/bedtools/
-drwxr-xr-x root/root         0 2012-01-11 07:10 ./usr/share/bedtools/genomes/
--rwxr-xr-x root/root       856 2012-01-02 10:51 ./usr/share/bedtools/genomes/human.hg18.genome
--rwxr-xr-x root/root       565 2012-01-02 10:51 ./usr/share/bedtools/genomes/mouse.mm8.genome
--rwxr-xr-x root/root      1972 2012-01-02 10:51 ./usr/share/bedtools/genomes/human.hg19.genome
--rwxr-xr-x root/root       585 2012-01-02 10:51 ./usr/share/bedtools/genomes/mouse.mm9.genome
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./usr/share/doc/
-drwxr-xr-x root/root         0 2012-01-11 07:15 ./usr/share/doc/bedtools/
--rw-r--r-- root/root     11640 2012-01-02 10:51 ./usr/share/doc/bedtools/changelog.gz
--rw-r--r-- root/root       832 2012-01-11 06:08 ./usr/share/doc/bedtools/changelog.Debian.gz
--rw-r--r-- root/root      4611 2012-01-05 01:53 ./usr/share/doc/bedtools/copyright
--rw-r--r-- root/root      1442 2012-01-02 10:51 ./usr/share/doc/bedtools/README.rst
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/share/
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2012-03-16 12:14 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       585 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm9.genome
+-rwxr-xr-x root/root       856 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root       565 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root      1972 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg19.genome
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/share/doc/
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root       934 2012-03-16 10:08 ./usr/share/doc/bedtools/changelog.Debian.gz
+-rw-r--r-- root/root      4827 2012-03-16 04:09 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root     11640 2012-03-13 13:10 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root      1505 2012-03-13 13:10 ./usr/share/doc/bedtools/README.rst
+drwxr-xr-x root/root         0 2012-03-16 12:18 ./usr/bin/
+-rwxr-xr-x root/root        36 2012-03-16 12:18 ./usr/bin/windowMaker
+-rwxr-xr-x root/root        34 2012-03-16 12:18 ./usr/bin/pairToBed
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/bamToBed
+-rwxr-xr-x root/root        29 2012-03-16 12:18 ./usr/bin/slopBed
+-rwxr-xr-x root/root   1580616 2012-03-16 12:18 ./usr/bin/bedtools
+-rwxr-xr-x root/root        28 2012-03-16 12:18 ./usr/bin/mapBed
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/subtractBed
+-rwxr-xr-x root/root        29 2012-03-16 12:18 ./usr/bin/sortBed
+-rwxr-xr-x root/root        34 2012-03-16 12:18 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root        30 2012-03-16 12:18 ./usr/bin/flankBed
+-rwxr-xr-x root/root        35 2012-03-16 12:18 ./usr/bin/bedpeToBam
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/annotateBed
+-rwxr-xr-x root/root        28 2012-03-16 12:18 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root        31 2012-03-16 12:18 ./usr/bin/windowBed
+-rwxr-xr-x root/root        32 2012-03-16 12:18 ./usr/bin/clusterBed
+-rwxr-xr-x root/root        28 2012-03-16 12:18 ./usr/bin/nucBed
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/bedToBam
+-rwxr-xr-x root/root        32 2012-03-16 12:18 ./usr/bin/getOverlap
+-rwxr-xr-x root/root        35 2012-03-16 12:18 ./usr/bin/bamToFastq
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root        30 2012-03-16 12:18 ./usr/bin/mergeBed
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root        36 2012-03-16 12:18 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root        31 2012-03-16 12:18 ./usr/bin/expandCols
+-rwxr-xr-x root/root        32 2012-03-16 12:18 ./usr/bin/closestBed
+-rwxr-xr-x root/root        35 2012-03-16 12:18 ./usr/bin/complementBed
+-rwxr-xr-x root/root        31 2012-03-16 12:18 ./usr/bin/randomBed
+-rwxr-xr-x root/root        30 2012-03-16 12:18 ./usr/bin/linksBed
+-rwxr-xr-x root/root        34 2012-03-16 12:18 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root        35 2012-03-16 12:18 ./usr/bin/pairToPair
+-rwxr-xr-x root/root        32 2012-03-16 12:18 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root        28 2012-03-16 12:18 ./usr/bin/tagBam
+-rwxr-xr-x root/root        35 2012-03-16 12:18 ./usr/bin/multiIntersectBed
+-rwxr-xr-x root/root        33 2012-03-16 12:18 ./usr/bin/coverageBed
+-rwxr-xr-x root/root        34 2012-03-16 12:18 ./usr/bin/intersectBed
+-rwxr-xr-x root/root        34 2012-03-16 12:18 ./usr/bin/unionBedGraphs
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -1675,7 +1855,7 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-s390x-sbuild-76fe6f1a-ed8e-4ae9-b3a1-2c6ed418241d/sid-s390x-sbuild/build/buildd-bedtools_2.15.0-1-s390x-6s5uie
+Purging /var/lib/schroot/mount/sid-s390x-sbuild-2aaa36e6-7015-4003-a01a-abc96f7363b0/build/buildd-bedtools_2.16.1-1-s390x-CaK8CS
 Not cleaning session: cloned chroot in use
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -1683,18 +1863,18 @@ Not cleaning session: cloned chroot in use
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: s390x
-Build-Space: 108172
-Build-Time: 282
+Build-Space: 125844
+Build-Time: 235
 Distribution: sid
-Install-Time: 18
-Job: bedtools_2.15.0-1
+Install-Time: 21
+Job: bedtools_2.16.1-1
 Package: bedtools
-Package-Time: 344
-Source-Version: 2.15.0-1
-Space: 108172
+Package-Time: 265
+Source-Version: 2.16.1-1
+Space: 125844
 Status: successful
-Version: 2.15.0-1
+Version: 2.16.1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20120111-0715
-Build needed 00:05:44, 108172k disc space
-Signature with key '96C8554F' requested:
+Finished at 20120316-1218
+Build needed 00:04:25, 125844k disc space
+Signature with key '6A3F7E2B' requested:
