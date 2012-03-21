@@ -5,39 +5,35 @@ BIN_DIR = ../../bin/
 # -------------------
 # define our includes
 # -------------------
-INCLUDES = -I$(UTILITIES_DIR)/bedFile/ -I$(UTILITIES_DIR)/lineFileUtilities/ -I$(UTILITIES_DIR)/version/ -I$(UTILITIES_DIR)/BamTools/ -I$(UTILITIES_DIR)/gzstream/ -I$(UTILITIES_DIR)/fileType/
+INCLUDES = -I$(UTILITIES_DIR)/bedFile/ \
+           -I$(UTILITIES_DIR)/gzstream/ \
+           -I$(UTILITIES_DIR)/genomeFile/ \
+           -I$(UTILITIES_DIR)/lineFileUtilities/ \
+           -I$(UTILITIES_DIR)/fileType/ \
+           -I$(UTILITIES_DIR)/BamTools/include \
+           -I$(UTILITIES_DIR)/BlockedIntervals \
+           -I$(UTILITIES_DIR)/BamTools-Ancillary \
+           -I$(UTILITIES_DIR)/chromsweep \
+           -I$(UTILITIES_DIR)/version/
 
 # ----------------------------------
 # define our source and object files
 # ----------------------------------
-SOURCES= intersectMain.cpp intersectBed.cpp
-OBJECTS= $(SOURCES:.cpp=.o)
-_EXT_OBJECTS=bedFile.o lineFileUtilities.o BamReader.o BamAncillary.o BamWriter.o BGZF.o  BamIndex.o gzstream.o fileType.o
-EXT_OBJECTS=$(patsubst %,$(OBJ_DIR)/%,$(_EXT_OBJECTS))
+SOURCES= intersectMain.cpp intersectBed.cpp intersectBed.h
+OBJECTS= intersectMain.o intersectBed.o
 BUILT_OBJECTS= $(patsubst %,$(OBJ_DIR)/%,$(OBJECTS))
 PROGRAM= intersectBed
 
-all: $(PROGRAM)
+all: $(BUILT_OBJECTS)
 
 .PHONY: all
 
-$(PROGRAM): $(BUILT_OBJECTS) $(EXT_OBJECTS)
-	@echo "  * linking $(PROGRAM)"
-	@$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(BIN_DIR)/$@ $^ $(LIBS)
-
 $(BUILT_OBJECTS): $(SOURCES)
 	@echo "  * compiling" $(*F).cpp
-	@$(CXX) -c -o $@ $(*F).cpp $(LDFLAGS) $(CXXFLAGS) $(INCLUDES)
-
-$(EXT_OBJECTS):
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/bedFile/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/lineFileUtilities/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/BamTools/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/gzstream/
-	@$(MAKE) --no-print-directory -C $(UTILITIES_DIR)/fileType/
-		
+	@$(CXX) -c -o $@ $(*F).cpp $(LDFLAGS) $(CXXFLAGS) $(DFLAGS) $(INCLUDES)
+	
 clean:
 	@echo "Cleaning up."
-	@rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
+	@rm -f $(OBJ_DIR)/intersectMain.o $(OBJ_DIR)/intersectBed.o
 
 .PHONY: clean

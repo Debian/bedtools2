@@ -15,15 +15,15 @@
 using namespace std;
 
 // define our program name
-#define PROGRAM_NAME "pairToBed"
+#define PROGRAM_NAME "bedtools pairtobed"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void pairtobed_help(void);
 
-int main(int argc, char* argv[]) {
+int pairtobed_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -41,7 +41,8 @@ int main(int argc, char* argv[]) {
     bool haveBedB           = false;
     bool haveSearchType     = false;
     bool haveFraction       = false;
-    bool forceStrand        = false;
+    bool sameStrand         = false;
+    bool diffStrand         = false;
     bool useEditDistance    = false;
     bool inputIsBam         = false;
     bool outputIsBam        = true;
@@ -59,7 +60,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) pairtobed_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -110,7 +111,10 @@ int main(int argc, char* argv[]) {
             }
         }
         else if (PARAMETER_CHECK("-s", 2, parameterLength)) {
-            forceStrand = true;
+            sameStrand = true;
+        }
+        else if (PARAMETER_CHECK("-S", 2, parameterLength)) {
+            diffStrand = true;
         }
         else if(PARAMETER_CHECK("-ubam", 5, parameterLength)) {
             uncompressedBam = true;
@@ -136,7 +140,7 @@ int main(int argc, char* argv[]) {
     }
 
     if ( ((searchType == "ispan") || (searchType == "ospan") || (searchType == "notispan") || (searchType == "notospan"))
-         && forceStrand ) {
+         && (sameStrand || diffStrand) ) {
         cerr << endl << "*****" << endl << "*****ERROR: Cannot enforce strandedness with selected searchtype" << endl << "*****" << endl;
         showHelp = true;
     }
@@ -145,27 +149,29 @@ int main(int argc, char* argv[]) {
         cerr << endl << "*****" << endl << "*****ERROR: -ed must be used with -bedpe and -abam." << endl << "*****" << endl;
         showHelp = true;
     }
-
+    
+    if (sameStrand && diffStrand) {
+        cerr << endl << "*****" << endl << "*****ERROR: Request either -s OR -S, not both." << endl << "*****" << endl;
+        showHelp = true;
+    }
     if (!showHelp) {
 
         BedIntersectPE *bi = new BedIntersectPE(bedAFile, bedBFile, overlapFraction,
-                                                searchType, forceStrand, inputIsBam,
+                                                searchType, sameStrand, diffStrand, inputIsBam,
                                                 outputIsBam, uncompressedBam, useEditDistance);
         delete bi;
-        return 0;
     }
     else {
-        ShowHelp();
+        pairtobed_help();
     }
+    return 0;
 }
 
 
-void ShowHelp(void) {
-
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+void pairtobed_help(void) {
+    
+    cerr << "\nTool:    bedtools pairtobed (aka pairToBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
     cerr << "Summary: Report overlaps between a BEDPE file and a BED/GFF/VCF file." << endl << endl;
 
     cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -a <bedpe> -b <bed/gff/vcf>" << endl << endl;
@@ -175,7 +181,7 @@ void ShowHelp(void) {
     cerr << "\t-abam\t"         << "The A input file is in BAM format.  Output will be BAM as well." << endl;
     cerr                        << "\t\t- Requires BAM to be grouped or sorted by query." << endl << endl;
 
-    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default is to write compressed BAM." << endl << endl;
+    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default writes compressed BAM." << endl << endl;
     cerr                        << "\t\tis to write output in BAM when using -abam." << endl << endl;
 
     cerr << "\t-bedpe\t"        << "When using BAM input (-abam), write output as BEDPE. The default" << endl;
@@ -190,7 +196,11 @@ void ShowHelp(void) {
     cerr << "\t-f\t"                    << "Minimum overlap required as fraction of A (e.g. 0.05)." << endl;
     cerr                                << "\t\tDefault is 1E-9 (effectively 1bp)." << endl << endl;
 
-    cerr << "\t-s\t"                    << "Enforce strandedness when finding overlaps." << endl;
+    cerr << "\t-s\t"                    << "Require same strandedness when finding overlaps." << endl;
+    cerr                                << "\t\tDefault is to ignore stand." << endl;
+    cerr                                << "\t\tNot applicable with -type inspan or -type outspan." << endl << endl;
+
+    cerr << "\t-S\t"                    << "Require different strandedness when finding overlaps." << endl;
     cerr                                << "\t\tDefault is to ignore stand." << endl;
     cerr                                << "\t\tNot applicable with -type inspan or -type outspan." << endl << endl;
 

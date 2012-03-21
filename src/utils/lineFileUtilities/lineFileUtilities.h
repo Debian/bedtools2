@@ -3,14 +3,12 @@
 
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <cstring>
+#include <cstdlib>
 #include <sstream>
+#include <iostream>
 
 using namespace std;
-
-// split a line from a file into a vector of strings.  token = "\t"
-//void Tokenize(const string &str, vector<string>& tokens, const string &delimiter = "\t");
-//void Tokenize(const string &str, vector<int>& tokens,    const string &delimiter = "\t");
 
 // templated function to convert objects to strings
 template <typename T>
@@ -21,37 +19,30 @@ std::string ToString(const T & value) {
     return ss.str();
 }
 
+// tokenize into a list of strings.
 inline
-void Tokenize(const string &str, vector<string> &tokens, const string &delimiter = "\t") {
-    // Skip delimiters at beginning.
-    string::size_type lastPos = str.find_first_not_of(delimiter, 0);
-    // Find first "non-delimiter".
-    string::size_type pos     = str.find_first_of(delimiter, lastPos);
-
-    while (string::npos != pos || string::npos != lastPos) {
-        // Found a token, add it to the vector.
-        tokens.push_back(str.substr(lastPos, pos - lastPos));
-        // Skip delimiters.  Note the "not_of"
-        lastPos = str.find_first_not_of(delimiter, pos);
-        // Find next "non-delimiter"
-        pos = str.find_first_of(delimiter, lastPos);
+void Tokenize(const string &str, vector<string> &elems, char delimiter = '\t') 
+{
+    // http://stackoverflow.com/questions/236129/how-to-split-a-string-in-c/236803#236803
+    // NOTE: this approach intentionally allows consecutive delimiters
+    std::stringstream ss(str);
+    std::string item;
+    while(getline(ss, item, delimiter)) {
+        elems.push_back(item);  
     }
 }
 
+// tokenize into a list of integers
 inline
-void Tokenize(const string &str, vector<int> &tokens, const string &delimiter = "\t") {
-    // Skip delimiters at beginning.
-    string::size_type lastPos = str.find_first_not_of(delimiter, 0);
-    // Find first "non-delimiter".
-    string::size_type pos     = str.find_first_of(delimiter, lastPos);
+void Tokenize(const string &str, vector<int> &elems, char delimiter = '\t') 
+{
 
-    while (string::npos != pos || string::npos != lastPos) {
-        // Found a token, add it to the vector.
-        tokens.push_back(atoi(str.substr(lastPos, pos - lastPos).c_str()));
-        // Skip delimiters.  Note the "not_of"
-        lastPos = str.find_first_not_of(delimiter, pos);
-        // Find next "non-delimiter"
-        pos = str.find_first_of(delimiter, lastPos);
+    // http://stackoverflow.com/questions/236129/how-to-split-a-string-in-c/236803#236803
+    // NOTE: this approach intentionally allows consecutive delimiters
+    std::stringstream ss(str);
+    std::string item;
+    while(getline(ss, item, delimiter)) {
+        elems.push_back(atoi(item.c_str()));  
     }
 }
 

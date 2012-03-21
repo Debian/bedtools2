@@ -15,16 +15,16 @@
 using namespace std;
 
 // define our program name
-#define PROGRAM_NAME "intersectBed"
+#define PROGRAM_NAME "bedtools intersect"
 
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void intersect_help(void);
 
-int main(int argc, char* argv[]) {
+int intersect_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -39,6 +39,7 @@ int main(int argc, char* argv[]) {
     bool haveBedA           = false;
     bool haveBedB           = false;
     bool noHit              = false;
+    bool leftJoin           = false;
     bool anyHit             = false;
     bool writeA             = false;
     bool writeB             = false;
@@ -47,11 +48,15 @@ int main(int argc, char* argv[]) {
     bool writeAllOverlap    = false;
     bool haveFraction       = false;
     bool reciprocalFraction = false;
-    bool forceStrand        = false;
+    bool sameStrand         = false;
+    bool diffStrand         = false;
     bool obeySplits         = false;
     bool inputIsBam         = false;
     bool outputIsBam        = true;
     bool uncompressedBam    = false;
+    bool sortedInput        = false;
+    bool printHeader        = false;
+
     // check to see if we should print out some help
     if(argc <= 1) showHelp = true;
 
@@ -64,7 +69,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) intersect_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -130,13 +135,25 @@ int main(int argc, char* argv[]) {
             noHit = true;
         }
         else if (PARAMETER_CHECK("-s", 2, parameterLength)) {
-            forceStrand = true;
+            sameStrand = true;
+        }
+        else if (PARAMETER_CHECK("-S", 2, parameterLength)) {
+            diffStrand = true;
         }
         else if (PARAMETER_CHECK("-split", 6, parameterLength)) {
             obeySplits = true;
         }
+        else if (PARAMETER_CHECK("-loj", 4, parameterLength)) {
+            leftJoin = true;
+        }
         else if(PARAMETER_CHECK("-ubam", 5, parameterLength)) {
             uncompressedBam = true;
+        }
+        else if(PARAMETER_CHECK("-sorted", 7, parameterLength)) {
+            sortedInput = true;
+        }
+        else if(PARAMETER_CHECK("-header", 7, parameterLength)) {
+            printHeader = true;
         }
         else {
             cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -195,26 +212,50 @@ int main(int argc, char* argv[]) {
         showHelp = true;
     }
 
+    if (sameStrand && diffStrand) {
+        cerr << endl << "*****" << endl << "*****ERROR: Request either -s OR -S, not both." << endl << "*****" << endl;
+        showHelp = true;
+    }
+    
+    if (inputIsBam && writeB && outputIsBam) {
+        cerr << endl << "*****" << endl << "*****WARNING: -wb is ignored with -abam" << endl << "*****" << endl;
+    }
+
+    if (inputIsBam && leftJoin) {
+        cerr << endl << "*****" << endl << "*****WARNING: -loj is ignored with -abam" << endl << "*****" << endl;
+    }
+    
+    if (inputIsBam && writeCount) {
+        cerr << endl << "*****" << endl << "*****WARNING: -c is ignored with -abam" << endl << "*****" << endl;
+    }
+    
+    if (inputIsBam && writeOverlap) {
+        cerr << endl << "*****" << endl << "*****WARNING: -wo is ignored with -abam" << endl << "*****" << endl;
+    }
+    
+    if (inputIsBam && writeAllOverlap) {
+        cerr << endl << "*****" << endl << "*****WARNING: -wao is ignored with -abam" << endl << "*****" << endl;
+    }
 
     if (!showHelp) {
 
         BedIntersect *bi = new BedIntersect(bedAFile, bedBFile, anyHit, writeA, writeB, writeOverlap,
-                                            writeAllOverlap, overlapFraction, noHit, writeCount, forceStrand,
-                                            reciprocalFraction, obeySplits, inputIsBam, outputIsBam, uncompressedBam);
+                                            writeAllOverlap, overlapFraction, noHit, leftJoin, writeCount, sameStrand, diffStrand,
+                                            reciprocalFraction, obeySplits, inputIsBam, outputIsBam, uncompressedBam, 
+                                            sortedInput, printHeader);
         delete bi;
         return 0;
     }
     else {
-        ShowHelp();
+        intersect_help();
+        return 0;
     }
 }
 
-void ShowHelp(void) {
+void intersect_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+    cerr << "\nTool:    bedtools intersect (aka intersectBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
     cerr << "Summary: Report overlaps between two feature files." << endl << endl;
 
     cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -a <bed/gff/vcf> -b <bed/gff/vcf>" << endl << endl;
@@ -223,7 +264,7 @@ void ShowHelp(void) {
 
     cerr << "\t-abam\t"         << "The A input file is in BAM format.  Output will be BAM as well." << endl << endl;
 
-    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default is to write compressed BAM." << endl << endl;
+    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default writes compressed BAM." << endl << endl;
 
     cerr << "\t-bed\t"          << "When using BAM input (-abam), write output as BED. The default" << endl;
     cerr                        << "\t\tis to write output in BAM when using -abam." << endl << endl;
@@ -232,6 +273,10 @@ void ShowHelp(void) {
 
     cerr << "\t-wb\t"           << "Write the original entry in B for each overlap." << endl;
     cerr                        << "\t\t- Useful for knowing _what_ A overlaps. Restricted by -f and -r." << endl << endl;
+    
+    cerr << "\t-loj\t"          << "Perform a \"left outer join\". That is, for each feature in A" << endl;
+    cerr                        << "\t\treport each overlap with B.  If no overlaps are found, " << endl;
+    cerr                        << "\t\treport a NULL feature for B." << endl << endl;
 
     cerr << "\t-wo\t"           << "Write the original A and B entries plus the number of base" << endl;
     cerr                        << "\t\tpairs of overlap between the two features." << endl;
@@ -263,12 +308,24 @@ void ShowHelp(void) {
     cerr                        << "\t\t- In other words, if -f is 0.90 and -r is used, this requires" << endl;
     cerr                        << "\t\t  that B overlap 90% of A and A _also_ overlaps 90% of B." << endl << endl;
 
-    cerr << "\t-s\t"            << "Force strandedness.  That is, only report hits in B that" << endl;
-    cerr                        << "\t\toverlap A on the same strand." << endl;
+    cerr << "\t-s\t"            << "Require same strandedness.  That is, only report hits in B" << endl;
+    cerr                        << "\t\tthat overlap A on the _same_ strand." << endl;
+    cerr                        << "\t\t- By default, overlaps are reported without respect to strand." << endl << endl;
+
+    cerr << "\t-S\t"            << "Require different strandedness.  That is, only report hits in B" << endl;
+    cerr                        << "\t\tthat overlap A on the _opposite_ strand." << endl;
     cerr                        << "\t\t- By default, overlaps are reported without respect to strand." << endl << endl;
 
     cerr << "\t-split\t"        << "Treat \"split\" BAM or BED12 entries as distinct BED intervals." << endl << endl;
 
+    cerr << "\t-sorted\t"       << "Use the \"chromsweep\" algorithm for sorted (-k1,1 -k2,2n) input" << endl << endl;
+    
+    cerr << "\t-header\t"       << "Print the header from the A file prior to results." << endl << endl;
+ 
+    cerr << "Notes: " << endl;
+    cerr << "\t(1) When a BAM file is used for the A file, the alignment is retained if overlaps exist," << endl;
+    cerr << "\tand exlcuded if an overlap cannot be found.  If multiple overlaps exist, they are not" << endl;
+    cerr << "\treported, as we are only testing for one or more overlaps." << endl << endl;
 
     // end the program here
     exit(1);

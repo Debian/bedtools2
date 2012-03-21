@@ -1,16 +1,17 @@
 #!/usr/bin/make -f
 
+export DH_VERBOSE=1
+
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/makefile.mk
 include /usr/share/cdbs/1/rules/patchsys-quilt.mk
+
+DEB_DH_BUILDDEB_ARGS = -- -Z xz
 
 DEB_INSTALL_CHANGELOGS_ALL := RELEASE_HISTORY
 
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)
-	zcat ../BEDTools.v$(DEB_UPSTREAM_VERSION).tar.gz \
-	| tar --wildcards \
-		--delete '*/._*' \
-		--delete '*/*DS_Store' \
-	| bzip2 --best \
-	> ../$(DEB_SOURCE_PACKAGE)_$(DEB_UPSTREAM_VERSION).orig.tar.bz2
+
+binary-fixup/bedtools::
+	rm $(CURDIR)/debian/bedtools/usr/bin/groupBy # distributed in the filo package.

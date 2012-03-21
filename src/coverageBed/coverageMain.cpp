@@ -15,15 +15,15 @@
 using namespace std;
 
 // define the version
-#define PROGRAM_NAME "coverageBed"
+#define PROGRAM_NAME "bedtools coverage"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void coverage_help(void);
 
-int main(int argc, char* argv[]) {
+int coverage_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -33,13 +33,15 @@ int main(int argc, char* argv[]) {
     string bedBFile;
 
     // parm flags
-    bool forceStrand    = false;
+    bool sameStrand    = false;
+    bool diffStrand    = false;
     bool writeHistogram = false;
-    bool eachBase          = false;
+    bool eachBase       = false;
     bool obeySplits     = false;
     bool bamInput       = false;
     bool haveBedA       = false;
     bool haveBedB       = false;
+    bool countsOnly     = false;
 
     // check to see if we should print out some help
     if(argc <= 1) showHelp = true;
@@ -53,7 +55,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) coverage_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -83,7 +85,10 @@ int main(int argc, char* argv[]) {
             }
         }
         else if (PARAMETER_CHECK("-s", 2, parameterLength)) {
-            forceStrand = true;
+            sameStrand = true;
+        }
+        else if (PARAMETER_CHECK("-S", 2, parameterLength)) {
+            diffStrand = true;
         }
         else if (PARAMETER_CHECK("-hist", 5, parameterLength)) {
             writeHistogram = true;
@@ -93,6 +98,9 @@ int main(int argc, char* argv[]) {
         }
         else if (PARAMETER_CHECK("-split", 6, parameterLength)) {
             obeySplits = true;
+        }
+        else if (PARAMETER_CHECK("-counts", 7, parameterLength)) {
+            countsOnly = true;
         }
         else {
             cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -105,23 +113,27 @@ int main(int argc, char* argv[]) {
         cerr << endl << "*****" << endl << "*****ERROR: Need -a and -b files. " << endl << "*****" << endl;
         showHelp = true;
     }
+    
+    if (sameStrand && diffStrand) {
+        cerr << endl << "*****" << endl << "*****ERROR: Request either -s OR -S, not both." << endl << "*****" << endl;
+        showHelp = true;
+    }
 
     if (!showHelp) {
-        BedCoverage *bg = new BedCoverage(bedAFile, bedBFile, forceStrand, writeHistogram, bamInput, obeySplits, eachBase);
+        BedCoverage *bg = new BedCoverage(bedAFile, bedBFile, sameStrand, diffStrand,
+                                          writeHistogram, bamInput, obeySplits, eachBase, countsOnly);
         delete bg;
-        return 0;
     }
     else {
-        ShowHelp();
+        coverage_help();
     }
+    return 0;
 }
 
-void ShowHelp(void) {
+void coverage_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+    cerr << "\nTool:    bedtools coverage (aka coverageBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
     cerr << "Summary: Returns the depth and breadth of coverage of features from A" << endl;
     cerr << "\t on the intervals in B." << endl << endl;
 
@@ -131,9 +143,13 @@ void ShowHelp(void) {
 
     cerr << "\t-abam\t"         << "The A input file is in BAM format." << endl << endl;
 
-    cerr << "\t-s\t"            << "Force strandedness.  That is, only include hits in A that" << endl;
-    cerr                        << "\t\toverlap B on the same strand." << endl;
-    cerr                        << "\t\t- By default, hits are included without respect to strand." << endl << endl;
+    cerr << "\t-s\t"            << "Require same strandedness.  That is, only counts hits in A that" << endl;
+    cerr                        << "\t\toverlap B on the _same_ strand." << endl;
+    cerr                        << "\t\t- By default, overlaps are counted without respect to strand." << endl << endl;
+
+    cerr << "\t-S\t"            << "Require different strandedness.  That is, only report hits in A" << endl;
+    cerr                        << "\t\tthat overlap B on the _opposite_ strand." << endl;
+    cerr                        << "\t\t- By default, overlaps are counted without respect to strand." << endl << endl;
 
     cerr << "\t-hist\t"         << "Report a histogram of coverage for each feature in B" << endl;
     cerr                        << "\t\tas well as a summary histogram for _all_ features in B." << endl << endl;
@@ -143,6 +159,8 @@ void ShowHelp(void) {
     cerr << "\t-d\t"            << "Report the depth at each position in each B feature." << endl;
     cerr                        << "\t\tPositions reported are one based.  Each position" << endl;
     cerr                        << "\t\tand depth follow the complete B feature." << endl << endl;
+    
+    cerr << "\t-counts\t"       << "Only report the count of overlaps, don't compute fraction, etc." << endl << endl;
 
     cerr << "\t-split\t"        << "Treat \"split\" BAM or BED12 entries as distinct BED intervals." << endl;
     cerr                        << "\t\twhen computing coverage." << endl;

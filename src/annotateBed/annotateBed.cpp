@@ -14,12 +14,13 @@
 
 // build
 BedAnnotate::BedAnnotate(const string &mainFile, const vector<string> &annoFileNames,
-            const vector<string> &annoTitles, bool forceStrand, bool reportCounts, bool reportBoth) :
+            const vector<string> &annoTitles, bool sameStrand, bool diffStrand, bool reportCounts, bool reportBoth) :
 
     _mainFile(mainFile),
     _annoFileNames(annoFileNames),
     _annoTitles(annoTitles),
-    _forceStrand(forceStrand),
+    _sameStrand(sameStrand),
+    _diffStrand(diffStrand),
     _reportCounts(reportCounts),
     _reportBoth(reportBoth)
 {
@@ -113,15 +114,11 @@ void BedAnnotate::AnnotateBed() {
     for (size_t annoIndex = 0; annoIndex < _annoFiles.size(); ++annoIndex) {
         // grab the current annotation file.
         BedFile *anno = _annoFiles[annoIndex];
-        int lineNum = 0;
-        BED a, nullBed;
-        BedLineStatus bedStatus;
-
+        BED a;
         // process each entry in the current anno file
-        while ((bedStatus = anno->GetNextBed(a, lineNum)) != BED_INVALID) {
-            if (bedStatus == BED_VALID) {
-                _bed->countListHits(a, annoIndex, _forceStrand);
-                a = nullBed;
+        while (anno->GetNextBed(a)) {
+            if (anno->_status == BED_VALID) {
+                _bed->countListHits(a, annoIndex, _sameStrand, _diffStrand);
             }
         }
     }

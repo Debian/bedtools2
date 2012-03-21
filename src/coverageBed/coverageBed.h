@@ -14,9 +14,9 @@
 
 #include "bedFile.h"
 
-#include "BamReader.h"
-#include "BamAux.h"
-#include "BamAncillary.h"
+#include "api/BamReader.h"
+#include "api/BamAux.h"
+#include "BlockedIntervals.h"
 using namespace BamTools;
 
 #include <vector>
@@ -36,8 +36,8 @@ class BedCoverage {
 public:
 
     // constructor
-    BedCoverage(string &bedAFile, string &bedBFile, bool forceStrand, bool writeHistogram,
-                bool bamInput, bool obeySplits, bool eachBase);
+    BedCoverage(string &bedAFile, string &bedBFile, bool sameStrand, bool diffStrand, bool writeHistogram,
+                bool bamInput, bool obeySplits, bool eachBase, bool countsOnly);
 
     // destructor
     ~BedCoverage(void);
@@ -51,8 +51,9 @@ private:
     // instance of a bed file class.
     BedFile *_bedA, *_bedB;
 
-    // do we care about strandedness when counting coverage?
-    bool _forceStrand;
+    // do we care about same or opposite strandedness when counting coverage?
+    bool _sameStrand;
+    bool _diffStrand;
 
     // should we write a histogram for each feature in B?
     bool _writeHistogram;
@@ -65,9 +66,15 @@ private:
 
     // should discrete coverage be reported for each base in each feature?
     bool _eachBase;
+    
+    // should we just count overlaps and not try to describe the breadth?
+    bool _countsOnly;
 
     // private function for reporting coverage information
     void ReportCoverage();
+    
+    // private function for reporting overlap counts
+    void ReportCounts();
 
     void CollectCoverageBed();
 

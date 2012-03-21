@@ -15,15 +15,15 @@
 using namespace std;
 
 // define the version
-#define PROGRAM_NAME "annotateBed"
+#define PROGRAM_NAME "bedtools annotate"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void annotate_help(void);
 
-int main(int argc, char* argv[]) {
+int annotate_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -32,7 +32,8 @@ int main(int argc, char* argv[]) {
     string mainFile;
 
     // parm flags
-    bool forceStrand    = false;
+    bool sameStrand     = false;
+    bool diffStrand     = false;
     bool haveBed        = false;
     bool haveFiles      = false;
     bool haveTitles     = false;
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) annotate_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -104,7 +105,10 @@ int main(int argc, char* argv[]) {
             reportBoth = true;
         }
         else if (PARAMETER_CHECK("-s", 2, parameterLength)) {
-            forceStrand = true;
+            sameStrand = true;
+        }
+        else if (PARAMETER_CHECK("-S", 2, parameterLength)) {
+            diffStrand = true;
         }
         else {
             cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -117,28 +121,31 @@ int main(int argc, char* argv[]) {
         cerr << endl << "*****" << endl << "*****ERROR: Need -i and -files files. " << endl << "*****" << endl;
         showHelp = true;
     }
+    if (sameStrand && diffStrand) {
+        cerr << endl << "*****" << endl << "*****ERROR: Request either -s OR -S, not both." << endl << "*****" << endl;
+        showHelp = true;
+    }
 
     if (!showHelp) {
-        BedAnnotate *ba = new BedAnnotate(mainFile, inputFiles, inputTitles, forceStrand, reportCounts, reportBoth);
+        BedAnnotate *ba = new BedAnnotate(mainFile, inputFiles, inputTitles, sameStrand, diffStrand, reportCounts, reportBoth);
         ba->AnnotateBed();
         delete ba;
         return 0;
     }
     else {
-        ShowHelp();
+        annotate_help();
+        return 0;
     }
 }
 
-void ShowHelp(void) {
+void annotate_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
-    cerr << "Summary: Annotates the depth & breadth of coverage of features from multiple files" << endl;
+    cerr << "\nTool:    bedtools annotate (aka annotateBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";
+    cerr << "Summary: Annotates the depth & breadth of coverage of features from mult. files" << endl;
     cerr << "\t on the intervals in -i." << endl << endl;
 
-    cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -i <bed/gff/vcf> -files FILE1 FILE2 .. FILEn" << endl << endl;
+    cerr << "Usage:   " << PROGRAM_NAME << " [OPTIONS] -i <bed/gff/vcf> -files FILE1 FILE2..FILEn" << endl << endl;
 
     cerr << "Options: " << endl;
 
@@ -151,9 +158,12 @@ void ShowHelp(void) {
     cerr << "\t-both\t"         << "Report the counts followed by the % coverage." << endl;
     cerr                        << "\t\t- Default is to report the fraction of -i covered by each file." << endl << endl;
 
-    cerr << "\t-s\t"            << "Force strandedness.  That is, only include hits in A that" << endl;
-    cerr                        << "\t\toverlap B on the same strand." << endl;
-    cerr                        << "\t\t- By default, hits are included without respect to strand." << endl << endl;
+    cerr << "\t-s\t"            << "Require same strandedness.  That is, only counts overlaps" << endl;
+    cerr                        << "\t\ton the _same_ strand." << endl;
+    cerr                        << "\t\t- By default, overlaps are counted without respect to strand." << endl << endl;
 
+    cerr << "\t-S\t"            << "Require different strandedness.  That is, only count overlaps" << endl;
+    cerr                        << "\t\ton the _opposite_ strand." << endl;
+    cerr                        << "\t\t- By default, overlaps are counted without respect to strand." << endl << endl;
     exit(1);
 }

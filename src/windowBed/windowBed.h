@@ -12,9 +12,9 @@
 #ifndef WINDOWBED_H
 #define WINDOWBED_H
 
-#include "BamReader.h"
-#include "BamWriter.h"
-#include "BamAux.h"
+#include "api/BamReader.h"
+#include "api/BamWriter.h"
+#include "api/BamAux.h"
 using namespace BamTools;
 
 #include "bedFile.h"
@@ -34,7 +34,8 @@ public:
     // constructor
     BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSlop,
               bool anyHit, bool noHit, bool writeCount, bool strandWindows,
-              bool matchOnStrand, bool bamInput, bool bamOutput, bool isUncompressedBam);
+              bool matchOnSameStrand, bool matchOnDiffStrand, bool bamInput,
+              bool bamOutput, bool isUncompressedBam, bool printHeader);
 
     // destructor
     ~BedWindow(void);
@@ -49,10 +50,12 @@ private:
     int _rightSlop;
     bool _noHit;
     bool _strandWindows;
-    bool _matchOnStrand;
+    bool _matchOnSameStrand;
+    bool _matchOnDiffStrand;
     bool _bamInput;
     bool _bamOutput;
-    bool  _isUncompressedBam;
+    bool _isUncompressedBam;
+    bool _printHeader;
 
     // instance of a bed file class.
     BedFile *_bedA, *_bedB;

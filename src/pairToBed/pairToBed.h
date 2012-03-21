@@ -12,9 +12,9 @@
 #ifndef INTERSECTBED_H
 #define INTERSECTBED_H
 
-#include "BamReader.h"
-#include "BamWriter.h"
-#include "BamAux.h"
+#include "api/BamReader.h"
+#include "api/BamWriter.h"
+#include "api/BamAux.h"
 using namespace BamTools;
 
 #include "bedFile.h"
@@ -43,8 +43,7 @@ public:
 
     // constructor
     BedIntersectPE(string bedAFilePE, string bedBFile, float overlapFraction,
-        string searchType, bool forceStrand, bool bamInput, bool bamOutput, bool uncompressedBam, bool useEditDistance);
-
+        string searchType, bool sameStrand, bool diffStrand, bool bamInput, bool bamOutput, bool uncompressedBam, bool useEditDistance);
     // destructor
     ~BedIntersectPE(void);
 
@@ -66,7 +65,8 @@ private:
     string _bedBFile;
     float _overlapFraction;
     string _searchType;
-    bool _forceStrand;
+    bool _sameStrand;
+    bool _diffStrand;
     bool _useEditDistance;
     bool _bamInput;
     bool _bamOutput;
@@ -95,7 +95,7 @@ private:
         if (bam1.IsMapped()) {
             a.chrom1  = refs.at(bam1.RefID).RefName;
             a.start1  = bam1.Position;
-            a.end1    = bam1.GetEndPosition();
+            a.end1    = bam1.GetEndPosition(false, false);
             a.strand1 = "+";
             if (bam1.IsReverseStrand()) a.strand1 = "-";
 
@@ -113,7 +113,7 @@ private:
         if (bam2.IsMapped()) {
             a.chrom2  = refs.at(bam2.RefID).RefName;
             a.start2  = bam2.Position;
-            a.end2    = bam2.GetEndPosition();
+            a.end2    = bam2.GetEndPosition(false, false);
             a.strand2 = "+";
             if (bam2.IsReverseStrand()) a.strand2 = "-";
 

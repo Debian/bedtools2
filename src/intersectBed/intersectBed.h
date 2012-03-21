@@ -13,10 +13,12 @@
 #define INTERSECTBED_H
 
 #include "bedFile.h"
-#include "BamReader.h"
-#include "BamWriter.h"
+#include "chromsweep.h"
+#include "api/BamReader.h"
+#include "api/BamWriter.h"
+#include "api/BamAux.h"
+#include "BlockedIntervals.h"
 #include "BamAncillary.h"
-#include "BamAux.h"
 using namespace BamTools;
 
 
@@ -35,8 +37,9 @@ public:
     // constructor
     BedIntersect(string bedAFile, string bedBFile, bool anyHit,
                                bool writeA, bool writeB, bool writeOverlap, bool writeAllOverlap,
-                               float overlapFraction, bool noHit, bool writeCount, bool forceStrand,
-                               bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam);
+                               float overlapFraction, bool noHit, bool leftJoin, bool writeCount, bool sameStrand, bool diffStrand,
+                               bool reciprocal, bool obeySplits, bool bamInput, bool bamOutput, bool isUncompressedBam,
+                               bool sortedInput, bool printHeader);
 
     // destructor
     ~BedIntersect(void);
@@ -54,18 +57,23 @@ private:
     bool  _writeOverlap;
     bool  _writeAllOverlap;
 
-    bool  _forceStrand;
+    bool  _sameStrand;
+    bool  _diffStrand;
     bool  _reciprocal;
     float _overlapFraction;
 
     bool  _anyHit;
     bool  _noHit;
+    bool  _leftJoin;
     bool  _writeCount;        // do we want a count of the number of overlaps in B?
     bool  _obeySplits;
     bool  _bamInput;
     bool  _bamOutput;
     bool  _isUncompressedBam;
-
+    bool  _sortedInput;
+    bool  _printable;
+    bool  _printHeader;
+    
     // instance of a bed file class.
     BedFile *_bedA, *_bedB;
 
@@ -78,14 +86,15 @@ private:
 
     void IntersectBam(string bamFile);
 
-    bool processHits(const BED &a, const vector<BED> &hits, bool printable);
+    bool processHits(const BED &a, const vector<BED> &hits);
 
     bool FindOverlaps(const BED &a, vector<BED> &hits);
 
-    bool FindOneOrMoreOverlap(const BED &a);
+    bool FindBlockedOverlaps(const BED &a, const vector<BED> &a_blocks, 
+        const vector<BED> &hits, bool a_is_bam);
 
-    void ReportOverlapDetail(const int &overlapBases, const BED &a, const BED &b,
-                             const CHRPOS &s, const CHRPOS &e);
+    void ReportOverlapDetail(int overlapBases, const BED &a, const BED &b, CHRPOS s, CHRPOS e);
+
     void ReportOverlapSummary(const BED &a, const int &numOverlapsFound);
 
 };

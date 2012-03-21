@@ -15,16 +15,16 @@
 using namespace std;
 
 // define the version
-#define PROGRAM_NAME "windowBed"
+#define PROGRAM_NAME "bedtools window"
 
 // define our parameter checking macro
 #define PARAMETER_CHECK(param, paramLen, actualLen) (strncmp(argv[i], param, min(actualLen, paramLen))== 0) && (actualLen == paramLen)
 
 // function declarations
-void ShowHelp(void);
+void window_help(void);
 
 
-int main(int argc, char* argv[]) {
+int window_main(int argc, char* argv[]) {
 
     // our configuration variables
     bool showHelp = false;
@@ -37,19 +37,21 @@ int main(int argc, char* argv[]) {
     int leftSlop  = 1000;
     int rightSlop = 1000;
 
-    bool haveBedA        = false;
-    bool haveBedB        = false;
-    bool noHit           = false;
-    bool anyHit          = false;
-    bool writeCount      = false;
-    bool haveSlop        = false;
-    bool haveLeft        = false;
-    bool haveRight       = false;
-    bool strandWindows   = false;
-    bool matchOnStrand   = false;
-    bool inputIsBam      = false;
-    bool outputIsBam     = true;
-    bool uncompressedBam = false;
+    bool haveBedA            = false;
+    bool haveBedB            = false;
+    bool noHit               = false;
+    bool anyHit              = false;
+    bool writeCount          = false;
+    bool haveSlop            = false;
+    bool haveLeft            = false;
+    bool haveRight           = false;
+    bool strandWindows       = false;
+    bool matchOnSameStrand   = false;
+    bool matchOnDiffStrand   = false;
+    bool inputIsBam          = false;
+    bool outputIsBam         = true;
+    bool uncompressedBam     = false;
+    bool printHeader         = false;
 
     // check to see if we should print out some help
     if(argc <= 1) showHelp = true;
@@ -63,7 +65,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(showHelp) ShowHelp();
+    if(showHelp) window_help();
 
     // do some parsing (all of these parameters require 2 strings)
     for(int i = 1; i < argc; i++) {
@@ -108,7 +110,10 @@ int main(int argc, char* argv[]) {
             strandWindows = true;
         }
         else if (PARAMETER_CHECK("-sm", 3, parameterLength)) {
-            matchOnStrand = true;
+            matchOnSameStrand = true;
+        }
+        else if (PARAMETER_CHECK("-Sm", 3, parameterLength)) {
+            matchOnDiffStrand = true;
         }
         else if (PARAMETER_CHECK("-w", 2, parameterLength)) {
             if ((i+1) < argc) {
@@ -134,6 +139,9 @@ int main(int argc, char* argv[]) {
         }
         else if(PARAMETER_CHECK("-ubam", 5, parameterLength)) {
             uncompressedBam = true;
+        }
+        else if(PARAMETER_CHECK("-header", 7, parameterLength)) {
+            printHeader = true;
         }
         else {
             cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -177,25 +185,29 @@ int main(int argc, char* argv[]) {
         showHelp = true;
     }
 
+    if (matchOnSameStrand && matchOnDiffStrand) {
+        cerr << endl << "*****" << endl << "*****ERROR: Use either -sm or -Sm, not both." << endl << "*****" << endl;
+        showHelp = true;
+    }
+
     if (!showHelp) {
         BedWindow *bi = new BedWindow(bedAFile, bedBFile, leftSlop, rightSlop, anyHit,
-                                      noHit, writeCount, strandWindows, matchOnStrand,
-                                      inputIsBam, outputIsBam, uncompressedBam);
+                                      noHit, writeCount, strandWindows, matchOnSameStrand, matchOnDiffStrand,
+                                      inputIsBam, outputIsBam, uncompressedBam, printHeader);
         delete bi;
         return 0;
     }
     else {
-        ShowHelp();
+        window_help();
     }
+    return 0;
 }
 
 
-void ShowHelp(void) {
+void window_help(void) {
 
-    cerr << endl << "Program: " << PROGRAM_NAME << " (v" << VERSION << ")" << endl;
-
-    cerr << "Author:  Aaron Quinlan (aaronquinlan@gmail.com)" << endl;
-
+    cerr << "\nTool:    bedtools window (aka windowBed)" << endl;
+    cerr << "Version: " << VERSION << "\n";    
     cerr << "Summary: Examines a \"window\" around each feature in A and" << endl;
     cerr << "\t reports all features in B that overlap the window. For each" << endl;
     cerr << "\t overlap the entire entry in A and B are reported." << endl << endl;
@@ -206,7 +218,7 @@ void ShowHelp(void) {
 
     cerr << "\t-abam\t"         << "The A input file is in BAM format.  Output will be BAM as well." << endl << endl;
 
-    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default is to write compressed BAM." << endl << endl;
+    cerr << "\t-ubam\t"         << "Write uncompressed BAM output. Default writes compressed BAM." << endl << endl;
 
     cerr << "\t-bed\t"          << "When using BAM input (-abam), write output as BED. The default" << endl;
     cerr                        << "\t\tis to write output in BAM when using -abam." << endl << endl;
@@ -233,7 +245,10 @@ void ShowHelp(void) {
     cerr                        << "\t\tfor a negative-stranded feature will add 500 bp downstream." << endl;
     cerr                        << "\t\t- Default = disabled." << endl << endl;
 
-    cerr << "\t-sm\t"           << "Only report hits in B that overlap A on the same strand." << endl;
+    cerr << "\t-sm\t"           << "Only report hits in B that overlap A on the _same_ strand." << endl;
+    cerr                        << "\t\t- By default, overlaps are reported without respect to strand." << endl << endl;
+
+    cerr << "\t-Sm\t"           << "Only report hits in B that overlap A on the _opposite_ strand." << endl;
     cerr                        << "\t\t- By default, overlaps are reported without respect to strand." << endl << endl;
 
     cerr << "\t-u\t"            << "Write the original A entry _once_ if _any_ overlaps found in B." << endl;
@@ -245,6 +260,8 @@ void ShowHelp(void) {
 
     cerr << "\t-v\t"            << "Only report those entries in A that have _no overlaps_ with B." << endl;
     cerr                        << "\t\t- Similar to \"grep -v.\"" << endl << endl;
+    
+    cerr << "\t-header\t"       << "Print the header from the A file prior to results." << endl << endl;
 
     // end the program here
     exit(1);

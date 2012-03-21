@@ -21,19 +21,27 @@ const int SLOPGROWTH = 2048000;
 /*
     Constructor
 */
-BedClosest::BedClosest(string &bedAFile, string &bedBFile, bool forceStrand, string &tieMode, bool reportDistance) {
-
-    _bedAFile       = bedAFile;
-    _bedBFile       = bedBFile;
-    _forceStrand    = forceStrand;
-    _tieMode        = tieMode;
-    _reportDistance = reportDistance;
-
-    _bedA           = new BedFile(bedAFile);
-    _bedB           = new BedFile(bedBFile);
-
+BedClosest::BedClosest(string &bedAFile, string &bedBFile, bool sameStrand, bool diffStrand,
+                       string &tieMode, bool reportDistance, bool signDistance, string &_strandedDistMode,
+                       bool ignoreOverlaps, bool ignoreUpstream, bool ignoreDownstream, bool printHeader) 
+    : _bedAFile(bedAFile)
+    , _bedBFile(bedBFile)
+    , _tieMode(tieMode)
+    , _sameStrand(sameStrand)
+    , _diffStrand(diffStrand)
+    , _reportDistance(reportDistance)
+    , _signDistance(signDistance)
+    , _strandedDistMode(_strandedDistMode)
+    , _ignoreOverlaps(ignoreOverlaps)
+    , _ignoreUpstream(ignoreUpstream)
+    , _ignoreDownstream(ignoreDownstream)
+    , _printHeader(printHeader)
+{
+    _bedA           = new BedFile(_bedAFile);
+    _bedB           = new BedFile(_bedBFile);
     FindClosestBed();
 }
+
 
 /*
     Destructor
@@ -53,9 +61,9 @@ void BedClosest::FindWindowOverlaps(BED &a, vector<BED> &hits) {
     CHRPOS aFudgeEnd;
     int numOverlaps = 0;
     vector<BED> closestB;
-    float maxOverlap = 0;
     CHRPOS minDistance = INT_MAX;
-    vector<CHRPOS> distances;
+    int32_t curDistance = INT_MAX;
+    vector<int32_t> distances;
 
     // is there at least one feature in B on the same chrom
     // as the current A feature?
@@ -77,68 +85,96 @@ void BedClosest::FindWindowOverlaps(BED &a, vector<BED> &hits) {
 
             // THE HEAVY LIFTING
             // search for hits with the current slop added
-            _bedB->FindOverlapsPerBin(a.chrom, aFudgeStart, aFudgeEnd, a.strand, hits, _forceStrand);
+            _bedB->allHits(a.chrom, aFudgeStart, aFudgeEnd, a.strand, 
+                           hits, _sameStrand, _diffStrand, 0.0, false);
 
             vector<BED>::const_iterator h = hits.begin();
             vector<BED>::const_iterator hitsEnd = hits.end();
             for (; h != hitsEnd; ++h) {
 
-                numOverlaps++;
-
                 // do the actual features overlap?
                 int s = max(a.start, h->start);
                 int e = min(a.end, h->end);
                 int overlapBases = (e - s);             // the number of overlapping bases b/w a and b
-                int aLength = (a.end - a.start);        // the length of a in b.p.
 
-                // there is overlap
-                if (s < e) {
-                    // is there enough overlap (default ~ 1bp)
-                    float overlap = (float) overlapBases / (float) aLength;
-                    if ( overlap > 0 ) {
-                        // is this hit the closest?
-                        if (overlap > maxOverlap) {
-                            maxOverlap = overlap;
+                // make sure we allow overlapping features.
+                if ((overlapBases > 0) && (_ignoreOverlaps == true))
+                    continue;
+                else
+                    numOverlaps++;
 
-                            closestB.clear();
-                            closestB.push_back(*h);
-                            distances.clear();
-                            distances.push_back(0);
-                        }
-                        else if (overlap == maxOverlap) {
-                            closestB.push_back(*h);
-                            distances.push_back(0);
-                        }
-                    }
+                // there is overlap. make sure we allow overlapping features ()
+                if (overlapBases > 0) {
+                    closestB.push_back(*h);
+                    distances.push_back(0);
                 }
                 // the hit is to the "left" of A
-                else if (h->end <= a.start){
-                    if ((a.start - h->end) < minDistance) {
-                        minDistance = a.start - h->end;
-
+                else if (h->end <= a.start) {
+                    curDistance = a.start - h->end;
+                    if (_signDistance) {
+                        if ((_strandedDistMode == "ref")
+                                || (_strandedDistMode == "a" && a.strand != "-")
+                                || (_strandedDistMode == "b" && h->strand == "-")) {
+                            // hit is "upstream" of A
+                            if (_ignoreUpstream) {
+                                numOverlaps--;
+                                continue;
+                            }
+                            else {
+                                curDistance = -curDistance;
+                            }
+                        }
+                        else if (_ignoreDownstream) {
+                            numOverlaps--;
+                            continue;
+                        }
+                    }
+                    
+                    if (abs(curDistance) < minDistance) {
+                        minDistance = abs(curDistance);
+                        
                         closestB.clear();
                         closestB.push_back(*h);
                         distances.clear();
-                        distances.push_back(minDistance);
+                        distances.push_back(curDistance);
                     }
-                    else if ((a.start - h->end) == minDistance) {
+                    else if (abs(curDistance) == minDistance) {
+                        minDistance = abs(curDistance);
                         closestB.push_back(*h);
-                        distances.push_back(minDistance);
+                        distances.push_back(curDistance);
                     }
                 }
                 // the hit is to the "right" of A
-                else {
-                    if ((h->start - a.end) < minDistance) {
-                        minDistance = h->start - a.end;
-
+                else if (h->start >= a.end) {
+                    curDistance = h->start - a.end;
+                    if (_signDistance) {
+                        if ((_strandedDistMode == "a" && a.strand == "-")
+                                || (_strandedDistMode == "b" && h->strand != "-")) {
+                            // hit is "upstream" of A
+                            if (_ignoreUpstream) {
+                                numOverlaps--;
+                                continue;
+                            }
+                            else{
+                                curDistance = -curDistance;
+                            }
+                        }
+                        else if (_ignoreDownstream){
+                            numOverlaps--;
+                            continue;
+                        }
+                    }
+                    if (abs(curDistance) < minDistance) {
+                        minDistance = abs(curDistance);
                         closestB.clear();
                         closestB.push_back(*h);
                         distances.clear();
-                        distances.push_back(minDistance);
+                        distances.push_back(curDistance);
                     }
-                    else if ((h->start - a.end) == minDistance) {
+                    else if (abs(curDistance) == minDistance) {
+                        minDistance = abs(curDistance);
                         closestB.push_back(*h);
-                        distances.push_back(minDistance);
+                        distances.push_back(curDistance);
                     }
                 }
             }
@@ -161,8 +197,7 @@ void BedClosest::FindWindowOverlaps(BED &a, vector<BED> &hits) {
     // report the closest feature(s) in B to the current A feature.
     // obey the user's reporting request (_tieMode)
     if (numOverlaps > 0) {
-
-        if (closestB.size() == 1 || _tieMode == "first") {
+        if (closestB.size() == 1 || (_tieMode == "first" && closestB.size() > 0)) {
             _bedA->reportBedTab(a);
             if (_reportDistance == true) {
                 _bedB->reportBedTab(closestB[0]);
@@ -184,7 +219,7 @@ void BedClosest::FindWindowOverlaps(BED &a, vector<BED> &hits) {
                         _bedB->reportBedNewLine(*b);
                 }
             }
-            else if (_tieMode == "last") {
+            else if (_tieMode == "last" && closestB.size() > 0) {
                 _bedA->reportBedTab(a);
                 if (_reportDistance == true) {
                     _bedB->reportBedTab(closestB[closestB.size()-1]);
@@ -204,19 +239,20 @@ void BedClosest::FindClosestBed() {
     // that we can easily compare "A" to it for overlaps
     _bedB->loadBedFileIntoMap();
 
-    BED a, nullBed;
-    int lineNum = 0;                    // current input line number
+    BED a;
     vector<BED> hits;                   // vector of potential hits
     hits.reserve(100);
-    BedLineStatus bedStatus;
 
     _bedA->Open();
+    // report A's header first if asked.
+    if (_printHeader == true) {
+        _bedA->PrintHeader();
+    }
     // process each entry in A in search of the closest feature in B
-    while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    while (_bedA->GetNextBed(a)) {
+        if (_bedA->_status == BED_VALID) {
             FindWindowOverlaps(a, hits);
             hits.clear();
-            a = nullBed;
         }
     }
     _bedA->Close();

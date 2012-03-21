@@ -18,7 +18,8 @@
 */
 BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSlop,
                      bool anyHit, bool noHit, bool writeCount, bool strandWindows,
-                     bool matchOnStrand, bool bamInput, bool bamOutput, bool isUncompressedBam) {
+                     bool matchOnSameStrand, bool matchOnDiffStrand, bool bamInput, 
+                     bool bamOutput, bool isUncompressedBam, bool printHeader) {
 
     _bedAFile      = bedAFile;
     _bedBFile      = bedBFile;
@@ -30,10 +31,12 @@ BedWindow::BedWindow(string bedAFile, string bedBFile, int leftSlop, int rightSl
     _noHit               = noHit;
     _writeCount          = writeCount;
     _strandWindows       = strandWindows;
-    _matchOnStrand       = matchOnStrand;
+    _matchOnSameStrand   = matchOnSameStrand;
+    _matchOnDiffStrand   = matchOnDiffStrand;
     _bamInput            = bamInput;
     _bamOutput           = bamOutput;
     _isUncompressedBam   = isUncompressedBam;
+    _printHeader         = printHeader;
 
     _bedA          = new BedFile(bedAFile);
     _bedB          = new BedFile(bedBFile);
@@ -70,7 +73,8 @@ void BedWindow::FindWindowOverlaps(const BED &a, vector<BED> &hits) {
         Now report the hits (if any) based on the window around a.
     */
     // get the hits in B for the A feature
-    _bedB->FindOverlapsPerBin(a.chrom, aFudgeStart, aFudgeEnd, a.strand, hits, _matchOnStrand);
+    _bedB->allHits(a.chrom, aFudgeStart, aFudgeEnd, a.strand, hits, 
+                   _matchOnSameStrand, _matchOnDiffStrand, 0.0, false);
 
     int numOverlaps = 0;
 
@@ -114,7 +118,8 @@ bool BedWindow::FindOneOrMoreWindowOverlaps(const BED &a) {
     CHRPOS aFudgeEnd;
     AddWindow(a, aFudgeStart, aFudgeEnd);
 
-    bool overlapsFound = _bedB->FindOneOrMoreOverlapsPerBin(a.chrom, a.start, a.end, a.strand, _matchOnStrand);
+    bool overlapsFound = _bedB->anyHits(a.chrom, a.start, a.end, a.strand, 
+                                        _matchOnSameStrand, _matchOnDiffStrand, 0.0, false);
     return overlapsFound;
 }
 
@@ -125,18 +130,19 @@ void BedWindow::WindowIntersectBed() {
     // that we can easily compare "A" to it for overlaps
     _bedB->loadBedFileIntoMap();
 
-    BED a, nullBed;
-    int lineNum = 0;                    // current input line number
-    BedLineStatus bedStatus;
-    vector<BED> hits;                   // vector of potential hits
+    BED a;
+    vector<BED> hits;
     hits.reserve(100);
 
     _bedA->Open();
-    while ((bedStatus = _bedA->GetNextBed(a, lineNum)) != BED_INVALID) {
-        if (bedStatus == BED_VALID) {
+    // report A's header first if asked.
+    if (_printHeader == true) {
+        _bedA->PrintHeader();
+    }
+    while (_bedA->GetNextBed(a)) {
+        if (_bedA->_status == BED_VALID) {
             FindWindowOverlaps(a, hits);
             hits.clear();
-            a = nullBed;
         }
     }
     _bedA->Close();
@@ -155,13 +161,17 @@ void BedWindow::WindowIntersectBam(string bamFile) {
     reader.Open(bamFile);
 
     // get header & reference information
-    string header  = reader.GetHeaderText();
-    RefVector refs = reader.GetReferenceData();
+    string bamHeader  = reader.GetHeaderText();
+    RefVector refs    = reader.GetReferenceData();
 
     // open a BAM output to stdout if we are writing BAM
     if (_bamOutput == true) {
+        // set compression mode
+        BamWriter::CompressionMode compressionMode = BamWriter::Compressed;
+        if ( _isUncompressedBam ) compressionMode = BamWriter::Uncompressed;
+        writer.SetCompressionMode(compressionMode);
         // open our BAM writer
-        writer.Open("stdout", header, refs, _isUncompressedBam);
+        writer.Open("stdout", bamHeader, refs);
     }
 
     vector<BED> hits;                   // vector of potential hits
@@ -178,7 +188,7 @@ void BedWindow::WindowIntersectBam(string bamFile) {
             BED a;
             a.chrom = refs.at(bam.RefID).RefName;
             a.start = bam.Position;
-            a.end   = bam.GetEndPosition(false);
+            a.end   = bam.GetEndPosition(false, false);
 
             // build the name field from the BAM alignment.
             a.name = bam.Name;
