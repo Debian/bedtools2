@@ -6,7 +6,7 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/makefile.mk
 include /usr/share/cdbs/1/rules/patchsys-quilt.mk
 
-DEB_DH_BUILDDEB_ARGS = -- -Z xz
+DEB_DH_BUILDDEB_ARGS = -- -Z bzip2
 
 DEB_INSTALL_CHANGELOGS_ALL := RELEASE_HISTORY
 
