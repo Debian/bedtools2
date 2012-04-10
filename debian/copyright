@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: http://bedtools.googlecode.com/files/BEDTools.v2.15.0.tar.gz
+Source: http://bedtools.googlecode.com/files/BEDTools.v2.16.2.tar.gz
 
 Files: *
 Copyright: © 2009,2010,2011 Aaron Quinlan
