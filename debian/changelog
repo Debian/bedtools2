@@ -1,3 +1,10 @@
+bedtools (2.16.2-1) UNRELEASED; urgency=low
+
+  bb9012e Imported Upstream version 2.16.2.
+  9112569 Documented BEDTools license as a whole.
+
+ -- Charles Plessy <plessy@debian.org>  Tue, 10 Apr 2012 18:11:55 +0900
+
 bedtools (2.16.1-1) unstable; urgency=low
 
   b7f2405 New upstream release.
