@@ -10,6 +10,8 @@ DEB_DH_BUILDDEB_ARGS = -- -Z xz
 
 DEB_INSTALL_CHANGELOGS_ALL := RELEASE_HISTORY
 
+DEB_COMPRESS_EXCLUDE = test
+
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)
 
