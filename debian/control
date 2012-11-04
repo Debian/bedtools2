@@ -12,7 +12,6 @@ Vcs-Git: git://git.debian.org/git/debian-med/bedtools.git
 
 Package: bedtools
 Architecture: any
-Pre-Depends: dpkg (>= 1.15.6)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: filo
 Description: suite of utilities for comparing genomic features
