@@ -1,4 +1,4 @@
-bedtools (2.17.0-1) UNRELEASED; urgency=low
+bedtools (2.17.0-1) unstable; urgency=low
 
   bb9012e Imported Upstream version 2.16.2.
   9006b23 Imported Upstream version 2.17.0.
@@ -6,8 +6,10 @@ bedtools (2.17.0-1) UNRELEASED; urgency=low
   325689c Removed Pre-Depends: dpkg (>= 1.15.6).
   a781b14 Conforms with Policy 3.9.4.
   84b1167 Use Debhelper 9. 
+  0bf572d Distribute the test suite.
+  422cd34 Bash completion for BEDTools.
 
- -- Charles Plessy <plessy@debian.org>  Tue, 10 Apr 2012 18:11:55 +0900
+ -- Charles Plessy <plessy@debian.org>  Sun, 04 Nov 2012 17:59:41 +0900
 
 bedtools (2.16.1-1) unstable; urgency=low
 
