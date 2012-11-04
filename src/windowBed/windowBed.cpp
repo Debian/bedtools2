@@ -102,7 +102,7 @@ void BedWindow::FindWindowOverlaps(const BED &a, vector<BED> &hits) {
     if (_anyHit == true && (numOverlaps >= 1)) {
         _bedA->reportBedNewLine(a); }
     else if (_writeCount == true) {
-        _bedA->reportBedTab(a); printf("\t%d\n", numOverlaps);
+        _bedA->reportBedTab(a); printf("%d\n", numOverlaps);
     }
     else if (_noHit == true && (numOverlaps == 0)) {
         _bedA->reportBedNewLine(a);
@@ -158,7 +158,11 @@ void BedWindow::WindowIntersectBam(string bamFile) {
     // open the BAM file
     BamReader reader;
     BamWriter writer;
-    reader.Open(bamFile);
+    if (!reader.Open(bamFile)) {
+        cerr << "Failed to open BAM file " << bamFile << endl;
+        exit(1);
+    }
+
 
     // get header & reference information
     string bamHeader  = reader.GetHeaderText();

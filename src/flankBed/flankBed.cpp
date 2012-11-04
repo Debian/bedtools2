@@ -85,8 +85,11 @@ void BedFlank::AddFlank(BED &bed, int leftFlank, int rightFlank) {
     BED left  = bed;
     BED right = bed;
     
+    left.zeroLength = false;
+    right.zeroLength = false;
+    
     // make the left flank (if necessary)
-    if (leftFlank > 0) {
+    if ((leftFlank > 0) && (left.start != 0)) {
         if ( (static_cast<int>(left.start) - leftFlank) > 0) 
         {
             left.end    = left.start;
