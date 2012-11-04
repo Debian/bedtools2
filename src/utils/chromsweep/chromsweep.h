@@ -14,6 +14,7 @@
 
 #include "bedFile.h"
 #include <vector>
+#include <list>
 #include <queue>
 #include <iostream>
 #include <fstream>
@@ -33,7 +34,7 @@ public:
     ChromSweep(BedFile *query, BedFile *db, 
                bool sameStrand = false, bool diffStrand = false, 
                float overlapFraction = 0.0, bool reciprocal = false,
-               bool printHeader = false);
+               bool useMergedIntervals = false, bool printHeader = false);
     
     // constructor using filenames
     ChromSweep(string &queryFile, string &dbFile);
@@ -63,9 +64,21 @@ private:
     BedFile *_query, *_db;
     float _overlapFraction;
     // do we care about strandedness.
-    bool _sameStrand, _diffStrand, _reciprocal;
-    // a cache of still active features from the database file
-    vector<BED> _cache;
+    bool _sameStrand;
+    bool _diffStrand;
+    // do we care about reciprocal overlap?
+    bool _reciprocal;
+    // should we merge overlapping intervals before computing overlaps?
+    bool _useMergedIntervals;
+
+    /* 
+       a cache of still active features from the database file\
+       2012-Oct-29: prefer LIST over VECTOR as, when _cache is large,
+       the overhead of deleting from a vector is huge.  Deleting from
+       the front of a LIST is cheap. Thanks to Neil Kindlon (Quinlan lab)
+       for the very important fix. 
+    */
+    list<BED> _cache;
     // the set of hits in the database for the current query
     vector<BED> _hits;
     // a queue from which we retrieve overlap results.  used by Next()
@@ -81,8 +94,10 @@ private:
 // private methods.
 private:
     
-    void ScanCache();
+    void ScanCache();   
     bool ChromChange();
+    bool NextQuery();
+    bool NextDatabase();
     bool IsValidHit(const BED &query, const BED &db);
 };
 
