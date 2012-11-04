@@ -1,3 +1,4 @@
 bin/*	usr/bin
 genomes	usr/share/bedtools
 test/*	usr/share/bedtools/test
+debian/bash_completion/*	etc/bash_completion.d
