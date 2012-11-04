@@ -2,7 +2,6 @@ Source: bedtools
 Section: science
 Priority: optional
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
-DM-Upload-Allowed: yes
 Uploaders: Charles Plessy <plessy@debian.org>
 Build-Depends: cdbs, debhelper (>= 9), quilt, python, zlib1g-dev
 Standards-Version: 3.9.4
