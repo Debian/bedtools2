@@ -1,69 +1,68 @@
-From buildd@alkman.debian.org Fri Mar 16 13:26:06 2012
-Return-path: <buildd@alkman.debian.org>
-Received: from kokkonen.debian.org ([2001:41b8:202:deb:1a1a:0:52c3:4b61])
+From buildd@caballero.debian.org Sun Nov 04 11:39:35 2012
+Return-path: <buildd@caballero.debian.org>
+Received: from merikanto.debian.org ([2001:858:2:2:216:35ff:fec4:a49a])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
-	CN=kokkonen.debian.org,
-	EMAIL=hostmaster@kokkonen.debian.org (verified)
+	CN=merikanto.debian.org,
+	EMAIL=hostmaster@merikanto.debian.org (verified)
 	by grieg.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
-	(Exim 4.72) (envelope-from <buildd@alkman.debian.org>)
-	id 1S8XAU-0008CO-L6
-	for logs@buildd.debian.org; Fri, 16 Mar 2012 13:26:06 +0000
-Received: from alkman.debian.org ([192.25.206.63])
+	(Exim 4.72) (envelope-from <buildd@caballero.debian.org>)
+	id 1TUyYB-0001vh-0p
+	for logs@buildd.debian.org; Sun, 04 Nov 2012 11:39:35 +0000
+Received: from caballero.debian.org ([193.201.200.200])
 	from C=NA, ST=NA, L=Ankh Morpork, O=Debian SMTP, OU=Debian SMTP CA,
-	CN=alkman.debian.org, EMAIL=hostmaster@alkman.debian.org (verified)
-	by kokkonen.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
-	(Exim 4.72) (envelope-from <buildd@alkman.debian.org>)
-	id 1S8XAS-00023V-U3
-	for logs@buildd.debian.org; Fri, 16 Mar 2012 13:26:05 +0000
-Received: from buildd by alkman.debian.org with local (Exim 4.72)
-	(envelope-from <buildd@alkman.debian.org>)
-	id 1S8XAQ-0002sS-Pl; Fri, 16 Mar 2012 13:26:02 +0000
-Date: Fri, 16 Mar 2012 13:26:02 +0000
-Message-Id: <E1S8XAQ-0002sS-Pl@alkman.debian.org>
-From: buildd on alkman <buildd@alkman.debian.org>
-To: buildd-porters@alkman.debian.org,logs@buildd.debian.org
-Subject: Log for successful build of bedtools_2.16.1-1 on ia64 (dist=sid)
+	CN=caballero.debian.org,
+	EMAIL=hostmaster@caballero.debian.org (verified)
+	by merikanto.debian.org with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+	(Exim 4.72) (envelope-from <buildd@caballero.debian.org>)
+	id 1TUyY9-0005SW-7o; Sun, 04 Nov 2012 11:39:33 +0000
+Received: from buildd by caballero.debian.org with local (Exim 4.72)
+	(envelope-from <buildd@caballero.debian.org>) id 1TUyY8-0005pC-3T
+	for buildd-porters@caballero.debian.org; Sun, 04 Nov 2012 11:39:32 +0000
+Date: Sun, 04 Nov 2012 11:39:32 +0000
+Message-Id: <E1TUyY8-0005pC-3T@caballero.debian.org>
+From: buildd on caballero <buildd@caballero.debian.org>
+To: buildd-porters@caballero.debian.org
+Subject: Log for successful build of bedtools_2.17.0-1 on ia64 (dist=sid)
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Delivered-To: buildd-porters@caballero.debian.org
 Delivered-To: logs@buildd.debian.org
 
-sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on alkman.debian.org
+sbuild (Debian sbuild) 0.61.0 (23 Feb 2011) on caballero.debian.org
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ bedtools 2.16.1-1 (ia64)                                   16 Mar 2012 13:11 ║
+║ bedtools 2.17.0-1 (ia64)                                   04 Nov 2012 11:28 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: bedtools
-Version: 2.16.1-1
-Source Version: 2.16.1-1
+Version: 2.17.0-1
+Source Version: 2.17.0-1
 Architecture: ia64
-Get:1 http://spohr.debian.org unstable InRelease [198 kB]
-Get:2 http://incoming.debian.org unstable InRelease [198 kB]
-Get:3 http://spohr.debian.org unstable/main Sources [6213 kB]
-Get:4 http://spohr.debian.org unstable/contrib Sources [54.4 kB]
-Get:5 http://spohr.debian.org unstable/non-free Sources [99.8 kB]
-Get:6 http://spohr.debian.org unstable/main ia64 Packages [5659 kB]
+Hit http://ftp.uk.debian.org sid InRelease
+Hit http://ftp.uk.debian.org sid/main Sources/DiffIndex
+Hit http://incoming.debian.org sid InRelease
 Ign http://incoming.debian.org  InRelease
-Get:7 http://incoming.debian.org  Release.gpg [836 B]
-Get:8 http://incoming.debian.org unstable/main Sources [6213 kB]
-Get:9 http://spohr.debian.org unstable/contrib ia64 Packages [37.4 kB]
-Ign http://spohr.debian.org unstable/contrib TranslationIndex
-Get:10 http://spohr.debian.org unstable/main TranslationIndex [2223 B]
-Get:11 http://spohr.debian.org unstable/contrib Translation-en [37.1 kB]
-Get:12 http://spohr.debian.org unstable/main Translation-en [3902 kB]
-Get:13 http://incoming.debian.org unstable/contrib Sources [54.4 kB]
-Get:14 http://incoming.debian.org unstable/non-free Sources [99.8 kB]
-Get:15 http://incoming.debian.org unstable/main ia64 Packages [5659 kB]
-Get:16 http://incoming.debian.org unstable/contrib ia64 Packages [37.4 kB]
-Ign http://incoming.debian.org unstable/contrib TranslationIndex
-Get:17 http://incoming.debian.org unstable/main TranslationIndex [2223 B]
-Get:18 http://incoming.debian.org  Release [1616 B]
-Get:19 http://incoming.debian.org unstable/contrib Translation-en [37.1 kB]
-Get:20 http://incoming.debian.org unstable/main Translation-en [3902 kB]
-Get:21 http://incoming.debian.org  Sources [60.0 kB]
-Get:22 http://incoming.debian.org  Packages [691 kB]
+Hit http://ftp.uk.debian.org sid/contrib Sources/DiffIndex
+Hit http://ftp.uk.debian.org sid/main ia64 Packages/DiffIndex
+Hit http://ftp.uk.debian.org sid/contrib ia64 Packages/DiffIndex
+Hit http://ftp.uk.debian.org sid/contrib Translation-en/DiffIndex
+Hit http://ftp.uk.debian.org sid/main Translation-en/DiffIndex
+Get:1 http://incoming.debian.org  Release.gpg [836 B]
+Get:2 http://incoming.debian.org sid/main Sources/DiffIndex [7876 B]
+Hit http://incoming.debian.org sid/contrib Sources/DiffIndex
+Get:3 http://incoming.debian.org sid/main ia64 Packages/DiffIndex [7876 B]
+Hit http://incoming.debian.org sid/contrib ia64 Packages/DiffIndex
+Hit http://incoming.debian.org sid/contrib Translation-en/DiffIndex
+Hit http://incoming.debian.org sid/main Translation-en/DiffIndex
+Get:4 http://incoming.debian.org  Release [1141 B]
+Ign http://incoming.debian.org sid/main 2012-11-04-0210.01.pdiff
+Ign http://incoming.debian.org sid/main ia64 2012-11-04-0210.01.pdiff
+Get:5 http://incoming.debian.org  Sources [16.2 kB]
+Get:6 http://incoming.debian.org  Packages [140 kB]
+Hit http://incoming.debian.org sid/main
+Hit http://incoming.debian.org sid/main ia64
 Ign http://incoming.debian.org  Translation-en
-Fetched 33.2 MB in 28s (1170 kB/s)
+Fetched 174 kB in 7s (23.9 kB/s)
 Reading package lists...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -83,12 +82,12 @@ Reading package lists...
 Building dependency tree...
 Reading state information...
 NOTICE: 'bedtools' packaging is maintained in the 'Git' version control system at:
-git://git.debian.org/git/debian-med/bedtools.git
-Need to get 985 kB of source archives.
-Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (dsc) [1975 B]
-Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (tar) [978 kB]
-Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.16.1-1 (diff) [5035 B]
-Fetched 985 kB in 1s (873 kB/s)
+git://git.debian.org/debian-med/bedtools.git
+Need to get 1216 kB of source archives.
+Get:1 http://incoming.debian.org/buildd-unstable/  bedtools 2.17.0-1 (dsc) [1951 B]
+Get:2 http://incoming.debian.org/buildd-unstable/  bedtools 2.17.0-1 (tar) [1209 kB]
+Get:3 http://incoming.debian.org/buildd-unstable/  bedtools 2.17.0-1 (diff) [5663 B]
+Fetched 1216 kB in 1s (707 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -102,252 +101,94 @@ Check arch
 Build-Depends: build-essential, fakeroot
 Checking for already installed dependencies...
 build-essential: already installed (11.5)
-fakeroot: already installed (1.18.2-1)
+fakeroot: already installed (1.18.4-2)
 Checking for dependency conflicts...
 Installing positive dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following packages were automatically installed and are no longer required:
-  libppl9 libpwl5 libppl-c4 libcloog-ppl0 libgmpxx4ldbl
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 51 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 89 not upgraded.
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following packages were automatically installed and are no longer required:
-  libppl9 libpwl5 libppl-c4 libcloog-ppl0 libgmpxx4ldbl
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 51 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 89 not upgraded.
 Checking correctness of dependencies...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Install bedtools build dependencies (internal resolver)                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6.1-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 8), quilt, python, zlib1g-dev
+Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6.1-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>= 9), quilt, python, zlib1g-dev
 Checking for already installed dependencies...
-base-files: already installed (6.5)
-base-passwd: already installed (3.5.24)
-bash: already installed (4.2-1)
-coreutils: already installed (8.13-3)
-dash: already installed (0.5.7-2)
-debianutils: already installed (4.2.1)
-diffutils: already installed (1:3.2-1)
-dpkg: already installed (1.16.1.2)
-e2fsprogs: already installed (1.42-1)
+base-files: already installed (6.11)
+base-passwd: already installed (3.5.26)
+bash: already installed (4.2-3)
+coreutils: already installed (8.13-3.2)
+dash: already installed (0.5.7-3)
+debianutils: already installed (4.3.2)
+diffutils: already installed (1:3.2-6)
+dpkg: already installed (1.16.7)
+e2fsprogs: already installed (1.42.5-1)
 findutils: already installed (4.4.2-4)
-grep: already installed (2.10-1)
-gzip: already installed (1.4-2)
-hostname: already installed (3.10)
-ncurses-base: already installed (5.9-4)
-ncurses-bin: already installed (5.9-4)
-perl-base: already installed (5.14.2-7)
-sed: already installed (4.2.1-9)
-login: already installed (1:4.1.4.2+svn3283-3)
-sysvinit-utils: already installed (2.88dsf-22)
-sysvinit: already installed (2.88dsf-22)
+grep: already installed (2.12-2)
+gzip: already installed (1.5-1.1)
+hostname: already installed (3.11)
+ncurses-base: already installed (5.9-10)
+ncurses-bin: already installed (5.9-10)
+perl-base: already installed (5.14.2-14)
+sed: already installed (4.2.1-10)
+login: already installed (1:4.1.5.1-1)
+sysvinit-utils: already installed (2.88dsf-28)
+sysvinit: already installed (2.88dsf-28)
 tar: already installed (1.26-4)
-bsdutils: already installed (1:2.20.1-1.2)
-mount: already installed (2.20.1-1.2)
-util-linux: already installed (2.20.1-1.2)
-libc6.1-dev: already installed (2.13-26)
-gcc: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
-g++: already installed (4:4.6.2-4 >= 4:4.4.3 is satisfied)
-make: already installed (3.81-8.1)
-dpkg-dev: already installed (1.16.1.2 >= 1.13.5 is satisfied)
+bsdutils: already installed (1:2.20.1-5.1)
+mount: already installed (2.20.1-5.1)
+util-linux: already installed (2.20.1-5.1)
+libc6.1-dev: already installed (2.13-35)
+gcc: already installed (4:4.6.3-8 >= 4:4.4.3 is satisfied)
+g++: already installed (4:4.6.3-7 >= 4:4.4.3 is satisfied)
+make: already installed (3.81-8.2)
+dpkg-dev: already installed (1.16.9 >= 1.13.5 is satisfied)
 cdbs: missing
-debhelper: missing
-Using default version 9.20120312
+debhelper: already installed (9.20120909 >= 9 is satisfied)
 quilt: missing
-python: missing
-zlib1g-dev: missing
+python: already installed (2.7.3-1)
+zlib1g-dev: already installed (1:1.2.7.dfsg-13)
 Checking for dependency conflicts...
-Installing positive dependencies: cdbs debhelper quilt python zlib1g-dev
+Installing positive dependencies: cdbs quilt
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following packages were automatically installed and are no longer required:
-  libppl9 libpwl5 libppl-c4 libcloog-ppl0 libgmpxx4ldbl
-Use 'apt-get autoremove' to remove them.
 The following extra packages will be installed:
-  bsdmainutils diffstat file gettext gettext-base groff-base html2text
-  intltool-debian libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0 libmagic1
-  libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0 libunistring0
-  libxml2 man-db mime-support po-debconf python-minimal python2.7
-  python2.7-minimal zlib1g
+  diffstat
 Suggested packages:
-  wamerican wordlist whois vacation devscripts dh-make gettext-doc groff less
-  www-browser libmail-box-perl python-doc python-tk python2.7-doc
-  binfmt-support procmail graphviz default-mta mail-transport-agent
-Recommended packages:
-  autotools-dev curl wget lynx-cur autopoint libglib2.0-data shared-mime-info
-  libgpm2 xml-core libmail-sendmail-perl
+  devscripts procmail graphviz default-mta mail-transport-agent
 The following NEW packages will be installed:
-  bsdmainutils cdbs debhelper diffstat file gettext gettext-base groff-base
-  html2text intltool-debian libcroco3 libdb4.8 libexpat1 libffi5 libglib2.0-0
-  libmagic1 libncursesw5 libpcre3 libpipeline1 libsqlite3-0 libssl1.0.0
-  libunistring0 libxml2 man-db mime-support po-debconf python python-minimal
-  python2.7 python2.7-minimal quilt zlib1g-dev
-The following packages will be upgraded:
-  zlib1g
-1 upgraded, 32 newly installed, 0 to remove and 50 not upgraded.
-Need to get 21.3 MB of archives.
-After this operation, 66.6 MB of additional disk space will be used.
-Get:1 http://spohr.debian.org/debian/ unstable/main zlib1g ia64 1:1.2.6.dfsg-2 [117 kB]
-Get:2 http://spohr.debian.org/debian/ unstable/main libncursesw5 ia64 5.9-4 [387 kB]
-Get:3 http://spohr.debian.org/debian/ unstable/main libpipeline1 ia64 1.2.1-1 [48.2 kB]
-Get:4 http://spohr.debian.org/debian/ unstable/main libssl1.0.0 ia64 1.0.0h-1 [1565 kB]
-Get:5 http://spohr.debian.org/debian/ unstable/main libmagic1 ia64 5.10-1 [274 kB]
-Get:6 http://spohr.debian.org/debian/ unstable/main libpcre3 ia64 8.12-4 [272 kB]
-Get:7 http://spohr.debian.org/debian/ unstable/main libffi5 ia64 3.0.10-3 [35.5 kB]
-Get:8 http://spohr.debian.org/debian/ unstable/main libglib2.0-0 ia64 2.30.2-6 [2198 kB]
-Get:9 http://spohr.debian.org/debian/ unstable/main libxml2 ia64 2.7.8.dfsg-7 [1179 kB]
-Get:10 http://spohr.debian.org/debian/ unstable/main libcroco3 ia64 0.6.4-2 [174 kB]
-Get:11 http://spohr.debian.org/debian/ unstable/main libexpat1 ia64 2.0.1-7.2 [212 kB]
-Get:12 http://spohr.debian.org/debian/ unstable/main libunistring0 ia64 0.9.3-5 [463 kB]
-Get:13 http://spohr.debian.org/debian/ unstable/main libdb4.8 ia64 4.8.30-11 [1117 kB]
-Get:14 http://spohr.debian.org/debian/ unstable/main bsdmainutils ia64 9.0.1 [240 kB]
-Get:15 http://spohr.debian.org/debian/ unstable/main groff-base ia64 1.21-6 [1402 kB]
-Get:16 http://spohr.debian.org/debian/ unstable/main man-db ia64 2.6.1-1 [1156 kB]
-Get:17 http://spohr.debian.org/debian/ unstable/main file ia64 5.10-1 [55.2 kB]
-Get:18 http://spohr.debian.org/debian/ unstable/main gettext-base ia64 0.18.1.1-5 [173 kB]
-Get:19 http://spohr.debian.org/debian/ unstable/main libsqlite3-0 ia64 3.7.10-1 [639 kB]
-Get:20 http://spohr.debian.org/debian/ unstable/main mime-support all 3.52-1 [35.5 kB]
-Get:21 http://spohr.debian.org/debian/ unstable/main python2.7-minimal ia64 2.7.3~rc1-1 [2192 kB]
-Get:22 http://spohr.debian.org/debian/ unstable/main python2.7 ia64 2.7.3~rc1-1 [2892 kB]
-Get:23 http://spohr.debian.org/debian/ unstable/main python-minimal all 2.7.2-10 [40.0 kB]
-Get:24 http://spohr.debian.org/debian/ unstable/main python all 2.7.2-10 [177 kB]
-Get:25 http://spohr.debian.org/debian/ unstable/main cdbs all 0.4.109 [79.4 kB]
-Get:26 http://spohr.debian.org/debian/ unstable/main html2text ia64 1.3.2a-15 [134 kB]
-Get:27 http://spohr.debian.org/debian/ unstable/main gettext ia64 0.18.1.1-5 [2439 kB]
-Get:28 http://spohr.debian.org/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
-Get:29 http://spohr.debian.org/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
-Get:30 http://spohr.debian.org/debian/ unstable/main debhelper all 9.20120312 [694 kB]
-Get:31 http://spohr.debian.org/debian/ unstable/main diffstat ia64 1.55-2 [37.2 kB]
-Get:32 http://spohr.debian.org/debian/ unstable/main quilt all 0.60-2 [377 kB]
-Get:33 http://spohr.debian.org/debian/ unstable/main zlib1g-dev ia64 1:1.2.6.dfsg-2 [251 kB]
-debconf: delaying package configuration, since apt-utils is not installed
-Fetched 21.3 MB in 8s (2576 kB/s)
-(Reading database ... 10668 files and directories currently installed.)
-Preparing to replace zlib1g 1:1.2.3.4.dfsg-3 (using .../zlib1g_1%3a1.2.6.dfsg-2_ia64.deb) ...
-Unpacking replacement zlib1g ...
-Setting up zlib1g (1:1.2.6.dfsg-2) ...
-Selecting previously unselected package libncursesw5.
-(Reading database ... 10668 files and directories currently installed.)
-Unpacking libncursesw5 (from .../libncursesw5_5.9-4_ia64.deb) ...
-Selecting previously unselected package libpipeline1.
-Unpacking libpipeline1 (from .../libpipeline1_1.2.1-1_ia64.deb) ...
-Selecting previously unselected package libssl1.0.0.
-Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0h-1_ia64.deb) ...
-Selecting previously unselected package libmagic1.
-Unpacking libmagic1 (from .../libmagic1_5.10-1_ia64.deb) ...
-Selecting previously unselected package libpcre3.
-Unpacking libpcre3 (from .../libpcre3_8.12-4_ia64.deb) ...
-Selecting previously unselected package libffi5.
-Unpacking libffi5 (from .../libffi5_3.0.10-3_ia64.deb) ...
-Selecting previously unselected package libglib2.0-0.
-Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-6_ia64.deb) ...
-Selecting previously unselected package libxml2.
-Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-7_ia64.deb) ...
-Selecting previously unselected package libcroco3.
-Unpacking libcroco3 (from .../libcroco3_0.6.4-2_ia64.deb) ...
-Selecting previously unselected package libexpat1.
-Unpacking libexpat1 (from .../libexpat1_2.0.1-7.2_ia64.deb) ...
-Selecting previously unselected package libunistring0.
-Unpacking libunistring0 (from .../libunistring0_0.9.3-5_ia64.deb) ...
-Selecting previously unselected package libdb4.8.
-Unpacking libdb4.8 (from .../libdb4.8_4.8.30-11_ia64.deb) ...
-Selecting previously unselected package bsdmainutils.
-Unpacking bsdmainutils (from .../bsdmainutils_9.0.1_ia64.deb) ...
-Selecting previously unselected package groff-base.
-Unpacking groff-base (from .../groff-base_1.21-6_ia64.deb) ...
-Selecting previously unselected package man-db.
-Unpacking man-db (from .../man-db_2.6.1-1_ia64.deb) ...
-Selecting previously unselected package file.
-Unpacking file (from .../archives/file_5.10-1_ia64.deb) ...
-Selecting previously unselected package gettext-base.
-Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_ia64.deb) ...
-Selecting previously unselected package libsqlite3-0.
-Unpacking libsqlite3-0 (from .../libsqlite3-0_3.7.10-1_ia64.deb) ...
-Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.52-1_all.deb) ...
-Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3~rc1-1_ia64.deb) ...
-Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3~rc1-1_ia64.deb) ...
-Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.2-10_all.deb) ...
-Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.2-10_all.deb) ...
+  cdbs diffstat quilt
+0 upgraded, 3 newly installed, 0 to remove and 89 not upgraded.
+Need to get 0 B/495 kB of archives.
+After this operation, 1200 kB of additional disk space will be used.
 Selecting previously unselected package cdbs.
-Unpacking cdbs (from .../archives/cdbs_0.4.109_all.deb) ...
-Selecting previously unselected package html2text.
-Unpacking html2text (from .../html2text_1.3.2a-15_ia64.deb) ...
-Selecting previously unselected package gettext.
-Unpacking gettext (from .../gettext_0.18.1.1-5_ia64.deb) ...
-Selecting previously unselected package intltool-debian.
-Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
-Selecting previously unselected package po-debconf.
-Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
-Selecting previously unselected package debhelper.
-Unpacking debhelper (from .../debhelper_9.20120312_all.deb) ...
+(Reading database ... 28133 files and directories currently installed.)
+Unpacking cdbs (from .../archives/cdbs_0.4.118_all.deb) ...
 Selecting previously unselected package diffstat.
-Unpacking diffstat (from .../diffstat_1.55-2_ia64.deb) ...
+Unpacking diffstat (from .../diffstat_1.55-3_ia64.deb) ...
 Selecting previously unselected package quilt.
 Unpacking quilt (from .../archives/quilt_0.60-2_all.deb) ...
-Selecting previously unselected package zlib1g-dev.
-Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.6.dfsg-2_ia64.deb) ...
-Setting up libncursesw5 (5.9-4) ...
-Setting up libpipeline1 (1.2.1-1) ...
-Setting up libssl1.0.0 (1.0.0h-1) ...
-Setting up libmagic1 (5.10-1) ...
-Setting up libpcre3 (8.12-4) ...
-Setting up libffi5 (3.0.10-3) ...
-Setting up libglib2.0-0 (2.30.2-6) ...
-No schema files found: doing nothing.
-Setting up libxml2 (2.7.8.dfsg-7) ...
-Setting up libcroco3 (0.6.4-2) ...
-Setting up libexpat1 (2.0.1-7.2) ...
-Setting up libunistring0 (0.9.3-5) ...
-Setting up libdb4.8 (4.8.30-11) ...
-Setting up bsdmainutils (9.0.1) ...
-update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
-update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
-Setting up groff-base (1.21-6) ...
-Setting up man-db (2.6.1-1) ...
-Building database of manual pages ...
-Setting up file (5.10-1) ...
-Setting up gettext-base (0.18.1.1-5) ...
-Setting up libsqlite3-0 (3.7.10-1) ...
-Setting up mime-support (3.52-1) ...
-update-alternatives: using /usr/bin/see to provide /usr/bin/view (view) in auto mode.
-Setting up python2.7-minimal (2.7.3~rc1-1) ...
-Setting up python2.7 (2.7.3~rc1-1) ...
-Setting up python-minimal (2.7.2-10) ...
-Setting up python (2.7.2-10) ...
-Setting up cdbs (0.4.109) ...
-Setting up html2text (1.3.2a-15) ...
-Setting up gettext (0.18.1.1-5) ...
-Setting up intltool-debian (0.35.0+20060710.1) ...
-Setting up po-debconf (1.0.16+nmu2) ...
-Setting up debhelper (9.20120312) ...
-Setting up diffstat (1.55-2) ...
+Processing triggers for man-db ...
+Setting up cdbs (0.4.118) ...
+Setting up diffstat (1.55-3) ...
 Setting up quilt (0.60-2) ...
-Setting up zlib1g-dev (1:1.2.6.dfsg-2) ...
 Removing negative dependencies: 
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following packages were automatically installed and are no longer required:
-  libppl9 libpwl5 libppl-c4 libcloog-ppl0 libgmpxx4ldbl
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 50 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 89 not upgraded.
 Checking correctness of dependencies...
-Kernel: Linux 2.6.32-5-mckinley ia64 (ia64)
-Toolchain package versions: binutils_2.22-5 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-12 gcc-4.6_4.6.2-12 libc6.1-dev_2.13-26 libstdc++6_4.6.2-12 libstdc++6-4.6-dev_4.6.2-12 linux-libc-dev_3.2.2-1
-Package versions: apt_0.8.15.9 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-5 bsdmainutils_9.0.1 bsdutils_1:2.20.1-1.2 build-essential_11.5 bzip2_1.0.6-1 cdbs_0.4.109 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-12 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_9.20120312 debian-archive-keyring_2010.08.28 debianutils_4.2.1 diffstat_1.55-2 diffutils_1:3.2-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.10-1 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-12 gcc_4:4.6.2-4 gcc-4.4-base_4.4.6-14 gcc-4.5-base_4.5.3-12 gcc-4.6_4.6.2-12 gcc-4.6-base_4.6.2-12 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.10 html2text_1.3.2a-15 initscripts_2.88dsf-22 insserv_1.14.0-2.2 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.2 libbz2-1.0_1.0.6-1 libc-bin_2.13-26 libc-dev-bin_2.13-26 libc6.1_2.13-26 libc6.1-dev_2.13-26 libclass-isa-perl_0.36-3 libcloog-ppl0_0.15.11-4 libcomerr2_1.42-1 libcroco3_0.6.4-2 libdb4.8_4.8.30-11 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libexpat1_2.0.1-7.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-12 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-6 libgmp10_2:5.0.3+dfsg-1 libgmpxx4ldbl_2:5.0.3+dfsg-1 libgomp1_4.6.2-12 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.10-1 libmount1_2.20.1-1.2 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-7 libpam-modules-bin_1.1.3-7 libpam-runtime_1.1.3-7 libpam0g_1.1.3-7 libpcre3_8.12-4 libpipeline1_1.2.1-1 libppl-c4_0.11.2-6 libppl9_0.11.2-6 libpwl5_0.11.2-6 libquadmath0_4.6.2-12 libreadline6_6.2-8 libselinux1_2.1.0-4.1 libsepol1_2.1.0-1.2 libslang2_2.2.4-6 libsqlite3-0_3.7.10-1 libss2_1.42-1 libssl1.0.0_1.0.0h-1 libstdc++6_4.6.2-12 libstdc++6-4.6-dev_4.6.2-12 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libunwind7_0.99-0.3 libunwind7-dev_0.99-0.3 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.2 libxml2_2.7.8.dfsg-7 linux-libc-dev_3.2.2-1 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28.1 make_3.81-8.1 man-db_2.6.1-1 mawk_1.3.3-16 mime-support_3.52-1 mount_2.20.1-1.2 multiarch-support_2.13-26 ncurses-base_5.9-4 ncurses-bin_5.9-4 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-3 perl_5.14.2-7 perl-base_5.14.2-7 perl-modules_5.14.2-7 po-debconf_1.0.16+nmu2 python_2.7.2-10 python-minimal_2.7.2-10 python2.7_2.7.3~rc1-1 python2.7-minimal_2.7.3~rc1-1 quilt_0.60-2 readline-common_6.2-8 sed_4.2.1-9 sensible-utils_0.0.6 sudo_1.8.3p2-1 sysv-rc_2.88dsf-22 sysvinit_2.88dsf-22 sysvinit-utils_2.88dsf-22 tar_1.26-4 tzdata_2011n-2 ucf_3.0025+nmu2 util-linux_2.20.1-1.2 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.6.dfsg-2 zlib1g-dev_1:1.2.6.dfsg-2
+Kernel: Linux 2.6.32-bpo.5-mckinley ia64 (ia64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-12 gcc-4.6_4.6.3-12 libc6.1-dev_2.13-35 libstdc++6_4.7.2-4 libstdc++6-4.6-dev_4.6.3-12 linux-libc-dev_3.2.21-3
+Package versions: apt_0.9.7.1 apt-utils_0.9.7.1 aspell_0.60.7~20110707-1 aspell-en_7.1-0-1 autoconf_2.69-1 automake_1:1.11.6-1 autopoint_0.18.1.1-9 autotools-dev_20120608.1 base-files_6.11 base-passwd_3.5.26 bash_4.2-3 binutils_2.22-7.1 bison_1:2.5.dfsg-2.1 bsdmainutils_9.0.3 bsdutils_1:2.20.1-5.1 build-essential_11.5 bzip2_1.0.6-4 ca-certificates_20120623 cdbs_0.4.118 chrpath_0.13-2 coreutils_8.13-3.2 cpp_4:4.6.3-8 cpp-4.6_4.6.3-12 dash_0.5.7-3 dconf-gsettings-backend_0.12.1-2 dconf-service_0.12.1-2 debconf_1.5.45 debfoster_2.7-1.1 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.2 dictionaries-common_1.12.10 diffstat_1.55-3 diffutils_1:3.2-6 docbook_4.5-5.1 docbook-dsssl_1.79-7 docbook-to-man_1:2.0.0-31 docbook-xml_4.5-7.1 docbook-xsl_1.76.1+dfsg-1 docutils-common_0.8.1-8 dpkg_1.16.7 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-4 flex_2.5.35-10.1 fontconfig_2.9.0-7 fontconfig-config_2.9.0-7 g++_4:4.6.3-7 g++-4.6_4.6.3-12 gawk_1:4.0.1+dfsg-2 gcc_4:4.6.3-8 gcc-4.6_4.6.3-12 gcc-4.6-base_4.6.3-12 gcc-4.7-base_4.7.2-4 gettext_0.18.1.1-9 gettext-base_0.18.1.1-9 gir1.2-atk-1.0_2.4.0-2 gir1.2-freedesktop_1.32.1-1 gir1.2-gdkpixbuf-2.0_2.26.1-1 gir1.2-glib-2.0_1.32.1-1 gir1.2-gst-plugins-base-0.10_0.10.36-1 gir1.2-gstreamer-0.10_0.10.36-1 gir1.2-gtk-2.0_2.24.10-2 gir1.2-gtk-3.0_3.4.2-4 gir1.2-pango-1.0_1.30.0-1 gir1.2-soup-2.4_2.38.1-2 git_1:1.7.10.4-1 git-man_1:1.7.10.4-1 glib-networking_2.32.3-1 glib-networking-common_2.32.3-1 glib-networking-services_2.32.3-1 gnome-common_3.4.0.1-1 gnupg_1.4.12-4+b1 gobjc++_4:4.6.3-7 gobjc++-4.6_4.6.3-12 gobjc-4.6_4.6.3-12 gobject-introspection_1.32.1-1 gperf_3.0.3-1+b1 gpgv_1.4.12-4+b1 grep_2.12-2 groff-base_1.21-9 gsettings-desktop-schemas_3.4.2-1 gtk-doc-tools_1.18-2 gzip_1.5-1.1 highlight_3.9-1 highlight-common_3.9-1 hostname_3.11 html2text_1.3.2a-15 initscripts_2.88dsf-28 insserv_1.14.0-4 intltool_0.50.2-2 intltool-debian_0.35.0+20060710.1 iso-codes_3.38-1 jade_1.2.1-47.1+b1 libacl1_2.2.51-8 libapt-inst1.5_0.9.7.1 libapt-pkg-dev_0.9.7.1 libapt-pkg4.12_0.9.7.1 libaspell15_0.60.7~20110707-1 libasprintf0c2_0.18.1.1-9 libatk1.0-0_2.4.0-2 libatk1.0-data_2.4.0-2 libatk1.0-dev_2.4.0-2 libattr1_1:2.4.46-8 libavahi-client3_0.6.31-1 libavahi-common-data_0.6.31-1 libavahi-common3_0.6.31-1 libbison-dev_1:2.5.dfsg-2.1 libblkid1_2.20.1-5.2 libbz2-1.0_1.0.6-4 libc-bin_2.13-35 libc-dev-bin_2.13-35 libc6.1_2.13-35 libc6.1-dev_2.13-35 libcairo-gobject2_1.12.2-2 libcairo-script-interpreter2_1.12.2-2 libcairo2_1.12.2-2 libcairo2-dev_1.12.2-2 libclass-isa-perl_0.36-3 libcolord1_0.1.21-4 libcomerr2_1.42.5-1 libcroco3_0.6.5-1 libcups2_1.5.3-2.4 libcurl3-gnutls_7.28.0-2 libdatrie1_0.2.5-3 libdb5.1_5.1.29-5 libdb5.1++_5.1.29-5 libdbus-1-3_1.6.2-2 libdbus-1-dev_1.6.2-2 libdbus-glib-1-2_0.100-1 libdbus-glib-1-dev_0.100-1 libdconf0_0.12.1-2 libdpkg-perl_1.16.9 libdrm2_2.4.33-3 libelf1_0.153-2 libenchant-dev_1.6.0-7 libenchant1c2a_1.6.0-7 libencode-locale-perl_1.03-1 liberror-perl_0.17-1 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi-dev_3.0.10-3 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfile-listing-perl_6.04-1 libfontconfig1_2.9.0-7 libfontconfig1-dev_2.9.0-7 libfreetype6_2.4.9-1 libfreetype6-dev_2.4.9-1 libgail-3-0_3.4.2-4 libgail-3-dev_3.4.2-4 libgail-common_2.24.10-2 libgail-dev_2.24.10-2 libgail18_2.24.10-2 libgc1c2_1:7.1-9 libgcc1_1:4.7.2-4 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgdk-pixbuf2.0-0_2.26.1-1 libgdk-pixbuf2.0-common_2.26.1-1 libgdk-pixbuf2.0-dev_2.26.1-1 libgeoclue-dev_0.12.0-4 libgeoclue0_0.12.0-4 libgettextpo0_0.18.1.1-9 libgirepository-1.0-1_1.32.1-1 libgirepository1.0-dev_1.32.1-1 libgl1-mesa-dev_8.0.4-2 libgl1-mesa-glx_8.0.4-2 libglapi-mesa_8.0.4-2 libglib2.0-0_2.33.12+really2.32.3-1 libglib2.0-bin_2.33.12+really2.32.3-1 libglib2.0-data_2.33.12+really2.32.3-1 libglib2.0-dev_2.33.12+really2.32.3-1 libgmp10_2:5.0.5+dfsg-2 libgnome-keyring-common_3.4.1-1 libgnome-keyring0_3.4.1-1 libgnutls26_2.12.20-1 libgomp1_4.7.2-4 libgpg-error0_1.10-3.1 libgssapi-krb5-2_1.10.1+dfsg-2 libgstreamer-plugins-base0.10-0_0.10.36-1 libgstreamer-plugins-base0.10-dev_0.10.36-1 libgstreamer0.10-0_0.10.36-1 libgstreamer0.10-dev_0.10.36-1 libgtk-3-0_3.4.2-4 libgtk-3-common_3.4.2-4 libgtk-3-dev_3.4.2-4 libgtk2.0-0_2.24.10-2 libgtk2.0-common_2.24.10-2 libgtk2.0-dev_2.24.10-2 libhtml-parser-perl_3.69-2 libhtml-tagset-perl_3.20-2 libhtml-tree-perl_5.02-1 libhttp-cookies-perl_6.00-2 libhttp-date-perl_6.02-1 libhttp-message-perl_6.03-1 libhttp-negotiate-perl_6.00-2 libhunspell-1.3-0_1.3.2-4 libice-dev_2:1.0.8-2 libice6_2:1.0.8-2 libicu-dev_4.8.1.1-9 libicu48_4.8.1.1-9 libidn11_1.25-2 libio-socket-ssl-perl_1.76-1 libjasper1_1.900.1-14 libjbig0_2.0-2 libjpeg8_8d-1 libjpeg8-dev_8d-1 libjs-jquery_1.7.2+debian-2 libjs-sphinxdoc_1.1.3+dfsg-4 libjs-underscore_1.3.3-1 libk5crypto3_1.10.1+dfsg-2 libkeyutils1_1.5.5-3 libkrb5-3_1.10.1+dfsg-2 libkrb5support0_1.10.1+dfsg-2 liblcms2-2_2.2+git20110628-2.2 libldap-2.4-2_2.4.31-1 liblua5.1-0_5.1.5-4 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.03-1 liblzma2_5.0.0-2 liblzma5_5.1.1alpha+20120614-1 libmagic1_5.11-2 libmount1_2.20.1-5.2 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libnet-http-perl_6.03-2 libnet-ssleay-perl_1.48-1+b1 libobjc3_4.6.3-12 liborc-0.4-0_1:0.4.16-2 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpango1.0-0_1.30.0-1 libpango1.0-dev_1.30.0-1 libpcre3_1:8.30-5 libpcre3-dev_1:8.30-5 libpcrecpp0_1:8.30-5 libpipeline1_1.2.1-1 libpixman-1-0_0.26.0-3 libpixman-1-dev_0.26.0-3 libpng12-0_1.2.49-3 libpng12-dev_1.2.49-3 libpopt0_1.16-7 libproxy0_0.3.1-5.1 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpython2.6_2.6.8-0.2 libpython2.7_2.7.3-1 libquadmath0_4.7.2-4 libreadline6_6.2-9 librtmp0_2.4+20111222.git4e06e21-1 libsasl2-2_2.1.25.dfsg1-5 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsm-dev_2:1.2.1-2 libsm6_2:1.2.1-2 libsoup-gnome2.4-1_2.38.1-2 libsoup2.4-1_2.38.1-2 libsoup2.4-dev_2.38.1-2 libsp1c2_1.3.4-1.2.1-47.1+b1 libsqlite3-0_3.7.14-1 libsqlite3-dev_3.7.14-1 libss2_1.42.5-1 libssh2-1_1.4.2-1.1 libssl-dev_1.0.1c-3 libssl1.0.0_1.0.1c-3 libstdc++6_4.7.2-4 libstdc++6-4.6-dev_4.6.3-12 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtext-iconv-perl_1.7-5 libthai-data_0.1.18-2 libthai0_0.1.18-2 libtiff4_3.9.6-9 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libtool_2.4.2-1.1 libunistring0_0.9.3-5 libunwind7_0.99-0.3 libunwind7-dev_0.99-0.3 liburi-perl_1.60-1 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.2 libwww-perl_6.04-1 libwww-robotrules-perl_6.01-1 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libx11-xcb1_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb-glx0_1.8.1-1 libxcb-render0_1.8.1-1 libxcb-render0-dev_1.8.1-1 libxcb-shm0_1.8.1-1 libxcb-shm0-dev_1.8.1-1 libxcb1_1.8.1-1 libxcb1-dev_1.8.1-1 libxcomposite-dev_1:0.4.3-2 libxcomposite1_1:0.4.3-2 libxcursor-dev_1:1.1.13-1 libxcursor1_1:1.1.13-1 libxdamage-dev_1:1.1.3-2 libxdamage1_1:1.1.3-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxfixes-dev_1:5.0-4 libxfixes3_1:5.0-4 libxft-dev_2.3.1-1 libxft2_2.3.1-1 libxi-dev_2:1.6.1-1 libxi6_2:1.6.1-1 libxinerama-dev_2:1.1.2-1 libxinerama1_2:1.1.2-1 libxml-parser-perl_2.41-1+b1 libxml2_2.8.0+dfsg1-5 libxml2-dev_2.8.0+dfsg1-5 libxml2-utils_2.8.0+dfsg1-5 libxrandr-dev_2:1.3.2-2 libxrandr2_2:1.3.2-2 libxrender-dev_1:0.9.7-1 libxrender1_1:0.9.7-1 libxslt1-dev_1.1.26-13 libxslt1.1_1.1.26-13 libxt-dev_1:1.1.3-1 libxt6_1:1.1.3-1 libxxf86vm1_1:1.1.2-1 linux-libc-dev_3.2.21-3 login_1:4.1.5.1-1 lsb-base_4.1+Debian7 m4_1.4.16-3 make_3.81-8.2 man-db_2.6.2-1 mawk_1.3.3-17 mesa-common-dev_8.0.4-2 mime-support_3.52-1 mount_2.20.1-5.1 multiarch-support_2.13-34 ncurses-base_5.9-10 ncurses-bin_5.9-10 netbase_5.0 openssl_1.0.1c-4 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-14 perl-base_5.14.2-14 perl-modules_5.14.2-14 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-1 python-all_2.7.3-1 python-all-dbg_2.7.3-1 python-all-dev_2.7.3-1 python-chardet_2.0.1-2 python-dbg_2.7.3-1 python-debian_0.1.21 python-dev_2.7.3-1 python-docutils_0.8.1-8 python-jinja2_2.6-1 python-mako_0.7.0-1 python-markupsafe_0.15-1 python-minimal_2.7.3-1 python-pygments_1.5+dfsg-1 python-roman_0.8.1-8 python-sphinx_1.1.3+dfsg-4 python-support_1.0.15 python2.6_2.6.8-0.2 python2.6-dbg_2.6.8-0.2 python2.6-dev_2.6.8-0.2 python2.6-minimal_2.6.8-0.2 python2.7_2.7.3-1 python2.7-dbg_2.7.3-1 python2.7-dev_2.7.3-1 python2.7-minimal_2.7.3-1 quilt_0.60-2 readline-common_6.2-8 sed_4.2.1-10 sensible-utils_0.0.7 sgml-base_1.26+nmu3 sgml-data_2.0.8 shared-mime-info_1.0-1 sp_1.3.4-1.2.1-47.1+b1 sphinx-common_1.1.3+dfsg-4 sudo_1.8.5p2-1 sysv-rc_2.88dsf-28 sysvinit_2.88dsf-28 sysvinit-utils_2.88dsf-28 tar_1.26-4 ttf-dejavu-core_2.33-3 tzdata_2012g-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.1 x11-common_1:7.7+1 x11proto-composite-dev_1:0.4.2-2 x11proto-core-dev_7.0.23-1 x11proto-damage-dev_1:1.2.1-2 x11proto-fixes-dev_1:5.0-2 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-randr-dev_1.3.2-2 x11proto-render-dev_2:0.11.1-2 x11proto-xext-dev_7.2.1-1 x11proto-xinerama-dev_1.2.1-2 xml-core_0.13+nmu1 xorg-sgml-doctools_1:1.10-1 xsltproc_1.1.26-13 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-1 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Build                                                                        │
@@ -358,12 +199,12 @@ Unpack source
 ─────────────
 
 gpgv: keyblock resource `/home/buildd/.gnupg/trustedkeys.gpg': file open error
-gpgv: Signature made Fri Mar 16 11:42:52 2012 UTC using RSA key ID 2295D502
+gpgv: Signature made Sun Nov  4 09:07:58 2012 UTC using RSA key ID 2295D502
 gpgv: Can't check signature: public key not found
-dpkg-source: warning: failed to verify signature on ./bedtools_2.16.1-1.dsc
-dpkg-source: info: extracting bedtools in bedtools-2.16.1
-dpkg-source: info: unpacking bedtools_2.16.1.orig.tar.gz
-dpkg-source: info: unpacking bedtools_2.16.1-1.debian.tar.gz
+dpkg-source: warning: failed to verify signature on ./bedtools_2.17.0-1.dsc
+dpkg-source: info: extracting bedtools in bedtools-2.17.0
+dpkg-source: info: unpacking bedtools_2.17.0.orig.tar.gz
+dpkg-source: info: unpacking bedtools_2.17.0-1.debian.tar.gz
 dpkg-source: info: applying gzstream.h.patch
 
 Check disc space
@@ -374,18 +215,18 @@ dpkg-buildpackage
 ─────────────────
 
 dpkg-buildpackage: source package bedtools
-dpkg-buildpackage: source version 2.16.1-1
- dpkg-source --before-build bedtools-2.16.1
+dpkg-buildpackage: source version 2.17.0-1
+ dpkg-source --before-build bedtools-2.17.0
 dpkg-buildpackage: host architecture ia64
  fakeroot debian/rules clean
 test -x debian/rules
 dh_testroot
 rm -f debian/stamp-makefile-build debian/stamp-makefile-install
-/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""  -k clean
-make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""  -k clean
+make[1]: Entering directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
  * Cleaning-up BamTools API
  * Cleaning up.
-make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Leaving directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 dh_clean 
 	rm -f debian/bedtools.substvars
 	rm -f debian/bedtools.*.debhelper
@@ -401,11 +242,11 @@ dh_clean
 		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} \; \) \)
 	rm -f *-stamp
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Entering directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Leaving directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 if [ -d "." ]; then \
-	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	  cd . && QUILT_PATCHES=/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
 	fi
 Removing patch gzstream.h.patch
 Restoring src/utils/gzstream/gzstream.C
@@ -413,30 +254,32 @@ Restoring src/utils/gzstream/gzstream.C
 No patches applied
 rm -rf ./.pc
 rm -f debian/stamp-patch*
- debian/rules build
+ debian/rules build-arch
 test -x debian/rules
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
+/usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_COMPRESS_EXCLUDE is a deprecated variable
 /usr/bin/make -f debian/rules reverse-config
-make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Entering directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 make[1]: Nothing to be done for `reverse-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
-cd . && QUILT_PATCHES=/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+make[1]: Leaving directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
+cd . && QUILT_PATCHES=/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
 Applying patch gzstream.h.patch
 patching file src/utils/gzstream/gzstream.C
 
 Now at patch gzstream.h.patch
 touch debian/stamp-patched
 /usr/bin/make -f debian/rules update-config
-make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Entering directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 make[1]: Nothing to be done for `update-config'.
-make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
-/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Wformat-security -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""  
-make[1]: Entering directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Leaving directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
+/usr/bin/make  -C . CFLAGS="-g -O2 -Wformat -Werror=format-security -Wall" CXXFLAGS="-g -O2 -Wformat -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""  
+make[1]: Entering directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 Building BEDTools:
 =========================================================
-DETECTED_VERSION = v2.16.1
-CURRENT_VERSION  = v2.16.1
+DETECTED_VERSION = v2.17.0
+CURRENT_VERSION  = 
+Updating version file.
  * Creating BamTools API
 - Building in src/utils/bedFile
   * compiling bedFile.cpp
@@ -447,7 +290,7 @@ CURRENT_VERSION  = v2.16.1
 - Building in src/utils/chromsweep
   * compiling chromsweep.cpp
 - Building in src/utils/gzstream
-g++ -g -O2 -Wformat -Wformat-security -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
+g++ -g -O2 -Wformat -Werror=format-security -Wall -c -o ../../../obj//gzstream.o gzstream.C -I.
 - Building in src/utils/fileType
   * compiling fileType.cpp
 - Building in src/utils/bedFilePE
@@ -526,7 +369,7 @@ Fasta.cpp:32:17: warning: converting to non-pointer type 'int' from NULL [-Wconv
 - Building in src/utils/genomeFile
   * compiling genomeFile.cpp
 genomeFile.cpp: In member function 'void GenomeFile::loadGenomeFileIntoMap()':
-genomeFile.cpp:61:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
+genomeFile.cpp:60:26: warning: variable 'c2' set but not used [-Wunused-but-set-variable]
 - Building in src/annotateBed
   * compiling annotateMain.cpp
 annotateMain.cpp: In function 'int annotate_main(int, char**)':
@@ -535,7 +378,7 @@ annotateMain.cpp:39:10: warning: variable 'haveTitles' set but not used [-Wunuse
 - Building in src/bamToBed
   * compiling bamToBed.cpp
 bamToBed.cpp: In function 'int bamtobed_main(int, char**)':
-bamToBed.cpp:74:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
+bamToBed.cpp:85:10: warning: variable 'useAlignmentScore' set but not used [-Wunused-but-set-variable]
 - Building in src/bamToFastq
   * compiling bamToFastqMain.cpp
 bamToFastqMain.cpp: In function 'int bamtofastq_main(int, char**)':
@@ -585,10 +428,13 @@ getOverlap.cpp:44:10: warning: variable 'haveColumns' set but not used [-Wunused
 - Building in src/groupBy
   * compiling groupBy.cpp
 groupBy.cpp: In function 'int groupby_main(int, char**)':
-groupBy.cpp:64:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
+groupBy.cpp:82:10: warning: variable 'haveOps' set but not used [-Wunused-but-set-variable]
 - Building in src/intersectBed
   * compiling intersectMain.cpp
   * compiling intersectBed.cpp
+- Building in src/jaccard
+  * compiling jaccardMain.cpp
+  * compiling jaccard.cpp
 - Building in src/linksBed
   * compiling linksMain.cpp
   * compiling linksBed.cpp
@@ -611,6 +457,7 @@ mergeMain.cpp:40:10: warning: variable 'haveMaxDistance' set but not used [-Wunu
 multiBamCovMain.cpp: In function 'int multibamcov_main(int, char**)':
 multiBamCovMain.cpp:38:10: warning: variable 'haveBed' set but not used [-Wunused-but-set-variable]
 multiBamCovMain.cpp:39:10: warning: variable 'haveBams' set but not used [-Wunused-but-set-variable]
+multiBamCovMain.cpp:47:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling multiBamCov.cpp
 - Building in src/multiIntersectBed
   * compiling multiIntersectBedMain.cpp
@@ -654,7 +501,7 @@ pairToPair.cpp:113:14: warning: variable 'found2' set but not used [-Wunused-but
 - Building in src/subtractBed
   * compiling subtractMain.cpp
 subtractMain.cpp: In function 'int subtract_main(int, char**)':
-subtractMain.cpp:41:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
+subtractMain.cpp:43:10: warning: variable 'haveFraction' set but not used [-Wunused-but-set-variable]
   * compiling subtractBed.cpp
 - Building in src/tagBam
   * compiling tagBamMain.cpp
@@ -678,7 +525,7 @@ unionBedGraphsMain.cpp:49:10: warning: variable 'haveFiller' set but not used [-
 done.
 - Creating executables for old CLI.
 done.
-make[1]: Leaving directory `/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+make[1]: Leaving directory `/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 touch debian/stamp-makefile-build
 DEB_MAKE_CHECK_TARGET unset, not running checks
  fakeroot debian/rules binary-arch
@@ -692,6 +539,7 @@ dh_installdirs -A
 	install -d debian/bedtools
 mkdir -p "."
 /usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_BUILDDEB_ARGS is a deprecated variable
+/usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_COMPRESS_EXCLUDE is a deprecated variable
 DEB_MAKE_CHECK_TARGET unset, not running checks
 DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install target
 Adding cdbs dependencies to debian/bedtools.substvars
@@ -765,16 +613,38 @@ dh_install -pbedtools
 	cp -a ./bin/windowMaker debian/bedtools/usr/bin/
 	install -d debian/bedtools/usr/share/bedtools
 	cp -a ./genomes debian/bedtools/usr/share/bedtools/
+	install -d debian/bedtools/usr/share/bedtools/test
+	cp -a ./test/bamtobed debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/bed12tobed6 debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/closest debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/cluster debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/coverage debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/expand debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/flank debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/general debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/genomecov debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/getfasta debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/groupBy debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/intersect debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/jaccard debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/map debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/merge debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/multicov debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/slop debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/subtract debian/bedtools/usr/share/bedtools/test/
+	cp -a ./test/test.sh debian/bedtools/usr/share/bedtools/test/
+	install -d debian/bedtools/etc/bash_completion.d
+	cp -a ./debian/bash_completion/bedtools debian/bedtools/etc/bash_completion.d/
 dh_link -pbedtools  
 dh_installmime -pbedtools 
 dh_installgsettings -pbedtools 
 dh_strip -pbedtools  
 	strip --remove-section=.comment --remove-section=.note debian/bedtools/usr/bin/bedtools
-dh_compress -pbedtools  
+dh_compress -pbedtools -X test 
 	cd debian/bedtools
-	chmod a-x usr/share/doc/bedtools/changelog usr/share/doc/bedtools/changelog.Debian
-	gzip -9nf usr/share/doc/bedtools/changelog usr/share/doc/bedtools/changelog.Debian
-	cd '/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1'
+	chmod a-x usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	gzip -9nf usr/share/doc/bedtools/changelog.Debian usr/share/doc/bedtools/changelog
+	cd '/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0'
 dh_fixperms -pbedtools  
 	find debian/bedtools  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
 	find debian/bedtools ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
@@ -790,77 +660,86 @@ dh_fixperms -pbedtools
 	find debian/bedtools/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
 dh_makeshlibs -pbedtools  
 	rm -f debian/bedtools/DEBIAN/shlibs
-rm /build/buildd-bedtools_2.16.1-1-ia64-8FJa2_/bedtools-2.16.1/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
+rm /build/buildd-bedtools_2.17.0-1-ia64-mSVWnX/bedtools-2.17.0/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
 dh_installdeb -pbedtools 
+	find debian/bedtools/etc -type f -printf '/etc/%P
+' >> debian/bedtools/DEBIAN/conffiles
+	chmod 644 debian/bedtools/DEBIAN/conffiles
 dh_perl -pbedtools 
 dh_shlibdeps -pbedtools    
 	dpkg-shlibdeps -Tdebian/bedtools.substvars debian/bedtools/usr/bin/bedtools
+dh_girepository -pbedtools 
+	rm -f
 dh_gencontrol -pbedtools  
 	echo misc:Depends= >> debian/bedtools.substvars
 	dpkg-gencontrol -ldebian/changelog -Tdebian/bedtools.substvars -Pdebian/bedtools
 	chmod 644 debian/bedtools/DEBIAN/control
 	chown 0:0 debian/bedtools/DEBIAN/control
 dh_md5sums -pbedtools 
-	(cd debian/bedtools >/dev/null ; find . -type f  ! -regex '.*/DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
+	(cd debian/bedtools >/dev/null ; find . -type f ! -path "./etc/bash_completion.d/bedtools"  ! -regex './DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
 	chmod 644 debian/bedtools/DEBIAN/md5sums
 	chown 0:0 debian/bedtools/DEBIAN/md5sums
 dh_builddeb -pbedtools -- -Z xz
 	dpkg-deb -Z xz --build debian/bedtools ..
-dpkg-deb: building package `bedtools' in `../bedtools_2.16.1-1_ia64.deb'.
- dpkg-genchanges -B -mia64 Build Daemon (alkman) <buildd_ia64-alkman@buildd.debian.org> >../bedtools_2.16.1-1_ia64.changes
+dpkg-deb: building package `bedtools' in `../bedtools_2.17.0-1_ia64.deb'.
+ dpkg-genchanges -B -mia64 Build Daemon (caballero) <buildd_ia64-caballero@buildd.debian.org> >../bedtools_2.17.0-1_ia64.changes
 dpkg-genchanges: arch-specific upload - not including arch-independent packages
 dpkg-genchanges: binary-only upload - not including any source code
- dpkg-source --after-build bedtools-2.16.1
+ dpkg-source --after-build bedtools-2.17.0
 dpkg-buildpackage: binary only upload (no source included)
 ────────────────────────────────────────────────────────────────────────────────
-Build finished at 20120316-1325
+Build finished at 20121104-1139
 
-bedtools_2.16.1-1_ia64.changes:
+bedtools_2.17.0-1_ia64.changes:
 Format: 1.8
-Date: Fri, 16 Mar 2012 19:06:49 +0900
+Date: Sun, 04 Nov 2012 17:59:41 +0900
 Source: bedtools
 Binary: bedtools
 Architecture: ia64
-Version: 2.16.1-1
+Version: 2.17.0-1
 Distribution: sid
 Urgency: low
-Maintainer: ia64 Build Daemon (alkman) <buildd_ia64-alkman@buildd.debian.org>
+Maintainer: ia64 Build Daemon (caballero) <buildd_ia64-caballero@buildd.debian.org>
 Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
 Changes: 
- bedtools (2.16.1-1) unstable; urgency=low
+ bedtools (2.17.0-1) unstable; urgency=low
  .
-   b7f2405 New upstream release.
-   4add346 Corrected, updated and normalised Debian copyright.
-   00b426d Conforms to Debian Policy 3.9.3.
-   72c3c94 Verbose Debhelper.
+   bb9012e Imported Upstream version 2.16.2.
+   9006b23 Imported Upstream version 2.17.0.
+   9112569 Documented BEDTools license as a whole.
+   325689c Removed Pre-Depends: dpkg (>= 1.15.6).
+   a781b14 Conforms with Policy 3.9.4.
+   84b1167 Use Debhelper 9.
+   0bf572d Distribute the test suite.
+   422cd34 Bash completion for BEDTools.
 Checksums-Sha1: 
- 5fe4f50408eb6aecaca594ed2df7c32e364b66d5 554952 bedtools_2.16.1-1_ia64.deb
+ 3bcf36fabe68935cc660f121a4f232747089f792 574956 bedtools_2.17.0-1_ia64.deb
 Checksums-Sha256: 
- b7c2679048e1719d8f4e56902ea5d493d90ee47823566d41531b6e6cc376b3e5 554952 bedtools_2.16.1-1_ia64.deb
+ 7c3b6b390baf728866dd64e2fa3fb2a6dc7343adf63f61a141342bb06394dc36 574956 bedtools_2.17.0-1_ia64.deb
 Files: 
- 54491056fab0589c0e567a0aed56235f 554952 science optional bedtools_2.16.1-1_ia64.deb
+ d6e2d1b1728ade6201caaaff86290b03 574956 science optional bedtools_2.17.0-1_ia64.deb
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Package contents                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
-bedtools_2.16.1-1_ia64.deb
+bedtools_2.17.0-1_ia64.deb
 ──────────────────────────
 
  new debian package, version 2.0.
- size 554952 bytes: control archive= 1984 bytes.
-     878 bytes,    19 lines      control              
-    2506 bytes,    44 lines      md5sums              
+ size 574956 bytes: control archive= 4115 bytes.
+      32 bytes,     1 lines      conffiles            
+     846 bytes,    18 lines      control              
+    9605 bytes,   132 lines      md5sums              
  Package: bedtools
- Version: 2.16.1-1
+ Version: 2.17.0-1
  Architecture: ia64
  Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
- Installed-Size: 2904
- Pre-Depends: dpkg (>= 1.15.6)
- Depends: libc6.1 (>= 2.2), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.4.0), libunwind7, zlib1g (>= 1:1.1.4)
+ Installed-Size: 3132
+ Depends: libc6.1 (>= 2.2), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.6), libunwind7, zlib1g (>= 1:1.1.4)
  Suggests: filo
  Section: science
  Priority: optional
@@ -874,58 +753,168 @@ bedtools_2.16.1-1_ia64.deb
   .
   The groupBy utility is distribued in the filo package.
 
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./usr/
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./usr/bin/
--rwxr-xr-x root/root   2947432 2012-03-16 13:25 ./usr/bin/bedtools
--rwxr-xr-x root/root        36 2012-03-16 13:25 ./usr/bin/windowMaker
--rwxr-xr-x root/root        31 2012-03-16 13:25 ./usr/bin/windowBed
--rwxr-xr-x root/root        34 2012-03-16 13:25 ./usr/bin/unionBedGraphs
--rwxr-xr-x root/root        28 2012-03-16 13:25 ./usr/bin/tagBam
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/subtractBed
--rwxr-xr-x root/root        29 2012-03-16 13:25 ./usr/bin/sortBed
--rwxr-xr-x root/root        29 2012-03-16 13:25 ./usr/bin/slopBed
--rwxr-xr-x root/root        32 2012-03-16 13:25 ./usr/bin/shuffleBed
--rwxr-xr-x root/root        31 2012-03-16 13:25 ./usr/bin/randomBed
--rwxr-xr-x root/root        35 2012-03-16 13:25 ./usr/bin/pairToPair
--rwxr-xr-x root/root        34 2012-03-16 13:25 ./usr/bin/pairToBed
--rwxr-xr-x root/root        28 2012-03-16 13:25 ./usr/bin/nucBed
--rwxr-xr-x root/root        35 2012-03-16 13:25 ./usr/bin/multiIntersectBed
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/multiBamCov
--rwxr-xr-x root/root        30 2012-03-16 13:25 ./usr/bin/mergeBed
--rwxr-xr-x root/root        34 2012-03-16 13:25 ./usr/bin/maskFastaFromBed
--rwxr-xr-x root/root        28 2012-03-16 13:25 ./usr/bin/mapBed
--rwxr-xr-x root/root        30 2012-03-16 13:25 ./usr/bin/linksBed
--rwxr-xr-x root/root        34 2012-03-16 13:25 ./usr/bin/intersectBed
--rwxr-xr-x root/root        32 2012-03-16 13:25 ./usr/bin/getOverlap
--rwxr-xr-x root/root        34 2012-03-16 13:25 ./usr/bin/genomeCoverageBed
--rwxr-xr-x root/root        30 2012-03-16 13:25 ./usr/bin/flankBed
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/fastaFromBed
--rwxr-xr-x root/root        31 2012-03-16 13:25 ./usr/bin/expandCols
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/coverageBed
--rwxr-xr-x root/root        35 2012-03-16 13:25 ./usr/bin/complementBed
--rwxr-xr-x root/root        32 2012-03-16 13:25 ./usr/bin/clusterBed
--rwxr-xr-x root/root        32 2012-03-16 13:25 ./usr/bin/closestBed
--rwxr-xr-x root/root        28 2012-03-16 13:25 ./usr/bin/bedToIgv
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/bedToBam
--rwxr-xr-x root/root        35 2012-03-16 13:25 ./usr/bin/bedpeToBam
--rwxr-xr-x root/root        36 2012-03-16 13:25 ./usr/bin/bed12ToBed6
--rwxr-xr-x root/root        35 2012-03-16 13:25 ./usr/bin/bamToFastq
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/bamToBed
--rwxr-xr-x root/root        33 2012-03-16 13:25 ./usr/bin/annotateBed
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./usr/share/
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./usr/share/bedtools/
-drwxr-xr-x root/root         0 2012-03-16 13:14 ./usr/share/bedtools/genomes/
--rwxr-xr-x root/root       856 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg18.genome
--rwxr-xr-x root/root      1972 2012-03-13 13:10 ./usr/share/bedtools/genomes/human.hg19.genome
--rwxr-xr-x root/root       565 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm8.genome
--rwxr-xr-x root/root       585 2012-03-13 13:10 ./usr/share/bedtools/genomes/mouse.mm9.genome
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./usr/share/doc/
-drwxr-xr-x root/root         0 2012-03-16 13:25 ./usr/share/doc/bedtools/
--rw-r--r-- root/root       934 2012-03-16 10:08 ./usr/share/doc/bedtools/changelog.Debian.gz
--rw-r--r-- root/root     11640 2012-03-13 13:10 ./usr/share/doc/bedtools/changelog.gz
--rw-r--r-- root/root      4827 2012-03-16 04:09 ./usr/share/doc/bedtools/copyright
--rw-r--r-- root/root      1505 2012-03-13 13:10 ./usr/share/doc/bedtools/README.rst
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/share/
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/share/doc/bedtools/
+-rw-r--r-- root/root      1505 2012-11-03 17:11 ./usr/share/doc/bedtools/README.rst
+-rw-r--r-- root/root      5395 2012-11-04 05:11 ./usr/share/doc/bedtools/copyright
+-rw-r--r-- root/root     11640 2012-11-03 17:11 ./usr/share/doc/bedtools/changelog.gz
+-rw-r--r-- root/root      1089 2012-11-04 08:59 ./usr/share/doc/bedtools/changelog.Debian.gz
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/share/bedtools/
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/genomes/
+-rwxr-xr-x root/root       856 2012-11-03 17:11 ./usr/share/bedtools/genomes/human.hg18.genome
+-rwxr-xr-x root/root      1972 2012-11-03 17:11 ./usr/share/bedtools/genomes/human.hg19.genome
+-rwxr-xr-x root/root       565 2012-11-03 17:11 ./usr/share/bedtools/genomes/mouse.mm8.genome
+-rwxr-xr-x root/root       585 2012-11-03 17:11 ./usr/share/bedtools/genomes/mouse.mm9.genome
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/share/bedtools/test/
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/bamtobed/
+-rw-r--r-- root/root       162 2012-11-03 17:11 ./usr/share/bedtools/test/bamtobed/one_block.sam
+-rw-r--r-- root/root      3304 2012-11-03 17:11 ./usr/share/bedtools/test/bamtobed/test-bamtobed.sh
+-rw-r--r-- root/root       176 2012-11-03 17:11 ./usr/share/bedtools/test/bamtobed/three_blocks.sam
+-rw-r--r-- root/root       167 2012-11-03 17:11 ./usr/share/bedtools/test/bamtobed/two_blocks.sam
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/bed12tobed6/
+-rw-r--r-- root/root        18 2012-11-03 17:11 ./usr/share/bedtools/test/bed12tobed6/bed6.bed
+-rw-r--r-- root/root        46 2012-11-03 17:11 ./usr/share/bedtools/test/bed12tobed6/one_blocks.bed
+-rw-r--r-- root/root      1919 2012-11-03 17:11 ./usr/share/bedtools/test/bed12tobed6/test-bed12tobed6.sh
+-rw-r--r-- root/root        60 2012-11-03 17:11 ./usr/share/bedtools/test/bed12tobed6/three_blocks.bed
+-rw-r--r-- root/root        52 2012-11-03 17:11 ./usr/share/bedtools/test/bed12tobed6/two_blocks.bed
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/closest/
+-rw-r--r-- root/root        11 2012-11-03 17:11 ./usr/share/bedtools/test/closest/a.bed
+-rw-r--r-- root/root        35 2012-11-03 17:11 ./usr/share/bedtools/test/closest/a.names.bed
+-rw-r--r-- root/root        11 2012-11-03 17:11 ./usr/share/bedtools/test/closest/b-one-bp-closer.bed
+-rw-r--r-- root/root        11 2012-11-03 17:11 ./usr/share/bedtools/test/closest/b.bed
+-rw-r--r-- root/root        36 2012-11-03 17:11 ./usr/share/bedtools/test/closest/b.names.bed
+-rw-r--r-- root/root      2126 2012-11-03 17:11 ./usr/share/bedtools/test/closest/test-closest.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/cluster/
+-rw-r--r-- root/root       264 2012-11-03 17:11 ./usr/share/bedtools/test/cluster/in.bed
+-rw-r--r-- root/root      1455 2012-11-03 17:11 ./usr/share/bedtools/test/cluster/test-cluster.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/coverage/
+-rw-r--r-- root/root        96 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/one_block.bam.bai
+-rw-r--r-- root/root       156 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/one_block.sam
+-rw-r--r-- root/root        96 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/sam-w-del.bam.bai
+-rw-r--r-- root/root       142 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/sam-w-del.sam
+-rw-r--r-- root/root       988 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/test-coverage.sh
+-rw-r--r-- root/root        96 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/three_blocks.bam.bai
+-rw-r--r-- root/root       171 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/three_blocks.sam
+-rw-r--r-- root/root        60 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/three_blocks_match.bed
+-rw-r--r-- root/root        63 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/three_blocks_match_1bp.bed
+-rw-r--r-- root/root        63 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/three_blocks_nomatch.bed
+-rw-r--r-- root/root        96 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/two_blocks.bam.bai
+-rw-r--r-- root/root       162 2012-11-03 17:11 ./usr/share/bedtools/test/coverage/two_blocks.sam
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/expand/
+-rw-r--r-- root/root        52 2012-11-03 17:11 ./usr/share/bedtools/test/expand/expand.txt
+-rw-r--r-- root/root      1278 2012-11-03 17:11 ./usr/share/bedtools/test/expand/test-expand.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/flank/
+-rw-r--r-- root/root        41 2012-11-03 17:11 ./usr/share/bedtools/test/flank/a.bed
+-rw-r--r-- root/root      3859 2012-11-03 17:11 ./usr/share/bedtools/test/flank/test-flank.sh
+-rw-r--r-- root/root        10 2012-11-03 17:11 ./usr/share/bedtools/test/flank/tiny.genome
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/general/
+-rw-r--r-- root/root      1950 2012-11-03 17:11 ./usr/share/bedtools/test/general/test-general.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/genomecov/
+-rw-r--r-- root/root       156 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/one_block.sam
+-rw-r--r-- root/root       142 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/sam-w-del.sam
+-rw-r--r-- root/root      3402 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/test-genomecov.sh
+-rw-r--r-- root/root       171 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/three_blocks.sam
+-rw-r--r-- root/root        60 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/three_blocks_match.bed
+-rw-r--r-- root/root        63 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/three_blocks_match_1bp.bed
+-rw-r--r-- root/root        63 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/three_blocks_nomatch.bed
+-rw-r--r-- root/root       162 2012-11-03 17:11 ./usr/share/bedtools/test/genomecov/two_blocks.sam
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/getfasta/
+-rw-r--r-- root/root       117 2012-11-03 17:11 ./usr/share/bedtools/test/getfasta/blocks.bed
+-rw-r--r-- root/root         0 2012-11-03 17:11 ./usr/share/bedtools/test/getfasta/t.bed
+-rw-r--r-- root/root        61 2012-11-03 17:11 ./usr/share/bedtools/test/getfasta/t.fa
+-rw-r--r-- root/root        16 2012-11-03 17:11 ./usr/share/bedtools/test/getfasta/t.fa.fai
+-rw-r--r-- root/root      1193 2012-11-03 17:11 ./usr/share/bedtools/test/getfasta/test-getfasta.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/groupBy/
+-rw-r--r-- root/root       885 2012-11-03 17:11 ./usr/share/bedtools/test/groupBy/test-groupby.sh
+-rw-r--r-- root/root       250 2012-11-03 17:11 ./usr/share/bedtools/test/groupBy/values3.header.bed
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/intersect/
+-rw-r--r-- root/root        38 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/a.bed
+-rw-r--r-- root/root        76 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/b.bed
+-rw-r--r-- root/root        18 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/c.bed
+-rw-r--r-- root/root       255 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/mapped_and_unmapped.sam
+-rw-r--r-- root/root       162 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/one_block.sam
+-rw-r--r-- root/root     10172 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/test-intersect.sh
+-rw-r--r-- root/root       176 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/three_blocks.sam
+-rw-r--r-- root/root        60 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/three_blocks_match.bed
+-rw-r--r-- root/root        63 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/three_blocks_match_1bp.bed
+-rw-r--r-- root/root        63 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/three_blocks_nomatch.bed
+-rw-r--r-- root/root       167 2012-11-03 17:11 ./usr/share/bedtools/test/intersect/two_blocks.sam
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/jaccard/
+-rw-r--r-- root/root        38 2012-11-03 17:11 ./usr/share/bedtools/test/jaccard/a.bed
+-rw-r--r-- root/root        77 2012-11-03 17:11 ./usr/share/bedtools/test/jaccard/b.bed
+-rw-r--r-- root/root        18 2012-11-03 17:11 ./usr/share/bedtools/test/jaccard/c.bed
+-rw-r--r-- root/root        11 2012-11-03 17:11 ./usr/share/bedtools/test/jaccard/d.bed
+-rw-r--r-- root/root       825 2012-11-03 17:11 ./usr/share/bedtools/test/jaccard/test-jaccard.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/map/
+-rw-r--r-- root/root        72 2012-11-03 17:11 ./usr/share/bedtools/test/map/ivls.bed
+-rw-r--r-- root/root      2753 2012-11-03 17:11 ./usr/share/bedtools/test/map/test-map.sh
+-rw-r--r-- root/root       147 2012-11-03 17:11 ./usr/share/bedtools/test/map/values.bed
+-rw-r--r-- root/root       186 2012-11-03 17:11 ./usr/share/bedtools/test/map/values2.bed
+-rw-r--r-- root/root       227 2012-11-03 17:11 ./usr/share/bedtools/test/map/values3.bed
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/merge/
+-rw-r--r-- root/root        46 2012-11-03 17:11 ./usr/share/bedtools/test/merge/a.bed
+-rw-r--r-- root/root       147 2012-11-03 17:11 ./usr/share/bedtools/test/merge/a.full.bed
+-rw-r--r-- root/root        57 2012-11-03 17:11 ./usr/share/bedtools/test/merge/a.names.bed
+-rw-r--r-- root/root      3642 2012-11-03 17:11 ./usr/share/bedtools/test/merge/test-merge.sh
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/multicov/
+-rw-r--r-- root/root        72 2012-11-03 17:11 ./usr/share/bedtools/test/multicov/multicov.bed
+-rw-r--r-- root/root        96 2012-11-03 17:11 ./usr/share/bedtools/test/multicov/one_block.bam.bai
+-rw-r--r-- root/root       162 2012-11-03 17:11 ./usr/share/bedtools/test/multicov/one_block.sam
+-rw-r--r-- root/root      3836 2012-11-03 17:11 ./usr/share/bedtools/test/multicov/test-multicov.sh
+-rw-r--r-- root/root        96 2012-11-03 17:11 ./usr/share/bedtools/test/multicov/two_blocks.bam.bai
+-rw-r--r-- root/root       167 2012-11-03 17:11 ./usr/share/bedtools/test/multicov/two_blocks.sam
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/slop/
+-rw-r--r-- root/root        41 2012-11-03 17:11 ./usr/share/bedtools/test/slop/a.bed
+-rw-r--r-- root/root      3603 2012-11-03 17:11 ./usr/share/bedtools/test/slop/test-slop.sh
+-rw-r--r-- root/root        10 2012-11-03 17:11 ./usr/share/bedtools/test/slop/tiny.genome
+drwxr-xr-x root/root         0 2012-11-04 11:28 ./usr/share/bedtools/test/subtract/
+-rw-r--r-- root/root        36 2012-11-03 17:11 ./usr/share/bedtools/test/subtract/a.bed
+-rw-r--r-- root/root        36 2012-11-03 17:11 ./usr/share/bedtools/test/subtract/b.bed
+-rw-r--r-- root/root      2532 2012-11-03 17:11 ./usr/share/bedtools/test/subtract/test-subtract.sh
+-rw-r--r-- root/root      1243 2012-11-03 17:11 ./usr/share/bedtools/test/test.sh
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./usr/bin/
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/annotateBed
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/bamToBed
+-rwxr-xr-x root/root        43 2012-11-04 11:39 ./usr/bin/bamToFastq
+-rwxr-xr-x root/root        44 2012-11-04 11:39 ./usr/bin/bed12ToBed6
+-rwxr-xr-x root/root        43 2012-11-04 11:39 ./usr/bin/bedpeToBam
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/bedToBam
+-rwxr-xr-x root/root        36 2012-11-04 11:39 ./usr/bin/bedToIgv
+-rwxr-xr-x root/root   3001192 2012-11-04 11:39 ./usr/bin/bedtools
+-rwxr-xr-x root/root        40 2012-11-04 11:39 ./usr/bin/closestBed
+-rwxr-xr-x root/root        40 2012-11-04 11:39 ./usr/bin/clusterBed
+-rwxr-xr-x root/root        43 2012-11-04 11:39 ./usr/bin/complementBed
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/coverageBed
+-rwxr-xr-x root/root        39 2012-11-04 11:39 ./usr/bin/expandCols
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/fastaFromBed
+-rwxr-xr-x root/root        38 2012-11-04 11:39 ./usr/bin/flankBed
+-rwxr-xr-x root/root        42 2012-11-04 11:39 ./usr/bin/genomeCoverageBed
+-rwxr-xr-x root/root        40 2012-11-04 11:39 ./usr/bin/getOverlap
+-rwxr-xr-x root/root        42 2012-11-04 11:39 ./usr/bin/intersectBed
+-rwxr-xr-x root/root        38 2012-11-04 11:39 ./usr/bin/linksBed
+-rwxr-xr-x root/root        36 2012-11-04 11:39 ./usr/bin/mapBed
+-rwxr-xr-x root/root        42 2012-11-04 11:39 ./usr/bin/maskFastaFromBed
+-rwxr-xr-x root/root        38 2012-11-04 11:39 ./usr/bin/mergeBed
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/multiBamCov
+-rwxr-xr-x root/root        43 2012-11-04 11:39 ./usr/bin/multiIntersectBed
+-rwxr-xr-x root/root        36 2012-11-04 11:39 ./usr/bin/nucBed
+-rwxr-xr-x root/root        42 2012-11-04 11:39 ./usr/bin/pairToBed
+-rwxr-xr-x root/root        43 2012-11-04 11:39 ./usr/bin/pairToPair
+-rwxr-xr-x root/root        39 2012-11-04 11:39 ./usr/bin/randomBed
+-rwxr-xr-x root/root        40 2012-11-04 11:39 ./usr/bin/shuffleBed
+-rwxr-xr-x root/root        37 2012-11-04 11:39 ./usr/bin/slopBed
+-rwxr-xr-x root/root        37 2012-11-04 11:39 ./usr/bin/sortBed
+-rwxr-xr-x root/root        41 2012-11-04 11:39 ./usr/bin/subtractBed
+-rwxr-xr-x root/root        36 2012-11-04 11:39 ./usr/bin/tagBam
+-rwxr-xr-x root/root        42 2012-11-04 11:39 ./usr/bin/unionBedGraphs
+-rwxr-xr-x root/root        39 2012-11-04 11:39 ./usr/bin/windowBed
+-rwxr-xr-x root/root        44 2012-11-04 11:39 ./usr/bin/windowMaker
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./etc/
+drwxr-xr-x root/root         0 2012-11-04 11:39 ./etc/bash_completion.d/
+-rw-r--r-- root/root       638 2012-11-04 08:54 ./etc/bash_completion.d/bedtools
 
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -939,27 +928,42 @@ Built successfully
 │ Post Build                                                                   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Purging /var/lib/schroot/mount/sid-ia64-sbuild-63cdf3bb-1ec5-4067-923f-5e97de6f9b23/build/buildd-bedtools_2.16.1-1-ia64-8FJa2_
-Not cleaning session: cloned chroot in use
+Purging /var/lib/schroot/mount/sid-ia64-sbuild-3bbca110-4cb3-4694-a4e6-de94777c3b7a/build/buildd-bedtools_2.17.0-1-ia64-mSVWnX
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 89 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  cdbs* diffstat* quilt*
+0 upgraded, 0 newly installed, 3 to remove and 89 not upgraded.
+After this operation, 1200 kB disk space will be freed.
+(Reading database ... 28268 files and directories currently installed.)
+Removing cdbs ...
+Removing quilt ...
+Purging configuration files for quilt ...
+Removing diffstat ...
+Processing triggers for man-db ...
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: ia64
-Build-Space: 138532
-Build-Time: 681
+Build-Space: 134348
+Build-Time: 639
 Distribution: sid
-Install-Time: 111
-Job: bedtools_2.16.1-1
+Install-Time: 14
+Job: bedtools_2.17.0-1
 Package: bedtools
-Package-Time: 856
-Source-Version: 2.16.1-1
-Space: 138532
+Package-Time: 674
+Source-Version: 2.17.0-1
+Space: 134348
 Status: successful
-Version: 2.16.1-1
+Version: 2.17.0-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20120316-1325
-Build needed 00:14:16, 138532k disc space
-Signature with key '94AE7BC0' requested:
+Finished at 20121104-1139
+Build needed 00:11:14, 134348k disc space
 
