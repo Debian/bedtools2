@@ -1,3 +1,9 @@
+bedtools (2.17.0-1~precise1) precise; urgency=low
+
+  * 2.17.0-1 built for Precise on Debian Med's PPA
+
+ -- Carlos Borroto <carlos.borroto@gmail.com>  Mon, 05 Nov 2012 21:01:09 -0500
+
 bedtools (2.17.0-1) unstable; urgency=low
 
   bb9012e Imported Upstream version 2.16.2.
