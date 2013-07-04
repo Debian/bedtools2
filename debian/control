@@ -25,5 +25,5 @@ Description: suite of utilities for comparing genomic features
  BEDTools, one can develop sophisticated pipelines that answer complicated
  research questions by streaming several BEDTools together.
  .
- The groupBy utility is distribued in the filo package.
+ The groupBy utility is distributed in the filo package.
 
