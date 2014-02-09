@@ -1,5 +1,6 @@
-bedtools (2.17.0-2) UNRELEASED; urgency=low
+bedtools (2.19.0-1) UNRELEASED; urgency=low
 
+  e07e70c Imported Upstream version 2.19.0
   afdc61a Watch GitHub at https://github.com/arq5x/bedtools2.
   4abe14e Source control file normalised with config-model-edit.
   0518353 Corrected a typo in the long description. (Closes: #714873)
