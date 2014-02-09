@@ -1,5 +1,4 @@
-Archive: Google Code
-Bug-Database: http://code.google.com/p/bedtools/issues
+Archive: GitHub
 Contact: http://groups.google.com/group/bedtools-discuss
 Name: BEDTools
 Homepage: http://code.google.com/p/bedtools/
@@ -16,9 +15,5 @@ Reference:
  eprint: http://bioinformatics.oxfordjournals.org/content/26/6/841.full.pdf+html
  journal: Bioinformatics
  pmid: 20110278
-Repository: https://github.com/arq5x/bedtools.git
-Repository-Browse: https://github.com/arq5x/bedtools
-Watch: |
- version=3
- opts=downloadurlmangle=s|//code.google.com|| \
- http://code.google.com/p/bedtools/downloads/list //bedtools.googlecode.com/files/BEDTools.v(.*).tar.gz
+Repository: https://github.com/arq5x/bedtools2.git
+Repository-Browse: https://github.com/arq5x/bedtools2
