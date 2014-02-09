@@ -1,5 +1,5 @@
 # Compulsory line, this is a version 3 file
 version=3
 
-opts=downloadurlmangle=s|//code.google.com|| \
-http://code.google.com/p/bedtools/downloads/list //bedtools.googlecode.com/files/BEDTools.v(.*).tar.gz
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/bedtools2-$1\.tar\.gz/ \
+  https://github.com/arq5x/bedtools2/tags .*/v?(\d\S*)\.tar\.gz
