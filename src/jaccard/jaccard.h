@@ -35,7 +35,8 @@ public:
 
     // constructor
     Jaccard(string bedAFile, string bedBFile, 
-            float overlapFraction, bool reciprocal);
+            float overlapFraction, bool reciprocal,
+            bool valueOnly);
 
     // destructor
     ~Jaccard(void);
@@ -49,6 +50,7 @@ private:
     string _bedBFile;
 
     bool  _reciprocal;
+    bool  _valueOnly;
     float _overlapFraction;
 
     // instance of a bed file class.
@@ -57,7 +59,7 @@ private:
     //------------------------------------------------
     // private methods
     //------------------------------------------------
-    unsigned long GetIntersection();
+    unsigned long GetIntersection(size_t &n_intersections);
     unsigned long GetUnion();
     void CalculateJaccard();
 

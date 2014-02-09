@@ -16,11 +16,11 @@ export BIN_DIR	= bin
 export SRC_DIR	= src
 export UTIL_DIR	= src/utils
 export CXX		= g++
-ifeq ($(DEBUG),1)
-export CXXFLAGS = -Wall -O0 -g -fno-inline -fkeep-inline-functions -D_FILE_OFFSET_BITS=64 -fPIC -DDEBUG -D_DEBUG
-else
+#ifeq ($(DEBUG),1)
+#export CXXFLAGS = -Wall -O0 -g -fno-inline -fkeep-inline-functions -D_FILE_OFFSET_BITS=64 -fPIC -DDEBUG -D_DEBUG
+#else
 export CXXFLAGS = -Wall -O2 -D_FILE_OFFSET_BITS=64 -fPIC
-endif
+#endif
 export LIBS		= -lz
 export BT_ROOT  = src/utils/BamTools/
 
@@ -42,18 +42,22 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/genomeCoverageBed \
 		  $(SRC_DIR)/getOverlap \
 		  $(SRC_DIR)/groupBy \
-		  $(SRC_DIR)/intersectBed \
+		  $(SRC_DIR)/intersectFile \
 		  $(SRC_DIR)/jaccard \
 		  $(SRC_DIR)/linksBed \
 		  $(SRC_DIR)/maskFastaFromBed \
-		  $(SRC_DIR)/mapBed \
+		  $(SRC_DIR)/mapFile \
 		  $(SRC_DIR)/mergeBed \
 		  $(SRC_DIR)/multiBamCov \
 		  $(SRC_DIR)/multiIntersectBed \
+		   $(SRC_DIR)/nekSandbox1 \
 		  $(SRC_DIR)/nucBed \
 		  $(SRC_DIR)/pairToBed \
 		  $(SRC_DIR)/pairToPair \
 		  $(SRC_DIR)/randomBed \
+		  $(SRC_DIR)/regressTest \
+		  $(SRC_DIR)/reldist \
+		  $(SRC_DIR)/sampleFile \
 		  $(SRC_DIR)/shuffleBed \
 		  $(SRC_DIR)/slopBed \
 		  $(SRC_DIR)/sortBed \
@@ -64,12 +68,17 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/windowMaker
 
 UTIL_SUBDIRS =	$(SRC_DIR)/utils/bedFile \
+				$(SRC_DIR)/utils/BinTree \
 				$(SRC_DIR)/utils/version \
 				$(SRC_DIR)/utils/bedGraphFile \
 				$(SRC_DIR)/utils/chromsweep \
+				$(SRC_DIR)/utils/Contexts \
+				$(SRC_DIR)/utils/FileRecordTools \
+				$(SRC_DIR)/utils/general \
 				$(SRC_DIR)/utils/gzstream \
 				$(SRC_DIR)/utils/fileType \
 				$(SRC_DIR)/utils/bedFilePE \
+				$(SRC_DIR)/utils/NewChromsweep \
 				$(SRC_DIR)/utils/sequenceUtilities \
 				$(SRC_DIR)/utils/tabFile \
 				$(SRC_DIR)/utils/BamTools \
@@ -77,7 +86,8 @@ UTIL_SUBDIRS =	$(SRC_DIR)/utils/bedFile \
 				$(SRC_DIR)/utils/BlockedIntervals \
 				$(SRC_DIR)/utils/Fasta \
 				$(SRC_DIR)/utils/VectorOps \
-				$(SRC_DIR)/utils/genomeFile
+				$(SRC_DIR)/utils/GenomeFile \
+				$(SRC_DIR)/utils/RecordOutputMgr
 
 BUILT_OBJECTS = $(OBJ_DIR)/*.o
 
@@ -85,7 +95,7 @@ BUILT_OBJECTS = $(OBJ_DIR)/*.o
 all: print_banner $(OBJ_DIR) $(BIN_DIR) autoversion $(UTIL_SUBDIRS) $(SUBDIRS)
 	@echo "- Building main bedtools binary."
 	@$(CXX) $(CXXFLAGS) -c src/bedtools.cpp -o obj/bedtools.o -I$(UTIL_DIR)/version/
-	@$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(BIN_DIR)/bedtools $(BUILT_OBJECTS) -L$(UTIL_DIR)/BamTools/lib/ -lbamtools $(LIBS)
+	@$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/bedtools $(BUILT_OBJECTS) -L$(UTIL_DIR)/BamTools/lib/ -lbamtools $(LIBS) $(LDFLAGS)
 	@echo "done."
 	
 	@echo "- Creating executables for old CLI."

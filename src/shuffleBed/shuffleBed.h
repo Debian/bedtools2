@@ -11,7 +11,7 @@
 ******************************************************************************/
 #include "bedFile.h"
 #include "bedFilePE.h"
-#include "genomeFile.h"
+#include "GenomeFile.h"
 
 #include <vector>
 #include <iostream>
@@ -24,8 +24,6 @@
 #include <sys/types.h>
 #include <algorithm>  // for binary search
 using namespace std;
-
-const int MAX_TRIES = 1000000;
 
 //************************************************
 // Class methods and elements
@@ -40,7 +38,9 @@ public:
                bool haveSeed, bool haveExclude, 
                bool haveInclude, bool sameChrom, 
                float overlapFraction, int seed, 
-               bool chooseChrom, bool isBedpe);
+               bool chooseChrom, bool isBedpe,
+               size_t _maxTries, bool noOverlapping,
+               bool preventExceedingChromEnd);
 
     // destructor
     ~BedShuffle(void);
@@ -59,6 +59,9 @@ private:
     bool _haveSeed;
     bool _chooseChrom;
     bool _isBedpe;
+    size_t _maxTries;
+    bool _noOverlapping;
+    bool _preventExceedingChromEnd;
 
 
     // The BED file from which to compute coverage.
@@ -79,6 +82,7 @@ private:
     void Shuffle();
     void ShuffleWithExclusions();
     void ShuffleWithInclusions();
+    void ShuffleWithInclusionsAndExclusions();
 
     void ChooseLocus(BED &);
     void ChooseLocusFromInclusionFile(BED &);

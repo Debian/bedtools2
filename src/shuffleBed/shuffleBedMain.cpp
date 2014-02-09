@@ -40,11 +40,14 @@ int shuffle_main(int argc, char* argv[]) {
     bool haveExclude      = false;
     bool haveInclude      = false;
     bool haveSeed         = false;
-    float overlapFraction = 0.0;
+    float overlapFraction = 1E-9;
     int seed              = -1;
     bool sameChrom        = false;
     bool chooseChrom      = false;
     bool isBedpe          = false;
+    size_t maxTries       = 1000;
+    bool noOverlapping    = false;
+    bool allowBeyondChromEnd = false;
 
 
     for(int i = 1; i < argc; i++) {
@@ -111,8 +114,20 @@ int shuffle_main(int argc, char* argv[]) {
                 i++;
             }
         }
+        else if(PARAMETER_CHECK("-maxTries", 9, parameterLength)) {
+            if ((i+1) < argc) {
+                maxTries = atoi(argv[i + 1]);
+                i++;
+            }
+        }
         else if(PARAMETER_CHECK("-bedpe", 6, parameterLength)) {
             isBedpe = true;
+        }
+        else if(PARAMETER_CHECK("-noOverlapping", 14, parameterLength)) {
+            noOverlapping = true;
+        }
+        else if(PARAMETER_CHECK("-allowBeyondChromEnd", 20, parameterLength)) {
+            allowBeyondChromEnd = true;
         }
         else {
           cerr << endl << "*****ERROR: Unrecognized parameter: " << argv[i] << " *****" << endl << endl;
@@ -125,17 +140,15 @@ int shuffle_main(int argc, char* argv[]) {
       cerr << endl << "*****" << endl << "*****ERROR: Need both a BED (-i) and a genome (-g) file. " << endl << "*****" << endl;
       showHelp = true;
     }
-    
-    if (haveInclude && haveExclude) {
-      cerr << endl << "*****" << endl << "*****ERROR: Cannot use -incl and -excl together." << endl << "*****" << endl;
-      showHelp = true;
-    }
 
     if (!showHelp) {
         BedShuffle *bc = new BedShuffle(bedFile, genomeFile, excludeFile,
                                         includeFile, haveSeed, haveExclude,
-                                        haveInclude, sameChrom, overlapFraction, 
-                                        seed, chooseChrom, isBedpe);
+                                        haveInclude, sameChrom, 
+                                        overlapFraction, seed, 
+                                        chooseChrom, isBedpe,
+                                        maxTries, noOverlapping,
+                                        !(allowBeyondChromEnd));
         delete bc;
         return 0;
     }
@@ -186,6 +199,18 @@ void shuffle_help(void) {
     
     cerr << "\t-bedpe\t"            << "Indicate that the A file is in BEDPE format." << endl << endl;
 
+
+    cerr << "\t-maxTries\t"         << "\n\t\tMax. number of attempts to find a home for a shuffled interval" << endl;
+    cerr                            << "\t\tin the presence of -incl or -excl." << endl;
+    cerr                            << "\t\tDefault = 1000." << endl;
+    cerr << "\t-noOverlapping\t"    << "\n\t\tDon't allow shuffled intervals to overlap." << endl;
+
+    cerr << "\t-allowBeyondChromEnd\t"  << "\n\t\tAllow shuffled intervals to be relocated to a position" << endl;
+    cerr                                 << "\t\tin which the entire original interval cannot fit w/o exceeding" << endl;
+    cerr                                 << "\t\tthe end of the chromosome.  In this case, the end coordinate of the" << endl;
+    cerr                                 << "\t\tshuffled interval will be set to the chromosome's length." << endl;
+    cerr                                 << "\t\tBy default, an interval's original length must be fully-contained" << endl;
+    cerr                                 << "\t\twithin the chromosome." << endl;
 
     cerr << "Notes: " << endl;
     cerr << "\t(1)  The genome file should tab delimited and structured as follows:" << endl;

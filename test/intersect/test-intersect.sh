@@ -1,4 +1,4 @@
-BT=../../bin/bedtools
+BT=${BT-../../bin/bedtools}
 
 check()
 {
@@ -129,6 +129,7 @@ $BT intersect -a a.bed -b b.bed -wo -s > obs
 check obs exp
 rm obs exp
 
+
 ###########################################################
 #  Test with -wao (write all overlap) with -s
 ############################################################
@@ -255,6 +256,67 @@ rm obs exp
 
 
 
+###########################################################
+#  Test three blocks with -split -wo only shows 5 overlap
+#  bases, not ten.
+############################################################
+echo "    intersect.t22.a...\c"
+echo "chr1	0	50	three_blocks_match	0	+	0	0	0	3	10,10,10,	0,20,40,	chr1	5	15	5" > exp
+$BT intersect -a three_blocks_match.bed -b d.bed -split -wo > obs
+check obs exp
+rm obs exp
+
+###########################################################
+#  Same test but for BAM file
+############################################################
+echo "    intersect.t22.b...\c"
+echo "chr1	0	50	three_blocks_match	255	+	0	50	0,0,0	3	10,10,10,	0,20,40,	chr1	5	15	5" > exp
+$BT intersect -a three_blocks_match.bam -b d.bed -split -wo -bed > obs
+check obs exp
+rm obs exp
+
+
+###########################################################
+#  Test three blocks with -split -wo, and DB record also has
+#  blocks that somewhat intersect
+############################################################
+echo "    intersect.t22.c...\c"
+echo "chr1	0	50	three_blocks_match	0	+	0	0	0	3	10,10,10,	0,20,40,	chr1	0	45	three_blocks_match	0	+	0	0	0	2	5,10,	25,35,	10" > exp
+$BT intersect -a three_blocks_match.bed -b two_blocks_partial.bed -split -wo > obs
+check obs exp
+rm obs exp
+
+###########################################################
+#  Same test but for BAM file
+############################################################
+echo "    intersect.t22.d...\c"
+echo "chr1	0	50	three_blocks_match	255	+	0	50	0,0,0	3	10,10,10,	0,20,40,	chr1	0	45	three_blocks_match	0	+	0	0	0	2	5,10,	25,35,	10" > exp
+$BT intersect -a three_blocks_match.bam -b two_blocks_partial.bed -split -wo -bed > obs
+check obs exp
+rm obs exp
+
+###########################################################
+#  Test three blocks with -split -wo, and DB record also has
+#  blocks that do not intersect
+############################################################
+echo "    intersect.t22.e...\c"
+touch exp
+$BT intersect -a three_blocks_match.bed -b three_blocks_nomatch.bed -split -wo > obs
+check obs exp
+rm obs exp
+
+
+###########################################################
+#  Same test but for BAM file
+############################################################
+echo "    intersect.t22.f...\c"
+touch exp
+$BT intersect -a three_blocks_match.bam -b three_blocks_nomatch.bed -split -wo -bed > obs
+check obs exp
+rm obs exp
+
+
+
 ##################################################################
 #  Test that only the mapped read is is found as an intersection
 ##################################################################
@@ -281,7 +343,7 @@ rm obs exp
 echo "    intersect.t25...\c"
 echo \
 "chr1	0	30	one_blocks	40	-	0	30	0,0,0	1	30,	0,	1" > exp
-$BT intersect -abam one_block.bam -b c.bed -c > obs
+$BT intersect -abam one_block.bam -b c.bed -c -bed > obs
 check obs exp
 rm obs exp
 
@@ -291,7 +353,7 @@ rm obs exp
 echo "    intersect.t26...\c"
 echo \
 "chr1	0	30	one_blocks	40	-	0	30	0,0,0	1	30,	0,	chr1	0	100	c1	1	+	30" > exp
-$BT intersect -abam one_block.bam -b c.bed -wo > obs
+$BT intersect -abam one_block.bam -b c.bed -wo -bed > obs
 check obs exp
 rm obs exp
 
@@ -301,10 +363,90 @@ rm obs exp
 echo "    intersect.t27...\c"
 echo \
 "chr1	0	30	one_blocks	40	-	0	30	0,0,0	1	30,	0,	chr1	0	100	c1	1	+	30" > exp
-$BT intersect -abam one_block.bam -b c.bed -wo > obs
+$BT intersect -abam one_block.bam -b c.bed -wo -bed > obs
 check obs exp
 
+##################################################################
+#  Test BED3 with BED3 
+##################################################################
+echo "    intersect.t28...\c"
+echo \
+"chr1^I10^I20^Ichr1^I10^I20" > exp
+$BT intersect -a bed3.bed -b bed3.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test BED4 with BED3 
+##################################################################
+echo "    intersect.t29...\c"
+echo \
+"chr1^I10^I20^I345.7^Ichr1^I10^I20" > exp
+$BT intersect -a bed4.bed -b bed3.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test BED5 with BED3 
+##################################################################
+echo "    intersect.t30...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^Ichr1^I10^I20" > exp
+$BT intersect -a bed5.bed -b bed3.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test BED6 (without a proper strand) with BED3 
+##################################################################
+echo "    intersect.t31...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^I11^Ichr1^I10^I20" > exp
+$BT intersect -a bed6.bed -b bed3.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test BED6 (with a strand) with BED3 
+##################################################################
+echo "    intersect.t32...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^I-^Ichr1^I10^I20" > exp
+$BT intersect -a bed6.strand.bed -b bed3.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test BED PLUS with BED3 
+##################################################################
+echo "    intersect.t33...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^I11^Ifoo^Ibar^Ibiz^I11^Ibang^Ibop^I99^Ichr1^I10^I20" > exp
+$BT intersect -a bedplus.bed -b bed3.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test for strand matches with BED3 
+##################################################################
+echo "    intersect.t34...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^I11^Ichr1^I10^I20^I345.7^Iwhy?^I-" > exp
+$BT intersect -a bed6.bed -b bed6.strand.bed -wa -wb | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test for strand matches with BED3 
+##################################################################
+echo "    intersect.t35...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^I-^Ichr1^I10^I20^I345.7^Iwhy?^I-" > exp
+$BT intersect -a bed6.strand.bed -b bed6.strand2.bed -wa -wb -s | cat -t > obs
+check obs exp
+
+##################################################################
+#  Test for strand matches with BED3 
+##################################################################
+echo "    intersect.t36...\c"
+echo \
+"chr1^I10^I20^I345.7^Iwhy?^I-^Ichr1^I11^I21^I345.7^Iwhy?^I+" > exp
+$BT intersect -a bed6.strand.bed -b bed6.strand2.bed -wa -wb -S | cat -t > obs
+check obs exp
 
 rm obs exp
 
-rm *.bam
+rm one_block.bam two_blocks.bam three_blocks.bam
