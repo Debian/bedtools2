@@ -33,7 +33,6 @@ TagBam::TagBam(const string &bamFile, const vector<string> &annoFileNames,
 
 // destroy and delete the open file pointers
 TagBam::~TagBam(void) {
-    delete _bed;
     CloseAnnoFiles();
 }
 
@@ -123,7 +122,7 @@ void TagBam::Tag() {
                 else if (_useNames && !_useScores && !_useIntervals) {
                     anno->allHits(a.chrom, a.start, a.end, a.strand, 
                                   hits, _sameStrand, _diffStrand, 0.0, false);
-                    for (size_t j = 0; j < hits.size(); ++i) {
+                    for (size_t j = 0; j < hits.size(); ++j) {
                         annotations << hits[j].name;
                         if (j < hits.size() - 1) annotations << ",";
                     }

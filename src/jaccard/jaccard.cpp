@@ -34,12 +34,14 @@ size_t Jaccard::GetTotalIntersection(const BED &a, const vector<BED> &hits)
     Constructor
 */
 Jaccard::Jaccard(string bedAFile, string bedBFile, 
-                 float overlapFraction, bool reciprocal)
+                 float overlapFraction, bool reciprocal,
+                 bool valueOnly)
 {
     _bedAFile            = bedAFile;
     _bedBFile            = bedBFile;
     _overlapFraction     = overlapFraction;
     _reciprocal          = reciprocal;
+    _valueOnly           = valueOnly;
 
         
     CalculateJaccard();
@@ -53,28 +55,7 @@ Jaccard::~Jaccard(void) {
 }
 
 
-unsigned long Jaccard::GetUnion() {
-
-    // create new BED file objects for A and B
-    _bedA = new BedFile(_bedAFile);
-    _bedB = new BedFile(_bedBFile);
-
-    unsigned long U = 0;
-    BED bed;    
-    _bedA->Open();
-    while (_bedA->GetNextMergedBed(bed)) {
-        U += bed.end - bed.start;
-    }
-    
-    _bedB->Open();
-    while (_bedB->GetNextMergedBed(bed)) {
-        U += bed.end - bed.start;
-    }
-    
-    return U;
-}
-
-unsigned long Jaccard::GetIntersection() {
+unsigned long Jaccard::GetIntersection(size_t &n_intersections) {
     
     _bedA = new BedFile(_bedAFile);
     _bedB = new BedFile(_bedBFile);
@@ -91,28 +72,39 @@ unsigned long Jaccard::GetIntersection() {
     hit_set.second.reserve(10000);
     while (sweep.Next(hit_set)) {
         I += GetTotalIntersection(hit_set.first, hit_set.second);
+        n_intersections += hit_set.second.size();
     }
     return I;
 }
 
 void Jaccard::CalculateJaccard() {
 
-    unsigned long U = GetUnion();
-    delete _bedA;
-    delete _bedB;
-    unsigned long I = GetIntersection();
+    size_t n_intersections = 0;
+    unsigned long I = GetIntersection(n_intersections);
     
-    // header
-    cout << "intersection\t"
-         << "union\t"
-         << "jaccard"
-         << endl;
+    unsigned long U = _bedA->getTotalFlattenedLength() + \
+                      _bedB->getTotalFlattenedLength();
     
-    // result
-    cout << I << "\t" 
-         << U - I << "\t"
-         << (float) I / ((float) U - (float) I)
-         << endl;
+    float jaccard_stat = (float) I / ((float) U - (float) I);
+    
+    if (!_valueOnly) {
+        // header
+        cout << "intersection\t"
+           << "union-intersection\t"
+           << "jaccard\t"
+           << "n_intersections"
+           << endl;
+
+        // result
+        cout << I << "\t" 
+           << U - I << "\t"
+           << jaccard_stat << "\t"
+           << n_intersections
+           << endl;
+    }
+    else {
+        cout << jaccard_stat << endl;
+    }
 }
 
 

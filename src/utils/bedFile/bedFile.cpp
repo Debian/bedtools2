@@ -79,7 +79,20 @@ BedFile::BedFile(string &bedFile)
   _merged_end(-1),
   _merged_chrom(""),
   _prev_start(-1),
-  _prev_chrom("")
+  _prev_chrom(""),
+  _total_length(0)
+{}
+
+BedFile::BedFile(void)
+: _isGff(false),
+  _isVcf(false),
+  _typeIsKnown(false),
+  _merged_start(-1),
+  _merged_end(-1),
+  _merged_chrom(""),
+  _prev_start(-1),
+  _prev_chrom(""),
+  _total_length(0)
 {}
 
 // Destructor
@@ -101,10 +114,14 @@ void BedFile::Open(void) {
             delete _bedStream;
             _bedStream = new igzstream(bedFile.c_str(), ios::in);
         }
-        if ( !(_bedStream->good()) ) {
-            cerr << "Error: The requested bed file (" 
-                 << bedFile 
-                 << ") could not be opened. Exiting!" << endl;
+        if ( _bedStream->fail() ) {
+            cerr << "Error: The requested file (" 
+                 << bedFile
+                 << ") " 
+                 << "could not be opened. "
+                 << "Error message: ("
+                 << strerror(errno)
+                 << "). Exiting!" << endl;
             exit (1);
         }
     }
@@ -139,6 +156,11 @@ void BedFile::Close(void) {
 void BedFile::GetLine(void) {
     // parse the bedStream pointer
     getline(*_bedStream, _bedLine);
+    
+    // ditch \r for Windows.
+    if (_bedLine[_bedLine.size()-1] == '\r') {
+        _bedLine.resize(_bedLine.size()-1);
+    }
     // increment the line number
     _lineNum++;
     // split into a string vector.
@@ -196,6 +218,11 @@ bool BedFile::GetNextBed(BED &bed, bool forceSorted) {
         else {
             // handle the first line as a special case because
             // of reading the header.
+            
+            // ditch \r for Windows if necessary.
+            if (_bedLine[_bedLine.size()-1] == '\r') {
+                _bedLine.resize(_bedLine.size()-1);
+            }
             Tokenize(_bedLine, _bedFields);
             _firstLine = false;
             setBedType(_bedFields.size());
@@ -225,6 +252,7 @@ bool BedFile::GetNextBed(BED &bed, bool forceSorted) {
                 _prev_chrom = bed.chrom;
                 _prev_start = bed.start;
             }
+            _total_length += (bed.end - bed.start);
             return true;
         }
         else if (_status == BED_HEADER || _status == BED_BLANK) 
@@ -259,6 +287,8 @@ bool BedFile::GetNextMergedBed(BED &merged_bed) {
                         _merged_start = bed.start;
                         _merged_end   = bed.end;
 
+                        _total_flattened_length += \
+                            (merged_bed.end - merged_bed.start);
                         return true;
                     }
                     else {
@@ -281,6 +311,9 @@ bool BedFile::GetNextMergedBed(BED &merged_bed) {
             merged_bed.chrom = _merged_chrom;
             merged_bed.start = _merged_start;
             merged_bed.end   = _merged_end;
+            
+            _total_flattened_length += \
+                (merged_bed.end - merged_bed.start);
             return true;
         }
     }
@@ -288,6 +321,14 @@ bool BedFile::GetNextMergedBed(BED &merged_bed) {
     return false;
 }
 
+
+unsigned long BedFile::getTotalLength(void) {
+    return _total_length;
+}
+
+unsigned long BedFile::getTotalFlattenedLength(void) {
+    return _total_flattened_length;
+}
 
 void BedFile::allHits(string chrom, CHRPOS start, 
                       CHRPOS end, string strand, 
@@ -625,6 +666,11 @@ void BedFile::loadBedFileIntoMap() {
         }
     }
     Close();
+}
+
+void BedFile::addBEDIntoMap(BED bedEntry) {
+    BIN bin = getBin(bedEntry.start, bedEntry.end);
+    bedMap[bedEntry.chrom][bin].push_back(bedEntry);
 }
 
 

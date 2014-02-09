@@ -36,8 +36,14 @@ void TabFile::Open(void) {
             delete _tabStream;
             _tabStream = new igzstream(_tabFile.c_str(), ios::in);
         }
-        if ( !(_tabStream->good()) ) {
-            cerr << "Error: The requested file (" << _tabFile << ") could not be opened. Exiting!" << endl;
+        if ( _tabStream->fail() ) {
+            cerr << "Error: The requested file (" 
+                 << _tabFile
+                 << ") " 
+                 << "could not be opened. "
+                 << "Error message: ("
+                 << strerror(errno)
+                 << "). Exiting!" << endl;
             exit (1);
         }
     }
@@ -60,6 +66,11 @@ TabLineStatus TabFile::GetNextTabLine(TAB_FIELDS &tabFields, int &lineNum) {
 
         // parse the tabStream pointer
         getline(*_tabStream, tabLine);
+        
+        if (tabLine[tabLine.size()-1] == '\r') {
+            tabLine.resize(tabLine.size()-1);
+        }
+        
         lineNum++;
 
         // split into a string vector.

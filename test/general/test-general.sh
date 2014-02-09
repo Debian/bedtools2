@@ -1,4 +1,4 @@
-BT=../../bin/bedtools
+BT=${BT-../../bin/bedtools}
 
 check()
 {
@@ -64,4 +64,35 @@ echo \
 echo "It looks as though you have less than 3 columns at line: 1.  Are you sure your files are tab-delimited?" > exp
 check obs exp
 rm obs exp
+
+
+###########################################################
+#  Fail on non-existent files.
+###########################################################
+echo "    general.t06...\c"
+$BT merge -i idontexist.bed 2> obs
+echo "Error: The requested file (idontexist.bed) could not be opened. Error message: (No such file or directory). Exiting!" > exp
+check obs exp
+rm obs exp
+
+
+###########################################################
+#  Don't fail on existent, yet empty files.
+###########################################################
+echo "    general.t07...\c"
+$BT merge -i empty.bed > obs
+touch exp
+check obs exp
+rm obs exp
+
+
+###########################################################
+#  Process gzipped files.
+###########################################################
+echo "    general.t08...\c"
+$BT merge -i non-empty.bed.gz > obs
+echo "chr1	10	21" > exp
+check obs exp
+rm obs exp
+
 

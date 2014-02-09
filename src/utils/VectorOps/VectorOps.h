@@ -59,12 +59,16 @@ public:
     double GetMin(void);              
     // return the maximum element of the vector
     double GetMax(void);              
+    // return the minimum absolute value of the vector
+    double GetAbsMin(void);              
+    // return the maximum absolute value of the vector
+    double GetAbsMax(void);              
     // return the count of element in the vector
     uint32_t GetCount(void);          
     // return a the count of _unique_ elements in the vector
     uint32_t GetCountDistinct(void);  
-    // return a comma-separated list of elements
-    string GetCollapse(void);         
+    // return a delimiter-separated list of elements
+    string GetCollapse(string delimiter = ",");
     // return a concatenation of all elements in the vector
     string GetConcat(void);           
     // return a comma-separated list of the _unique_ elements
