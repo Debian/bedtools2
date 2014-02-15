@@ -8,7 +8,7 @@ Build-Depends: cdbs,
                quilt,
                python,
                zlib1g-dev
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-med/bedtools.git
 Vcs-Git: git://anonscm.debian.org/debian-med/bedtools.git
 Homepage: http://code.google.com/p/bedtools/
