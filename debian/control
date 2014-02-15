@@ -9,8 +9,8 @@ Build-Depends: cdbs,
                python,
                zlib1g-dev
 Standards-Version: 3.9.4
-Vcs-Browser: http://git.debian.org/?p=debian-med/bedtools.git
-Vcs-Git: git://git.debian.org/debian-med/bedtools.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-med/bedtools.git
+Vcs-Git: git://anonscm.debian.org/debian-med/bedtools.git
 Homepage: http://code.google.com/p/bedtools/
 
 Package: bedtools
