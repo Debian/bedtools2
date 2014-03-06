@@ -1,3 +1,9 @@
+bedtools (2.19.1-1) UNRELEASED; urgency=medium
+
+  479e63b Merge tag 'v2.19.1' into debian/unstable
+
+ -- Charles Plessy <plessy@debian.org>  Fri, 07 Mar 2014 07:59:08 +0900
+
 bedtools (2.19.0-1) unstable; urgency=low
 
   e07e70c Imported Upstream version 2.19.0
