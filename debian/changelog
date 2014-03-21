@@ -1,8 +1,16 @@
-bedtools (2.19.1-1) UNRELEASED; urgency=medium
+bedtools (2.19.1-1) unstable; urgency=medium
 
   479e63b Merge tag 'v2.19.1' into debian/unstable
 
- -- Charles Plessy <plessy@debian.org>  Fri, 07 Mar 2014 07:59:08 +0900
+  [ Charles Plessy ]
+  93a7cf1 Create autopkgtest testsuite and a new package bedtools-test.
+  46183f8 debian/copyright: update path, correct license short name.
+  4fd441a debian/rules: removed obsolete exception of compression.
+
+  [ James McCoy ]
+  b4fa8e1 Move debian/upstream to debian/upstream/metadata
+
+ -- Charles Plessy <plessy@debian.org>  Fri, 21 Mar 2014 14:51:44 +0900
 
 bedtools (2.19.0-1) unstable; urgency=low
 
