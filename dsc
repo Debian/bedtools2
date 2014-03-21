@@ -3,42 +3,44 @@ Hash: SHA512
 
 Format: 3.0 (quilt)
 Source: bedtools
-Binary: bedtools
-Architecture: any
-Version: 2.19.0-1
+Binary: bedtools, bedtools-test
+Architecture: any all
+Version: 2.19.1-1
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 Uploaders: Charles Plessy <plessy@debian.org>
 Homepage: http://code.google.com/p/bedtools/
 Standards-Version: 3.9.5
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-med/bedtools.git
 Vcs-Git: git://anonscm.debian.org/debian-med/bedtools.git
+Testsuite: autopkgtest
 Build-Depends: cdbs, debhelper (>= 9), quilt, python, zlib1g-dev
 Package-List: 
  bedtools deb science optional
+ bedtools-test deb science optional
 Checksums-Sha1: 
- 1ed6b86fd8c9867b187b3024dc3b68603f935dbb 4117988 bedtools_2.19.0.orig.tar.gz
- 6809986218ee54154a525d64f361d9c0430b16fc 6860 bedtools_2.19.0-1.debian.tar.xz
+ 534c0241d3885bf1c0c8251996f6119d4a6f6a16 4150267 bedtools_2.19.1.orig.tar.gz
+ a8db88b12970fccadf84d0e1a35e24ff4dc103c8 8664 bedtools_2.19.1-1.debian.tar.xz
 Checksums-Sha256: 
- 79294fc5998df941f0494819be74c0d64836404def51b5b5d52a4c2d2775cbbf 4117988 bedtools_2.19.0.orig.tar.gz
- 30b201f18e8b9b2fe3d9b7f754c09f78ef6365059e4f49e5697c3cd882e73f4f 6860 bedtools_2.19.0-1.debian.tar.xz
+ c7df72aa54af8dd5b50837c53432070bcb0b82d480c0e791163e1a00b66ced1e 4150267 bedtools_2.19.1.orig.tar.gz
+ 8b73a1d629c335070ac3266b98127a87ddb2c9dd2463621195f2fa724f0a3cd6 8664 bedtools_2.19.1-1.debian.tar.xz
 Files: 
- 3faf6450d9b0e82f42347d00da2c6083 4117988 bedtools_2.19.0.orig.tar.gz
- 709fd7028e719c53479b630bcbb4f0e0 6860 bedtools_2.19.0-1.debian.tar.xz
+ 98c549049c44ce39d58e63e152b99566 4150267 bedtools_2.19.1.orig.tar.gz
+ c7ef7e2d73a30d4c753d87a60aea8aa6 8664 bedtools_2.19.1-1.debian.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQIcBAEBCgAGBQJTAGYeAAoJEMW9bI8ildUClCgP/ieGvowuz2W6NJQr/E9oxVhk
-urx/Mx6s8k6CI1hwIYyirrgz2wckpjSVls8hvTPjmQe4giFH04uDMgIhOGLG/BLD
-zTjayqTt785Q+gKino9l+VRnZzdaaUJYee7Xqo0vJKZBpenUTmZSIuG2m6Lmp0yp
-+7l9NqCcheUZMRMYB/LZsf1Ro0kO7/iN1B6FZjGhFFdcFb6RS9AGtbWFZ6vJLAuW
-Jwtfvg8tiLmUZ541XZ0xocABgTRyQ/bvTuVAySC/ubryVm08inty1iDmWI+mirB4
-LWefUQG22HV4E9uzHxauQ+fc4Wz2ya/+I/HAl04JryHYktkskdOIMdMnV+vJa4CX
-mDF8Vlrwl9rZ2QUK+I5CNkIL1gBvBsnPVcm40cKgB+qui2qn97ESFpmN9to4nhVt
-ag+EBQkeRHkxHVr8CrqI06Q3l3uHs73z/OMpBKPbDQbqgaP5NuZ8oQ/vXKttx52c
-kgSu+Am89c6nX1d1SpjfmCN3tcQGE6JHg3JuFwAbWxodA6L5enf4kfD1ckOEcmP7
-f3Lv7fSHxudiSu6Op0GZwexA6642gTzEGXoCcWYb3eGuk7g1NS/TGynu5gcEhzT3
-moJTTImzbFIQv7LPltYhHasVIudWzGb0oCaL3NLfAlluhJRSH44kKpFMFkNcK/lI
-CJjddo0TRspOeo485pzV
-=ZOzU
+iQIcBAEBCgAGBQJTK+hpAAoJEMW9bI8ildUC1BkQAKcQkk1yIU5JXVmxVpCA5yQY
++EKBUQX2o8J5g6s3b+FrStWtBmtOet7mTb2X95wAQs+WDJXcPkxOh1sOCY8hibCt
+Ws7WbeT/D7liw9r7Z0Aok1eU/xprdQRS0mXFopMpTPkxYdvs0RiAZHAHOL21L6co
+82weB984mYwknVN2tcWhB/aWJT99epidEpiZ4ZrjrsCDBQ+I0Ll6c2tvPNik0RAW
+BAR1esp9u4o9aDN7N4PEGCzdz7z1EZQrpS1BicMJChmN1MIQgj/MhTbLG7i8UoTM
+DuLl5679VBNy7B3tquCYdS2Nr8DX4ZiEQbjjYzaJIgYagK3b2/6rEVFJTNB0Qsn6
+7/x4cx/E+Ls/QeQF/HqIu1Up9t3amCHI8PEkbHzYRcddo51LOkvuurrQa3sy4N+B
+w/5kaJfs7o67Bty5pAwIk0r2vqb2PcC31IUJL+bq3uihuYQG+fweSYiga83yC5rN
+3qGVoUe/E53opUbpJeQ1mX+GIxHM4sMJSnK/fSg4YDp6qf7/8e7SK7zBGB+6jeBm
+nOzj7upC9US7QZ43Z4clceEsQhnEaY1w3ALGn7RyikNbKy2v4QxRfqqtQxMyQ84e
+1N3hCAwLSVyl6GOn2IiFxTRHJWHf67xavrzQ7ShC/ikAh84nNgqNTg1ZtaCEd06N
+0OygORbXLupee1z0ulQx
+=3Z5c
 -----END PGP SIGNATURE-----

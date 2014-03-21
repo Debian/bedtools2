@@ -2,60 +2,63 @@
 Hash: SHA512
 
 Format: 1.8
-Date: Sat, 15 Feb 2014 19:39:23 +0900
+Date: Fri, 21 Mar 2014 14:51:44 +0900
 Source: bedtools
-Binary: bedtools
-Architecture: source amd64
-Version: 2.19.0-1
+Binary: bedtools bedtools-test
+Architecture: source all amd64
+Version: 2.19.1-1
 Distribution: unstable
-Urgency: low
+Urgency: medium
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 Changed-By: Charles Plessy <plessy@debian.org>
 Description: 
  bedtools   - suite of utilities for comparing genomic features
-Closes: 714873
+ bedtools-test - test data for the bedtools package
 Changes: 
- bedtools (2.19.0-1) unstable; urgency=low
+ bedtools (2.19.1-1) unstable; urgency=medium
  .
-   e07e70c Imported Upstream version 2.19.0
-   afdc61a Watch GitHub at https://github.com/arq5x/bedtools2.
-   4abe14e Source control file normalised with config-model-edit.
-   0518353 Corrected a typo in the long description. (Closes: #714873)
-   f63d85e Follow the layout of the upstream repository.
-   c25f9e5 Correct name of README file in debian/docs.
-   5561c7c Emulate source format 1.0 in the format 3.0 (quilt).
-   a45a0ab Canonical VCS URLs.
-   4459dfe Conforms with Policy 3.9.5.
+   479e63b Merge tag 'v2.19.1' into debian/unstable
+ .
+   [ Charles Plessy ]
+   93a7cf1 Create autopkgtest testsuite and a new package bedtools-test.
+   46183f8 debian/copyright: update path, correct license short name.
+   4fd441a debian/rules: removed obsolete exception of compression.
+ .
+   [ James McCoy ]
+   b4fa8e1 Move debian/upstream to debian/upstream/metadata
 Checksums-Sha1: 
- befe8cf1409e05cdb4e020320191f948011cd996 1949 bedtools_2.19.0-1.dsc
- 1ed6b86fd8c9867b187b3024dc3b68603f935dbb 4117988 bedtools_2.19.0.orig.tar.gz
- 6809986218ee54154a525d64f361d9c0430b16fc 6860 bedtools_2.19.0-1.debian.tar.xz
- bc3aad74cf182a537cc606f509631c894c91c86f 554664 bedtools_2.19.0-1_amd64.deb
+ 01cd626e00c32c4f2ca621fa928a066c8e761fc2 2027 bedtools_2.19.1-1.dsc
+ 534c0241d3885bf1c0c8251996f6119d4a6f6a16 4150267 bedtools_2.19.1.orig.tar.gz
+ a8db88b12970fccadf84d0e1a35e24ff4dc103c8 8664 bedtools_2.19.1-1.debian.tar.xz
+ 38b8fc819b73674cacfacf01b88cf8b8f6e7b73c 2400684 bedtools-test_2.19.1-1_all.deb
+ 8da42ee9f8daa34777a1b89d8e06f0c3ab5f1d5b 526828 bedtools_2.19.1-1_amd64.deb
 Checksums-Sha256: 
- addba2a7f0d2c5c5f0ba08702dfdc002ca49553e601c72836db9897eb384aa4a 1949 bedtools_2.19.0-1.dsc
- 79294fc5998df941f0494819be74c0d64836404def51b5b5d52a4c2d2775cbbf 4117988 bedtools_2.19.0.orig.tar.gz
- 30b201f18e8b9b2fe3d9b7f754c09f78ef6365059e4f49e5697c3cd882e73f4f 6860 bedtools_2.19.0-1.debian.tar.xz
- 704791408946067d329acdd690b8fa9fb3ea33c9615648121f1a57e434c5a8fd 554664 bedtools_2.19.0-1_amd64.deb
+ 68919af16fdfd584df6bcb66580ce2cb7c52754990d6266eeecd14b9029f84c9 2027 bedtools_2.19.1-1.dsc
+ c7df72aa54af8dd5b50837c53432070bcb0b82d480c0e791163e1a00b66ced1e 4150267 bedtools_2.19.1.orig.tar.gz
+ 8b73a1d629c335070ac3266b98127a87ddb2c9dd2463621195f2fa724f0a3cd6 8664 bedtools_2.19.1-1.debian.tar.xz
+ 6a4e5c6282ea8482f4294b02f26c81f7f2f6f291f03db282671bfc819e9478a9 2400684 bedtools-test_2.19.1-1_all.deb
+ 6e99c5fc2f5b72730547106f17a639d78ec27e47246a82da6ebc59bdc795e46b 526828 bedtools_2.19.1-1_amd64.deb
 Files: 
- 7fff6e3ef7e6e14757fc63d2501b0a7b 1949 science optional bedtools_2.19.0-1.dsc
- 3faf6450d9b0e82f42347d00da2c6083 4117988 science optional bedtools_2.19.0.orig.tar.gz
- 709fd7028e719c53479b630bcbb4f0e0 6860 science optional bedtools_2.19.0-1.debian.tar.xz
- b844b6f14b50dd45c39b48ae7e593da8 554664 science optional bedtools_2.19.0-1_amd64.deb
+ 131467932a1e5cfd35bd0d9ae75cbb4c 2027 science optional bedtools_2.19.1-1.dsc
+ 98c549049c44ce39d58e63e152b99566 4150267 science optional bedtools_2.19.1.orig.tar.gz
+ c7ef7e2d73a30d4c753d87a60aea8aa6 8664 science optional bedtools_2.19.1-1.debian.tar.xz
+ 40254590ad8e7135a68767fa3cf39e56 2400684 science optional bedtools-test_2.19.1-1_all.deb
+ 176a81ad2b3bed0ccf58b5478d451b0f 526828 science optional bedtools_2.19.1-1_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQIcBAEBCgAGBQJTAGYeAAoJEMW9bI8ildUCbFUP/0tjp2H/jwKkNXwZUu+gIbfq
-Rx7LQJrnEpvSBVuRgE99JIWVWf12baWDIaLDjJERduDHcJ3jOFd7lJngt3lmNe/g
-MKwfiCAPI9vharlxwjJrx+l2+XDTxmKN0f/hJRbpjSLW9rweR5UD4tBhb/ceCpE7
-KQm4iSJ5oIJW9GDc4/dkCK6zyPVObxpFcb7YtFXeqMMEtymOAYrlXpdFgZCnFozH
-Aqay9I2F/e7h3L7xbYooDyuYC48rmISkHgfny6Oosw302t6zgKy38bjHtATlrm9o
-FxPh9sKiYnukiU9IbmTpVFfJKmuchJ7QWnxzUWbZsGU+f9xNtz1dW39JqZzbP0X6
-9USlJ9aW+GS9929m9L2sWIGoSPqBVlMEzpAEMdTTVN8LsQLqG1lufeoO65n+SrTx
-3aAm8YzmNG8p7r9T2AuQcFPoyZnssRRXX286oZ/oXfvcjpYrqavqkq1DsSD0O+Ag
-93c2I3Wlvz0hSrHljdz1yZa/OFGcEO/d48xqk2oTJhCsxlllmz+A6YQYZJjyIxpq
-Gnid/9tg6woF0YMqM8tiC/9EYQUlPisu0c1bUKtvGtjmzewuDxrHqlKwtYBJABtF
-lp0jLugCu9Lh7xLietykjqvsNYUVzCB0pIObItm63JqbAb1+Jdr45aDjAz/B/7jC
-xqsYDKgm4ShGpSI0vTc3
-=RLys
+iQIcBAEBCgAGBQJTK+hqAAoJEMW9bI8ildUCyOcQALOtnTzR+QZclfwR+VUgZvoL
+e1K5PYSOiWgOLzmg5+PhHqMPjhSxaqvWRQLRuJE/rQWOBjv5YQcl+jxx4OWY/oyA
+Y7xTlymV4PC2gAhfR7dPEl8W/SPiQQjjTXq34haTwf8pFcCJQ6k0exKAIVKzB92F
+H2fMXJXUsVYjyjftyKHnkGAbaSJe4pcIlkFi6NCNREUeLuvZi5Z0pAiiuV0QnRHd
+UdbAOkUwcipVDOU2BKJ5ahsSS4nmCOfBo3NNAPe7hJtSW0ivbBRXJWUlOCtpmwe3
+of857hlSVFQOwEdEukVGddmIfA6OMK6PoBqpJFX0eJr9687yCSTebT4pGrfsaBfP
+GbIlCtYdU1kWgrBfmVHTH9A1K46JtOO48yf9a4KMX+mUzxpyx1tgYbBbK3blVWxP
+i6smw8aY93xt6fE6nM7d6bUVwGygvifjGX8LsoeSVbU1uS0xYd/s8NI71NuOJfhL
+EQ3nBJjyNo59ONHhdLviIDGWC2pf5lzmN+fb+fBVX8NYtpvwYAGv8eJ0Wd0QN3Y3
+a+07/057wInTiRfZJI7Dhp9+fZt9jlP5TFYzlbXHDX7znhOeVFm458ctHI9z1UaE
+O8M9raRZRcj4uJn0BAnnlUnzvYbsIAGrwGRVkGdlwRC9xpx8IpX2ddkkGKhhyFYJ
+yv8/EeXFbodxH60KZgHA
+=G3Fg
 -----END PGP SIGNATURE-----
