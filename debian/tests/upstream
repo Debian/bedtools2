@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+# Create a temporary directory
+TMPTESTDIR=$(mktemp -d)
+
+# Copy test suite there
+cp -a test $TMPTESTDIR
+
+# Enter the directory and run the tests
+cd $TMPTESTDIR/test
+DATA=/usr/share/bedtools/data BT=/usr/bin/bedtools sh test.sh | tee test.sh.output
+
+# Did it fail ?
+TESTFAILED=0
+grep -q fail test.sh.output && TESTFAILED=1
+
+# Clean
+cd
+rm -rf $TMPTESTDIR/test
+
+exit $TESTFAILED

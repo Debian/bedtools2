@@ -12,6 +12,7 @@ Standards-Version: 3.9.5
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-med/bedtools.git
 Vcs-Git: git://anonscm.debian.org/debian-med/bedtools.git
 Homepage: http://code.google.com/p/bedtools/
+Testsuite: autopkgtest
 
 Package: bedtools
 Architecture: any
@@ -27,3 +28,13 @@ Description: suite of utilities for comparing genomic features
  .
  The groupBy utility is distributed in the filo package.
 
+Package: bedtools-test
+Architecture: all
+Depends: ${misc:Depends}
+Breaks: bedtools (<< 2.19.1-1)
+Replaces: bedtools (<< 2.19.1-1)
+Suggests: bedtools
+Description: test data for the bedtools package
+ Test data for the BEDTools suite of utilities for comparing genomic features.
+ It is distributed in a separate package because it is large and
+ architecture-independent.
