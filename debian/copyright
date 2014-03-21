@@ -14,10 +14,8 @@ Copyright: © 2009, 2010, 2011 - Aaron Quinlan
 License: under-the-MIT-license
  No further explanation about which MIT license to follow was provided.
 
-Files: src/cuffToTrans/Fasta.cpp
- src/cuffToTrans/Fasta.h
- src/fastaFromBed/Fasta.cpp
- src/fastaFromBed/Fasta.h
+Files: src/utils/Fasta/Fasta.cpp
+ src/utils/Fasta/Fasta.h
 Copyright: © 2010 Erik Garrison <erik.garrison@bc.edu>
 License: GPL-2
 Source: https://github.com/ekg/fastahack
@@ -47,7 +45,7 @@ Source: https://github.com/pezmaster31/bamtools/wiki
 
 Files: src/utils/gzstream/gzstream.h
 Copyright: © 2001  Deepak Bandyopadhyay, Lutz Kettner
-License: LGPL-2.1
+License: LGPL-2.1+
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
