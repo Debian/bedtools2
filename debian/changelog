@@ -1,3 +1,10 @@
+bedtools (2.19.1-2) UNRELEASED; urgency=medium
+
+  * debian/tests/control: Add "Depends: @, samtools" as advised in
+    #747337
+
+ -- Andreas Tille <tille@debian.org>  Fri, 09 May 2014 09:48:05 +0200
+
 bedtools (2.19.1-1) unstable; urgency=medium
 
   479e63b Merge tag 'v2.19.1' into debian/unstable

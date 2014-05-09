@@ -1,6 +1,7 @@
 Source: bedtools
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
-Uploaders: Charles Plessy <plessy@debian.org>
+Uploaders: Charles Plessy <plessy@debian.org>,
+           Andreas Tille <tille@debian.org>
 Section: science
 Priority: optional
 Build-Depends: cdbs,
