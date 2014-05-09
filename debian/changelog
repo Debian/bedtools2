@@ -2,6 +2,9 @@ bedtools (2.19.1-2) UNRELEASED; urgency=medium
 
   * debian/tests/control: Add "Depends: @, samtools" as advised in
     #747337
+  * debian/tests/upstream: Use content from bedtools-test package to
+    actually run the test suite
+    Closes: #747337
 
  -- Andreas Tille <tille@debian.org>  Fri, 09 May 2014 09:48:05 +0200
 
