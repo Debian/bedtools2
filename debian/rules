@@ -2,16 +2,21 @@
 
 export DH_VERBOSE=1
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/makefile.mk
-include /usr/share/cdbs/1/rules/patchsys-quilt.mk
+DEBPKGNAME := $(shell dpkg-parsechangelog | awk '/^Source:/ {print $$2}')
+DEB_VERSION := $(shell dpkg-parsechangelog | egrep '^Version:' | cut -f 2 -d ' ')
+DEB_NOEPOCH_VERSION := $(shell echo $(DEB_VERSION) | cut -d: -f2-)
+DEB_UPSTREAM_VERSION := $(shell echo $(DEB_NOEPOCH_VERSION) | sed 's/-[^-]*$$//')
 
-DEB_DH_BUILDDEB_ARGS = -- -Z xz
+%:
+	dh $@
 
-DEB_INSTALL_CHANGELOGS_ALL := RELEASE_HISTORY
+override_dh_installchangelogs:
+	dh_installchangelogs RELEASE_HISTORY
+
+override_dh_install:
+	dh_install
+	rm -f $(CURDIR)/debian/$(DEBPKGNAME)/usr/bin/groupBy # distributed in the filo package.
 
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)
 
-binary-fixup/bedtools::
-	rm $(CURDIR)/debian/bedtools/usr/bin/groupBy # distributed in the filo package.
