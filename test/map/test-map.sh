@@ -653,13 +653,16 @@ rm obs exp
 
 
 ###########################################################
+#
+#  DEPRECATED
 #  Test that Bam database is not allowed
 ############################################################
 echo "    map.t44...\c"
-echo -e "\n*****\n***** ERROR: BAM database file not currently supported for column operations." > exp
-$BT map -a ivls.bed -b values.bam 2> obs
-check obs exp
-rm obs exp
+#echo -e "\n*****\n***** ERROR: BAM database file not currently supported for column operations." > exp
+#$BT map -a ivls.bed -b values.bam 2> obs
+#check obs exp
+#rm obs exp
+echo ok
 
 
 
@@ -691,10 +694,13 @@ rm obs exp
 ############################################################
 echo "    map.t46...\c"
 echo \
-"
-*****
-***** ERROR: There are 1 columns given, but there are 2 operations."  > exp
-$BT map -a ivls.bed -b values.bed -o count,sum 2>&1 > /dev/null | head -3 > obs
+"chr1	0	100	3	30
+chr1	100	200	1	1
+chr2	0	100	0	.
+chr2	100	200	0	.
+chr3	0	100	3	6
+chr3	100	200	1	4" > exp
+$BT map -a ivls.bed -b values.bed -o count,sum  > obs
 check obs exp
 rm obs exp
 
@@ -714,14 +720,16 @@ rm obs exp
 
 
 ###########################################################
-#  Test that numeric ops for non-numeric columns aren't allowed
+#  Test that numeric ops for non-numeric columns are
+# allowed, but give a warning
 ############################################################
 echo "    map.t48...\c"
 echo \
-"
-*****
-***** ERROR: Column 1 is not a numeric field for database file values.bed."  > exp
-$BT map -a ivls.bed -b values.bed -c 1 -o sum 2>&1 > /dev/null | head -3 > obs
+" ***** WARNING: Non numeric value chr1 in 1.
+ ***** WARNING: Non numeric value chr1 in 1.
+ ***** WARNING: Non numeric value chr3 in 1.
+ ***** WARNING: Non numeric value chr3 in 1." > exp
+$BT map -a ivls.bed -b values.bed -c 1 -o sum 2>&1 > /dev/null | cat - > obs
 check obs exp
 rm obs exp
 
@@ -790,3 +798,13 @@ $BT map -a ivls.bed -b values4.bed -c 7 -o sample_stddev > obs
 check obs exp
 rm obs exp
 
+###########################################################
+#  Test BAM file as DB
+############################################################
+echo "    map.t53...\c"
+echo \
+"chr1	10000	12000	2.5
+chr1	15000	20000	11.4444" > exp
+$BT map -a d.bed -b fullFields.bam -c 5 -o mean > obs
+check exp obs
+rm exp obs

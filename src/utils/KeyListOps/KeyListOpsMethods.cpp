@@ -9,13 +9,16 @@
 #include <cfloat>
 #include <cmath>
 #include <algorithm>
+#include "ParseTools.h" //to get the isNumeric function
 
 KeyListOpsMethods::KeyListOpsMethods()
 : _keyList(&_nullKeyList),
   _column(1),
   _nullVal("."),
   _delimStr(","),
-  _iter(_nullKeyList.begin())
+  _iter(_nullKeyList.begin()),
+  _nonNumErrFlag(false),
+  _isBam(false)
 {
 }
 
@@ -310,11 +313,23 @@ const QuickString &KeyListOpsMethods::getLast() {
 }
 
 const QuickString &KeyListOpsMethods::getColVal() {
-	return _iter->value()->getField(_column);
+	const QuickString &retVal = _iter->value()->getField(_column);
+	if (_isBam && retVal.empty()) return _nullVal;
+	return retVal;
 }
 
 double KeyListOpsMethods::getColValNum() {
-	return atof(_iter->value()->getField(_column).c_str());
+	const QuickString &strVal = _iter->value()->getField(_column);
+	if (!isNumeric(strVal)) {
+		_nonNumErrFlag = true;
+		_errMsg = " ***** WARNING: Non numeric value ";
+		_errMsg.append(strVal);
+		_errMsg.append(" in ");
+		_errMsg.append(_column);
+		_errMsg.append(".");
+		return NAN;
+	}
+	return atof(strVal.c_str());
 }
 
 void KeyListOpsMethods::toArray(bool useNum, SORT_TYPE sortVal) {

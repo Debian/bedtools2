@@ -8,7 +8,9 @@
 #include "FileRecordMgr.h"
 #include <cmath> //for isnan
 
-KeyListOps::KeyListOps() {
+KeyListOps::KeyListOps():
+_dbFileType(FileRecordTypeChecker::UNKNOWN_FILE_TYPE)
+{
 	_opCodes["sum"] = SUM;
 	_opCodes["mean"] = MEAN;
 	_opCodes["stddev"] = STDDEV;
@@ -83,40 +85,40 @@ KeyListOps::OP_TYPES KeyListOps::getOpCode(const QuickString &operation) const {
 
 bool KeyListOps::isValidColumnOps(FileRecordMgr *dbFile) {
 
-    if (dbFile->getFileType() == FileRecordTypeChecker::BAM_FILE_TYPE) {
-         //throw Error
-        cerr << endl << "*****" << endl
-             << "***** ERROR: BAM database file not currently supported for column operations."
-             << endl;
-        exit(1);
-    }
-
-
 	//get the strings from context containing the comma-delimited lists of columns
 	//and operations. Split both of these into vectors. Get the operation code
 	//for each operation string. Finally, make a vector of pairs, where the first
 	//member of each pair is a column number, and the second member is the code for the
 	//operation to perform on that column.
 
-	vector<QuickString> columnsVec;
-	vector<QuickString> opsVec;
-	int numCols = Tokenize(_columns, columnsVec, ',');
-	int numOps = Tokenize(_operations, opsVec, ',');
+    Tokenizer colTokens;
+    Tokenizer opsTokens;
+
+    int numCols = colTokens.tokenize(_columns, ',');
+	int numOps = opsTokens.tokenize(_operations, ',');
 
 	if (numOps < 1 || numCols < 1) {
 		 cerr << endl << "*****" << endl
 		             << "***** ERROR: There must be at least one column and at least one operation named." << endl;
 		 return false;
 	}
-	if (numOps > 1 && numCols != numOps) {
+	if (numOps > 1 && numCols > 1 && numCols != numOps) {
 		 cerr << endl << "*****" << endl
 		             << "***** ERROR: There are " << numCols <<" columns given, but there are " << numOps << " operations." << endl;
 		cerr << "\tPlease provide either a single operation that will be applied to all listed columns, " << endl;
+		cerr << "\ta single column to which all operations will be applied," << endl;
 		cerr << "\tor an operation for each column." << endl;
 		return false;
 	}
-	for (int i=0; i < (int)columnsVec.size(); i++) {
-		int col = str2chrPos(columnsVec[i]);
+	int loop = max(numCols, numOps);
+
+	// If there is only one column, all ops are performed on it.
+	// Otherwise, if there is only op, it is performed on all columns.
+	// Besides that, ops are performed on columns in their respective
+	// ordering.
+
+	for (int i=0; i < loop; i++) {
+		int col = str2chrPos(colTokens.getElem(numCols > 1 ? i : 0));
 
 		//check that the column number is valid
 		if (col < 1 || col > dbFile->getNumFields()) {
@@ -124,7 +126,7 @@ bool KeyListOps::isValidColumnOps(FileRecordMgr *dbFile) {
 					 << dbFile->getFileName() << " only has fields 1 - " << dbFile->getNumFields() << "." << endl;
 			 return false;
 		}
-		const QuickString &operation = opsVec.size() > 1 ? opsVec[i] : opsVec[0];
+		const QuickString &operation = opsTokens.getElem(numOps > 1 ? i : 0);
 		OP_TYPES opCode = getOpCode(operation);
 		if (opCode == INVALID) {
 			cerr << endl << "*****" << endl
@@ -134,68 +136,17 @@ bool KeyListOps::isValidColumnOps(FileRecordMgr *dbFile) {
 		_colOps.push_back(pair<int, OP_TYPES>(col, opCode));
 	}
 
-
-	//The final step we need to do is check that for each column/operation pair,
-	//if the operation is numeric, see if the database's record type supports
-	//numeric operations for that column. For instance, we can allow the mean
-	//of column 4 for a BedGraph file, because that's numeric, but not for Bed4,
-	//because that isn't.
-
-	for (int i = 0; i < (int)_colOps.size(); i++) {
-		int col = _colOps[i].first;
-		OP_TYPES opCode = _colOps[i].second;
-		FileRecordTypeChecker::RECORD_TYPE recordType = dbFile->getRecordType();
-
-		if (isNumericOp(opCode)) {
-			bool isValidNumOp = false;
-			switch(recordType) {
-				case FileRecordTypeChecker::BED3_RECORD_TYPE:
-					isValidNumOp = Bed3Interval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BED4_RECORD_TYPE:
-					isValidNumOp = Bed4Interval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BED5_RECORD_TYPE:
-					isValidNumOp = Bed5Interval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BEDGRAPH_RECORD_TYPE:
-					isValidNumOp = BedGraphInterval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BED6_RECORD_TYPE:
-					isValidNumOp = Bed6Interval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BED_PLUS_RECORD_TYPE:
-					isValidNumOp = BedPlusInterval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BED12_RECORD_TYPE:
-					isValidNumOp = Bed12Interval::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::BAM_RECORD_TYPE:
-					isValidNumOp = BamRecord::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::VCF_RECORD_TYPE:
-					isValidNumOp = VcfRecord::isNumericField(col);
-					break;
-
-				case FileRecordTypeChecker::GFF_RECORD_TYPE:
-					isValidNumOp = GffRecord::isNumericField(col);
-					break;
-
-				default:
-					break;
-			}
-			if (!isValidNumOp) {
-				 cerr << endl << "*****" << endl  << "***** ERROR: Column " << col << " is not a numeric field for database file "
-						 << dbFile->getFileName() << "." << endl;
-				 return false;
+	//lastly, if the file is BAM, and they asked for column 2, which is the
+	//flags field, then for now we have to throw an error, as the flag field
+	//is currently not supported.
+	if (_dbFileType == FileRecordTypeChecker::BAM_FILE_TYPE) {
+		//also, tell the methods class we're dealing with BAM.
+		_methods.setIsBam(true);
+		for (size_t i = 0; i < _colOps.size(); i++) {
+			if (_colOps[i].first == 2) {
+				cerr << endl << "*****" << endl << "***** ERROR: Requested column 2 of a BAM file, which is the Flags field." << endl;
+				cerr << "             We currently do not support this, but may in future versions." << endl;
+				return false;
 			}
 		}
 	}
@@ -358,7 +309,38 @@ const QuickString & KeyListOps::getOpVals(RecordKeyList &hits)
 			_outVals.append('\t');
 		}
 	}
+	if (_methods.nonNumErrFlagSet()) {
+		//asked for a numeric op on a column in which a non numeric value was found.
+		cerr << _methods.getErrMsg() << endl;
+		_methods.resetNonNumErrFlag();
+	}
 	return _outVals;
 }
 
+void KeyListOpsHelp() {
 
+    cerr << "\t-o\t"             << "Specify the operation that should be applied to -c." << endl;
+    cerr                         << "\t\tValid operations:" << endl;
+    cerr                         << "\t\t    sum, min, max, absmin, absmax," << endl;
+    cerr                         << "\t\t    mean, median," << endl;
+    cerr                         << "\t\t    collapse (i.e., print a delimited list (duplicates allowed)), " << endl;
+    cerr                         << "\t\t    distinct (i.e., print a delimited list (NO duplicates allowed)), " << endl;
+    cerr                         << "\t\t    count" << endl;
+    cerr                         << "\t\t    count_distinct (i.e., a count of the unique values in the column), " << endl;
+    cerr                         << "\t\tDefault: sum" << endl;
+    cerr						 << "\t\tMultiple operations can be specified in a comma-delimited list." << endl << endl;
+
+    cerr						<< "\t\tIf there is only column, but multiple operations, all operations will be" << endl;
+    cerr						<< "\t\tapplied on that column. Likewise, if there is only one operation, but" << endl;
+    cerr						<< "\t\tmultiple columns, that operation will be applied to all columns." << endl;
+    cerr						<< "\t\tOtherwise, the number of columns must match the the number of operations," << endl;
+    cerr						<< "\t\tand will be applied in respective order." << endl;
+    cerr						<< "\t\tE.g., \"-c 5,4,6 -o sum,mean,count\" will give the sum of column 5," << endl;
+    cerr						<< "\t\tthe mean of column 4, and the count of column 6." << endl;
+    cerr						<< "\t\tThe order of output columns will match the ordering given in the command." << endl << endl<<endl;
+
+    cerr << "\t-delim\t"                 << "Specify a custom delimiter for the collapse operations." << endl;
+    cerr                                 << "\t\t- Example: -delim \"|\"" << endl;
+    cerr                                 << "\t\t- Default: \",\"." << endl << endl;
+
+}
