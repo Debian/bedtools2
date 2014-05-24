@@ -1,3 +1,9 @@
+bedtools (2.20.1-1) UNRELEASED; urgency=medium
+
+  7b6b2d6 Merge tag 'v2.20.1' into debian/unstable
+
+ -- Charles Plessy <plessy@debian.org>  Sat, 24 May 2014 21:56:13 +0900
+
 bedtools (2.19.1-2) unstable; urgency=medium
 
   * debian/tests/control: Add "Depends: @, samtools" as advised in
