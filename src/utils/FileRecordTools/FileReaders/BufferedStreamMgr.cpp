@@ -70,10 +70,21 @@ bool BufferedStreamMgr::getTypeData()
 	_currScanBuffer = _inputStreamMgr->getSavedData();
 	_typeChecker.setFilename(_filename);
 	do {
-		if (!_typeChecker.scanBuffer(_currScanBuffer.c_str(), _currScanBuffer.size()) && !_typeChecker.needsMoreData()) {
+		if (!_typeChecker.scanBuffer(_currScanBuffer.c_str(), _currScanBuffer.size(), _inputStreamMgr->getEofHit()) && !_typeChecker.needsMoreData()) {
 			return false;
 		} else if (_typeChecker.needsMoreData()) {
-			_inputStreamMgr->populateScanBuffer();
+			if (!_inputStreamMgr->populateScanBuffer()) {
+				// We have found a file with just a header. If the file and record type are known,
+				//break here. Otherwise, assign those types to empty file and record type, then break.
+				if ((_typeChecker.getFileType() != FileRecordTypeChecker::UNKNOWN_FILE_TYPE) &&
+					(_typeChecker.getRecordType() != FileRecordTypeChecker::UNKNOWN_RECORD_TYPE)) {
+					break;
+				} else {
+					_typeChecker.setFileType(FileRecordTypeChecker::EMPTY_FILE_TYPE);
+					_typeChecker.setRecordType(FileRecordTypeChecker::EMPTY_RECORD_TYPE);
+					break;
+				}
+			}
 			_currScanBuffer.append(_inputStreamMgr->getSavedData());
 		}
 	} while (_typeChecker.needsMoreData());
@@ -93,6 +104,7 @@ bool BufferedStreamMgr::getLine(QuickString &line)
 			return false;
 		}
 	}
+	bool retVal = true;
 	while (1) {
 		int searchPos = _mainBufCurrStartPos;
 		while (searchPos < _mainBufCurrLen && _mainBuf[searchPos] != '\n') {
@@ -100,15 +112,25 @@ bool BufferedStreamMgr::getLine(QuickString &line)
 		}
 
 		line.append((char *)_mainBuf + _mainBufCurrStartPos, searchPos - _mainBufCurrStartPos);
+
 		_mainBufCurrStartPos = searchPos +1;
 		if (searchPos == _mainBufCurrLen) { //hit end of buffer, but no newline yet
 			if (!readFileChunk()) { //hit eof
-				return true;
+				retVal = true;
+				break;
 			}
 		} else if (_mainBuf[searchPos] == '\n') {
-			return true;
+			retVal = true;
+			break;
 		}
 	}
+	//strip any whitespace characters, such as DOS newline characters or extra tabs,
+	//from the end of the line
+	int lastPos = line.size();
+	while (isspace(line[lastPos-1])) lastPos--;
+	line.resize(lastPos);
+
+	return retVal;
 }
 
 bool BufferedStreamMgr::readFileChunk()

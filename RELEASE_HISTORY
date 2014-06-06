@@ -1,3 +1,10 @@
+Version 2.18.2 (16-Dec-2013)
+
+bedtools. The changes to bedtools reflect fixes to compilation errors, performance enhancements for smaller files, and a bug fix for BAM files that lack a formal header. Our current focus for the 2.19.* release is is on addressing some standing bug/enhancements and also in updating some of the other more widely used tools (e.g., coverage, map, and substract) to use the new API. We will also continue to look into ways to improve performance while hopefully reducing memory usage for algorithms that work with unsorted data (thanks to Ian Sudberry for the ping!).
+
+pybedtools. Ryan Dale has updated pybedtools to accomodate bedtools 2.18.*, added unit tests, and provided new functionality and bug fixes.  The details for this release are here:
+http://pythonhosted.org/pybedtools/changes.html
+
 Version 2.18.1 (16-Dec-2013)
 
 Fixes that address compilation errors with CLANG and force compilation of custom BamTools library.

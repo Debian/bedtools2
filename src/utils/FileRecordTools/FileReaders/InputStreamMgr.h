@@ -30,7 +30,7 @@ public:
 //	istream *getFinalStream() { return _finalInputStream; }
 	const BTlist<int> &getScanBuffer() const { return _scanBuffer; }
 	int getBufferLength() const { return _numBytesInBuffer; }
-	void populateScanBuffer();
+	bool populateScanBuffer();
 	const QuickString &getSavedData() const { return _saveDataStr; }
 	bool isGzipped() const { return _isGzipped; }
 	PushBackStreamBuf *getPushBackStreamBuf() const {return _pushBackStreamBuf; }
@@ -38,7 +38,7 @@ public:
 	bool isBam() const { return _isBam; }
 	BamTools::BamReader *getBamReader() { return _bamReader; }
 	bool resetStream();
-
+	bool getEofHit() { return _eofHit; }
 
 private:
 	QuickString _filename;
@@ -63,9 +63,10 @@ private:
 	int _numBytesInBuffer; //this will hold the length of the buffer after the scan.
 	BamTools::BamReader *_bamReader;
 	BamTools::Internal::BgzfStream *_bgStream;
+	bool _eofHit;
 
 	static const char *FIFO_STRING_LITERAL;
-	void readZipChunk();
+	bool readZipChunk();
 	bool detectBamOrBgzip(int &numChars, int currChar);
 //	void decompressBuffer();
 

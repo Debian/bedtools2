@@ -22,7 +22,7 @@ public:
 	KeyListOpsMethods(RecordKeyList *keyList, int column = 1);
 	~KeyListOpsMethods();
 
-
+	void setIsBam(bool isBam) { _isBam = isBam; }
 	void setKeyList(RecordKeyList *keyList) { _keyList = keyList; }
 	void setColumn(int col) { _column = col; }
 	void setNullValue(const QuickString & nullVal) { _nullVal = nullVal; }
@@ -73,6 +73,13 @@ public:
     // return the last value in the list
     const QuickString & getLast();
 
+    bool nonNumErrFlagSet() const { return _nonNumErrFlag; }
+    const QuickString &getErrMsg() const { return _errMsg; }
+    void resetNonNumErrFlag() {
+    	_nonNumErrFlag = false;
+    	_errMsg.clear();
+    }
+
 private:
 	RecordKeyList *_keyList;
 	int _column;
@@ -92,6 +99,10 @@ private:
 	freqMapType::iterator _freqIter;
 
 	typedef enum { UNSORTED, ASC, DESC} SORT_TYPE;
+
+	bool _nonNumErrFlag;
+	QuickString _errMsg;
+	bool _isBam;
 
 	typedef multimap<int, QuickString, less<int> > histAscType;
 	typedef multimap<int, QuickString, greater<int> > histDescType;

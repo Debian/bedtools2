@@ -19,11 +19,10 @@ export CXX		= g++
 #ifeq ($(DEBUG),1)
 #export CXXFLAGS = -Wall -O0 -g -fno-inline -fkeep-inline-functions -D_FILE_OFFSET_BITS=64 -fPIC -DDEBUG -D_DEBUG
 #else
-export CXXFLAGS = -Wall -O2 -D_FILE_OFFSET_BITS=64 -fPIC
+export CXXFLAGS = -Wall -O2 -D_FILE_OFFSET_BITS=64 -fPIC $(INCLUDE)
 #endif
 export LIBS		= -lz
 export BT_ROOT  = src/utils/BamTools/
-
 
 SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/bamToBed \
@@ -47,7 +46,7 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/linksBed \
 		  $(SRC_DIR)/maskFastaFromBed \
 		  $(SRC_DIR)/mapFile \
-		  $(SRC_DIR)/mergeBed \
+		  $(SRC_DIR)/mergeFile \
 		  $(SRC_DIR)/multiBamCov \
 		  $(SRC_DIR)/multiIntersectBed \
 		   $(SRC_DIR)/nekSandbox1 \
@@ -138,7 +137,7 @@ clean:
 .PHONY: clean
 
 test: all
-	@cd test; sh test.sh
+	@cd test; bash test.sh
 
 .PHONY: test
 
