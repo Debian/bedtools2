@@ -1,6 +1,7 @@
-bedtools (2.20.1-1) UNRELEASED; urgency=medium
+bedtools (2.20.1-1) unstable; urgency=medium
 
   * New upstream version
+  * Fix permission of some genome example files
 
  -- Andreas Tille <tille@debian.org>  Fri, 06 Jun 2014 21:50:39 +0200
 
