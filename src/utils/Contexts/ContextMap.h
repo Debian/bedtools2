@@ -9,18 +9,13 @@
 #define CONTEXTMAP_H_
 
 #include "ContextIntersect.h"
-#include "KeyListOps.h"
 
 class ContextMap : public ContextIntersect {
 public:
 	ContextMap();
 	virtual ~ContextMap();
-//	virtual bool isValidState();
-//
 	virtual bool parseCmdArgs(int argc, char **argv, int skipFirstArgs);
-//
     virtual bool hasIntersectMethods() const { return true; }
-//
 
 private:
 
