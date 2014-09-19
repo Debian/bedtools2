@@ -1,3 +1,10 @@
+bedtools (2.21.0-1) UNRELEASED; urgency=medium
+
+  856a5fd Merge tag 'v2.21.0' into debian/unstable
+  a4f6ab7 Merge corrections on version number.
+
+ -- Charles Plessy <plessy@debian.org>  Fri, 19 Sep 2014 10:08:03 +0900
+
 bedtools (2.20.1-1) unstable; urgency=medium
 
   * New upstream version
@@ -53,7 +60,7 @@ bedtools (2.17.0-1) unstable; urgency=low
   9112569 Documented BEDTools license as a whole.
   325689c Removed Pre-Depends: dpkg (>= 1.15.6).
   a781b14 Conforms with Policy 3.9.4.
-  84b1167 Use Debhelper 9. 
+  84b1167 Use Debhelper 9.
   0bf572d Distribute the test suite.
   422cd34 Bash completion for BEDTools.
 
