@@ -7,13 +7,13 @@
 #ifndef STRANDQUEUE_H_
 #define STRANDQUEUE_H_
 
-using namespace std;
-
 #include <vector>
 #include <queue>
 #include <cstdio>
 #include <cstdlib>
 #include "Record.h"
+
+using namespace std;
 
 class StrandQueue {
 public:
@@ -30,7 +30,7 @@ public:
 
 private:
 //	static RecordPtrSortFunctor _recSortFunctor;
-	typedef priority_queue<Record *, vector<const Record *>, RecordPtrSortFunctor > queueType;
+	typedef priority_queue<Record *, vector<const Record *>, RecordPtrSortDescFunctor > queueType;
 	vector<queueType *> _queues;
 	static const int NUM_QUEUES = 3;
 

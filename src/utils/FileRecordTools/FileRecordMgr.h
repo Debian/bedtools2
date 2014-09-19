@@ -8,8 +8,6 @@
 #ifndef FILERECORDMGR_H_
 #define FILERECORDMGR_H_
 
-using namespace std;
-
 #include <string>
 #include "QuickString.h"
 #include <set>
@@ -24,8 +22,10 @@ using namespace std;
 //record manager and all record classes
 #include "RecordMgr.h"
 
-#include "RecordKeyList.h"
+#include "RecordKeyVector.h"
 #include "BlockMgr.h"
+
+using namespace std;
 
 class Record;
 class NewGenomeFile;
@@ -37,14 +37,19 @@ public:
 	bool open();
 	void close();
 	virtual bool eof();
+	void setFileIdx(int fileIdx) { _fileIdx = fileIdx; }
+	int getFileIdx() const { return _fileIdx; }
+
 
 	//This is an all-in-one method to give the user a new record that is initialized with
 	//the next entry in the data file.
 	//NOTE!! User MUST pass back the returned pointer to deleteRecord method for cleanup!
 	//Also Note! User must check for NULL returned, meaning we failed to get the next record.
-	virtual Record *getNextRecord(RecordKeyList *keyList = NULL);
+	virtual Record *getNextRecord(RecordKeyVector *keyList = NULL);
 	void deleteRecord(const Record *);
-	virtual void deleteRecord(RecordKeyList *keyList);
+	virtual void deleteRecord(RecordKeyVector *keyList);
+
+
 
 	const QuickString &getFileName() const { return _filename;}
 	bool hasHeader() const { return _fileReader->hasHeader(); }
@@ -100,8 +105,10 @@ public:
 	}
 
 	void setIsSorted(bool val) { _isSortedInput = val; }
+	void setIoBufSize(int val) { _ioBufSize = val; }
 
 protected:
+	int _fileIdx;
 	QuickString _filename;
 	BufferedStreamMgr *_bufStreamMgr;
 
@@ -131,6 +138,7 @@ protected:
 	BamTools::BamReader *_bamReader;
 	bool _hasGenomeFile;
 	NewGenomeFile *_genomeFile;
+	int _ioBufSize;
 
 	void allocateFileReader();
 	void testInputSortOrder(Record *record);
