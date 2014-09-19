@@ -8,10 +8,10 @@
 #ifndef PUSHBACKSTREAM_H_
 #define PUSHBACKSTREAM_H_
 
-using namespace std;
-
 #include <iostream>
 #include "BTlist.h"
+
+using namespace std;
 
 class PushBackStreamBuf: public std::streambuf {
 public:
@@ -31,8 +31,6 @@ protected:
 private:
 	streambuf* _primary_stream;
 	BTlist<int> _buffer;
-	static const int SCAN_BUFFER_SIZE = 8192; //8 KB buffer
-	static const int MAIN_BUFFER_SIZE = 128 * 1024; //128K buffer
 };
 
 

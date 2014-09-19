@@ -12,12 +12,10 @@
 #ifndef MAPFILE_H
 #define MAPFILE_H
 
-using namespace std;
-
 #include <sstream>
 #include <iomanip>
 #include "VectorOps.h"
-#include "RecordKeyList.h"
+#include "RecordKeyVector.h"
 #include "ContextMap.h"
 
 using namespace std;

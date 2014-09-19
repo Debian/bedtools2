@@ -1,8 +1,6 @@
 #ifndef FILEREADER_H_
 #define FILEREADER_H_
 
-using namespace std;
-
 #include <string>
 #include <fstream>
 #include <map>
@@ -11,11 +9,16 @@ using namespace std;
 
 #include "BufferedStreamMgr.h"
 
+using namespace std;
+
 class FileReader {
 public:
 	FileReader();
 	virtual ~FileReader();
 	void setFileName(const string &filename) { _filename = filename; }
+	virtual int getFileIdx() const { return _fileIdx; }
+	virtual void setFileIdx(int fileIdx) { _fileIdx = fileIdx; }
+
 	void setInputStream(BufferedStreamMgr *bufStreamMgr) {
 		_bufStreamMgr = bufStreamMgr;
 		_isFileOpen = true;
@@ -31,6 +34,7 @@ public:
 	virtual const QuickString &getHeader() const =0;
 	virtual int getNumFields() const = 0;
 protected:
+	int _fileIdx;
 	string _filename;
 	BufferedStreamMgr *_bufStreamMgr;
 

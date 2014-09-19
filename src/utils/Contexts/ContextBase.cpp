@@ -8,6 +8,7 @@
 #include "ContextBase.h"
 #include <unistd.h>
 #include <sys/types.h>
+#include <cctype>
 
 ContextBase::ContextBase()
 :
@@ -21,6 +22,7 @@ ContextBase::ContextBase()
   _obeySplits(false),
   _uncompressedBam(false),
   _useBufferedOutput(true),
+  _ioBufSize(0),
   _anyHit(false),
   _noHit(false),
   _writeA(false),
@@ -34,18 +36,17 @@ ContextBase::ContextBase()
   _reciprocal(false),
   _sameStrand(false),
   _diffStrand(false),
-   _sortedInput(false),
+  _sortedInput(false),
+  _sortOutput(false),
+  _reportDBnameTags(false),
+  _reportDBfileNames(false),
   _printHeader(false),
   _printable(true),
    _explicitBedOutput(false),
   _queryFileIdx(-1),
-  _databaseFileIdx(-1),
   _bamHeaderAndRefIdx(-1),
   _maxNumDatabaseFields(0),
   _useFullBamTags(false),
-  _reportCount(false),
-  _reportNames(false),
-  _reportScores(false),
   _numOutputRecords(0),
   _hasConstantSeed(false),
   _seed(0),
@@ -167,6 +168,9 @@ bool ContextBase::parseCmdArgs(int argc, char **argv, int skipFirstArgs) {
         else if (strcmp(_argv[_i], "-nobuf") == 0) {
 			if (!handle_nobuf()) return false;
         }
+        else if (strcmp(_argv[_i], "-iobuf") == 0) {
+			if (!handle_iobuf()) return false;
+        }
         else if (strcmp(_argv[_i], "-header") == 0) {
 			if (!handle_header()) return false;
         }
@@ -188,6 +192,9 @@ bool ContextBase::parseCmdArgs(int argc, char **argv, int skipFirstArgs) {
         else if (strcmp(_argv[_i], "-delim") == 0) {
 			if (!handle_delim()) return false;
         }
+        else if (strcmp(_argv[_i], "-sortout") == 0) {
+			if (!handle_sortout()) return false;
+        }
 
 	}
 	return true;
@@ -205,7 +212,11 @@ bool ContextBase::isValidState()
 		return false;
 	}
 	if (hasColumnOpsMethods()) {
-		FileRecordMgr *dbFile = getFile(hasIntersectMethods() ? _databaseFileIdx : 0);
+
+		//TBD: Adjust column ops for multiple databases.
+		//For now, use last file.
+//		FileRecordMgr *dbFile = getFile(hasIntersectMethods() ? _databaseFileIdx : 0);
+		FileRecordMgr *dbFile = getFile(getNumInputFiles()-1);
 		_keyListOps->setDBfileType(dbFile->getFileType());
 		if (!_keyListOps->isValidColumnOps(dbFile)) {
 			return false;
@@ -246,7 +257,7 @@ bool ContextBase::openFiles() {
 	_files.resize(_fileNames.size());
 
 	for (int i = 0; i < (int)_fileNames.size(); i++) {
-		FileRecordMgr *frm = getNewFRM(_fileNames[i]);
+		FileRecordMgr *frm = getNewFRM(_fileNames[i], i);
 		if (hasGenomeFile()) {
 			frm->setGenomeFile(_genomeFile);
 		}
@@ -257,6 +268,7 @@ bool ContextBase::openFiles() {
 		}
 		frm->setFullBamFlags(_useFullBamTags);
 		frm->setIsSorted(_sortedInput);
+		frm->setIoBufSize(_ioBufSize);
 		if (!frm->open()) {
 			return false;
 		}
@@ -275,7 +287,7 @@ int ContextBase::getBamHeaderAndRefIdx() {
 		if (_files[_queryFileIdx]->getFileType() == FileRecordTypeChecker::BAM_FILE_TYPE) {
 			_bamHeaderAndRefIdx = _queryFileIdx;
 		} else {
-			_bamHeaderAndRefIdx = _databaseFileIdx;
+			_bamHeaderAndRefIdx = _dbFileIdxs[0];
 		}
 		return _bamHeaderAndRefIdx;
 	}
@@ -365,6 +377,19 @@ bool ContextBase::handle_n()
 bool ContextBase::handle_nobuf()
 {
 	setUseBufferedOutput(false);
+	markUsed(_i - _skipFirstArgs);
+	return true;
+}
+
+bool ContextBase::handle_iobuf()
+{
+	if (_argc <= _i+1) {
+		_errorMsg = "\n***** ERROR: -iobuf option given, but size of input buffer not specified. *****";
+		return false;
+	}
+	if (!parseIoBufSize(_argv[_i + 1])) return false;
+	markUsed(_i - _skipFirstArgs);
+	_i++;
 	markUsed(_i - _skipFirstArgs);
 	return true;
 }
@@ -473,6 +498,13 @@ bool ContextBase::handle_delim()
     return true;
 }
 
+bool ContextBase::handle_sortout()
+{
+	setSortOutput(true);
+	markUsed(_i - _skipFirstArgs);
+	return true;
+}
+
 void ContextBase::setColumnOpsMethods(bool val)
 {
 	if (val && !_hasColumnOpsMethods) {
@@ -482,20 +514,61 @@ void ContextBase::setColumnOpsMethods(bool val)
 	_hasColumnOpsMethods = val;
 }
 
-const QuickString &ContextBase::getColumnOpsVal(RecordKeyList &keyList) const {
+const QuickString &ContextBase::getColumnOpsVal(RecordKeyVector &keyList) const {
 	if (!hasColumnOpsMethods()) {
 		return _nullStr;
 	}
 	return _keyListOps->getOpVals(keyList);
 }
 
-FileRecordMgr *ContextBase::getNewFRM(const QuickString &filename) {
-	if (!_useMergedIntervals) {
-		return new FileRecordMgr(filename);
-	} else {
+FileRecordMgr *ContextBase::getNewFRM(const QuickString &filename, int fileIdx) {
+
+	if (_useMergedIntervals) {
 		FileRecordMergeMgr *frm = new FileRecordMergeMgr(filename);
 		frm->setStrandType(_desiredStrand);
 		frm->setMaxDistance(_maxDistance);
+		frm->setFileIdx(fileIdx);
+		return frm;
+	} else {
+		FileRecordMgr *frm = new FileRecordMgr(filename);
+		frm->setFileIdx(fileIdx);
 		return frm;
 	}
+}
+
+bool ContextBase::parseIoBufSize(QuickString bufStr)
+{
+	char lastChar = bufStr[bufStr.size()-1];
+	int multiplier = 1;
+	if (!isdigit(lastChar)) {
+		switch (lastChar) {
+		case 'K':
+			multiplier = 1 << 10;
+			break;
+		case 'M':
+			multiplier = 1 << 20;
+			break;
+		case 'G':
+			multiplier = 1 << 30;
+			break;
+		default:
+			_errorMsg = "\n***** ERROR: Unrecognized memory buffer size suffix \'";
+			_errorMsg += lastChar;
+			_errorMsg += "\' given. *****";
+			return false;
+			break;
+		}
+		//lop off suffix character
+		bufStr.resize(bufStr.size()-1);
+	}
+	if (!isNumeric(bufStr)) {
+		_errorMsg = "\n***** ERROR: argument passed to -iobuf is not numeric. *****";
+		return false;
+	}
+	_ioBufSize = str2chrPos(bufStr) * multiplier;
+	if (_ioBufSize < MIN_ALLOWED_BUF_SIZE) {
+		_errorMsg = "\n***** ERROR: specified buffer size is too small. *****";
+		return false;
+	}
+	return true;
 }

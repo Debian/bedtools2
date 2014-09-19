@@ -12,9 +12,7 @@
 #ifndef INTERSECTFILE_H
 #define INTERSECTFILE_H
 
-using namespace std;
-
-#include "RecordKeyList.h"
+#include "RecordKeyVector.h"
 
 using namespace std;
 
@@ -37,7 +35,7 @@ private:
 	BlockMgr *_blockMgr;
 	RecordOutputMgr *_recordOutputMgr;
 
-	void processHits(RecordKeyList &hits);
+	void processHits(RecordKeyVector &hits);
 	bool processSortedFiles();
 	bool processUnsortedFiles();
 

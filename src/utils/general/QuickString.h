@@ -8,11 +8,12 @@
 #ifndef QUICKSTRING_H_
 #define QUICKSTRING_H_
 
-using namespace std;
 #include <string>
 #include <stdint.h>
 #include <climits>
 #include <ostream>
+
+using namespace std;
 
 class QuickString {
 public:
@@ -30,6 +31,7 @@ public:
 	bool empty() const { return _currSize == 0; }
 
 	void clear(); //only clears buffer, doesn't delete it.
+	void release(); //will deallocate current buffer, reallocate it at default size.
 	QuickString &operator = (const string &);
 	QuickString &operator = (const char *);
 	QuickString &operator = (const QuickString &);

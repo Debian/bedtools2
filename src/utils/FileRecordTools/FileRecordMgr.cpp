@@ -5,7 +5,7 @@
 #include "NewGenomeFile.h"
 
 FileRecordMgr::FileRecordMgr(const QuickString &filename)
-:
+: _fileIdx(-1),
   _filename(filename),
   _bufStreamMgr(NULL),
   _fileReader(NULL),
@@ -24,7 +24,8 @@ FileRecordMgr::FileRecordMgr(const QuickString &filename)
   _blockMgr(NULL),
   _bamReader(NULL),
   _hasGenomeFile(false),
-  _genomeFile(NULL)
+  _genomeFile(NULL),
+  _ioBufSize(0)
 {
 }
 
@@ -43,6 +44,7 @@ FileRecordMgr::~FileRecordMgr(){
 
 bool FileRecordMgr::open(){
 	_bufStreamMgr = new BufferedStreamMgr(_filename);
+	if (_ioBufSize > 0) _bufStreamMgr->setIoBufSize(_ioBufSize);
 	if (!_bufStreamMgr->init()) {
 		cerr << "Error: unable to open file or unable to determine types for file " << _filename << endl;
 		delete _bufStreamMgr;
@@ -88,7 +90,7 @@ bool FileRecordMgr::eof(){
 	return _fileReader->eof();
 }
 
-Record *FileRecordMgr::getNextRecord(RecordKeyList *keyList)
+Record *FileRecordMgr::getNextRecord(RecordKeyVector *keyList)
 {
 	if (!_fileReader->isOpen()) {
 		return NULL;
@@ -201,7 +203,7 @@ void FileRecordMgr::deleteRecord(const Record *record) {
 	_recordMgr->deleteRecord(record);
 }
 
-void FileRecordMgr::deleteRecord(RecordKeyList *keyList) {
+void FileRecordMgr::deleteRecord(RecordKeyVector *keyList) {
 	_recordMgr->deleteRecord(keyList->getKey());
 }
 
@@ -222,6 +224,7 @@ void FileRecordMgr::allocateFileReader()
 	default:
 		break;
 	}
+	_fileReader->setFileIdx(_fileIdx);
 }
 
 const BamTools::RefVector & FileRecordMgr::getBamReferences() {

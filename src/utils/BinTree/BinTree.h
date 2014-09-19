@@ -8,8 +8,6 @@
 #ifndef BINTREE_H_
 #define BINTREE_H_
 
-using namespace std;
-
 #include <stdint.h>
 #include <string>
 #include <set>
@@ -18,6 +16,8 @@ using namespace std;
 #include "QuickString.h"
 #include "RecordKeyList.h"
 #include "ContextIntersect.h"
+
+using namespace std;
 
 class FileRecordMgr;
 class Record;
@@ -28,11 +28,10 @@ public:
 
 	~BinTree();
 	void loadDB();
-	void getHits(Record *record, RecordKeyList &hitSet);
+	void getHits(Record *record, RecordKeyVector &hitSet);
 
 private:
 
-	FileRecordMgr *_databaseFile;
 	ContextIntersect *_context;
 
     //
@@ -52,8 +51,8 @@ private:
 	static const uint32_t _binFirstShift = 14;       /* How much to shift to get to finest bin. */
 	static const uint32_t _binNextShift  = 3;        /* How much to shift to get to next larger bin. */
 
-	typedef BTlist<const Record *> innerListType;
-	typedef const BTlistNode<const Record *> * innerListIterType;
+	typedef RecordList innerListType;
+	typedef const RecordListNode * innerListIterType;
 	typedef innerListType * binType;
 	typedef binType * allBinsType;
 	typedef QuickString mainKeyType;
