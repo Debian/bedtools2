@@ -1,9 +1,9 @@
-bedtools (2.21.0-1) UNRELEASED; urgency=medium
+bedtools (2.21.0-1) unstable; urgency=medium
 
   856a5fd Merge tag 'v2.21.0' into debian/unstable
   a4f6ab7 Merge corrections on version number.
 
- -- Charles Plessy <plessy@debian.org>  Fri, 19 Sep 2014 10:08:03 +0900
+ -- Charles Plessy <plessy@debian.org>  Tue, 23 Sep 2014 18:48:17 +0900
 
 bedtools (2.20.1-1) unstable; urgency=medium
 
