@@ -43,12 +43,12 @@ can do this with ``fisher`` as:
     # Contingency Table
     #_________________________________________
     #           | not in -b    | in -b        |
-    # not in -a | 475          | 15           |
-    #     in -a | 5            | 5            |
+    # not in -a | 475          | 5           |
+    #     in -a | 15           | 5            |
     #_________________________________________
     # p-values for fisher's exact test
     left    right   two-tail    ratio
-    1.00000 0.00001 0.00001 31.667
+    1       1.3466e-05      1.3466e-05      31.667
 
 
 Where we can see the constructed contingency table and the pvalues for left, right

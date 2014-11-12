@@ -8,6 +8,7 @@
 #include "RecordOutputMgr.h"
 #include "ContextBase.h"
 #include "ContextIntersect.h"
+#include "ContextClosest.h"
 #include "BlockMgr.h"
 #include "Bed3Interval.h"
 #include "Bed4Interval.h"
@@ -132,10 +133,49 @@ void RecordOutputMgr::printRecord(const Record *record, const QuickString & valu
 	}
 	newline();
 
-	if (needsFlush()) {
-		flush();
-	}
+	if (needsFlush()) flush();
 }
+
+void RecordOutputMgr::printClosest(RecordKeyVector &keyList, const vector<int> *dists) {
+	const ContextClosest *context = static_cast<const ContextClosest *>(_context);
+	bool deleteBlocks = false;
+	RecordKeyVector blockList(keyList.getKey());
+	if (keyList.getKey()->getType() == FileRecordTypeChecker::BAM_RECORD_TYPE) {
+		_bamBlockMgr->getBlocks(blockList, deleteBlocks);
+		_currBamBlockList = &blockList;
+	}
+	if (!keyList.empty()) {
+		int distCount = 0;
+		for (RecordKeyVector::const_iterator_type iter = keyList.begin(); iter != keyList.end(); iter = keyList.next()) {
+			printKey(keyList.getKey());
+			tab();
+			addDbFileId((*iter)->getFileIdx());
+			(*iter)->print(_outBuf);
+			if (dists != NULL) {
+				tab();
+				_outBuf.append((*dists)[distCount]);
+				distCount++;
+			}
+			newline();
+			if (needsFlush()) flush();
+		}
+	} else {
+		printKey(keyList.getKey());
+		tab();
+		null(true, false);
+		if (context->reportDistance()) {
+			tab();
+			_outBuf.append(-1);
+		}
+		newline();
+	}
+	if (deleteBlocks) {
+		_bamBlockMgr->deleteBlocks(blockList);
+		_currBamBlockList = NULL;
+	}
+	return;
+}
+
 
 void RecordOutputMgr::printRecord(RecordKeyVector &keyList) {
 	if (keyList.getKey()->getType() == FileRecordTypeChecker::BAM_RECORD_TYPE) {
@@ -170,6 +210,7 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 				if ((static_cast<ContextIntersect *>(_context))->getWriteAllOverlap()) {
 					// -wao the user wants to force the reporting of 0 overlap
 					if (printKeyAndTerminate(keyList)) {
+
 						_currBamBlockList = NULL;
 						return;
 					}
@@ -183,6 +224,7 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 				else if ((static_cast<ContextIntersect *>(_context))->getLeftJoin()) {
 					if (printKeyAndTerminate(keyList)) {
 						_currBamBlockList = NULL;
+
 						return;
 					}
 					tab();
@@ -190,11 +232,13 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 					newline();
 					if (needsFlush()) flush();
 					_currBamBlockList = NULL;
+
 					return;
 				}
 			} else {
 				if (printBamRecord(keyList, true) == BAM_AS_BAM) {
 					_currBamBlockList = NULL;
+
 					return;
 				}
 				int hitIdx = 0;
@@ -212,14 +256,17 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 			newline();
 		}
 		_currBamBlockList = NULL;
+
 		return;
 	} else if (_context->getProgram() == ContextBase::MAP) {
 		printKeyAndTerminate(keyList);
 		_currBamBlockList = NULL;
+
 		return;
 	} else if (_context->getProgram() == ContextBase::MERGE) {
 		printKeyAndTerminate(keyList);
 		_currBamBlockList = NULL;
+
 		return;
 	}
 }
@@ -340,6 +387,7 @@ void RecordOutputMgr::reportOverlapDetail(const Record *keyRecord, const Record 
 		newline();
 		if (needsFlush()) flush();
 	}
+	const_cast<Record *>(keyRecord)->adjustZeroLength();
 }
 
 void RecordOutputMgr::reportOverlapSummary(RecordKeyVector &keyList)

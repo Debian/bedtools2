@@ -122,7 +122,7 @@ bool Record::chromAfter(const Record *other) const
 
 bool Record::after(const Record *other) const
 {
-	return (_chrId == other->_chrId && _startPos >= other->_endPos);
+	return (sameChrom(other) && _startPos >= other->_endPos);
 }
 
 bool Record::intersects(const Record *record,
@@ -160,14 +160,26 @@ bool Record::sameChromIntersects(const Record *record,
 	int otherStart = record->getStartPos();
 	int otherEnd = record->getEndPos();
 
+	bool otherZeroLen = (otherStart - otherEnd == 0);
 	int maxStart = max(_startPos, otherStart);
 	int minEnd = min(_endPos, otherEnd);
 
+	bool localZeroLen = (_endPos - _startPos == 0);
 	//rule out all cases of no intersection at all
 	if (minEnd < maxStart) {
 		return false;
 	}
 
+
+	if (overlapFraction == 0.0) {
+		//don't care about amount of overlap.
+		//however, if minEnd and maxStart are equal, and
+		//neither record is zeroLen, return false.
+		if (minEnd == maxStart && !otherZeroLen && !localZeroLen) {
+			return false;
+		}
+		return true;
+	}
 
 	int overlapBases = minEnd - maxStart;
 	int len = _endPos - _startPos;
