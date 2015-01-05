@@ -283,14 +283,17 @@ rm obs exp
 
 
 ###########################################################
-#  Test intersection with -sorted, see that hits are missed
-#  With no genome file
+#  Test intersection with -sorted, see that chrom order
+# change is ok as long as query and db have same order.
 ############################################################
 echo "    intersect.new.t22...\c"
 echo \
 "chr1	15	20	a1	100	+
 chr2	15	20	a2	100	+
-chrX	15	20	a5	100	+" > exp
+chr10	15	20	a3	100	+
+chr11	15	20	a4	100	+
+chrX	15	20	a5	100	+
+chrM	15	20	a6	100	+" > exp
 $BT intersect -a chromOrderA.bed -b chromOrderB.bed -sorted > obs
 check obs exp
 rm obs exp
@@ -763,4 +766,54 @@ echo "chr17	7577068	7577157" > exp
 $BT intersect -a oneRecordNoNewline.bed -b oneRecordNoNewline.bed > obs
 check obs exp
 rm obs exp
+
+###########################################################
+#  Test zero length intersections in non-bam files.
+############################################################
+echo "    intersect.new.t65...\c"
+echo \
+"chr1	5	15	r1	chr1	9	9	m3	0
+chr1	7	12	r3	chr1	9	9	m3	0" > exp
+$BT intersect -a a_testZeroLen.bed -b b_testZeroLen.bed -wo > obs
+check exp obs
+rm exp obs
+
+###########################################################
+#  Test zero length intersections in non-bam files, -sorted
+############################################################
+echo "    intersect.new.t66...\c"
+echo \
+"chr1	5	15	r1	chr1	9	9	m3	0
+chr1	7	12	r3	chr1	9	9	m3	0" > exp
+$BT intersect -a a_testZeroLen.bed -b b_testZeroLen.bed -wo -sorted> obs
+check exp obs
+rm exp obs
+
+###########################################################
+#  Test vcf struct var intersection
+############################################################
+echo "    intersect.new.t67...\c"
+echo \
+"19	252806	791255	G	<DEL>	70.90	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-389,-4611;END=253195;STR=+-:4;IMPRECISE;CIPOS=-2,137;CIEND=0,0;EVENT=791255;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	256900	791255	G	T	70.90	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-389,-4611;END=253195;STR=+-:4;IMPRECISE;CIPOS=-2,137;CIEND=0,0;EVENT=791255;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||
+19	260365	791256	C	<DEL>	33.71	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-680;END=261045;STR=+-:4;IMPRECISE;CIPOS=-1,257;CIEND=0,0;EVENT=791256;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=upstream_gene_variant|||ENSG00000271846|CTD-3113P16.9|ENST00000607399|||||processed_pseudogene	19	260800	791256	C	<INS>	33.71	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=680;END=261045;STR=+-:4;IMPRECISE;CIPOS=-1,257;CIEND=0,0;EVENT=791256;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=upstream_gene_variant|||ENSG00000271846|CTD-3113P16.9|ENST00000607399|||||processed_pseudogene
+19	265134	791257	A	<DEL>	20.25	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-558;END=265692;STR=+-:4;IMPRECISE;CIPOS=-1,196;CIEND=0,0;EVENT=791257;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	265500	791257	A	<DEL>	20.25	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-558;END=265692;STR=+-:4;IMPRECISE;CIPOS=-1,196;CIEND=0,0;EVENT=791257;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||
+19	265986	791258	A	<DEL>	22.15	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-401;END=266387;STR=+-:6;IMPRECISE;CIPOS=-2,87;CIEND=0,0;EVENT=791258;SUP=6;PESUP=6;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	265500	791257	A	<DEL>	20.25	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-558;END=265692;STR=+-:4;IMPRECISE;CIPOS=-1,196;CIEND=0,0;EVENT=791257;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||
+19	265986	791258	A	<DEL>	22.15	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-401;END=266387;STR=+-:6;IMPRECISE;CIPOS=-2,87;CIEND=0,0;EVENT=791258;SUP=6;PESUP=6;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	266003	791258	A	C	22.15	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-401;END=266387;STR=+-:6;IMPRECISE;CIPOS=-2,87;CIEND=0,0;EVENT=791258;SUP=6;PESUP=6;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||" > exp
+$BT intersect -a a_vcfSVtest.vcf -b b_vcfSVtest.vcf -wa -wb >obs
+check exp obs
+rm exp obs
+
+###########################################################
+#  Test vcf struct var intersection, sorted
+############################################################
+echo "    intersect.new.t68...\c"
+echo \
+"19	252806	791255	G	<DEL>	70.90	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-389,-4611;END=253195;STR=+-:4;IMPRECISE;CIPOS=-2,137;CIEND=0,0;EVENT=791255;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	256900	791255	G	T	70.90	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-389,-4611;END=253195;STR=+-:4;IMPRECISE;CIPOS=-2,137;CIEND=0,0;EVENT=791255;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||
+19	260365	791256	C	<DEL>	33.71	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-680;END=261045;STR=+-:4;IMPRECISE;CIPOS=-1,257;CIEND=0,0;EVENT=791256;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=upstream_gene_variant|||ENSG00000271846|CTD-3113P16.9|ENST00000607399|||||processed_pseudogene	19	260800	791256	C	<INS>	33.71	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=680;END=261045;STR=+-:4;IMPRECISE;CIPOS=-1,257;CIEND=0,0;EVENT=791256;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=upstream_gene_variant|||ENSG00000271846|CTD-3113P16.9|ENST00000607399|||||processed_pseudogene
+19	265134	791257	A	<DEL>	20.25	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-558;END=265692;STR=+-:4;IMPRECISE;CIPOS=-1,196;CIEND=0,0;EVENT=791257;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	265500	791257	A	<DEL>	20.25	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-558;END=265692;STR=+-:4;IMPRECISE;CIPOS=-1,196;CIEND=0,0;EVENT=791257;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||
+19	265986	791258	A	<DEL>	22.15	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-401;END=266387;STR=+-:6;IMPRECISE;CIPOS=-2,87;CIEND=0,0;EVENT=791258;SUP=6;PESUP=6;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	265500	791257	A	<DEL>	20.25	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-558;END=265692;STR=+-:4;IMPRECISE;CIPOS=-1,196;CIEND=0,0;EVENT=791257;SUP=4;PESUP=4;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||
+19	265986	791258	A	<DEL>	22.15	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-401;END=266387;STR=+-:6;IMPRECISE;CIPOS=-2,87;CIEND=0,0;EVENT=791258;SUP=6;PESUP=6;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||	19	266003	791258	A	C	22.15	.	TOOL=LUMPY;SVTYPE=DEL;SVLEN=-401;END=266387;STR=+-:6;IMPRECISE;CIPOS=-2,87;CIEND=0,0;EVENT=791258;SUP=6;PESUP=6;SRSUP=0;EV=PE;PRIN;CSQ=intergenic_variant||||||||||" > exp
+$BT intersect -a a_vcfSVtest.vcf -b b_vcfSVtest.vcf -wa -wb -sorted >obs
+check exp obs
+rm exp obs
 

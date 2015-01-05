@@ -122,7 +122,7 @@ bool Record::chromAfter(const Record *other) const
 
 bool Record::after(const Record *other) const
 {
-	return (_chrId == other->_chrId && _startPos >= other->_endPos);
+	return (sameChrom(other) && _startPos >= other->_endPos);
 }
 
 bool Record::intersects(const Record *record,
@@ -160,14 +160,26 @@ bool Record::sameChromIntersects(const Record *record,
 	int otherStart = record->getStartPos();
 	int otherEnd = record->getEndPos();
 
+	bool otherZeroLen = (otherStart - otherEnd == 0);
 	int maxStart = max(_startPos, otherStart);
 	int minEnd = min(_endPos, otherEnd);
 
+	bool localZeroLen = (_endPos - _startPos == 0);
 	//rule out all cases of no intersection at all
 	if (minEnd < maxStart) {
 		return false;
 	}
 
+
+	if (overlapFraction == 0.0) {
+		//don't care about amount of overlap.
+		//however, if minEnd and maxStart are equal, and
+		//neither record is zeroLen, return false.
+		if (minEnd == maxStart && !otherZeroLen && !localZeroLen) {
+			return false;
+		}
+		return true;
+	}
 
 	int overlapBases = minEnd - maxStart;
 	int len = _endPos - _startPos;
@@ -232,4 +244,36 @@ const QuickString &Record::getField(int fieldNum) const
          " , but record only has fields 1 - " << getNumFields() << ". Exiting." << endl
           << endl << "*****" << endl;
     exit(1);
+}
+
+
+bool Record::hasChrInChromName() const {
+	const char *str = _chrName.c_str();
+	//if the chrom name has at least 3 characters,
+	//and the first 3 are c, h, r, case-insensitive,
+	//return true. Otherwise, return false.
+	return ((_chrName.size() >= 3) &&
+			(str[0] == 'c' || str[0] == 'C') &&
+			(str[1] == 'h' || str[1] == 'H') &&
+			(str[2] == 'r' || str[2] == 'R'));
+}
+
+bool Record::hasLeadingZeroInChromName() const {
+	const char *str = _chrName.c_str();
+	size_t i=0;
+	while (i < _chrName.size() && !isdigit(str[i])) {
+		if (str[i] == '_') return false; //ignore
+		//leading zero after underscore, as some of the
+		//random and hap chroms are names that way.
+		i++;
+	}
+
+	return (i < _chrName.size() && str[i] == '0');
+}
+
+void Record::print(FILE *fp, bool newline) const {
+	QuickString buf;
+	print(buf);
+	fprintf(fp, "%s", buf.c_str());
+	if(newline) fprintf(fp, "\n");
 }

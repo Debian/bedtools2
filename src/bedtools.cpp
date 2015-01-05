@@ -141,9 +141,9 @@ int main(int argc, char *argv[])
     else if (sub_cmd == "makewindows") return windowmaker_main(argc-1, argv+1);
     else if (sub_cmd == "groupby")     return groupby_main(argc-1, argv+1);
     else if (sub_cmd == "expand")      return expand_main(argc-1, argv+1);
-    else if (sub_cmd == "sample")		return sample_main(argc-1, argv+1);
-    else if (sub_cmd == "neksb1")	   	return nek_sandbox1_main(argc-1, argv+1);
-    else if (sub_cmd == "regresstest")	return regress_test_main(argc, argv); //this command does need all the orig args.
+    else if (sub_cmd == "sample")       return sample_main(argc-1, argv+1);
+    else if (sub_cmd == "neksb1")       return nek_sandbox1_main(argc-1, argv+1);
+    else if (sub_cmd == "regresstest")  return regress_test_main(argc, argv); //this command does need all the orig args.
     // help
     else if (sub_cmd == "-h" || sub_cmd == "--help" ||
              sub_cmd == "-help")
@@ -166,11 +166,11 @@ int main(int argc, char *argv[])
         cout << "  email the bedtools mailing list: " << endl;
         cout << "     bedtools-discuss@googlegroups.com" << endl << endl;
 
-        cout << "- Stable releases of bedtools can be found at: " << endl;
-        cout << "     http://bedtools.googlecode.com" << endl << endl;
-
         cout << "- The development repository can be found at: " << endl;
         cout << "     https://github.com/arq5x/bedtools" << endl << endl;
+
+        cout << "- Stable releases of bedtools can be found at: " << endl;
+        cout << "     https://github.com/arq5x/bedtools2/releases" << endl << endl;
     }
     // unknown
     else {

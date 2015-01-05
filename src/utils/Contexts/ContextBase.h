@@ -143,6 +143,10 @@ public:
     virtual bool hasColumnOpsMethods() const { return _hasColumnOpsMethods; }
     const QuickString &getColumnOpsVal(RecordKeyVector &keyList) const;
     //methods applicable only to column operations.
+    int getReportPrecision() const { return _reportPrecision; }
+
+
+    void testNameConventions(const Record *);
 
 protected:
 	PROGRAM_TYPE _program;
@@ -214,6 +218,8 @@ protected:
 	int _maxDistance;
 	bool _useMergedIntervals;
 
+	int _reportPrecision; //used in fields reported from numeric ops from map and merge.
+
 
 	void markUsed(int i) { _argsProcessed[i] = true; }
 	bool isUsed(int i) const { return _argsProcessed[i]; }
@@ -226,6 +232,16 @@ protected:
 	int _argc;
 	char **_argv;
 	int _i;
+
+	//track whether each file has the letters chr in their chrom names.
+	//this is needed for enforcing consistent naming conventions across
+	//multiple files, and auto-detecting errors when they're not followed.
+	typedef enum { YES, NO, UNTESTED } testType;
+	typedef map<int, testType> conventionType;
+	conventionType _fileHasChrInChromNames;
+	// as above, but check whether first digit to appear in
+	// a chrom name is a zero.
+	conventionType _fileHasLeadingZeroInChromNames;
 
 	static const int MIN_ALLOWED_BUF_SIZE = 8;
 
@@ -249,9 +265,14 @@ protected:
 	virtual bool handle_null();
 	virtual bool handle_delim();
 	virtual bool handle_sortout();
-
+	bool handle_prec();
 	bool parseIoBufSize(QuickString bufStr);
 
+    testType fileHasChrInChromNames(int fileIdx);
+    testType fileHasLeadingZeroInChromNames(int fileIdx);
+
+    testType _allFilesHaveChrInChromNames;
+    testType _allFileHaveLeadingZeroInChromNames;
 };
 
 #endif /* CONTEXTBASE_H_ */

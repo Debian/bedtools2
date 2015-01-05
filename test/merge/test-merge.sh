@@ -518,3 +518,67 @@ chr1	30	100" > exp
 $BT merge -i a.bed -iobuf 8192 > obs
 check exp obs
 rm exp obs
+
+###########################################################
+#  Test that scientific notation is allowed for coordinates
+###########################################################
+echo "    merge.t43...\c"
+echo \
+"chr1	800	830" > exp
+$BT merge -i expFormat.bed > obs
+check exp obs
+rm obs exp
+
+
+###########################################################
+#  Test that struct vars in VCF get correct length
+###########################################################
+echo "    merge.t44...\c"
+echo \
+"19	252805	257416
+19	260364	261044
+19	265133	265691
+19	265985	266386" > exp
+$BT merge -i vcfSVtest.vcf > obs
+check exp obs
+rm obs exp
+
+
+###########################################################
+#  Test that stdin is used by default
+###########################################################
+echo "    merge.t45...\c"
+echo \
+"chr1	10	20
+chr1	30	100" >exp
+cat a.bed | $BT merge > obs
+check exp obs
+rm obs exp
+
+
+###########################################################
+#  Test that precision default is high enough for 
+#  formatting not to give scientific notation
+###########################################################
+echo "    merge.t46...\c"
+echo \
+"chr1	5333587	5344172	5344172
+chr1	5481008	5484749	16454247
+chr1	6763278	6766882	6766882" > exp
+$BT merge -i precisionTest2.bed -c 8 -o sum> obs
+check exp obs
+rm obs exp
+
+
+###########################################################
+#  Test that user can specify a lower precision
+###########################################################
+echo "    merge.t47...\c"
+echo \
+"chr1	5333587	5344172	5.3442e+06
+chr1	5481008	5484749	1.6454e+07
+chr1	6763278	6766882	6.7669e+06" > exp
+$BT merge -i precisionTest2.bed -c 8 -o sum -prec 5 > obs
+check exp obs
+rm obs exp
+
