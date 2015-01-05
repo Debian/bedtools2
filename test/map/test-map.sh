@@ -597,7 +597,7 @@ echo \
 "chr1	10	20	chr1
 chr2	10	20	chr2
 chr2	200	300	.
-chr10	10	20	.
+chr10	10	20	chr10
 chr10	20	30	." > exp
 $BT map -a a.vsorted.bed -b b.vsorted.bed -c 1 -o collapse > obs
 check obs exp
@@ -773,11 +773,11 @@ rm obs exp
 ############################################################
 echo "    map.t51...\c"
 echo \
-"chr1	0	100	12.9167
+"chr1	0	100	12.91666667
 chr1	100	200	0
 chr2	0	100	.
 chr2	100	200	.
-chr3	0	100	76.2222
+chr3	0	100	76.22222222
 chr3	100	200	0.25" > exp
 $BT map -a ivls.bed -b values4.bed -c 7 -o stddev > obs
 check obs exp
@@ -792,7 +792,7 @@ echo \
 chr1	100	200	.
 chr2	0	100	.
 chr2	100	200	.
-chr3	0	100	114.333
+chr3	0	100	114.3333333
 chr3	100	200	0.5" > exp
 $BT map -a ivls.bed -b values4.bed -c 7 -o sample_stddev > obs
 check obs exp
@@ -804,7 +804,7 @@ rm obs exp
 echo "    map.t53...\c"
 echo \
 "chr1	10000	12000	2.5
-chr1	15000	20000	11.4444" > exp
+chr1	15000	20000	11.44444444" > exp
 $BT map -a d.bed -b fullFields.bam -c 5 -o mean > obs
 check exp obs
 rm exp obs
