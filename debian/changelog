@@ -1,6 +1,7 @@
-bedtools (2.22.1-1) unstable; urgency=medium
+bedtools (2.22.1-1) UNRELEASED; urgency=medium
 
   b757049  Merge tag 'v2.22.1' into debian/unstable
+  f62bafa Conforms to Policy 3.9.6.
 
  -- Charles Plessy <plessy@debian.org>  Mon, 05 Jan 2015 10:17:58 +0900
 
