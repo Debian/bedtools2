@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://github.com/arq5x/bedtools2/archive/v2.21.0.tar.gz
+Source: https://github.com/arq5x/bedtools2/archive/v2.22.1.tar.gz
 License: GPL-2 and MIT and GPL-3+ with runtime exception and zlib
  BEDTools combines source code under GPL-2, LGPL-2.1 and MIT licenses, and
  links to libc6, libgcc, libstdc++ and zlib1g.
