@@ -38,7 +38,7 @@ public:
 	typedef enum {UNSPECIFIED_PROGRAM, INTERSECT, WINDOW, CLOSEST, COVERAGE, MAP, GENOMECOV, MERGE, CLUSTER,
 		COMPLEMENT, SUBTRACT, SLOP, FLANK, SORT, RANDOM, SAMPLE, SHUFFLE, ANNOTATE, MULTIINTER, UNIONBEDG, PAIRTOBED,
 		PAIRTOPAIR,BAMTOBED, BEDTOBAM, BEDTOFASTQ, BEDPETOBAM, BED12TOBED6, GETFASTA, MASKFASTA, NUC,
-		MULTICOV, TAG, JACCARD, OVERLAP, IGV, LINKS,MAKEWINDOWS, GROUPBY, EXPAND } PROGRAM_TYPE;
+		MULTICOV, TAG, JACCARD, OVERLAP, IGV, LINKS,MAKEWINDOWS, GROUPBY, EXPAND, SPACING, FISHER} PROGRAM_TYPE;
 
 	PROGRAM_TYPE getProgram() const { return _program; }
 	FileRecordMgr *getFile(int fileIdx) { return _files[fileIdx]; }
@@ -69,7 +69,8 @@ public:
 	void setOutputFileType(ContextFileType fileType) { _outputFileType = fileType; }
 	ContextFileType getOutputFileType() const { return _outputFileType; }
 
-	virtual bool parseCmdArgs(int argc, char **argv, int skipFirstArgs);
+	virtual bool testCmdArgs(int argc, char **argv);
+	virtual bool errorEncountered() const { return !_errorMsg.empty(); }
 
 	 //isValidState checks that parameters to context are in an acceptable state.
 	// If not, the error msg string will be set with a reason why it failed.
@@ -116,6 +117,8 @@ public:
     virtual bool getUseFullBamTags() const { return _useFullBamTags; }
     virtual void setUseFullBamTags(bool val) { _useFullBamTags = val; }
 
+    virtual bool getNameCheckDisabled() const { return _nameCheckDisabled; }
+    virtual void setNameCheckDisabled(bool val) { _nameCheckDisabled = val; }
 
 	// METHODS FOR PROGRAMS WITH USER_SPECIFIED NUMBER
 	// OF OUTPUT RECORDS.
@@ -147,6 +150,7 @@ public:
 
 
     void testNameConventions(const Record *);
+    BlockMgr *getSplitBlockInfo() { return _splitBlockInfo; }
 
 protected:
 	PROGRAM_TYPE _program;
@@ -207,6 +211,7 @@ protected:
 	int _seed;
 	bool _forwardOnly;
 	bool _reverseOnly;
+	bool _nameCheckDisabled;
 
 	//Members for column operations
 	bool _hasColumnOpsMethods;
@@ -223,6 +228,7 @@ protected:
 
 	void markUsed(int i) { _argsProcessed[i] = true; }
 	bool isUsed(int i) const { return _argsProcessed[i]; }
+	virtual bool parseCmdArgs(int argc, char **argv, int skipFirstArgs);
 	bool cmdArgsValid();
 	bool openFiles();
 	virtual FileRecordMgr *getNewFRM(const QuickString &filename, int fileIdx);
@@ -244,8 +250,12 @@ protected:
 	conventionType _fileHasLeadingZeroInChromNames;
 
 	static const int MIN_ALLOWED_BUF_SIZE = 8;
+	BlockMgr *_splitBlockInfo;
 
-	virtual bool handle_bed();
+    testType _allFilesHaveChrInChromNames;
+    testType _allFileHaveLeadingZeroInChromNames;
+
+    virtual bool handle_bed();
 	virtual bool handle_fbam();
 	virtual bool handle_g();
 	virtual bool handle_h();
@@ -265,14 +275,27 @@ protected:
 	virtual bool handle_null();
 	virtual bool handle_delim();
 	virtual bool handle_sortout();
+	virtual bool handle_nonamecheck();
 	bool handle_prec();
 	bool parseIoBufSize(QuickString bufStr);
 
     testType fileHasChrInChromNames(int fileIdx);
     testType fileHasLeadingZeroInChromNames(int fileIdx);
 
-    testType _allFilesHaveChrInChromNames;
-    testType _allFileHaveLeadingZeroInChromNames;
+    //Warning messages.
+   bool _nameConventionWarningTripped;
+   QuickString _nameConventionWarningMsg;
+   void nameConventionWarning(const Record *record, const QuickString &filename, const QuickString &message);
+
+    //give warning but continue.
+    void warn(const Record *, const QuickString str1, const QuickString str2 = "", const QuickString str3 = "");
+    // Give error and exit.
+    void die(const Record *, const QuickString str1, const QuickString str2 = "", const QuickString str3 = "");
+
+    //private error handler
+    void setErrorMsg(QuickString &msg, bool onlyWarn, const Record * record, QuickString str1, const QuickString str2, const QuickString str3);
+
+
 };
 
 #endif /* CONTEXTBASE_H_ */
