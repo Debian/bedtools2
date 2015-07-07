@@ -20,6 +20,7 @@ override_dh_install:
 override_dh_fixperms:
 	dh_fixperms
 	chmod -x $(CURDIR)/debian/$(DEBPKGNAME)/usr/share/bedtools/genomes/*.genome
+	find $(CURDIR)/debian -name "*.bed" -executable -exec chmod -x \{\} \;
 
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)

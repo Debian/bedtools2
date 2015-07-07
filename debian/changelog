@@ -9,6 +9,7 @@ bedtools (2.24.0-1) UNRELEASED; urgency=medium
     one describing the workflow of this Git archive
   * New upsteam version
   * Bash completions now go to /usr/share/bash-completion/completions
+  * Strip executable flag from all *.bed files
 
  -- Andreas Tille <tille@debian.org>  Tue, 07 Jul 2015 16:40:52 +0200
 
