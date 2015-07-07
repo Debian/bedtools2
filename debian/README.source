@@ -15,9 +15,9 @@ workflow it is documented here, how the package can be updated:
        uscan --force-download
 
   3. Register the upstream tarball in the pristine-tar branch directly with
-     the pristine-tar command directly.
+     the pristine-tar command directly (stay in master branch when doing this)
 
-       pristine-tar ../bedtools_<version>.orig.tar.gz v<version>
+       pristine-tar commit ../bedtools_<version>.orig.tar.gz v<version>
 
   4. Merge the tag in the debian/unstable branch
 
