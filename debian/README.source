@@ -24,4 +24,8 @@ workflow it is documented here, how the package can be updated:
      upstream-branch are properly set in debian/gbp.conf
 
 According to Charles Plessy this workflow has the advantage to propose
-upstream via pull requests on GitHub
+upstream via pull requests on GitHub.  The Debian Med policy currently
+does only contain a short paragraph to mention the derived workflow:
+
+    http://debian-med.alioth.debian.org/docs/policy.html#git-without-tarball
+
