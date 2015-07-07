@@ -16,11 +16,20 @@ override_dh_installchangelogs:
 override_dh_install:
 	dh_install
 	rm -f $(CURDIR)/debian/$(DEBPKGNAME)/usr/bin/groupBy # distributed in the filo package.
+	# make sure all *.sh files are featuring a '#!/bin/bash' as first line
+	# since there are at least two files (test/intersect/{new_test-intersect.sh,performanceTest.sh}
+	# requiring bash this is taken for all scripts instead of checking first via /bin/sh -n
+	for sh in `find $(CURDIR)/debian -name "*.sh"` ; do \
+	    if ! head -n1 $${sh} | grep -q '^#! */bin/[ba]*sh' ; then \
+	        sed -i '1 i #!/bin/bash' $${sh} ; \
+	    fi ; \
+	done
 
 override_dh_fixperms:
 	dh_fixperms
 	chmod -x $(CURDIR)/debian/$(DEBPKGNAME)/usr/share/bedtools/genomes/*.genome
 	find $(CURDIR)/debian -name "*.bed" -executable -exec chmod -x \{\} \;
+	find $(CURDIR)/debian -name "*.sh"  -not -executable -exec chmod +x \{\} \;
 
 get-orig-source:
 	uscan --no-symlink --force-download --download-version $(DEB_UPSTREAM_VERSION)

@@ -10,6 +10,8 @@ bedtools (2.24.0-1) UNRELEASED; urgency=medium
   * New upsteam version
   * Bash completions now go to /usr/share/bash-completion/completions
   * Strip executable flag from all *.bed files
+  * Make sure all *.sh scripts of the test suite have a proper '#!/bin/bash'
+    line and the executable flag set
 
  -- Andreas Tille <tille@debian.org>  Tue, 07 Jul 2015 16:40:52 +0200
 
