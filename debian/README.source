@@ -3,9 +3,12 @@ workflow it is documented here, how the package can be updated:
 
   1. in the master branch, pull the upstream master branch and its tags.
 
+       checkout master
        git pull https://github.com/arq5x/bedtools2 --tags
 
-      FIXME: If this leads to lot of merge conflicts, do what?
+     Remark: If this pull fails with a lot of stuff to merge you might
+     have some ~/.gitconfig that breaks the pull above.  Please try to
+     deactivate it for the moment.
 
   2. download the upstream tarball
 
