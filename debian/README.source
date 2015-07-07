@@ -18,7 +18,7 @@ workflow it is documented here, how the package can be updated:
 
   4. Merge the tag in the debian/unstable branch
 
-       git checkout debian/unstable ; git merge v2.24.0
+       git checkout debian/unstable ; git merge v<version>
 
   5. Update the packaging files, build with gbp - debian-branch and
      upstream-branch are properly set in debian/gbp.conf
