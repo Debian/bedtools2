@@ -1,4 +1,4 @@
-bedtools (2.24.0-1) UNRELEASED; urgency=medium
+bedtools (2.24.0-1) unstable; urgency=medium
 
   [ Charles Plessy ]
   b757049  Merge tag 'v2.22.1' into debian/unstable
@@ -16,7 +16,7 @@ bedtools (2.24.0-1) UNRELEASED; urgency=medium
      - update download location
      - turn DEP5 incompatible License field in header into a Comment
 
- -- Andreas Tille <tille@debian.org>  Tue, 07 Jul 2015 16:40:52 +0200
+ -- Andreas Tille <tille@debian.org>  Tue, 07 Jul 2015 18:21:22 +0200
 
 bedtools (2.21.0-1) unstable; urgency=medium
 
