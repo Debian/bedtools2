@@ -7,6 +7,7 @@ bedtools (2.24.0-1) UNRELEASED; urgency=medium
   [ Andreas Tille ]
   * Remove superfluous debian/README.source and replace it by a helpful
     one describing the workflow of this Git archive
+  * New upsteam version
 
  -- Andreas Tille <tille@debian.org>  Tue, 07 Jul 2015 16:40:52 +0200
 
