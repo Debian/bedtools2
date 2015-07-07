@@ -502,9 +502,128 @@ $BT intersect -a a.bed -b b.bed -f 1.00001 2>&1 > /dev/null | cat - | head -2 | 
 check exp obs
 rm exp obs
 
+##################################################################
+#  bug167_strandSweep.bed
+##################################################################
+echo "    intersect.t41...\c"
+echo \
+"22" > exp
+$BT intersect -a bug167_strandSweep.bed -b bug167_strandSweep.bed -sorted -s -wa -wb | wc -l > obs
+check exp obs
+rm exp obs
 
+##################################################################
+#  bug167_strandSweep.bed
+##################################################################
+echo "    intersect.t42...\c"
+echo \
+"20" > exp
+$BT intersect -a bug167_strandSweep.bed -b bug167_strandSweep.bed -sorted -S -wa -wb | wc -l > obs
+check exp obs
+rm exp obs
 
 rm one_block.bam two_blocks.bam three_blocks.bam
+
+
+##################################################################
+# Bug 187 0 length records
+##################################################################
+echo "    intersect.t43...\c"
+echo \
+"chr7	33059403	33059403	chr7	33059336	33060883	NT5C3A	intron	0
+chr7	33059403	33059403	chr7	32599076	33069221	NAq	intron	0" > exp
+$BT intersect -a bug187_a.bed -b bug187_b.bed -wao > obs
+check exp obs
+rm exp obs
+
+##################################################################
+# see that naming conventions are tested with unsorted data.
+##################################################################
+echo "    intersect.t44...\c"
+echo \
+"***** WARNING: File nonamecheck_a.bed has a record where naming convention (leading zero) is inconsistent with other files:
+chr1	10	20" > exp
+$BT intersect -a nonamecheck_a.bed -b nonamecheck_b.bed 2>&1 > /dev/null | cat - | head -2 > obs
+check exp obs
+rm exp obs
+
+
+##################################################################
+# see that differently named chroms don't work with -sorted
+##################################################################
+echo "    intersect.t45...\c"
+echo \
+"***** WARNING: File nonamecheck_b.bed has a record where naming convention (leading zero) is inconsistent with other files:
+chr01	15	25" > exp
+$BT intersect -a nonamecheck_a.bed -b nonamecheck_b.bed -sorted 2>&1 > /dev/null | cat - | head -2 > obs
+check exp obs
+rm exp obs
+
+##################################################################
+# see that differently named chroms  -sorted and -nonamecheck
+# don't complain with -nonamecheck
+##################################################################
+echo "    intersect.t46...\c"
+touch exp
+$BT intersect -a nonamecheck_a.bed -b nonamecheck_b.bed -sorted -nonamecheck 2>&1 > /dev/null | cat - > obs
+check exp obs
+rm exp obs
+
+##################################################################
+# see that SVLEN in VCF files is treated as zero length 
+# records when the SV type is an insertion
+##################################################################
+echo "    intersect.t47...\c"
+echo \
+"chr1	1	a	G	<DEL>	70.90
+chr1	1	a	G	<DEL>	70.90
+chr1	4	a	G	<INS>	70.90" > exp
+$BT intersect -a bug223_sv1_a.vcf -b bug223_sv1_b.vcf | cut -f1-6 > obs
+check exp obs
+rm exp obs
+
+##################################################################
+# see that SVLEN in VCF files can handle multiple numbers,
+# at end of line, followed by NULL.
+##################################################################
+echo "    intersect.t48...\c"
+echo \
+"chr1	1	a	G	<DEL>	70.90
+chr1	1	a	G	<DEL>	70.90
+chr1	4	a	G	<DEL>	70.90
+chr1	4	a	G	<DEL>	70.90" > exp
+$BT intersect -a bug223_d.vcf -b bug223_d.vcf | cut -f1-6 > obs
+check exp obs
+rm exp obs
+
+##################################################################
+# see that SVLEN in VCF files can handle multiple numbers,
+# at end of line, followed by a tab
+##################################################################
+echo "    intersect.t49...\c"
+echo \
+"chr1	1	a	G	<DEL>	70.90
+chr1	1	a	G	<DEL>	70.90
+chr1	4	a	G	<DEL>	70.90
+chr1	4	a	G	<DEL>	70.90" > exp
+$BT intersect -a bug223_e.vcf -b bug223_e.vcf | cut -f1-6 > obs
+check exp obs
+rm exp obs
+
+##################################################################
+# see that SVLEN in VCF files can handle single numbers,
+# at end of line, followed by null
+##################################################################
+echo "    intersect.t50...\c"
+echo \
+"chr1	1	a	G	<DEL>	70.90
+chr1	1	a	G	<DEL>	70.90
+chr1	4	a	G	<DEL>	70.90
+chr1	4	a	G	<DEL>	70.90" > exp
+$BT intersect -a bug223_f.vcf -b bug223_f.vcf | cut -f1-6 > obs
+check exp obs
+rm exp obs
+
 
 
 cd multi_intersect

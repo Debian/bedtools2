@@ -88,7 +88,6 @@ void NewChromSweep::closeOut(bool testChromOrderVal) {
     		nextRecord(false, i);
     	}
    		if (testChromOrderVal) testChromOrder(_currDbRecs[i]);
-
     }
 }
 
@@ -129,7 +128,7 @@ void NewChromSweep::scanCache(int dbIdx, RecordKeyVector &retList) {
         if (_currQueryRec->sameChrom(cacheRec) && !_currQueryRec->after(cacheRec)) {
             if (intersects(_currQueryRec, cacheRec)) {
                 retList.push_back(cacheRec);
-            } else break; // cacheRec is after the query rec, stop scanning.
+            } else if (cacheRec->after(_currQueryRec)) break; // cacheRec is after the query rec, stop scanning.
             cacheIter = _caches[dbIdx].next();
         }
         else {
@@ -150,6 +149,7 @@ void NewChromSweep::clearCache(int dbIdx)
 }
 
 void NewChromSweep::masterScan(RecordKeyVector &retList) {
+
 	for (int i=0; i < _numDBs; i++) {
 		if (dbFinished(i) || chromChange(i, retList, true)) {
 			continue;
@@ -252,6 +252,7 @@ bool NewChromSweep::next(RecordKeyVector &retList) {
 		retList.sortVector();
 	}
 
+
 	_prevQueryChromName = _currQueryChromName;
 	return true;
 }
@@ -260,7 +261,7 @@ bool NewChromSweep::nextRecord(bool query, int dbIdx) {
 	if (query) {
 		_currQueryRec = _queryFRM->getNextRecord();
 		if (_currQueryRec != NULL) {
-			_queryRecordsTotalLength += (unsigned long)(_currQueryRec->getEndPos() - _currQueryRec->getStartPos());
+			_queryRecordsTotalLength += (unsigned long)(_currQueryRec->getLength(_context->getObeySplits()));
             _queryTotalRecords++;
 			return true;
 		}
@@ -269,7 +270,7 @@ bool NewChromSweep::nextRecord(bool query, int dbIdx) {
 		Record *rec = _dbFRMs[dbIdx]->getNextRecord();
 		_currDbRecs[dbIdx] = rec;
 		if (rec != NULL) {
-			_databaseRecordsTotalLength += (unsigned long)(rec->getEndPos() - rec->getStartPos());
+			_databaseRecordsTotalLength += (unsigned long)(rec->getLength(_context->getObeySplits()));
 			_databaseTotalRecords++;
 			return true;
 		}

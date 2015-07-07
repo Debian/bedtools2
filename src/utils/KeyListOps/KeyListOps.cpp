@@ -330,6 +330,10 @@ const QuickString &KeyListOps::format(double val)
 
 void KeyListOpsHelp() {
 
+    cerr << "\t-c\t"             << "Specify columns from the B file to map onto intervals in A." << endl;
+    cerr                         << "\t\tDefault: 5." << endl;
+    cerr						<<  "\t\tMultiple columns can be specified in a comma-delimited list." << endl << endl;
+
     cerr << "\t-o\t"             << "Specify the operation that should be applied to -c." << endl;
     cerr                         << "\t\tValid operations:" << endl;
     cerr                         << "\t\t    sum, min, max, absmin, absmax," << endl;
@@ -338,6 +342,8 @@ void KeyListOpsHelp() {
     cerr                         << "\t\t    distinct (i.e., print a delimited list (NO duplicates allowed)), " << endl;
     cerr                         << "\t\t    count" << endl;
     cerr                         << "\t\t    count_distinct (i.e., a count of the unique values in the column), " << endl;
+    cerr                         << "\t\t    first (i.e., just the first value in the column), " << endl;
+    cerr                         << "\t\t    last (i.e., just the last value in the column), " << endl;
     cerr                         << "\t\tDefault: sum" << endl;
     cerr						 << "\t\tMultiple operations can be specified in a comma-delimited list." << endl << endl;
 
@@ -354,4 +360,5 @@ void KeyListOpsHelp() {
     cerr                                 << "\t\t- Example: -delim \"|\"" << endl;
     cerr                                 << "\t\t- Default: \",\"." << endl << endl;
 
+    cerr << "\t-prec\t"   		 << "Sets the decimal precision for output (Default: 5)" << endl << endl;
 }

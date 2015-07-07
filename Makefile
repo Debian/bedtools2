@@ -10,6 +10,7 @@ VERSION_FILE=./src/utils/version/version_git.h
 RELEASED_VERSION_FILE=./src/utils/version/version_release.txt
 
 
+
 # define our object and binary directories
 export OBJ_DIR	= obj
 export BIN_DIR	= bin
@@ -36,7 +37,7 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/closestFile \
 		  $(SRC_DIR)/clusterBed \
 		  $(SRC_DIR)/complementBed \
-		  $(SRC_DIR)/coverageBed \
+		  $(SRC_DIR)/coverageFile \
 		  $(SRC_DIR)/expand \
 		  $(SRC_DIR)/fastaFromBed \
 		  $(SRC_DIR)/flankBed \
@@ -52,7 +53,7 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/mergeFile \
 		  $(SRC_DIR)/multiBamCov \
 		  $(SRC_DIR)/multiIntersectBed \
-		   $(SRC_DIR)/nekSandbox1 \
+		  $(SRC_DIR)/nekSandbox1 \
 		  $(SRC_DIR)/nucBed \
 		  $(SRC_DIR)/pairToBed \
 		  $(SRC_DIR)/pairToPair \
@@ -63,7 +64,9 @@ SUBDIRS = $(SRC_DIR)/annotateBed \
 		  $(SRC_DIR)/shuffleBed \
 		  $(SRC_DIR)/slopBed \
 		  $(SRC_DIR)/sortBed \
-		  $(SRC_DIR)/subtractBed \
+		  $(SRC_DIR)/spacingFile \
+		  $(SRC_DIR)/split \
+		  $(SRC_DIR)/subtractFile \
 		  $(SRC_DIR)/tagBam \
 		  $(SRC_DIR)/unionBedGraphs \
 		  $(SRC_DIR)/windowBed \
@@ -76,6 +79,8 @@ UTIL_SUBDIRS =	$(SRC_DIR)/utils/bedFile \
 				$(SRC_DIR)/utils/chromsweep \
 				$(SRC_DIR)/utils/Contexts \
 				$(SRC_DIR)/utils/FileRecordTools \
+				$(SRC_DIR)/utils/FileRecordTools/FileReaders \
+				$(SRC_DIR)/utils/FileRecordTools/Records \
 				$(SRC_DIR)/utils/general \
 				$(SRC_DIR)/utils/gzstream \
 				$(SRC_DIR)/utils/fileType \
@@ -90,15 +95,47 @@ UTIL_SUBDIRS =	$(SRC_DIR)/utils/bedFile \
 				$(SRC_DIR)/utils/Fasta \
 				$(SRC_DIR)/utils/VectorOps \
 				$(SRC_DIR)/utils/GenomeFile \
-				$(SRC_DIR)/utils/RecordOutputMgr
+				$(SRC_DIR)/utils/RecordOutputMgr \
+				$(SRC_DIR)/utils/ToolBase \
+				$(SRC_DIR)/utils/aux
 
 BUILT_OBJECTS = $(OBJ_DIR)/*.o
 
 
+INCLUDES =	-I$(SRC_DIR)/utils/bedFile \
+				-I$(SRC_DIR)/utils/BinTree \
+				-I$(SRC_DIR)/utils/version \
+				-I$(SRC_DIR)/utils/bedGraphFile \
+				-I$(SRC_DIR)/utils/chromsweep \
+				-I$(SRC_DIR)/utils/Contexts \
+				-I$(SRC_DIR)/utils/FileRecordTools \
+				-I$(SRC_DIR)/utils/FileRecordTools/FileReaders \
+				-I$(SRC_DIR)/utils/FileRecordTools/Records \
+				-I$(SRC_DIR)/utils/general \
+				-I$(SRC_DIR)/utils/gzstream \
+				-I$(SRC_DIR)/utils/fileType \
+				-I$(SRC_DIR)/utils/bedFilePE \
+				-I$(SRC_DIR)/utils/KeyListOps \
+				-I$(SRC_DIR)/utils/NewChromsweep \
+				-I$(SRC_DIR)/utils/sequenceUtilities \
+				-I$(SRC_DIR)/utils/tabFile \
+				-I$(SRC_DIR)/utils/BamTools \
+				-I$(SRC_DIR)/utils/BamTools/include \
+				-I$(SRC_DIR)/utils/BamTools/src \
+				-I$(SRC_DIR)/utils/BamTools-Ancillary \
+				-I$(SRC_DIR)/utils/BlockedIntervals \
+				-I$(SRC_DIR)/utils/Fasta \
+				-I$(SRC_DIR)/utils/VectorOps \
+				-I$(SRC_DIR)/utils/GenomeFile \
+				-I$(SRC_DIR)/utils/RecordOutputMgr \
+				-I$(SRC_DIR)/utils/ToolBase \
+				-I$(SRC_DIR)/utils/aux \
+				
+
 all: print_banner $(OBJ_DIR) $(BIN_DIR) autoversion $(UTIL_SUBDIRS) $(SUBDIRS)
 	@echo "- Building main bedtools binary."
-	@$(CXX) $(CXXFLAGS) -c src/bedtools.cpp -o obj/bedtools.o -I$(UTIL_DIR)/version/
-	@$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/bedtools $(BUILT_OBJECTS) -L$(UTIL_DIR)/BamTools/lib/ -lbamtools $(LIBS) $(LDFLAGS)
+	@$(CXX) $(CXXFLAGS) -c src/bedtools.cpp -o obj/bedtools.o $(INCLUDES)
+	@$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/bedtools $(BUILT_OBJECTS) -L$(UTIL_DIR)/BamTools/lib/ -lbamtools $(LIBS) $(LDFLAGS) $(INCLUDES)
 	@echo "done."
 	
 	@echo "- Creating executables for old CLI."
@@ -142,7 +179,7 @@ $(UTIL_SUBDIRS) $(SUBDIRS): $(OBJ_DIR) $(BIN_DIR)
 clean:
 	@$(MAKE) --no-print-directory --directory=$(BT_ROOT) clean_api
 	@echo " * Cleaning up."
-	@rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
+	@rm -f $(VERSION_FILE) $(OBJ_DIR)/* $(BIN_DIR)/*
 .PHONY: clean
 
 test: all

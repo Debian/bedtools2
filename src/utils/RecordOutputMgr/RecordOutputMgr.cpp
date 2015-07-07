@@ -126,9 +126,13 @@ void RecordOutputMgr::printRecord(const Record *record)
 void RecordOutputMgr::printRecord(const Record *record, const QuickString & value)
 {	
 	_afterVal = value;
-	printRecord(record);
+	bool recordPrinted = false;
+	if (record != NULL) {
+		printRecord(record);
+		recordPrinted = true;
+	}
 	if (!value.empty()) {
-		tab();
+		if (recordPrinted) tab();
 		_outBuf.append(value);
 	}
 	newline();
@@ -137,6 +141,10 @@ void RecordOutputMgr::printRecord(const Record *record, const QuickString & valu
 }
 
 void RecordOutputMgr::printClosest(RecordKeyVector &keyList, const vector<int> *dists) {
+
+	//The first time we print a record is when we print any header, because the header
+	//hasn't been read from the query file until after the first record has also been read.
+	checkForHeader();
 
 	const ContextClosest *context = static_cast<const ContextClosest *>(_context);
 	bool deleteBlocks = false;
@@ -203,6 +211,7 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 	if (needsFlush()) {
 		flush();
 	}
+
 	//The first time we print a record is when we print any header, because the header
 	//hasn't been read from the query file until after the first record has also been read.
 	checkForHeader();
@@ -210,7 +219,7 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 	const_cast<Record *>(keyList.getKey())->undoZeroLength();
 	_currBamBlockList = blockList;
 
-	if (_context->getProgram() == ContextBase::INTERSECT) {
+	if (_context->getProgram() == ContextBase::INTERSECT || _context->getProgram() == ContextBase::SUBTRACT) {
 		if (_printable) {
 			if (keyList.empty()) {
 				if ((static_cast<ContextIntersect *>(_context))->getWriteAllOverlap()) {
@@ -218,6 +227,8 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 					if (printKeyAndTerminate(keyList)) {
 
 						_currBamBlockList = NULL;
+						const_cast<Record *>(keyList.getKey())->adjustZeroLength();
+
 						return;
 					}
 					tab();
@@ -231,6 +242,7 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 					if (printKeyAndTerminate(keyList)) {
 						_currBamBlockList = NULL;
 
+						const_cast<Record *>(keyList.getKey())->adjustZeroLength();
 						return;
 					}
 					tab();
@@ -245,6 +257,7 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 				if (printBamRecord(keyList, true) == BAM_AS_BAM) {
 					_currBamBlockList = NULL;
 
+					const_cast<Record *>(keyList.getKey())->adjustZeroLength();
 					return;
 				}
 				int hitIdx = 0;
@@ -261,20 +274,12 @@ void RecordOutputMgr::printRecord(RecordKeyVector &keyList, RecordKeyVector *blo
 		if (!printKeyAndTerminate(keyList)) {
 			newline();
 		}
-		_currBamBlockList = NULL;
-
-		return;
-	} else if (_context->getProgram() == ContextBase::MAP) {
+	} else { // if (_context->getProgram() == ContextBase::MAP || _context->getProgram() == ContextBase::MERGE) {
 		printKeyAndTerminate(keyList);
-		_currBamBlockList = NULL;
-
-		return;
-	} else if (_context->getProgram() == ContextBase::MERGE) {
-		printKeyAndTerminate(keyList);
-		_currBamBlockList = NULL;
-
-		return;
 	}
+	_currBamBlockList = NULL;
+	const_cast<Record *>(keyList.getKey())->adjustZeroLength();
+
 }
 
 void RecordOutputMgr::checkForHeader() {
@@ -290,7 +295,7 @@ void RecordOutputMgr::checkForHeader() {
 		_outBuf.append(_context->getFile(0)->getHeader());
 	}
 	_context->setPrintHeader(false);
-	if (needsFlush()) flush();
+	flush();
 }
 
 void RecordOutputMgr::reportOverlapDetail(const Record *keyRecord, const Record *hitRecord, int hitIdx)
@@ -380,7 +385,7 @@ void RecordOutputMgr::reportOverlapDetail(const Record *keyRecord, const Record 
 	else if ((static_cast<ContextIntersect *>(_context))->getWriteOverlap()) {
 		int printOverlapBases = 0;
 		if (_context->getObeySplits()) {
-			printOverlapBases = _splitInfo->getOverlapBases(hitIdx);
+			printOverlapBases = _context->getSplitBlockInfo()->getOverlapBases(hitIdx);
 		} else {
 			printOverlapBases = minEnd - maxStart;
 		}
@@ -393,7 +398,7 @@ void RecordOutputMgr::reportOverlapDetail(const Record *keyRecord, const Record 
 		newline();
 		if (needsFlush()) flush();
 	}
-	const_cast<Record *>(keyRecord)->adjustZeroLength();
+	const_cast<Record *>(hitRecord)->adjustZeroLength();
 }
 
 void RecordOutputMgr::reportOverlapSummary(RecordKeyVector &keyList)

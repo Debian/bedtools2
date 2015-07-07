@@ -1,13 +1,14 @@
-bedtools (2.22.1-2) UNRELEASED; urgency=medium
+bedtools (2.24.0-1) UNRELEASED; urgency=medium
 
   [ Charles Plessy ]
   b757049  Merge tag 'v2.22.1' into debian/unstable
   f62bafa Conforms to Policy 3.9.6.
 
   [ Andreas Tille ]
-  * Remove superfluous debian/README.source
+  * Remove superfluous debian/README.source and replace it by a helpful
+    one describing the workflow of this Git archive
 
- -- Andreas Tille <tille@debian.org>  Sun, 05 Jul 2015 16:36:22 +0200
+ -- Andreas Tille <tille@debian.org>  Tue, 07 Jul 2015 16:40:52 +0200
 
 bedtools (2.21.0-1) unstable; urgency=medium
 
