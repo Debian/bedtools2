@@ -2,6 +2,7 @@ bedtools (2.24.0-2) UNRELEASED; urgency=medium
 
   * Tests need bgzip from tabix package
   * Add missing input files for tests
+  * link to genomes files in autopkgtests to enable more tests passing
 
  -- Andreas Tille <tille@debian.org>  Tue, 14 Jul 2015 11:01:25 +0200
 

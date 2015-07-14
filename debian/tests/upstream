@@ -7,6 +7,10 @@ fi
 # Copy test suite there
 cp -a /usr/share/bedtools/test $ADTTMP
 
+# Link to genomes files
+cd $ADTTMP
+ln -s /usr/share/bedtools/genomes
+
 # Enter the directory and run the tests
 cd $ADTTMP/test
 DATA=/usr/share/bedtools/data BT=/usr/bin/bedtools sh test.sh | tee test.sh.output
@@ -17,6 +21,6 @@ grep -q fail test.sh.output && TESTFAILED=1
 
 # Clean
 cd
-rm -rf $ADTTMP/test
+# rm -rf $ADTTMP/test
 
 exit $TESTFAILED
