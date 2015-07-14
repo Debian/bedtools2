@@ -1,3 +1,3 @@
-test/*	usr/share/bedtools/test
-data/*	usr/share/bedtools/data
-
+test/*				usr/share/bedtools/test
+data/*				usr/share/bedtools/data
+debian/test_missing_files/*	usr/share/bedtools/test

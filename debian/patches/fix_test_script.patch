@@ -1,0 +1,15 @@
+Author: Andreas Tille <tille@debian.org>
+Last-Update: Tue, 14 Jul 2015 11:01:25 +0200
+Description: Use environment variable to find bedtools in all cases
+
+--- a/test/merge/test-merge.sh
++++ b/test/merge/test-merge.sh
+@@ -444,7 +444,7 @@ chr1	30	100	.,.,.
+ chr2	10	20	.
+ chr2	30	40	.
+ chr2	42	100	.,." >exp
+-../../bin/bedtools merge -i a.full.bam  -c 7 -o collapse > obs
++$BT merge -i a.full.bam  -c 7 -o collapse > obs
+ check exp obs
+ rm obs exp
+ 
