@@ -1,2 +1,2 @@
 Tests: upstream
-Depends: @, samtools
+Depends: @, samtools, tabix
