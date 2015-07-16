@@ -1,2 +1,3 @@
 gzstream.h.patch
 fix_test_script.patch
+0001-settle-on-uint32_t-signature-for-QuickString.-Resolv.patch
