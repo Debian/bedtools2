@@ -1,4 +1,10 @@
-bedtools (2.24.0-2) UNRELEASED; urgency=medium
+bedtools (2.25.0-1) UNRELEASED; urgency=medium
+
+  e37865 Merge tag 'v2.25.0' into debian/unstable
+
+ -- Charles Plessy <plessy@debian.org>  Fri, 04 Sep 2015 16:55:21 +0200
+
+bedtools (2.24.0-2) unstable; urgency=medium
 
   * Tests need bgzip from tabix package
   * Add missing input files for tests
@@ -7,7 +13,7 @@ bedtools (2.24.0-2) UNRELEASED; urgency=medium
     Arturo Borrero Gonzalez <arturo.borrero.glez@gmail.com>)
     Closes: #791830
 
- -- Andreas Tille <tille@debian.org>  Tue, 14 Jul 2015 11:01:25 +0200
+ -- Andreas Tille <tille@debian.org>  Thu, 16 Jul 2015 14:33:38 +0200
 
 bedtools (2.24.0-1) unstable; urgency=medium
 
