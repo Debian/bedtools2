@@ -1,4 +1,4 @@
-bedtools (2.25.0-1) UNRELEASED; urgency=medium
+bedtools (2.25.0-1) unstable; urgency=medium
 
   e37865 Merge tag 'v2.25.0' into debian/unstable
 
