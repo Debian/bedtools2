@@ -31,9 +31,12 @@ ContextBase::ContextBase()
   _writeCount(false),
   _writeOverlap(false),
   _writeAllOverlap(false),
-  _haveFraction(false),
-  _overlapFraction(0.0),
-  _reciprocal(false),
+  _haveFractionA(false),
+  _haveFractionB(false),
+  _overlapFractionA(0.0),
+  _overlapFractionB(0.0),
+  _reciprocalFraction(false),
+  _eitherFraction(false),
   _sameStrand(false),
   _diffStrand(false),
   _sortedInput(false),
@@ -62,6 +65,8 @@ ContextBase::ContextBase()
   _splitBlockInfo(NULL),
   _allFilesHaveChrInChromNames(UNTESTED),
   _allFileHaveLeadingZeroInChromNames(UNTESTED),
+  _noEnforceCoordSort(false),
+  _inheader(false),
   _nameConventionWarningTripped(false)
 
 {
@@ -74,6 +79,12 @@ ContextBase::ContextBase()
 	_programNames["jaccard"] = JACCARD;
 	_programNames["spacing"] = SPACING;
 	_programNames["fisher"] = FISHER;
+	_programNames["sample"] = SAMPLE;
+	_programNames["coverage"] = COVERAGE;
+	_programNames["complement"] = COMPLEMENT;
+	_programNames["groupby"] = GROUP_BY;
+
+
 
 	if (hasColumnOpsMethods()) {
 		_keyListOps = new KeyListOps();
@@ -241,8 +252,14 @@ bool ContextBase::isValidState()
 	if (!determineOutputType()) {
 		return false;
 	}
+	if (_program != GROUP_BY && _files[0]->getRecordType() == FileRecordTypeChecker::NO_POS_PLUS_RECORD_TYPE) {
+		_errorMsg = "ERROR: file ";
+		_errorMsg.append(_files[0]->getFileName());
+		_errorMsg.append(" has non positional records, which are only valid for the groupBy tool.");
+		return false;
+	}
 	if (getObeySplits()) {
-		_splitBlockInfo = new BlockMgr(_overlapFraction, _reciprocal);
+		_splitBlockInfo = new BlockMgr(_overlapFractionA, _reciprocalFraction);
 	}
 	if (hasColumnOpsMethods()) {
 
@@ -314,8 +331,11 @@ bool ContextBase::openFiles() {
 		frm->setFullBamFlags(_useFullBamTags);
 		frm->setIsSorted(_sortedInput);
 		frm->setIoBufSize(_ioBufSize);
-		if (!frm->open()) {
+		if (!frm->open(_inheader)) {
 			return false;
+		}
+		if (_noEnforceCoordSort) {
+			frm->setNoEnforceCoodSort(true);
 		}
 		_files[i] = frm;
 	}

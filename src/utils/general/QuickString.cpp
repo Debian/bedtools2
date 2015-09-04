@@ -105,11 +105,11 @@ QuickString &QuickString::operator = (uint32_t val) {
 	return *this;
 }
 
-QuickString &QuickString::operator = (size_t val) {
-	clear();
-	append(val);
-	return *this;
-}
+// QuickString &QuickString::operator = (size_t val) {
+// 	clear();
+// 	append(val);
+// 	return *this;
+// }
 
 QuickString &QuickString::operator = (float val) {
 	clear();
@@ -158,10 +158,11 @@ QuickString &QuickString::operator += (uint32_t num) {
 	return *this;
 }
 
-QuickString &QuickString::operator += (size_t num) {
-	append(num);
-	return *this;
-}
+// QuickString &QuickString::operator += (size_t num) {
+// 	append(num);
+// 	return *this;
+// }
+
 QuickString &QuickString::operator += (float num) {
 	append(num);
 	return *this;
@@ -191,6 +192,18 @@ bool QuickString::operator == (const string &str) const {
 	}
 	return true;
 
+}
+
+bool QuickString::stricmp(const QuickString &str) const {
+	if (str.size() != _currSize) {
+		return true;
+	}
+	for (size_t i=0; i < _currSize; i++) {
+		if (tolower(str[i]) != tolower(_buffer[i])) {
+			return true;
+		}
+	}
+	return false;
 }
 
 bool QuickString::operator == (const char *str) const {
@@ -261,12 +274,12 @@ void QuickString::append(int num) {
 }
 
 void QuickString::append(uint32_t num) {
-	int2str((int)num, *this, true);
+ 	int2str((int)num, *this, true);
 }
 
-void QuickString::append(size_t num) {
-	int2str((int)num, *this, true);
-}
+// void QuickString::append(size_t num) {
+// 	int2str((int)num, *this, true);
+// }
 
 void QuickString::append(float num) {
 	append(ToString(num));

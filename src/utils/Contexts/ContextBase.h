@@ -38,7 +38,7 @@ public:
 	typedef enum {UNSPECIFIED_PROGRAM, INTERSECT, WINDOW, CLOSEST, COVERAGE, MAP, GENOMECOV, MERGE, CLUSTER,
 		COMPLEMENT, SUBTRACT, SLOP, FLANK, SORT, RANDOM, SAMPLE, SHUFFLE, ANNOTATE, MULTIINTER, UNIONBEDG, PAIRTOBED,
 		PAIRTOPAIR,BAMTOBED, BEDTOBAM, BEDTOFASTQ, BEDPETOBAM, BED12TOBED6, GETFASTA, MASKFASTA, NUC,
-		MULTICOV, TAG, JACCARD, OVERLAP, IGV, LINKS,MAKEWINDOWS, GROUPBY, EXPAND, SPACING, FISHER} PROGRAM_TYPE;
+		MULTICOV, TAG, JACCARD, OVERLAP, IGV, LINKS,MAKEWINDOWS, GROUPBY, EXPAND, SPACING, FISHER, GROUP_BY} PROGRAM_TYPE;
 
 	PROGRAM_TYPE getProgram() const { return _program; }
 	FileRecordMgr *getFile(int fileIdx) { return _files[fileIdx]; }
@@ -185,9 +185,12 @@ protected:
     bool _writeCount;
     bool _writeOverlap;
     bool _writeAllOverlap;
-    bool _haveFraction;
-    float _overlapFraction;
-    bool _reciprocal;
+    bool _haveFractionA;
+    bool _haveFractionB;
+    float _overlapFractionA;
+    float _overlapFractionB;
+    bool _reciprocalFraction;
+    bool _eitherFraction;
     bool _sameStrand;
     bool _diffStrand;
     bool _sortedInput;
@@ -230,7 +233,7 @@ protected:
 	bool isUsed(int i) const { return _argsProcessed[i]; }
 	virtual bool parseCmdArgs(int argc, char **argv, int skipFirstArgs);
 	bool cmdArgsValid();
-	bool openFiles();
+	virtual bool openFiles();
 	virtual FileRecordMgr *getNewFRM(const QuickString &filename, int fileIdx);
 
 	//set cmd line params and counter, i, as members so code
@@ -254,6 +257,9 @@ protected:
 
     testType _allFilesHaveChrInChromNames;
     testType _allFileHaveLeadingZeroInChromNames;
+    bool _noEnforceCoordSort;
+	bool _inheader;
+
 
     virtual bool handle_bed();
 	virtual bool handle_fbam();
@@ -282,6 +288,7 @@ protected:
     testType fileHasChrInChromNames(int fileIdx);
     testType fileHasLeadingZeroInChromNames(int fileIdx);
 
+    void setNoEnforceCoordSort(bool val) { _noEnforceCoordSort = val; }
     //Warning messages.
    bool _nameConventionWarningTripped;
    QuickString _nameConventionWarningMsg;
