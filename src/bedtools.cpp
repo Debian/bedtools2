@@ -46,7 +46,7 @@ int bedtoigv_main(int argc, char* argv[]);//
 int bedpetobam_main(int argc, char* argv[]);//
 void closest_help();
 int cluster_main(int argc, char* argv[]); //
-int complement_main(int argc, char* argv[]);//
+void complement_help();
 void coverage_help();
 int regress_test_main(int argc, char **argv); //
 int expand_main(int argc, char* argv[]);//
@@ -54,7 +54,7 @@ int fastafrombed_main(int argc, char* argv[]);//
 int flank_main(int argc, char* argv[]); //
 int genomecoverage_main(int argc, char* argv[]);//
 int getoverlap_main(int argc, char* argv[]);//
-int groupby_main(int argc, char* argv[]);//
+void groupby_help();
 void intersect_help();
 void map_help();
 void jaccard_help(); //
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     if (btDriver.supports(subCmd)) {
 		if (btDriver.subMain(argc, argv)) {
 			return 0;
-		} else {
+		} else if (!btDriver.hadError()) {
 			showHelp(subCmd);
 			return 1;
 		}
@@ -106,7 +106,6 @@ int main(int argc, char *argv[])
     else if (subCmd == "window")      return window_main(argc-1, argv+1);
     else if (subCmd == "genomecov")   return genomecoverage_main(argc-1, argv+1);
     else if (subCmd == "cluster")     return cluster_main(argc-1, argv+1);
-    else if (subCmd == "complement")  return complement_main(argc-1, argv+1);
     else if (subCmd == "slop")        return slop_main(argc-1, argv+1);
     else if (subCmd == "split")       return split_main(argc-1, argv+1);
     else if (subCmd == "flank")       return flank_main(argc-1, argv+1);
@@ -147,7 +146,6 @@ int main(int argc, char *argv[])
     else if (subCmd == "igv")         return bedtoigv_main(argc-1, argv+1);
     else if (subCmd == "links")       return links_main(argc-1, argv+1);
     else if (subCmd == "makewindows") return windowmaker_main(argc-1, argv+1);
-    else if (subCmd == "groupby")     return groupby_main(argc-1, argv+1);
     else if (subCmd == "expand")      return expand_main(argc-1, argv+1);
     else if (subCmd == "neksb1")       return nek_sandbox1_main(argc-1, argv+1);
     else if (subCmd == "regresstest")  return regress_test_main(argc, argv); //this command does need all the orig args.
@@ -307,6 +305,11 @@ void showHelp(const QuickString &subCmd) {
 		fisher_help();
 	} else if (subCmd == "coverage") {
 		coverage_help();
+	} else if (subCmd == "complement") {
+		complement_help();
+	} else if (subCmd == "groupby") {
+		groupby_help();
 	}
+
 
 }

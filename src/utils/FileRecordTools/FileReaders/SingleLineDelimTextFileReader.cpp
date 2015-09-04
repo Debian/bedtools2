@@ -8,7 +8,8 @@ SingleLineDelimTextFileReader::SingleLineDelimTextFileReader(int numFields, char
   _delimChar(delimChar),
   _fullHeaderFound(false),
   _currDataPos(0),
-  _lineNum(0)
+  _lineNum(0),
+  _inheader(false)
 {
 	_delimPositions = new int[numFields +1];
 }
@@ -39,9 +40,9 @@ bool SingleLineDelimTextFileReader::readEntry()
 	//scan the whole header in one call.
 	bool wasHeader = false;
 	while (detectAndHandleHeader()) { //header line
+		_lineNum++;
 		if (!_bufStreamMgr->getLine(_sLine)) {
 			return false;
-			_lineNum++;
 		}
 	}
 	//after the first time we find a header, any other header line
@@ -108,7 +109,7 @@ bool SingleLineDelimTextFileReader::detectAndHandleHeader()
 	//passing a non-const QuickString to isHeaderLine, but
 	//this const ref is a workaround.
 	const QuickString &sLine2 = _sLine;
-	if (!isHeaderLine(sLine2)) {
+	if (!isHeaderLine(sLine2) && (!(_inheader && _lineNum==1))) {
 		return false;
 	}
 	if (!_fullHeaderFound) {
@@ -154,7 +155,7 @@ int SingleLineDelimTextFileReader::getVcfSVlen() {
 	const char *currPtr = startPtr;
 	const char *endPtr = _sLine.c_str() + _sLine.size();
 
-	int minVal = INT_MAX;
+	int maxVal = INT_MIN;
 	int currVal = 0;
 	QuickString currValStr;
 	while (1) {
@@ -162,7 +163,7 @@ int SingleLineDelimTextFileReader::getVcfSVlen() {
 			if (currPtr > startPtr) {
 				currValStr.assign(startPtr, currPtr - startPtr);
 				currVal = abs(str2chrPos(currValStr));
-				if (currVal < minVal) minVal = currVal;
+				if (currVal > maxVal) maxVal = currVal;
 				startPtr = currPtr;
 			}
 
@@ -176,5 +177,5 @@ int SingleLineDelimTextFileReader::getVcfSVlen() {
 		}
 		currPtr++;
 	};
-	return minVal;
+	return maxVal;
 }

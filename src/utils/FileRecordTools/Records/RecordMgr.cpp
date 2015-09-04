@@ -45,6 +45,7 @@ RecordMgr::RecordMgr(FileRecordTypeChecker::RECORD_TYPE recType, int blockSize)
 			break;
 		}
 		case FileRecordTypeChecker::BED_PLUS_RECORD_TYPE:
+		case FileRecordTypeChecker::BED6_PLUS_RECORD_TYPE:
 		{
 			_freeList = new FreeList<BedPlusInterval>(_freeListBlockSize);
 			break;
@@ -67,6 +68,16 @@ RecordMgr::RecordMgr(FileRecordTypeChecker::RECORD_TYPE recType, int blockSize)
 		case FileRecordTypeChecker::GFF_RECORD_TYPE:
 		{
 			_freeList = new FreeList<GffRecord>(_freeListBlockSize);
+			break;
+		}
+		case FileRecordTypeChecker::GFF_PLUS_RECORD_TYPE:
+		{
+			_freeList = new FreeList<GffPlusRecord>(_freeListBlockSize);
+			break;
+		}
+		case FileRecordTypeChecker::NO_POS_PLUS_RECORD_TYPE:
+		{
+			_freeList = new FreeList<NoPosPlusRecord>(_freeListBlockSize);
 			break;
 		}
 
@@ -114,6 +125,7 @@ RecordMgr::~RecordMgr()
 			break;
 		}
 		case FileRecordTypeChecker::BED_PLUS_RECORD_TYPE:
+		case FileRecordTypeChecker::BED6_PLUS_RECORD_TYPE:
 		{
 			delete (FreeList<BedPlusInterval> *)_freeList;
 			break;
@@ -133,10 +145,19 @@ RecordMgr::~RecordMgr()
 			delete (FreeList<VcfRecord> *)_freeList;
 			break;
 		}
-
 		case FileRecordTypeChecker::GFF_RECORD_TYPE:
 		{
 			delete (FreeList<GffRecord> *)_freeList;
+			break;
+		}
+		case FileRecordTypeChecker::GFF_PLUS_RECORD_TYPE:
+		{
+			delete (FreeList<GffPlusRecord> *)_freeList;
+			break;
+		}
+		case FileRecordTypeChecker::NO_POS_PLUS_RECORD_TYPE:
+		{
+			delete (FreeList<NoPosPlusRecord> *)_freeList;
 			break;
 		}
 
@@ -191,8 +212,12 @@ Record *RecordMgr::allocateRecord()
 			break;
 		}
 		case FileRecordTypeChecker::BED_PLUS_RECORD_TYPE:
+		case FileRecordTypeChecker::BED6_PLUS_RECORD_TYPE:
 		{
 			BedPlusInterval *bPi = ((FreeList<BedPlusInterval> *)_freeList)->newObj();
+			if (_recordType == FileRecordTypeChecker::BED6_PLUS_RECORD_TYPE) {
+				bPi->setNumFixedFields(6);
+			}
 			record = bPi;
 			break;
 		}
@@ -220,6 +245,18 @@ Record *RecordMgr::allocateRecord()
 		{
 			GffRecord *gfr = ((FreeList<GffRecord> *)_freeList)->newObj();
 			record = gfr;
+			break;
+		}
+		case FileRecordTypeChecker::GFF_PLUS_RECORD_TYPE:
+		{
+			GffPlusRecord *gfpr = ((FreeList<GffPlusRecord> *)_freeList)->newObj();
+			record = gfpr;
+			break;
+		}
+		case FileRecordTypeChecker::NO_POS_PLUS_RECORD_TYPE:
+		{
+			NoPosPlusRecord *nppr = ((FreeList<NoPosPlusRecord> *)_freeList)->newObj();
+			record = nppr;
 			break;
 		}
 
@@ -269,6 +306,7 @@ void RecordMgr::deleteRecord(const Record *record)
 			break;
 		}
 		case FileRecordTypeChecker::BED_PLUS_RECORD_TYPE:
+		case FileRecordTypeChecker::BED6_PLUS_RECORD_TYPE:
 		{
 			((FreeList<BedPlusInterval> *)_freeList)->deleteObj(static_cast<const BedPlusInterval *>(record));
 			break;
@@ -292,6 +330,16 @@ void RecordMgr::deleteRecord(const Record *record)
 		case FileRecordTypeChecker::GFF_RECORD_TYPE:
 		{
 			((FreeList<GffRecord> *)_freeList)->deleteObj(static_cast<const GffRecord *>(record));
+			break;
+		}
+		case FileRecordTypeChecker::GFF_PLUS_RECORD_TYPE:
+		{
+			((FreeList<GffPlusRecord> *)_freeList)->deleteObj(static_cast<const GffPlusRecord *>(record));
+			break;
+		}
+		case FileRecordTypeChecker::NO_POS_PLUS_RECORD_TYPE:
+		{
+			((FreeList<NoPosPlusRecord> *)_freeList)->deleteObj(static_cast<const NoPosPlusRecord *>(record));
 			break;
 		}
 

@@ -47,6 +47,10 @@ void CoverageFile::processHits(RecordOutputMgr *outputMgr, RecordKeyVector &hits
 		   doPerBase(outputMgr, hits);
 		   break;
 
+	   case ContextCoverage::MEAN:
+		   doMean(outputMgr, hits);
+		   break;
+
 	   case ContextCoverage::HIST:
 		   doHist(outputMgr, hits);
 		   break;
@@ -55,6 +59,7 @@ void CoverageFile::processHits(RecordOutputMgr *outputMgr, RecordKeyVector &hits
 	   default:
 		   doDefault(outputMgr, hits);
 		   break;
+
 	   }
 
 }
@@ -78,11 +83,11 @@ void CoverageFile::giveFinalReport(RecordOutputMgr *outputMgr) {
 		float depthPct = (float)basesAtDepth / (float)_totalQueryLen;
 
 		_finalOutput = "all\t";
-		_finalOutput.append(depth);
+		_finalOutput.append(static_cast<uint32_t>(depth));
 		_finalOutput.append("\t");
-		_finalOutput.append(basesAtDepth);
+		_finalOutput.append(static_cast<uint32_t>(basesAtDepth));
 		_finalOutput.append("\t");
-		_finalOutput.append(_totalQueryLen);
+		_finalOutput.append(static_cast<uint32_t>(_totalQueryLen));
 		_finalOutput.append("\t");
 		format(depthPct);
 
@@ -133,22 +138,33 @@ size_t CoverageFile::countBasesAtDepth(size_t depth) {
 
 void CoverageFile::doCounts(RecordOutputMgr *outputMgr, RecordKeyVector &hits)
 {
-	_finalOutput = hits.size();
+	_finalOutput = static_cast<uint32_t>(hits.size());
 	outputMgr->printRecord(hits.getKey(), _finalOutput);
 }
 
 void CoverageFile::doPerBase(RecordOutputMgr *outputMgr, RecordKeyVector &hits)
 {
-	//loop through all bases in query, printing full record and metrcis for each
+	//loop through all bases in query, printing full record and metrics for each
 	const Record * queryRec = hits.getKey();
 	for (size_t i= 0; i < _queryLen; i++) {
-		_finalOutput = i +1;
+		_finalOutput = static_cast<uint32_t>(i+1);
 		_finalOutput.append("\t");
-		_finalOutput.append(_depthArray[i]);
+		_finalOutput.append(static_cast<uint32_t>(_depthArray[i]));
 
 		outputMgr->printRecord(queryRec, _finalOutput);
 	}
 }
+
+void CoverageFile::doMean(RecordOutputMgr *outputMgr, RecordKeyVector &hits)
+{
+	size_t sum =0;
+	for (size_t i= 0; i < _queryLen; i++) {
+		sum += _depthArray[i];
+	}
+	format((float)sum / (float)_queryLen);
+	outputMgr->printRecord(hits.getKey(), _finalOutput);
+}
+
 
 void CoverageFile::doHist(RecordOutputMgr *outputMgr, RecordKeyVector &hits)
 {
@@ -165,11 +181,11 @@ void CoverageFile::doHist(RecordOutputMgr *outputMgr, RecordKeyVector &hits)
 		size_t numBasesAtDepth = iter->second;
 		float coveredBases = (float)numBasesAtDepth / (float)_queryLen;
 
-		_finalOutput = depth;
+		_finalOutput = static_cast<uint32_t>(depth);
 		_finalOutput.append("\t");
-		_finalOutput.append(numBasesAtDepth);
+		_finalOutput.append(static_cast<uint32_t>(numBasesAtDepth));
 		_finalOutput.append("\t");
-		_finalOutput.append(_queryLen);
+		_finalOutput.append(static_cast<uint32_t>(_queryLen));
 		_finalOutput.append("\t");
 		format(coveredBases);
 
@@ -183,11 +199,11 @@ void CoverageFile::doDefault(RecordOutputMgr *outputMgr, RecordKeyVector &hits)
 	size_t nonZeroBases = _queryLen - countBasesAtDepth(0);
 	float coveredBases = (float)nonZeroBases / (float)_queryLen;
 
-	_finalOutput = hits.size();
+	_finalOutput = static_cast<uint32_t>(hits.size());
 	_finalOutput.append("\t");
-	_finalOutput.append(nonZeroBases);
+	_finalOutput.append(static_cast<uint32_t>(nonZeroBases));
 	_finalOutput.append("\t");
-	_finalOutput.append(_queryLen);
+	_finalOutput.append(static_cast<uint32_t>(_queryLen));
 	_finalOutput.append("\t");
 	format(coveredBases);
 
@@ -200,4 +216,3 @@ void CoverageFile::format(float val)
 	sprintf(_floatValBuf, "%0.7f", val);
    _finalOutput.append(_floatValBuf);
 }
-

@@ -11,7 +11,7 @@ INCLUDES = -I$(UTILITIES_DIR)/lineFileUtilities/ \
 # define our source and object files
 # ----------------------------------
 SOURCES= QuickString.h QuickString.cpp ParseTools.h ParseTools.cpp PushBackStreamBuf.cpp PushBackStreamBuf.h CompressionTools.h CompressionTools.cpp \
-		 Tokenizer.h Tokenizer.h CommonHelp.h CommonHelp.cpp ErrorMsg.h ErrorMsg.cpp
+		 Tokenizer.h Tokenizer.cpp CommonHelp.h CommonHelp.cpp ErrorMsg.h ErrorMsg.cpp
 OBJECTS= QuickString.o ParseTools.o PushBackStreamBuf.o CompressionTools.o Tokenizer.o CommonHelp.o
 BUILT_OBJECTS= $(patsubst %,$(OBJ_DIR)/%,$(OBJECTS))
 
@@ -21,7 +21,7 @@ all: $(BUILT_OBJECTS)
 
 $(BUILT_OBJECTS): $(SOURCES)
 	@echo "  * compiling" $(*F).cpp
-	@$(CXX) -c -o $@ $(*F).cpp $(LDFLAGS) $(CXXFLAGS) $(INCLUDES)
+	@$(CXX) -c -o $@ $(*F).cpp $(LDFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(INCLUDES)
 
 clean:
 	@echo "Cleaning up."

@@ -23,8 +23,11 @@
 #include "spacingFile.h"
 #include "fisher.h"
 #include "coverageFile.h"
+#include "complementFile.h"
+#include "groupBy.h"
 
-BedtoolsDriver::BedtoolsDriver() {
+BedtoolsDriver::BedtoolsDriver()
+: _hadError(false) {
 	_supported.insert("intersect");
 	_supported.insert("map");
 	_supported.insert("closest");
@@ -35,6 +38,8 @@ BedtoolsDriver::BedtoolsDriver() {
 	_supported.insert("spacing");
 	_supported.insert("fisher");
 	_supported.insert("coverage");
+	_supported.insert("complement");
+	_supported.insert("groupby");
 }
 
 
@@ -50,6 +55,7 @@ bool BedtoolsDriver::subMain(int argc, char **argv) {
 	//process all command line arguments, check for valid usage,
 	//show help and error messages if needed.
 	if (!context->testCmdArgs(argc - 1, argv + 1)) {
+		_hadError = context->errorEncountered();
 		delete context;
 		return false;
 	}
@@ -104,6 +110,10 @@ ContextBase *BedtoolsDriver::getContext()
 		context = new ContextFisher();
 	} else if (_subCmd == "coverage") {
 		context = new ContextCoverage();
+	} else if (_subCmd == "complement") {
+		context = new ContextComplement();
+	} else if (_subCmd == "groupby") {
+		context = new ContextGroupBy();
 	} else {
 		cerr << "Error: Tool " << _subCmd << " is not supported. Exiting..." << endl;
 		exit(1);
@@ -134,6 +144,10 @@ ToolBase *BedtoolsDriver::getTool(ContextBase *context)
 		tool = new Fisher(static_cast<ContextFisher *>(context));
 	} else if (_subCmd == "coverage") {
 		tool = new CoverageFile(static_cast<ContextCoverage *>(context));
+	} else if (_subCmd == "complement") {
+		tool = new ComplementFile(static_cast<ContextComplement *>(context));
+	} else if (_subCmd == "groupby") {
+		tool = new GroupBy(static_cast<ContextGroupBy *>(context));
 	}
 
 	else {

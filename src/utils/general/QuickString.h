@@ -38,7 +38,7 @@ public:
 	QuickString &operator = (char);
 	QuickString &operator = (int);
 	QuickString &operator = (uint32_t);
-	QuickString &operator = (size_t);
+	//QuickString &operator = (size_t);
 	QuickString &operator = (float);
 	QuickString &operator = (double);
 	QuickString &operator += (const QuickString &);
@@ -47,7 +47,7 @@ public:
 	QuickString &operator += (char);
 	QuickString &operator += (int);
 	QuickString &operator += (uint32_t);
-	QuickString &operator += (size_t);
+	//QuickString &operator += (size_t);
 	QuickString &operator += (float);
 	QuickString &operator += (double);
 
@@ -63,6 +63,7 @@ public:
 	const char &operator [] (int pos) const { return _buffer[pos]; }
 	char &operator [] (int pos) { return _buffer[pos]; }
 	char &at(size_t pos) { return _buffer[pos]; }
+	bool stricmp(const QuickString &str) const; //case insensitive compare. False if same aside from case, true if different aside from case.
 
 	void append(const QuickString &str) { append(str.c_str(), str.size()); }
 	void append(const char *buf, size_t bufLen);
@@ -73,7 +74,7 @@ public:
 	//for better performance.
 	void append(int num);
 	void append(uint32_t num);
-	void append(size_t num);
+	//void append(size_t num);
 	void append(float num);
 	void append(double num);
 
