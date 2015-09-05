@@ -5,42 +5,42 @@ Format: 3.0 (quilt)
 Source: bedtools
 Binary: bedtools, bedtools-test
 Architecture: any all
-Version: 2.19.1-1
+Version: 2.25.0-1
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
-Uploaders: Charles Plessy <plessy@debian.org>
+Uploaders: Charles Plessy <plessy@debian.org>, Andreas Tille <tille@debian.org>
 Homepage: http://code.google.com/p/bedtools/
-Standards-Version: 3.9.5
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-med/bedtools.git
+Standards-Version: 3.9.6
+Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/bedtools.git
 Vcs-Git: git://anonscm.debian.org/debian-med/bedtools.git
 Testsuite: autopkgtest
-Build-Depends: cdbs, debhelper (>= 9), quilt, python, zlib1g-dev
-Package-List: 
- bedtools deb science optional
- bedtools-test deb science optional
-Checksums-Sha1: 
- 534c0241d3885bf1c0c8251996f6119d4a6f6a16 4150267 bedtools_2.19.1.orig.tar.gz
- a8db88b12970fccadf84d0e1a35e24ff4dc103c8 8664 bedtools_2.19.1-1.debian.tar.xz
-Checksums-Sha256: 
- c7df72aa54af8dd5b50837c53432070bcb0b82d480c0e791163e1a00b66ced1e 4150267 bedtools_2.19.1.orig.tar.gz
- 8b73a1d629c335070ac3266b98127a87ddb2c9dd2463621195f2fa724f0a3cd6 8664 bedtools_2.19.1-1.debian.tar.xz
-Files: 
- 98c549049c44ce39d58e63e152b99566 4150267 bedtools_2.19.1.orig.tar.gz
- c7ef7e2d73a30d4c753d87a60aea8aa6 8664 bedtools_2.19.1-1.debian.tar.xz
+Build-Depends: debhelper (>= 9), python, zlib1g-dev, samtools
+Package-List:
+ bedtools deb science optional arch=any
+ bedtools-test deb science optional arch=all
+Checksums-Sha1:
+ 949fedcacc2e68adfd45e2034d20c3a432b3f2ad 19586049 bedtools_2.25.0.orig.tar.gz
+ ea7804ab77a2d816ef77b35d62396bebf9ec96ba 8132 bedtools_2.25.0-1.debian.tar.xz
+Checksums-Sha256:
+ 159122afb9978015f7ec85d7b17739b01415a5738086b20a48147eeefcf08cfb 19586049 bedtools_2.25.0.orig.tar.gz
+ 5eaa3670f4ae5fbd83d731e88e8f64c4546c8fef341751856c3d02b6b11c1327 8132 bedtools_2.25.0-1.debian.tar.xz
+Files:
+ 534fb4a7bf0d0c3f05be52a0160d8e3d 19586049 bedtools_2.25.0.orig.tar.gz
+ ac63b2b87d982493ca837e6b6ad6431c 8132 bedtools_2.25.0-1.debian.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQIcBAEBCgAGBQJTK+hpAAoJEMW9bI8ildUC1BkQAKcQkk1yIU5JXVmxVpCA5yQY
-+EKBUQX2o8J5g6s3b+FrStWtBmtOet7mTb2X95wAQs+WDJXcPkxOh1sOCY8hibCt
-Ws7WbeT/D7liw9r7Z0Aok1eU/xprdQRS0mXFopMpTPkxYdvs0RiAZHAHOL21L6co
-82weB984mYwknVN2tcWhB/aWJT99epidEpiZ4ZrjrsCDBQ+I0Ll6c2tvPNik0RAW
-BAR1esp9u4o9aDN7N4PEGCzdz7z1EZQrpS1BicMJChmN1MIQgj/MhTbLG7i8UoTM
-DuLl5679VBNy7B3tquCYdS2Nr8DX4ZiEQbjjYzaJIgYagK3b2/6rEVFJTNB0Qsn6
-7/x4cx/E+Ls/QeQF/HqIu1Up9t3amCHI8PEkbHzYRcddo51LOkvuurrQa3sy4N+B
-w/5kaJfs7o67Bty5pAwIk0r2vqb2PcC31IUJL+bq3uihuYQG+fweSYiga83yC5rN
-3qGVoUe/E53opUbpJeQ1mX+GIxHM4sMJSnK/fSg4YDp6qf7/8e7SK7zBGB+6jeBm
-nOzj7upC9US7QZ43Z4clceEsQhnEaY1w3ALGn7RyikNbKy2v4QxRfqqtQxMyQ84e
-1N3hCAwLSVyl6GOn2IiFxTRHJWHf67xavrzQ7ShC/ikAh84nNgqNTg1ZtaCEd06N
-0OygORbXLupee1z0ulQx
-=3Z5c
+iQIcBAEBCgAGBQJV6bywAAoJEMW9bI8ildUCP4IQAKUbbhcoT15joKk2DELc3p8P
+xNYTpucIurj8dGLQN5V0g6sEyEvpMoIatVnZwCFir1mz7o5OJMAEFiXYX7XCCHXi
+WCoKT/LTj4wzxleL1zoCjM9B+HgDqRo6iIVKrAVRBEuA4HXF5HSmCfaWmZCxMmC5
+wigoDg6Wv0EvMA/HilKSYJ1Qzko4urErTLJuYffPAjfhEzf/Piw/gmJD2s8e06Su
+V7WzMvTYEUfhUBrriybUo3ETdv18vbeA7wLLpfmujzZbkr5iRn7C9JHm7atRPJBD
+L/jHNxmO5Ro1BSpHz71KNmMmGKHP1My926X02jgWN7dNIv1Hvok1ANw6v+PgT0qq
+5viZSFlcrN8c4YkZ5EjM1mJYG1ggvFe5ij/NqokK3u0gURXrTb3Sn6EoUOj4IyUx
+N7rjOdKZ0WfwpZKgovBgtdg7rJ2g9DOgVMF08Ir2hHq2GKExhJ0MnRZzFWnv4hSg
+DwAJ5IHfdlN/uMtIGvbjzhFfjxGDBcmr3wvY04H3GKrWhfFoFmooWHMvVd7Xbtpw
+5u9Gbko9jGnJosr8gwqIi4UHmzRmLNljKKpQDoI/kuW5EU9K2zzMxSOJQetVzuZF
+cbu8QPwxMLEwySvCoDlQpI2RPqoM1J/sCMBXt+HNHOBAg1cxPAG6f++IDJ/Ig/6P
+FTbS8woeZRR7RbVK/Jjg
+=77Zx
 -----END PGP SIGNATURE-----

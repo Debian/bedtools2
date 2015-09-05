@@ -1,7 +1,7 @@
-u bedtools_2.19.1-1.dsc ftp.upload.debian.org Fri Mar 21 16:21:45 2014
-u bedtools_2.19.1-1.debian.tar.xz ftp.upload.debian.org Fri Mar 21 16:21:46 2014
-u bedtools-test_2.19.1-1_all.deb ftp.upload.debian.org Fri Mar 21 16:21:50 2014
-u bedtools_2.19.1-1_amd64.deb ftp.upload.debian.org Fri Mar 21 16:21:53 2014
-u bedtools_2.19.1.orig.tar.gz ftp.upload.debian.org Fri Mar 21 16:21:59 2014
-u bedtools_2.19.1-1_amd64.changes ftp.upload.debian.org Fri Mar 21 16:22:00 2014
-s bedtools_2.19.1-1_amd64.changes ftp.upload.debian.org Fri Mar 21 16:22:00 2014
+u bedtools_2.25.0.orig.tar.gz ftp.upload.debian.org Fri Sep  4 18:35:28 2015
+u bedtools-test_2.25.0-1_all.deb ftp.upload.debian.org Fri Sep  4 18:36:52 2015
+u bedtools_2.25.0-1.debian.tar.xz ftp.upload.debian.org Fri Sep  4 18:36:53 2015
+u bedtools_2.25.0-1_amd64.deb ftp.upload.debian.org Fri Sep  4 18:36:58 2015
+u bedtools_2.25.0-1.dsc ftp.upload.debian.org Fri Sep  4 18:36:58 2015
+u bedtools_2.25.0-1_amd64.changes ftp.upload.debian.org Fri Sep  4 18:36:59 2015
+s bedtools_2.25.0-1_amd64.changes ftp.upload.debian.org Fri Sep  4 18:36:59 2015
